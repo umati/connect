@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MTConnectStreams xmlns:m="urn:mtconnect.org:MTConnectStreams:1.3" xmlns="urn:mtconnect.org:MTConnectStreams:1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mtconnect.org:MTConnectStreams:1.3 http://www.mtconnect.org/schemas/MTConnectStreams_1.3.xsd">
+  <Header creationTime="2025-03-17T10:29:53Z" sender="DM208756B9C484" instanceId="1740146806" version="1.3.0.17" bufferSize="262144" nextSequence="174688" firstSequence="1" lastSequence="174687"/>
+  <Streams>
+    <DeviceStream name="DMG_MORI_15995751904" uuid="001">
+      <ComponentStream component="Device" name="DMG_MORI_15995751904" componentId="DMG_MORI_15995751904_0">
+        <Events>
+          <AssetChanged dataItemId="DMG_MORI_15995751904_0_asset_chg" timestamp="2025-02-21T14:06:46.599333Z" sequence="1" assetType="">UNAVAILABLE</AssetChanged>
+          <AssetRemoved dataItemId="DMG_MORI_15995751904_0_asset_rem" timestamp="2025-02-21T14:06:46.599333Z" sequence="2" assetType="">UNAVAILABLE</AssetRemoved>
+          <EmergencyStop dataItemId="DMG_MORI_15995751904_1" timestamp="2025-03-17T09:10:31.791202Z" name="estop" sequence="173313">ARMED</EmergencyStop>
+          <Availability dataItemId="DMG_MORI_15995751904_2" timestamp="2025-03-17T09:10:20.212516Z" name="avail" sequence="173284">AVAILABLE</Availability>
+        </Events>
+        <Condition>
+          <Unavailable dataItemId="DMG_MORI_15995751904_184" timestamp="2025-02-21T14:06:46.599333Z" name="system" sequence="47" type="SYSTEM"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Path" name="Path_2" componentId="DMG_MORI_15995751904_116">
+        <Events>
+          <PartCount dataItemId="DMG_MORI_15995751904_118" timestamp="2025-02-21T14:06:46.599333Z" name="part_count2" sequence="12" subType="ALL">UNAVAILABLE</PartCount>
+          <ControllerMode dataItemId="DMG_MORI_15995751904_120" timestamp="2025-02-21T14:06:46.599333Z" name="mode2" sequence="13">UNAVAILABLE</ControllerMode>
+          <Execution dataItemId="DMG_MORI_15995751904_121" timestamp="2025-02-21T14:06:46.599333Z" name="execution2" sequence="14">UNAVAILABLE</Execution>
+          <Program dataItemId="DMG_MORI_15995751904_122" timestamp="2025-02-21T14:06:46.599333Z" name="program2" sequence="15">UNAVAILABLE</Program>
+          <ToolNumber dataItemId="DMG_MORI_15995751904_126" timestamp="2025-02-21T14:06:46.599333Z" name="toolnumber2" sequence="16">UNAVAILABLE</ToolNumber>
+          <OperationMode dataItemId="DMG_MORI_15995751904_131" timestamp="2025-02-21T14:06:46.599333Z" name="operationmode2" sequence="17">UNAVAILABLE</OperationMode>
+          <PathFeedrateOverride dataItemId="DMG_MORI_15995751904_132" timestamp="2025-02-21T14:06:46.599333Z" name="jogoverride2" sequence="18" subType="JOG">UNAVAILABLE</PathFeedrateOverride>
+          <PathFeedrateOverride dataItemId="DMG_MORI_15995751904_133" timestamp="2025-02-21T14:06:46.599333Z" name="rapidoverride2" sequence="19" subType="RAPID">UNAVAILABLE</PathFeedrateOverride>
+          <PartCount dataItemId="DMG_MORI_15995751904_180" timestamp="2025-02-21T14:06:46.599333Z" name="part_count_overall2" sequence="43" subType="ALL">UNAVAILABLE</PartCount>
+          <PartCount dataItemId="DMG_MORI_15995751904_186" timestamp="2025-02-21T14:06:46.599333Z" name="part_count_desired2" sequence="49" subType="TARGET">UNAVAILABLE</PartCount>
+        </Events>
+        <Condition>
+          <Unavailable dataItemId="DMG_MORI_15995751904_134" timestamp="2025-02-21T14:06:46.599333Z" name="logic2" sequence="20" type="LOGIC_PROGRAM"/>
+          <Unavailable dataItemId="DMG_MORI_15995751904_135" timestamp="2025-02-21T14:06:46.599333Z" name="motion2" sequence="21" type="MOTION_PROGRAM"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Path" name="Path_3" componentId="DMG_MORI_15995751904_136">
+        <Events>
+          <PartCount dataItemId="DMG_MORI_15995751904_138" timestamp="2025-02-21T14:06:46.599333Z" name="part_count3" sequence="22" subType="ALL">UNAVAILABLE</PartCount>
+          <ControllerMode dataItemId="DMG_MORI_15995751904_140" timestamp="2025-02-21T14:06:46.599333Z" name="mode3" sequence="23">UNAVAILABLE</ControllerMode>
+          <Execution dataItemId="DMG_MORI_15995751904_141" timestamp="2025-02-21T14:06:46.599333Z" name="execution3" sequence="24">UNAVAILABLE</Execution>
+          <Program dataItemId="DMG_MORI_15995751904_142" timestamp="2025-02-21T14:06:46.599333Z" name="program3" sequence="25">UNAVAILABLE</Program>
+          <ToolNumber dataItemId="DMG_MORI_15995751904_146" timestamp="2025-02-21T14:06:46.599333Z" name="toolnumber3" sequence="26">UNAVAILABLE</ToolNumber>
+          <OperationMode dataItemId="DMG_MORI_15995751904_151" timestamp="2025-02-21T14:06:46.599333Z" name="operationmode3" sequence="27">UNAVAILABLE</OperationMode>
+          <PathFeedrateOverride dataItemId="DMG_MORI_15995751904_152" timestamp="2025-02-21T14:06:46.599333Z" name="jogoverride3" sequence="28" subType="JOG">UNAVAILABLE</PathFeedrateOverride>
+          <PathFeedrateOverride dataItemId="DMG_MORI_15995751904_153" timestamp="2025-02-21T14:06:46.599333Z" name="rapidoverride3" sequence="29" subType="RAPID">UNAVAILABLE</PathFeedrateOverride>
+          <PartCount dataItemId="DMG_MORI_15995751904_181" timestamp="2025-02-21T14:06:46.599333Z" name="part_count_overall3" sequence="44" subType="ALL">UNAVAILABLE</PartCount>
+          <PartCount dataItemId="DMG_MORI_15995751904_187" timestamp="2025-02-21T14:06:46.599333Z" name="part_count_desired3" sequence="50" subType="TARGET">UNAVAILABLE</PartCount>
+        </Events>
+        <Condition>
+          <Unavailable dataItemId="DMG_MORI_15995751904_154" timestamp="2025-02-21T14:06:46.599333Z" name="logic3" sequence="30" type="LOGIC_PROGRAM"/>
+          <Unavailable dataItemId="DMG_MORI_15995751904_155" timestamp="2025-02-21T14:06:46.599333Z" name="motion3" sequence="31" type="MOTION_PROGRAM"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Path" name="Path_4" componentId="DMG_MORI_15995751904_156">
+        <Events>
+          <PartCount dataItemId="DMG_MORI_15995751904_158" timestamp="2025-02-21T14:06:46.599333Z" name="part_count4" sequence="32" subType="ALL">UNAVAILABLE</PartCount>
+          <ControllerMode dataItemId="DMG_MORI_15995751904_160" timestamp="2025-02-21T14:06:46.599333Z" name="mode4" sequence="33">UNAVAILABLE</ControllerMode>
+          <Execution dataItemId="DMG_MORI_15995751904_161" timestamp="2025-02-21T14:06:46.599333Z" name="execution4" sequence="34">UNAVAILABLE</Execution>
+          <Program dataItemId="DMG_MORI_15995751904_162" timestamp="2025-02-21T14:06:46.599333Z" name="program4" sequence="35">UNAVAILABLE</Program>
+          <ToolNumber dataItemId="DMG_MORI_15995751904_166" timestamp="2025-02-21T14:06:46.599333Z" name="toolnumber4" sequence="36">UNAVAILABLE</ToolNumber>
+          <OperationMode dataItemId="DMG_MORI_15995751904_171" timestamp="2025-02-21T14:06:46.599333Z" name="operationmode4" sequence="37">UNAVAILABLE</OperationMode>
+          <PathFeedrateOverride dataItemId="DMG_MORI_15995751904_172" timestamp="2025-02-21T14:06:46.599333Z" name="jogoverride4" sequence="38" subType="JOG">UNAVAILABLE</PathFeedrateOverride>
+          <PathFeedrateOverride dataItemId="DMG_MORI_15995751904_173" timestamp="2025-02-21T14:06:46.599333Z" name="rapidoverride4" sequence="39" subType="RAPID">UNAVAILABLE</PathFeedrateOverride>
+          <PartCount dataItemId="DMG_MORI_15995751904_182" timestamp="2025-02-21T14:06:46.599333Z" name="part_count_overall4" sequence="45" subType="ALL">UNAVAILABLE</PartCount>
+          <PartCount dataItemId="DMG_MORI_15995751904_188" timestamp="2025-02-21T14:06:46.599333Z" name="part_count_desired4" sequence="51" subType="TARGET">UNAVAILABLE</PartCount>
+        </Events>
+        <Condition>
+          <Unavailable dataItemId="DMG_MORI_15995751904_174" timestamp="2025-02-21T14:06:46.599333Z" name="logic4" sequence="40" type="LOGIC_PROGRAM"/>
+          <Unavailable dataItemId="DMG_MORI_15995751904_175" timestamp="2025-02-21T14:06:46.599333Z" name="motion4" sequence="41" type="MOTION_PROGRAM"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="C5" componentId="DMG_MORI_15995751904_31">
+        <Events>
+          <SpindleRotating dataItemId="DMG_MORI_15995751904_32" timestamp="2025-02-21T14:06:46.599333Z" name="spindlerotating5" sequence="55">UNAVAILABLE</SpindleRotating>
+          <RotaryVelocityOverride dataItemId="DMG_MORI_15995751904_34" timestamp="2025-03-17T09:10:20.212516Z" name="spindleoverride5" sequence="173290">100</RotaryVelocityOverride>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="C6" componentId="DMG_MORI_15995751904_37">
+        <Events>
+          <SpindleRotating dataItemId="DMG_MORI_15995751904_38" timestamp="2025-02-21T14:06:46.599333Z" name="spindlerotating6" sequence="57">UNAVAILABLE</SpindleRotating>
+          <RotaryVelocityOverride dataItemId="DMG_MORI_15995751904_40" timestamp="2025-02-21T14:06:46.599333Z" name="spindleoverride6" sequence="58">UNAVAILABLE</RotaryVelocityOverride>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="C7" componentId="DMG_MORI_15995751904_43">
+        <Events>
+          <SpindleRotating dataItemId="DMG_MORI_15995751904_44" timestamp="2025-02-21T14:06:46.599333Z" name="spindlerotating7" sequence="59">UNAVAILABLE</SpindleRotating>
+          <RotaryVelocityOverride dataItemId="DMG_MORI_15995751904_46" timestamp="2025-02-21T14:06:46.599333Z" name="spindleoverride7" sequence="60">UNAVAILABLE</RotaryVelocityOverride>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Controller" name="Controller" componentId="DMG_MORI_15995751904_85">
+        <Samples>
+          <CurrentRunTime dataItemId="DMG_MORI_15995751904_183" timestamp="2025-03-17T10:16:03.200982Z" name="currentRunTime" sequence="174593">16.608</CurrentRunTime>
+          <OperationTime dataItemId="DMG_MORI_15995751904_92" timestamp="2025-03-17T10:16:03.169731Z" name="operationTime" sequence="174591">4708833</OperationTime>
+          <PowerOnTime dataItemId="DMG_MORI_15995751904_93" timestamp="2025-03-17T10:29:43.162699Z" name="powerOnTime" sequence="174687">21585471</PowerOnTime>
+          <CuttingTime dataItemId="DMG_MORI_15995751904_94" timestamp="2025-02-21T14:06:46.599333Z" name="cuttingTime" sequence="69">UNAVAILABLE</CuttingTime>
+        </Samples>
+        <Events>
+          <NumberOfActiveAlarms dataItemId="DMG_MORI_15995751904_189" timestamp="2025-03-17T10:16:03.279113Z" name="numberOfActiveAlarms" sequence="174596">0</NumberOfActiveAlarms>
+          <VendorServerInfo dataItemId="DMG_MORI_15995751904_190" timestamp="2025-03-17T09:10:20.212516Z" name="vendorServerInfo" sequence="173285">2.14.2</VendorServerInfo>
+          <LightStateRed dataItemId="DMG_MORI_15995751904_86" timestamp="2025-03-17T10:16:03.294739Z" name="light_state_red" sequence="174597">OFF</LightStateRed>
+          <LightStateYellow dataItemId="DMG_MORI_15995751904_87" timestamp="2025-03-17T10:16:03.294739Z" name="light_state_yellow" sequence="174598">ON</LightStateYellow>
+          <LightStateGreen dataItemId="DMG_MORI_15995751904_88" timestamp="2025-03-17T10:16:03.294739Z" name="light_state_green" sequence="174600">ON</LightStateGreen>
+          <LightStateBlue dataItemId="DMG_MORI_15995751904_89" timestamp="2025-03-17T10:16:03.294739Z" name="light_state_blue" sequence="174599">ON</LightStateBlue>
+          <ControlVersionNumber dataItemId="DMG_MORI_15995751904_90" timestamp="2025-02-21T14:06:46.599333Z" name="controlVersion" sequence="65">UNAVAILABLE</ControlVersionNumber>
+          <MtconnectAdapterVersion dataItemId="DMG_MORI_15995751904_91" timestamp="2025-02-21T14:06:46.599333Z" name="mtconnect_adapter_version" sequence="66">UNAVAILABLE</MtconnectAdapterVersion>
+          <MachineSn dataItemId="DMG_MORI_15995751904_95" timestamp="2025-03-17T09:10:20.525029Z" name="machineSN" sequence="173300">15995751904</MachineSn>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Path" name="Path_1" componentId="DMG_MORI_15995751904_96">
+        <Events>
+          <ControllerMode dataItemId="DMG_MORI_15995751904_100" timestamp="2025-03-17T09:10:20.525029Z" name="mode1" sequence="173301">MANUAL</ControllerMode>
+          <Execution dataItemId="DMG_MORI_15995751904_101" timestamp="2025-03-17T10:16:03.419743Z" name="execution1" sequence="174605">READY</Execution>
+          <Program dataItemId="DMG_MORI_15995751904_102" timestamp="2025-03-17T09:10:20.243763Z" name="program1" sequence="173297">/_N_MPF_DIR/_N_BECKER_DIR/_N_AUTOBOHR_DIR/_N_AUTOBOHR_20241227_MPF</Program>
+          <ToolNumber dataItemId="DMG_MORI_15995751904_106" timestamp="2025-03-17T10:14:16.117655Z" name="toolnumber1" sequence="174175">0</ToolNumber>
+          <PathFeedrateOverride dataItemId="DMG_MORI_15995751904_112" timestamp="2025-03-17T10:15:53.544262Z" name="jogoverride1" sequence="174542" subType="JOG">0</PathFeedrateOverride>
+          <PathFeedrateOverride dataItemId="DMG_MORI_15995751904_113" timestamp="2025-03-17T10:15:53.606767Z" name="rapidoverride1" sequence="174543" subType="RAPID">0</PathFeedrateOverride>
+          <PartCount dataItemId="DMG_MORI_15995751904_179" timestamp="2025-03-17T09:10:20.618788Z" name="part_count_overall1" sequence="173305" subType="ALL">0</PartCount>
+          <PartCount dataItemId="DMG_MORI_15995751904_185" timestamp="2025-03-17T09:10:20.618788Z" name="part_count_desired1" sequence="173303" subType="TARGET">-1</PartCount>
+          <PartCount dataItemId="DMG_MORI_15995751904_98" timestamp="2025-03-17T09:10:20.618788Z" name="part_count1" sequence="173304" subType="ALL">0</PartCount>
+        </Events>
+        <Condition>
+          <Warning dataItemId="DMG_MORI_15995751904_114" timestamp="2025-03-17T09:10:20.212516Z" name="logic1" sequence="173291" nativeCode="51_700458" nativeSeverity="90" type="LOGIC_PROGRAM">Warnung K&#xFC;hlmittel Papierbandmangel</Warning>
+          <Warning dataItemId="DMG_MORI_15995751904_114" timestamp="2025-03-17T10:16:03.404117Z" name="logic1" sequence="174604" nativeCode="51_600311" nativeSeverity="90" type="LOGIC_PROGRAM">Vorschubsperre-Z: Magazin im Kollisionsbereich</Warning>
+          <Normal dataItemId="DMG_MORI_15995751904_115" timestamp="2025-03-17T10:16:03.310365Z" name="motion1" sequence="174603" type="MOTION_PROGRAM"/>
+        </Condition>
+      </ComponentStream>
+    </DeviceStream>
+  </Streams>
+</MTConnectStreams>

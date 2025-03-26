@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net8.0</TargetFrameworks>
+    <AssemblyName>ifw.umatiConnectDMG</AssemblyName>
+    <RootNamespace>ifw.umatiConnectDMG</RootNamespace>
+    <Copyright>Copyright (c) Unified Automation GmbH 2011-2025</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="NodeSets/umaticonnectdmg.xml" />
+  </ItemGroup>
+  
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
+    <PackageReference Include="UnifiedAutomation.UaBase" Version="4.1.0" />
+    <PackageReference Include="UnifiedAutomation.UaBase.BouncyCastle" Version="4.1.0" />
+    <PackageReference Include="UnifiedAutomation.UaServer" Version="4.1.0" />
+  </ItemGroup>
+</Project>
