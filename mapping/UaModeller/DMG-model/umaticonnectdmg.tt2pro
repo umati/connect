@@ -5,57 +5,40 @@
 
 PROJECTNAME = umatiConnectDMG
 
-TEMPLATESET = ($TEMPLATES)/net/v4_1/t0/net_server.tt2set
+TEMPLATESET = ($TEMPLATES)/modeling/v1_0/t0/modeling.tt2set
 
 MODELS += ($MODELS)/Opc.Ua.NodeSet2.ua \
     ($MODELS)/Opc.Ua.Di.NodeSet2.ua \
     ($MODELS)/Opc.Ua.PLCopen.NodeSet.ua \
-    ../../../models/Opc.Ua.IA.NodeSet2.ua \
-    ../../../models/opc.ua.isa95-jobcontrol.nodeset2.ua \
-    ../../../models/Opc.Ua.Machinery.Jobs.Nodeset2.ua \
-    ../../../models/Opc.Ua.Machinery.NodeSet2.ua \
-    ../../../models/Opc.Ua.MachineTool.NodeSet2.ua \
-    umaticonnectdmg.ua
-
-VARIABLES+= ($MODELS)/Opc.Ua.Di.NodeSet2.ua: \
-    ($MODELS)/Opc.Ua.PLCopen.NodeSet.ua: \
-    ../../../models/Opc.Ua.IA.NodeSet2.ua: Namespace=UaBase; Organization=OPCFoundation; \
-    ../../../models/opc.ua.isa95-jobcontrol.nodeset2.ua: Namespace=UaBase; Organization=OPCFoundation; \
-    ../../../models/Opc.Ua.Machinery.Jobs.Nodeset2.ua: Namespace=UaBase; Organization=OPCFoundation; \
-    ../../../models/Opc.Ua.Machinery.NodeSet2.ua: Namespace=UaBase; Organization=OPCFoundation; \
-    ../../../models/Opc.Ua.MachineTool.NodeSet2.ua: Namespace=umati; Organization=VDW; \
-    umaticonnectdmg.ua: Namespace=umatiConnect; Organization=ifw; 
+    ($MODELS)/opc.ua.isa95-jobcontrol.nodeset2.ua \
+    ($MODELS)/Opc.Ua.Machinery.NodeSet2.ua \
+    ($MODELS)/Opc.Ua.Machinery.Jobs.Nodeset2.ua \
+    ($MODELS)/Opc.Ua.MachineTool.NodeSet2.ua \
+    s:/B4-Daten/02-Industrie/umatiConnect/AP1_Konzeptionierung/UaModeller/Informationsmodelle/DMG/umatiConnectDMG/umaticonnectdmg.ua
 
 COLORS = ($MODELS)/Opc.Ua.NodeSet2.ua: #0000ff\
     ($MODELS)/Opc.Ua.Di.NodeSet2.ua: #0000ff\
     ($MODELS)/Opc.Ua.PLCopen.NodeSet.ua: #0000ff\
-    ../../../models/Opc.Ua.IA.NodeSet2.ua: #0000ff\
-    ../../../models/opc.ua.isa95-jobcontrol.nodeset2.ua: #0000ff\
-    ../../../models/Opc.Ua.Machinery.Jobs.Nodeset2.ua: #0000ff\
-    ../../../models/Opc.Ua.Machinery.NodeSet2.ua: #0000ff\
-    ../../../models/Opc.Ua.MachineTool.NodeSet2.ua: #0000ff\
-    umaticonnectdmg.ua: #008000
-
-PROJECTVARIABLES += GenerateDefaultApplication = true \
-    LegacyOutput = true \
-    NetFramework = net8 \
-    NoMethodFiles = false \
-    ProjectNamespace = umatiConnectDMG \
-    ProjectOrganization = ifw \
-    PubSubMqttJson = false \
-    RolesAndUsers = false
+    ($MODELS)/opc.ua.isa95-jobcontrol.nodeset2.ua: #0000ff\
+    ($MODELS)/Opc.Ua.Machinery.NodeSet2.ua: #0000ff\
+    ($MODELS)/Opc.Ua.Machinery.Jobs.Nodeset2.ua: #0000ff\
+    ($MODELS)/Opc.Ua.MachineTool.NodeSet2.ua: #0000ff\
+    s:/B4-Daten/02-Industrie/umatiConnect/AP1_Konzeptionierung/UaModeller/Informationsmodelle/DMG/umatiConnectDMG/umaticonnectdmg.ua: #0000ff
 
 OUTPUTPATH = output
 
-GENERATE += umaticonnectdmg.ua
+GENERATE += ($MODELS)/opc.ua.isa95-jobcontrol.nodeset2.ua \
+    ($MODELS)/Opc.Ua.Machinery.NodeSet2.ua \
+    ($MODELS)/Opc.Ua.Machinery.Jobs.Nodeset2.ua \
+    ($MODELS)/Opc.Ua.MachineTool.NodeSet2.ua \
+    s:/B4-Daten/02-Industrie/umatiConnect/AP1_Konzeptionierung/UaModeller/Informationsmodelle/DMG/umatiConnectDMG/umaticonnectdmg.ua
 
 LOCKEDMODELS += ($MODELS)/Opc.Ua.Di.NodeSet2.ua \
     ($MODELS)/Opc.Ua.PLCopen.NodeSet.ua \
-    ../../../models/Opc.Ua.IA.NodeSet2.ua \
-    ../../../models/opc.ua.isa95-jobcontrol.nodeset2.ua \
-    ../../../models/Opc.Ua.Machinery.Jobs.Nodeset2.ua \
-    ../../../models/Opc.Ua.Machinery.NodeSet2.ua \
-    ../../../models/Opc.Ua.MachineTool.NodeSet2.ua
+    ($MODELS)/opc.ua.isa95-jobcontrol.nodeset2.ua \
+    ($MODELS)/Opc.Ua.Machinery.NodeSet2.ua \
+    ($MODELS)/Opc.Ua.Machinery.Jobs.Nodeset2.ua \
+    ($MODELS)/Opc.Ua.MachineTool.NodeSet2.ua
 
 NODEACCESSINFOROLES += Administrator \
     SecurityAdmin \

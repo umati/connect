@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "umatiConnectDMG": {
-      "commandName": "Project",
-      "commandLineArgs": "--framework net8.0"
-    }
-  }
-}
