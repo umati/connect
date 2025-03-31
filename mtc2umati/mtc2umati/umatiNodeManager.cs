@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
 using Opc.Ua;
 using Opc.Ua.Export;
 using Opc.Ua.Server;
@@ -14,30 +15,17 @@ namespace umatiConnect
     public class UmatiNodeManager : CustomNodeManager2
     {
         public UmatiNodeManager(IServerInternal server, ApplicationConfiguration configuration)
-            : base(server, configuration, "http://ifw.uni-hannover.de/umatiConnect")
+            : base(server, configuration, "http://ifw.uni-hannover.de/umatiConnectDMG/")
         {
             SystemContext.NodeIdFactory = this;
         }
 
-        // <summary>
-        /// Creates the NodeId for the specified node.
-        /// </summary>
         public override NodeId New(ISystemContext context, NodeState node)
         {
-            BaseInstanceState? instance = node as BaseInstanceState;
 
-            if (instance != null && instance.Parent != null)
-            {
-                // string id = instance.Parent.NodeId.Identifier as string;
-
-                // if (id != null)
-                // {
-                //     return new NodeId(id + "_" + instance.SymbolicName, instance.Parent.NodeId.NamespaceIndex);
-                // }
-            }
-            return node.NodeId;
+        uint id = Utils.IncrementIdentifier(ref m_lastUsedId);
+        return new NodeId(id, m_namespaceIndex);
         }
-
 
         public override void CreateAddressSpace(IDictionary<NodeId, IList<IReference>> externalReferences)
         {
@@ -49,119 +37,71 @@ namespace umatiConnect
                 {
                     externalReferences[ObjectIds.ObjectsFolder] = references = new List<IReference>();
                 }
-            
+
             Console.WriteLine("Importing NodeSet2 XML...");
 
-            try
-            {
-                SystemContext.NamespaceUris = Server.NamespaceUris;
-                SystemContext.TypeTable = Server.TypeTree;
+            string resourcePathDI = "./Nodesets/Opc.Ua.Di.NodeSet2.xml";
+            string resourcePathIA = "./Nodesets/Opc.Ua.IA.NodeSet2.xml";
+            string resourcePathMachinery = "./Nodesets/Opc.Ua.Machinery.NodeSet2.xml";
+            string resourcePathJobControl = "./Nodesets/opc.ua.isa95-jobcontrol.nodeset2.xml";
+            string resourcePathMachineryJobs = "./Nodesets/Opc.Ua.Machinery.Jobs.Nodeset2.xml";
+            string resourcePathMachineTool = "./Nodesets/Opc.Ua.MachineTool.NodeSet2.xml";
+            string resourcePathCNC = "./Nodesets/Opc.Ua.CNC.NodeSet.xml";
+            string resourcePathUmatiConnect = "./Nodesets/umaticonnectdmg.xml";
 
-                #region Import NodeSet2 XML
-                string path = Path.Combine("models", "umaticonnectdmg.xml");
-                if (!File.Exists(path))
-                {
-                    Console.WriteLine($"NodeSet2 file not found: {path}");
-                    return;
-                }
+            ImportXml(externalReferences, resourcePathDI);
+            ImportXml(externalReferences, resourcePathIA);
+            ImportXml(externalReferences, resourcePathMachinery);
+            ImportXml(externalReferences, resourcePathJobControl);
+            ImportXml(externalReferences, resourcePathMachineryJobs);
+            ImportXml(externalReferences, resourcePathMachineTool);
+            ImportXml(externalReferences, resourcePathCNC);
+            ImportXml(externalReferences, resourcePathUmatiConnect);
 
-                using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
-                {
-                    var nodeSet = UANodeSet.Read(stream);
-                    var importedNodes = new NodeStateCollection();
-                    nodeSet.Import(SystemContext, importedNodes);
-                    Console.WriteLine("NodeSet2 XML imported successfully.");
+            Console.WriteLine("NodeSet2 XML imported successfully.");
 
-                    // there should be a method for automatically adding the nodes correctly. 
-                    // look into modelcompiler for this
-
-                    // basic logic for adding nodes to the server with private methods
-                    foreach (var node in importedNodes)
-                    {
-                        //Console.WriteLine($"Importing node: {node}");
-                        QualifiedName browseName = node.BrowseName;
-                        NodeId referenceTypeId = ReferenceTypeIds.Organizes;
-                        NodeId parentId = ObjectIds.ObjectsFolder; // Default parent is ObjectsFolder
-
-                        if (node is BaseObjectState baseObject)
-                        {
-                            FolderState folder = CreateFolder(parent: null, path: browseName.Name, name: browseName.Name);
-                            folder.AddReference(ReferenceTypeIds.Organizes, true, ObjectIds.ObjectsFolder);
-                            references.Add(new NodeStateReference(ReferenceTypeIds.Organizes, false, folder.NodeId));
-                            AddPredefinedNode(SystemContext, folder);
-                        }
-                        else
-                        {
-                            BaseDataVariableState variable = CreateVariableState(parent: null, path: browseName.Name, name: browseName.Name, dataType: 0, defaultValue: string.Empty);
-                            variable.AddReference(ReferenceTypeIds.Organizes, true, ObjectIds.ObjectsFolder);
-                            references.Add(new NodeStateReference(ReferenceTypeIds.Organizes, false, variable.NodeId));
-                            AddPredefinedNode(SystemContext, variable);
-                        }
-                }
-                
-            }
-            }
-
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error importing NodeSet2 XML: {ex.Message}");
-                }
+            var rootNodeId = new NodeId("YourRootNode", m_namespaceIndex);
+            externalReferences[ObjectIds.ObjectsFolder].Add(new NodeStateReference(
+            ReferenceTypeIds.Organizes, false, rootNodeId));
             }
         }
-        #endregion
 
-        #region Folder and variable creation
-        private FolderState CreateFolder(NodeState? parent, string path, string name)
+        private void ImportXml(IDictionary<NodeId, IList<IReference>> externalReferences, string resourcePath)
         {
-            FolderState folder = new FolderState(parent) {
-                SymbolicName = name,
-                ReferenceTypeId = ReferenceTypes.Organizes,
-                TypeDefinitionId = ObjectTypeIds.FolderType,
-                NodeId = new NodeId(path, NamespaceIndex),
-                BrowseName = new QualifiedName(path, NamespaceIndex),
-                DisplayName = new Opc.Ua.LocalizedText("en", name),
-                WriteMask = AttributeWriteMask.None,
-                UserWriteMask = AttributeWriteMask.None,
-                EventNotifier = EventNotifiers.None
-            };
-
-            if (parent != null)
-            {
-                parent.AddChild(folder);
-            }
-            return folder;
-        }
-
-        private BaseDataVariableState CreateVariableState(NodeState? parent, string path, string name, uint dataType, object defaultValue)
+        NodeStateCollection predefinedNodes = [];
+        using (Stream stream = File.OpenRead(resourcePath))
         {
-            BaseDataVariableState variable = new BaseDataVariableState(parent)
-            {
-                SymbolicName = name,
-                ReferenceTypeId = ReferenceTypes.Organizes,
-                TypeDefinitionId = VariableTypeIds.BaseDataVariableType,
-                NodeId = new NodeId(path, NamespaceIndex),
-                BrowseName = new QualifiedName(path, NamespaceIndex),
-                DisplayName = new Opc.Ua.LocalizedText("en", name),
-                WriteMask = AttributeWriteMask.DisplayName | AttributeWriteMask.Description,
-                UserWriteMask = AttributeWriteMask.DisplayName | AttributeWriteMask.Description,
-                DataType = dataType,
-                Value = defaultValue,
-                ValueRank = ValueRanks.Scalar,
-                AccessLevel = AccessLevels.CurrentReadOrWrite,
-                UserAccessLevel = AccessLevels.CurrentReadOrWrite,
-                Historizing = false,
-                StatusCode = StatusCodes.Good,
-                Timestamp = DateTime.UtcNow
-            };
+            var nodeSet = UANodeSet.Read(stream);
 
-            if (parent != null)
+            foreach (var uri in nodeSet.NamespaceUris)
             {
-                parent.AddChild(variable);
+                // if namespace not in namespaceUris, add it
+                if (SystemContext.NamespaceUris.GetIndex(uri) != -1)
+                {
+                    m_namespaceIndex = (ushort)SystemContext.NamespaceUris.GetIndex(uri);
+                }
+                else
+                {
+                    m_namespaceIndex = (ushort)SystemContext.NamespaceUris.Count;
+                    SystemContext.NamespaceUris.Append(uri);
+                }
             }
 
-            return variable;
-        }
-        #endregion
+            nodeSet.Import(SystemContext, predefinedNodes);
+            Console.WriteLine(predefinedNodes.Count + " nodes imported from " + resourcePath);
 
-}
-}
+            foreach (var node in predefinedNodes)
+            {
+                Console.WriteLine($"Adding node: {node.BrowseName} [{node.NodeId}]");
+                AddPredefinedNode(SystemContext, node);
+            }
+            // ensure the reverse references exist.
+            AddReverseReferences(externalReferences);
+        }
+        }
+
+        private long m_lastUsedId;
+        private ushort m_namespaceIndex;
+    }
+    }
+
