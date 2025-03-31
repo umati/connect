@@ -59,49 +59,82 @@ namespace umatiConnect
             ImportXml(externalReferences, resourcePathUmatiConnect);
 
             Console.WriteLine("NodeSet2 XML imported successfully.");
-
-            var rootNodeId = new NodeId("YourRootNode", m_namespaceIndex);
-            externalReferences[ObjectIds.ObjectsFolder].Add(new NodeStateReference(
-            ReferenceTypeIds.Organizes, false, rootNodeId));
             }
         }
 
         private void ImportXml(IDictionary<NodeId, IList<IReference>> externalReferences, string resourcePath)
         {
-        NodeStateCollection predefinedNodes = [];
-        using (Stream stream = File.OpenRead(resourcePath))
+            NodeStateCollection predefinedNodes = [];
+
+            using (Stream stream = File.OpenRead(resourcePath))
+            {
+                var nodeSet = UANodeSet.Read(stream);
+
+                foreach (var uri in nodeSet.NamespaceUris)
+                {
+                    // if namespace not in namespaceUris, add it
+                    if (SystemContext.NamespaceUris.GetIndex(uri) != -1)
+                    {
+                        m_namespaceIndex = (ushort)SystemContext.NamespaceUris.GetIndex(uri);
+                    }
+                    else
+                    {
+                        m_namespaceIndex = (ushort)SystemContext.NamespaceUris.Count;
+                        SystemContext.NamespaceUris.Append(uri);
+                    }
+                }
+
+                nodeSet.Import(SystemContext, predefinedNodes);
+                Console.WriteLine(predefinedNodes.Count + " nodes imported from " + resourcePath);
+
+                NodeState topLevelNode = null;
+
+                foreach (var node in predefinedNodes)
+                {
+                    // Console.WriteLine($"Adding node: {node.BrowseName} [{node.NodeId}]");
+                    AddPredefinedNode(SystemContext, node);
+
+                    // Capture the top-level node to be added to the ObjectsFolder, without this the nodes are not visible in the server, because they are not referenced by the ObjectsFolder
+                    if (node.BrowseName.Name == "DMGMilltap700")
+                    // if (node.NodeId.Identifier is uint id && id == 1002)
+                    {
+                        Console.WriteLine($"Found top-level node: {node.BrowseName} [{node.NodeId}]");
+                        topLevelNode = node;
+                    }
+                }
+
+        #region TopLevelNode Reference
+        if (topLevelNode != null)
         {
-            var nodeSet = UANodeSet.Read(stream);
+            Console.WriteLine("Hooking top-level node to ObjectsFolder...");
 
-            foreach (var uri in nodeSet.NamespaceUris)
+            // Make sure ObjectsFolder has a reference to this node
+            if (!externalReferences.TryGetValue(ObjectIds.ObjectsFolder, out var references))
             {
-                // if namespace not in namespaceUris, add it
-                if (SystemContext.NamespaceUris.GetIndex(uri) != -1)
-                {
-                    m_namespaceIndex = (ushort)SystemContext.NamespaceUris.GetIndex(uri);
-                }
-                else
-                {
-                    m_namespaceIndex = (ushort)SystemContext.NamespaceUris.Count;
-                    SystemContext.NamespaceUris.Append(uri);
-                }
+                references = new List<IReference>();
+                externalReferences[ObjectIds.ObjectsFolder] = references;
             }
 
-            nodeSet.Import(SystemContext, predefinedNodes);
-            Console.WriteLine(predefinedNodes.Count + " nodes imported from " + resourcePath);
+            references.Add(new NodeStateReference(ReferenceTypeIds.Organizes, false, topLevelNode.NodeId));
 
-            foreach (var node in predefinedNodes)
-            {
-                Console.WriteLine($"Adding node: {node.BrowseName} [{node.NodeId}]");
-                AddPredefinedNode(SystemContext, node);
+            // And the reverse reference
+            topLevelNode.AddReference(ReferenceTypeIds.Organizes, true, ObjectIds.ObjectsFolder);
+        }
+        // else
+        // {
+        //     Console.WriteLine("Top-level node not found.");
+        // }
+                // ensure the reverse references exist.
+                AddReverseReferences(externalReferences);
             }
-            // ensure the reverse references exist.
-            AddReverseReferences(externalReferences);
         }
-        }
+        #endregion
 
+
+        #region Private Fields
         private long m_lastUsedId;
         private ushort m_namespaceIndex;
+        #endregion
     }
-    }
+}
 
