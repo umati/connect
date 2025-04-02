@@ -1,6 +1,6 @@
 ###########################
 # UaModeler Project File  #
-# Generated at 31.03.2025 #
+# Generated at 02.04.2025 #
 ###########################
 
 PROJECTNAME = umatiConnectDMG
@@ -9,36 +9,35 @@ TEMPLATESET = ($TEMPLATES)/modeling/v1_0/t0/modeling.tt2set
 
 MODELS += ($MODELS)/Opc.Ua.NodeSet2.ua \
     ($MODELS)/Opc.Ua.Di.NodeSet2.ua \
-    ($MODELS)/Opc.Ua.PLCopen.NodeSet.ua \
-    ($MODELS)/opc.ua.isa95-jobcontrol.nodeset2.ua \
-    ($MODELS)/Opc.Ua.Machinery.NodeSet2.ua \
-    ($MODELS)/Opc.Ua.Machinery.Jobs.Nodeset2.ua \
-    ($MODELS)/Opc.Ua.MachineTool.NodeSet2.ua \
-    s:/B4-Daten/02-Industrie/umatiConnect/AP1_Konzeptionierung/UaModeller/Informationsmodelle/DMG/umatiConnectDMG/umaticonnectdmg.ua
+    ../../Models/Opc.Ua.IA.NodeSet2.ua \
+    ../../Models/opc.ua.isa95-jobcontrol.nodeset2.ua \
+    ../../Models/Opc.Ua.Machinery.Jobs.Nodeset2.ua \
+    ../../Models/Opc.Ua.Machinery.NodeSet2.ua \
+    ../../Models/Opc.Ua.MachineTool.NodeSet2.ua \
+    ../../Models/Opc.Ua.CNC.NodeSet.ua \
+    umaticonnectdmg.ua
 
 COLORS = ($MODELS)/Opc.Ua.NodeSet2.ua: #0000ff\
     ($MODELS)/Opc.Ua.Di.NodeSet2.ua: #0000ff\
-    ($MODELS)/Opc.Ua.PLCopen.NodeSet.ua: #0000ff\
-    ($MODELS)/opc.ua.isa95-jobcontrol.nodeset2.ua: #0000ff\
-    ($MODELS)/Opc.Ua.Machinery.NodeSet2.ua: #0000ff\
-    ($MODELS)/Opc.Ua.Machinery.Jobs.Nodeset2.ua: #0000ff\
-    ($MODELS)/Opc.Ua.MachineTool.NodeSet2.ua: #0000ff\
-    s:/B4-Daten/02-Industrie/umatiConnect/AP1_Konzeptionierung/UaModeller/Informationsmodelle/DMG/umatiConnectDMG/umaticonnectdmg.ua: #0000ff
+    ../../Models/Opc.Ua.IA.NodeSet2.ua: #0000ff\
+    ../../Models/opc.ua.isa95-jobcontrol.nodeset2.ua: #0000ff\
+    ../../Models/Opc.Ua.Machinery.Jobs.Nodeset2.ua: #0000ff\
+    ../../Models/Opc.Ua.Machinery.NodeSet2.ua: #0000ff\
+    ../../Models/Opc.Ua.MachineTool.NodeSet2.ua: #0000ff\
+    ../../Models/Opc.Ua.CNC.NodeSet.ua: #0000ff\
+    umaticonnectdmg.ua: #0000ff
 
 OUTPUTPATH = output
 
-GENERATE += ($MODELS)/opc.ua.isa95-jobcontrol.nodeset2.ua \
-    ($MODELS)/Opc.Ua.Machinery.NodeSet2.ua \
-    ($MODELS)/Opc.Ua.Machinery.Jobs.Nodeset2.ua \
-    ($MODELS)/Opc.Ua.MachineTool.NodeSet2.ua \
-    s:/B4-Daten/02-Industrie/umatiConnect/AP1_Konzeptionierung/UaModeller/Informationsmodelle/DMG/umatiConnectDMG/umaticonnectdmg.ua
+GENERATE += umaticonnectdmg.ua
 
 LOCKEDMODELS += ($MODELS)/Opc.Ua.Di.NodeSet2.ua \
-    ($MODELS)/Opc.Ua.PLCopen.NodeSet.ua \
-    ($MODELS)/opc.ua.isa95-jobcontrol.nodeset2.ua \
-    ($MODELS)/Opc.Ua.Machinery.NodeSet2.ua \
-    ($MODELS)/Opc.Ua.Machinery.Jobs.Nodeset2.ua \
-    ($MODELS)/Opc.Ua.MachineTool.NodeSet2.ua
+    ../../Models/Opc.Ua.IA.NodeSet2.ua \
+    ../../Models/opc.ua.isa95-jobcontrol.nodeset2.ua \
+    ../../Models/Opc.Ua.Machinery.Jobs.Nodeset2.ua \
+    ../../Models/Opc.Ua.Machinery.NodeSet2.ua \
+    ../../Models/Opc.Ua.MachineTool.NodeSet2.ua \
+    ../../Models/Opc.Ua.CNC.NodeSet.ua
 
 NODEACCESSINFOROLES += Administrator \
     SecurityAdmin \
