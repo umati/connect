@@ -64,7 +64,7 @@ using Opc.Ua.Export;
         // }
         // #endregion
 
-
+#region Folder and variable creation
 
 //         #region Folder and variable creation
 //         private FolderState CreateFolder(NodeState? parent, string path, string name)
@@ -139,3 +139,76 @@ using Opc.Ua.Export;
 //     instanceNamespace)
 
 // }
+#endregion
+
+
+
+
+#region changing values
+
+
+// using Opc.Ua;
+// using Opc.Ua.Server;
+// using System;
+// using System.Threading.Tasks;
+
+// namespace umatiConnect
+// {
+//     public class UmatiWriter
+//     {
+//         private readonly UmatiServer _server;
+
+//         public UmatiWriter(UmatiServer server)
+//         {
+//             _server = server;
+//         }
+
+//         public async Task WriteValueAsync()
+//         {
+//             string nodeIdString = "ns=2;i=6033"; // Example NodeId string
+//             string newValue = "TestValue"; // Example value to write
+
+//             // Parse the NodeId
+//             NodeId nodeId = new NodeId(nodeIdString);
+
+//             // Access the MasterNodeManager
+//             var masterNodeManager = _server.CurrentInstance.NodeManager;
+//             if (masterNodeManager == null)
+//             {
+//                 Console.WriteLine("MasterNodeManager not found.");
+//                 return;
+//             }
+
+//             // Retrieve the UmatiNodeManager by its namespace URI
+//             ushort namespaceIndex = (ushort)_server.CurrentInstance.NamespaceUris.GetIndex("http://ifw.uni-hannover.de/umatiConnectDMG/");
+//             var nodeManager = masterNodeManager.NodeManagers[namespaceIndex] as UmatiNodeManager;
+//             if (nodeManager == null)
+//             {
+//                 Console.WriteLine("UmatiNodeManager not found.");
+//                 return;
+//             }
+
+//             // Find the node
+//             BaseDataVariableState variableNode = nodeManager.FindNode(nodeId);
+
+//             if (variableNode != null)
+//             {
+//                 // Update the value of the node
+//                 variableNode.Value = newValue;
+//                 variableNode.Timestamp = DateTime.UtcNow;
+//                 variableNode.StatusCode = StatusCodes.Good;
+
+//                 // Notify the server about the value change
+//                 variableNode.ClearChangeMasks(nodeManager.SystemContext, true);
+
+//                 Console.WriteLine("Node value updated successfully.");
+//             }
+//             else
+//             {
+//                 Console.WriteLine("Node not found.");
+//             }
+//         }
+
+//     }
+// }
+#endregion

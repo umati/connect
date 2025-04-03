@@ -1,0 +1,16 @@
+{
+    "dmg": {
+        "MTConnectServerIP": "http://localhost",
+        "MTConnectServerPort": 8100,
+        "Mapping_file": "./Mapping.xlsx",
+        "Mapping_sheet": "Mapping_DMG",
+        "Mode": 0
+    },
+    "mazak": {
+        "MTConnectServerIP": "http://mtconnect.mazakcorp.com",
+        "MTConnectServerPort": 5719,
+        "Mapping_file": "./Mapping.xlsx",
+        "Mapping_sheet": "Mapping_Mazak",
+        "Mode": 0
+    }
+}

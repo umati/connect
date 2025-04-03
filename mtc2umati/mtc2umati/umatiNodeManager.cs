@@ -15,25 +15,25 @@ namespace umatiConnect
     public class UmatiNodeManager : CustomNodeManager2
     {
         public UmatiNodeManager(IServerInternal server, ApplicationConfiguration configuration)
-            : base(server, configuration, "http://ifw.uni-hannover.de/umatiConnectDMG/")
+            : base(server, configuration,
+            "http://opcfoundation.org/UA/DI/",
+            "http://opcfoundation.org/UA/Machinery/",
+            "http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/",
+            "http://opcfoundation.org/UA/Machinery/Jobs/",
+            "http://opcfoundation.org/UA/IA/",
+            "http://opcfoundation.org/UA/CNC",
+            "http://ifw.uni-hannover.de/umatiConnectDMG/")
         {
             SystemContext.NodeIdFactory = this;
-        }
-
-        public override NodeId New(ISystemContext context, NodeState node)
-        {
-
-        uint id = Utils.IncrementIdentifier(ref m_lastUsedId);
-        return new NodeId(id, m_namespaceIndex);
         }
 
         public override void CreateAddressSpace(IDictionary<NodeId, IList<IReference>> externalReferences)
         {
             lock (Lock)
             {
-                IList<IReference> references = new List<IReference>();
+                IList<IReference> references = [];
 
-                if (!externalReferences.TryGetValue(ObjectIds.ObjectsFolder, out references))
+                if (!externalReferences.TryGetValue(ObjectIds.ObjectsFolder, out references!))
                 {
                     externalReferences[ObjectIds.ObjectsFolder] = references = new List<IReference>();
                 }
@@ -66,73 +66,39 @@ namespace umatiConnect
         {
             NodeStateCollection predefinedNodes = [];
 
-            using (Stream stream = File.OpenRead(resourcePath))
+            Stream stream = new FileStream(resourcePath, FileMode.Open);
+            var nodeSet = UANodeSet.Read(stream);
+
+            foreach (var uri in nodeSet.NamespaceUris)
             {
-                var nodeSet = UANodeSet.Read(stream);
-
-                foreach (var uri in nodeSet.NamespaceUris)
+                // if namespace not in namespaceUris, add it
+                if (SystemContext.NamespaceUris.GetIndex(uri) != -1)
                 {
-                    // if namespace not in namespaceUris, add it
-                    if (SystemContext.NamespaceUris.GetIndex(uri) != -1)
-                    {
-                        m_namespaceIndex = (ushort)SystemContext.NamespaceUris.GetIndex(uri);
-                    }
-                    else
-                    {
-                        m_namespaceIndex = (ushort)SystemContext.NamespaceUris.Count;
-                        SystemContext.NamespaceUris.Append(uri);
-                    }
+                    m_namespaceIndex = (ushort)SystemContext.NamespaceUris.GetIndex(uri);
                 }
-
-                nodeSet.Import(SystemContext, predefinedNodes);
-                Console.WriteLine(predefinedNodes.Count + " nodes imported from " + resourcePath);
-
-                NodeState topLevelNode = null;
-
-                foreach (var node in predefinedNodes)
+                else
                 {
-                    // Console.WriteLine($"Adding node: {node.BrowseName} [{node.NodeId}]");
-                    AddPredefinedNode(SystemContext, node);
-
-                    // Capture the top-level node to be added to the ObjectsFolder, without this the nodes are not visible in the server, because they are not referenced by the ObjectsFolder
-                    if (node.BrowseName.Name == "DMGMilltap700")
-                    // if (node.NodeId.Identifier is uint id && id == 1002)
-                    {
-                        Console.WriteLine($"Found top-level node: {node.BrowseName} [{node.NodeId}]");
-                        topLevelNode = node;
-                    }
+                    m_namespaceIndex = (ushort)SystemContext.NamespaceUris.Count;
+                    SystemContext.NamespaceUris.Append(uri);
                 }
+            }
+            nodeSet.Import(SystemContext, predefinedNodes);
 
-        #region TopLevelNode Reference
-        if (topLevelNode != null)
-        {
-            Console.WriteLine("Hooking top-level node to ObjectsFolder...");
+            Console.WriteLine(predefinedNodes.Count + " nodes imported from " + resourcePath);
 
-            // Make sure ObjectsFolder has a reference to this node
-            if (!externalReferences.TryGetValue(ObjectIds.ObjectsFolder, out var references))
+            foreach (var node in predefinedNodes)
             {
-                references = new List<IReference>();
-                externalReferences[ObjectIds.ObjectsFolder] = references;
+                AddPredefinedNode(SystemContext, node);
             }
+            // ensure the reverse references exist.
+            AddReverseReferences(externalReferences);
 
-            references.Add(new NodeStateReference(ReferenceTypeIds.Organizes, false, topLevelNode.NodeId));
+        }
 
-            // And the reverse reference
-            topLevelNode.AddReference(ReferenceTypeIds.Organizes, true, ObjectIds.ObjectsFolder);
-        }
-        // else
-        // {
-        //     Console.WriteLine("Top-level node not found.");
-        // }
-                // ensure the reverse references exist.
-                AddReverseReferences(externalReferences);
-            }
-        }
-        #endregion
 
 
         #region Private Fields
-        private long m_lastUsedId;
+        // private long m_lastUsedId;
         private ushort m_namespaceIndex;
         #endregion
     }
