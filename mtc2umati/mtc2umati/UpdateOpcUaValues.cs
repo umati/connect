@@ -18,27 +18,60 @@ namespace umatiConnect
             _server = server;
         }
 
-public async Task UpdateNodesAsync(List<MappedObject> mappedObjects, string machine)
+        public async Task UpdateNodesAsync(List<MappedObject> mappedObjects, string machine)
         {
             var masterNodeManager = _server.CurrentInstance.NodeManager;
             if (masterNodeManager == null)
             {
-                Console.WriteLine("MasterNodeManager not found.");
+                Console.WriteLine("[ERROR] MasterNodeManager not found.");
                 return;
             }
 
-            // Retrieve the UmatiNodeManager by its namespace URI
-            ushort namespaceIndex = (ushort)_server.CurrentInstance.NamespaceUris.GetIndex("http://ifw.uni-hannover.de/umatiConnectDMG/");
-            var nodeManager = masterNodeManager.NodeManagers[namespaceIndex] as UmatiNodeManager;
+            string namespaceUri = "http://ifw.uni-hannover.de/umatiConnectDMG/";
+            ushort namespaceIndex = (ushort)_server.CurrentInstance.NamespaceUris.GetIndex(namespaceUri);
+            Console.WriteLine($"Namespace index for '{namespaceUri}' is {namespaceIndex}.");
+
+            var nodeManager = masterNodeManager.NodeManagers.OfType<UmatiNodeManager>().FirstOrDefault();
+
+            Console.WriteLine($"NodeManager index: {nodeManager.NamespaceIndex}");
+            foreach (var node in nodeManager.GetPredefinedNodes())
+            {
+                // if brosename = assedID then print the node
+                if (node.BrowseName.Name == "AssetId")
+                {
+                    int value = 1234;
+
+                    PropertyState variableNode = node as PropertyState;
+                    if (variableNode != null)
+                    {
+                        variableNode.Value = value;
+                        variableNode.Timestamp = DateTime.UtcNow;
+                        variableNode.StatusCode = StatusCodes.Good;
+                        variableNode.ClearChangeMasks(nodeManager.SystemContext, true);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Node '{node.BrowseName.Name}' is not a PropertyState.");
+                    }
+                    Console.WriteLine($"NodeId: {node.NodeId}, BrowseName: {node.BrowseName}");
+                }
+
+            }
+
+
+
+            return;
+
             if (nodeManager == null)
             {
-                Console.WriteLine("UmatiNodeManager not found.");
+                Console.WriteLine("[ERROR] UmatiNodeManager not found.");
                 return;
             }
 
             foreach (var mappedObject in mappedObjects)
             {
                 string opcPath = "Objects/Machines/" + machine + "/" + mappedObject.OpcPath;
+                Console.WriteLine($"Updating node '{opcPath}' with value '{mappedObject.Value}'.");
                 NodeState parentNode = nodeManager.FindPredefinedNode(new NodeId("Objects/Machines/" + machine, namespaceIndex), typeof(NodeState));
 
                 if (parentNode == null)

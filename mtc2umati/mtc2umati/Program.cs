@@ -13,6 +13,7 @@ namespace umatiConnect
     class Program
     {
         private static UmatiServer? _server;
+        private static List<MappedObject> _mappedObjects = [];
 
         static async Task Main(string[] args)
         {
@@ -30,6 +31,7 @@ namespace umatiConnect
                 // Start both the XML fetch and server in parallel
                 Task fetchMTCXmlTask = FetchMTCXML();
                 Task startServerTask = StartServer(config);
+                Task umatiWriteValuesTask = UmatiWriteValues();
 
                 // Wait for both tasks to complete (Note: The server will run indefinitely until the application is terminated (e.g., Ctrl-C))
                 await Task.WhenAll(fetchMTCXmlTask, startServerTask);
@@ -96,10 +98,6 @@ namespace umatiConnect
                 Console.WriteLine("Server started: {0} at {1}", config.ApplicationName, config.ServerConfiguration.BaseAddresses[0]);
                 Console.WriteLine("Press Ctrl-C to exit...");
 
-                // useServer with umatiWriteValues:
-                await UmatiWriteValues().ConfigureAwait(false);
-
-
                 await Task.Delay(-1).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -125,46 +123,45 @@ namespace umatiConnect
         #region Fetch MTC data
         private static async Task FetchMTCXML()
         {
-            // load the vendor configuration from JSON file
-            string vendor = "mazak";
+            // Load the vendor configuration from JSON file
+            string vendor = "dmg";
             VendorConfig vendorConfig = Load_configJSON(vendor);
 
-            // Namen der Spalten, die Ausgelesen werden sollen
+            // Define the columns needed for mapping
             var columnsToRead = new[] {"OPC Path", "Data Type", "MTC Path" , "subType", "MTC Data Type"};
-            // Spalten, die bei Vollständigskeitskontrolle der Zeilen ignoriert werden sollen
             var columnsToIgnore = new[] {"subType"};
 
-            List<MappedObject> mappedObjects = MappingLoader.LoadMapping(vendorConfig.Mapping_file!, vendorConfig.Mapping_sheet!, columnsToRead, columnsToIgnore)  ?? [];;
+            _mappedObjects = MappingLoader.LoadMapping(vendorConfig.Mapping_file!, vendorConfig.Mapping_sheet!, columnsToRead, columnsToIgnore)  ?? [];;
 
-            // Konfiguration für XML-Fetcher
-            string url = vendorConfig.MTCServerIP ?? throw new ArgumentNullException(nameof(vendorConfig.MTCServerIP), "MTCServerIP cannot be null.");; // IP-Adresse des MTConnect-Servers
-            int port = vendorConfig.MTCServerPort; // Port des MTConnect-Servers
-            int intervalMilliseconds = 1000; // Intervall in Millisekunden
+            // Validate vendor config for MTC connection
+            string url = vendorConfig.MTCServerIP ?? throw new ArgumentNullException(nameof(vendorConfig.MTCServerIP), "MTCServerIP cannot be null.");;
+            int port = vendorConfig.MTCServerPort;
+            string mtcNamespace = vendorConfig.MTCNamespace ?? throw new ArgumentNullException(nameof(vendorConfig.MTCNamespace), "MTCNamespace cannot be null.");;
+            int intervalMilliseconds = 1000;
 
             Console.WriteLine($"Starting XML fetch loop with URL: {url} and Port: {port}");
 
-            await XmlFetchLoopRunner.RunXmlFetchLoopAsync(url, port, mappedObjects, intervalMilliseconds);
+            // Run the fetch loop
+            await XmlFetchLoopRunner.RunXmlFetchLoopAsync(url, port, mtcNamespace, _mappedObjects, intervalMilliseconds);
         }
 
         private static async Task UmatiWriteValues()
         {
-            if (_server == null)
+            if (_server == null || _mappedObjects.Count == 0)
             {
+                Console.WriteLine("Server is not initialized or no mapped objects available. Have you closed the mapping.xlsx file?");
                 return;
             }
-            else
+
+            var writer = new UmatiWriter(_server);
+            while (true)
             {
-                // Get the node manager
-                var writer = new UmatiWriter(_server);
-                // Write a value to the node
-                await writer.UpdateNodesAsync(
-                [
-                    new MappedObject("Objects/Machines/DMGMilltap700/Identification/Manufacturer", "Double", "DMGMilltap700/AxisX/Position", "double", "", 0.0)
-                ], "DMGMilltap700").ConfigureAwait(false);
-                //Console.WriteLine("Value written successfully.");
+                await writer.UpdateNodesAsync(_mappedObjects, "DMGMilltap700").ConfigureAwait(false);
+                await Task.Delay(1000).ConfigureAwait(false);
             }
         }
         #endregion
+
 
         #region Load config.json
         public static VendorConfig Load_configJSON(string vendor)
@@ -187,6 +184,7 @@ namespace umatiConnect
             {
                 MTCServerIP = config[vendor]["MTConnectServerIP"],
                 MTCServerPort = int.Parse(config[vendor]["MTConnectServerPort"]),
+                MTCNamespace = config[vendor]["MTConnectNamespace"],
                 Mapping_file = config[vendor]["Mapping_file"],
                 Mapping_sheet = config[vendor]["Mapping_sheet"],
                 Mode = int.Parse(config[vendor]["Mode"])
@@ -196,6 +194,7 @@ namespace umatiConnect
         {
             public string? MTCServerIP { get; set; }
             public int MTCServerPort { get; set; }
+            public string? MTCNamespace { get; set; }
             public string? Mapping_file { get; set; }
             public string? Mapping_sheet { get; set; }
             public int Mode { get; set; }

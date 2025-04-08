@@ -43,21 +43,29 @@ public class XmlFetcher
 
 public class XmlMapper
 {
-    private static readonly XmlNamespaceManager NamespaceManager;
+    private readonly XmlNamespaceManager _namespaceManager;
 
-    static XmlMapper()
+    public XmlMapper(string mtcNamespace)
     {
-        NamespaceManager = new XmlNamespaceManager(new System.Xml.NameTable());
-        //NamespaceManager.AddNamespace("mt", "urn:mtconnect.org:MTConnectStreams:2.0"); // for Mazak
-        NamespaceManager.AddNamespace("mt", "urn:mtconnect.org:MTConnectStreams:1.3"); // for DMG --> add to config file
+        _namespaceManager = new XmlNamespaceManager(new NameTable());
+        _namespaceManager.AddNamespace("mt", mtcNamespace);
+        Console.WriteLine($"[INFO] Namespace manager initialized with namespace: {mtcNamespace}");
     }
 
     public List<MappedObject> MapXmlValues(XDocument xmlDoc, List<MappedObject> mappedObjects)
     {
         foreach (var mappedObject in mappedObjects)
         {
+            // if mappedObject.MtcPath starts with # then use this entry as the mappedObject.Value but strip the # character
+            if (mappedObject.MtcPath.StartsWith("#"))
+            {
+                mappedObject.Value = mappedObject.MtcPath[1..];
+                Console.WriteLine($"[INFO] Special Value {mappedObject.OpcPath} will be explicitly set to: {mappedObject.Value}");
+                continue;
+            }
+
             var mtcPathParts = mappedObject.MtcPath.Split('/');
-            if (mtcPathParts.Length != 3)
+            if (mtcPathParts.Length != 3) // this assumption needs to be changed for special cases / or maybe add another special case and special logic for Stacklight etc.
             {
                 Console.WriteLine($"[ERROR] Invalid MTC Path: {mappedObject.MtcPath}");
                 continue;
@@ -69,7 +77,7 @@ public class XmlMapper
             string subType = mappedObject.MtcSubtype;
 
             var componentXPath = $"//mt:ComponentStream[@component='{componentType}' and @name='{componentName}']";
-            var component = xmlDoc.XPathSelectElement(componentXPath, NamespaceManager);
+            var component = xmlDoc.XPathSelectElement(componentXPath, _namespaceManager);
 
             if (component != null)
             {
@@ -179,13 +187,11 @@ public class XmlMapper
 // Cyclic XML fetch logic
 public static class XmlFetchLoopRunner
 {
-    public static async Task RunXmlFetchLoopAsync(string url, int port, List<MappedObject> mappedObjects, int intervalInMilliseconds = 2000)
+    public static async Task RunXmlFetchLoopAsync(string url, int port, string mtcNamespace, List<MappedObject> mappedObjects, int intervalInMilliseconds = 2000)
     {
-        Console.WriteLine("Starting XML fetch loop...");
-
         var cancellationTask = Task.Run(() => Console.ReadKey(true));
 
-        var xmlMapper = new XmlMapper();
+        var xmlMapper = new XmlMapper(mtcNamespace);
 
         while (true)
         {
@@ -202,7 +208,7 @@ public static class XmlFetchLoopRunner
                 mappedObjects = xmlMapper.MapXmlValues(xmlDoc, mappedObjects);
 
                 // +++++++++++++++++ Print the mapped objects after fetching XML data +++++++++++++++++++++
-                mappedObjects.ShowMappedObjects();
+                //mappedObjects.ShowMappedObjects();
             }
 
 

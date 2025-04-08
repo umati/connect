@@ -27,6 +27,11 @@ namespace umatiConnect
             SystemContext.NodeIdFactory = this;
         }
 
+        public IEnumerable<NodeState> GetPredefinedNodes()
+        {
+            return PredefinedNodes.Values;
+        }
+
         public override void CreateAddressSpace(IDictionary<NodeId, IList<IReference>> externalReferences)
         {
             lock (Lock)
