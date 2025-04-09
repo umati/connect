@@ -2,13 +2,13 @@
  * Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
  * =======================================================================*/
 
-using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using Opc.Ua;
+using mtc2umati.Services;
 
-namespace umatiConnect
+namespace mtc2umati
 {
     class Program
     {
@@ -28,9 +28,12 @@ namespace umatiConnect
                 // check the application certificate.
                 await CheckApplicationInstanceCertificate(config).ConfigureAwait(false);
 
+                // load the vendor configuration
+                ConfigStore.LoadConfigJSON("dmg");
+
                 // Start both the XML fetch and server in parallel
-                Task fetchMTCXmlTask = FetchMTCXML();
                 Task startServerTask = StartServer(config);
+                Task fetchMTCXmlTask = FetchMTCXML();
                 Task umatiWriteValuesTask = UmatiWriteValues();
 
                 // Wait for both tasks to complete (Note: The server will run indefinitely until the application is terminated (e.g., Ctrl-C))
@@ -71,13 +74,7 @@ namespace umatiConnect
                 // check the application instance certificate.
                 CertificateIdentifier id = config.SecurityConfiguration.ApplicationCertificate;
 
-                X509Certificate2 certificate = await id.Find(true).ConfigureAwait(false);
-
-                if (certificate == null)
-                {
-                    throw new Exception("Application instance certificate not found: " + id);
-                }
-
+                X509Certificate2 certificate = await id.Find(true).ConfigureAwait(false) ?? throw new Exception("Application instance certificate not found: " + id);
                 Console.WriteLine("Application instance certificate found: {0}", id);
             }
             catch (Exception e)
@@ -86,7 +83,7 @@ namespace umatiConnect
                 throw;
             }
         }
-
+        #region Start OPC UA Server
         private static async Task StartServer(ApplicationConfiguration config)
         {
             try
@@ -106,7 +103,7 @@ namespace umatiConnect
                 throw;
             }
         }
-
+        #endregion
         private static void CertificateValidator_CertificateValidation(CertificateValidator validator, CertificateValidationEventArgs e)
         {
             try
@@ -121,28 +118,24 @@ namespace umatiConnect
         }
 
         #region Fetch MTC data
+
+
         private static async Task FetchMTCXML()
         {
-            // Load the vendor configuration from JSON file
-            string vendor = "dmg";
-            VendorConfig vendorConfig = Load_configJSON(vendor);
+            // Load the mapping from the Excel file
+            Console.WriteLine("Creating the mapping between MTC and OPC UA...");
+            _mappedObjects = MappingLoader.LoadMapping(ConfigStore.VendorSettings.Mapping_file!, ConfigStore.VendorSettings.Mapping_sheet!)  ?? [];;
 
-            // Define the columns needed for mapping
-            var columnsToRead = new[] {"OPC Path", "Data Type", "MTC Path" , "subType", "MTC Data Type"};
-            var columnsToIgnore = new[] {"subType"};
-
-            _mappedObjects = MappingLoader.LoadMapping(vendorConfig.Mapping_file!, vendorConfig.Mapping_sheet!, columnsToRead, columnsToIgnore)  ?? [];;
+            Task.Delay(3000).Wait();
 
             // Validate vendor config for MTC connection
-            string url = vendorConfig.MTCServerIP ?? throw new ArgumentNullException(nameof(vendorConfig.MTCServerIP), "MTCServerIP cannot be null.");;
-            int port = vendorConfig.MTCServerPort;
-            string mtcNamespace = vendorConfig.MTCNamespace ?? throw new ArgumentNullException(nameof(vendorConfig.MTCNamespace), "MTCNamespace cannot be null.");;
-            int intervalMilliseconds = 1000;
-
-            Console.WriteLine($"Starting XML fetch loop with URL: {url} and Port: {port}");
+            string url = ConfigStore.VendorSettings.MTCServerIP ?? throw new ArgumentNullException(nameof(ConfigStore.VendorSettings.MTCServerIP), "MTCServerIP cannot be null.");;
+            int port = ConfigStore.VendorSettings.MTCServerPort;
+            string mtcNamespace = ConfigStore.VendorSettings.MTCNamespace ?? throw new ArgumentNullException(nameof(ConfigStore.VendorSettings.MTCNamespace), "MTCNamespace cannot be null.");;
 
             // Run the fetch loop
-            await XmlFetchLoopRunner.RunXmlFetchLoopAsync(url, port, mtcNamespace, _mappedObjects, intervalMilliseconds);
+            Console.WriteLine($"Starting MTConnect XML fetch loop with URL: {url} and Port: {port}");
+            await XmlFetchLoopRunner.RunXmlFetchLoopAsync(url, port, mtcNamespace, _mappedObjects);
         }
 
         private static async Task UmatiWriteValues()
@@ -154,50 +147,7 @@ namespace umatiConnect
             }
 
             var writer = new UmatiWriter(_server);
-            while (true)
-            {
-                await writer.UpdateNodesAsync(_mappedObjects, "DMGMilltap700").ConfigureAwait(false);
-                await Task.Delay(1000).ConfigureAwait(false);
-            }
-        }
-        #endregion
-
-
-        #region Load config.json
-        public static VendorConfig Load_configJSON(string vendor)
-        {
-            string configPath = "./config.json";
-            if (!File.Exists(configPath))
-            {
-                throw new FileNotFoundException($"Configuration file not found at {configPath}");
-            }
-            string json = File.ReadAllText(configPath);
-
-            var config = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
-
-            if (config == null || !config.ContainsKey(vendor))
-            {
-                throw new KeyNotFoundException($"Vendor '{vendor}' not found in config.");
-            }
-
-            return new VendorConfig
-            {
-                MTCServerIP = config[vendor]["MTConnectServerIP"],
-                MTCServerPort = int.Parse(config[vendor]["MTConnectServerPort"]),
-                MTCNamespace = config[vendor]["MTConnectNamespace"],
-                Mapping_file = config[vendor]["Mapping_file"],
-                Mapping_sheet = config[vendor]["Mapping_sheet"],
-                Mode = int.Parse(config[vendor]["Mode"])
-            };
-        }
-        public class VendorConfig
-        {
-            public string? MTCServerIP { get; set; }
-            public int MTCServerPort { get; set; }
-            public string? MTCNamespace { get; set; }
-            public string? Mapping_file { get; set; }
-            public string? Mapping_sheet { get; set; }
-            public int Mode { get; set; }
+            await writer.UpdateNodesAsync(_mappedObjects).ConfigureAwait(false);
         }
         #endregion
     }
