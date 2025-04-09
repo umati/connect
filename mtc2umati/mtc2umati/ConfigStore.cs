@@ -1,8 +1,11 @@
+/* ========================================================================
+ * Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
+ * =======================================================================*/
+
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
-
 
 namespace mtc2umati
 {

@@ -44,6 +44,9 @@
     <None Update="Nodesets\umaticonnectdmg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Nodesets\umaticonnectmazak.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="umatiConnect.Server.Config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -71,7 +71,18 @@ namespace mtc2umati.Services
             NodeStateCollection predefinedNodes = [];
 
             Stream stream = new FileStream(resourcePath, FileMode.Open);
-            var nodeSet = UANodeSet.Read(stream);
+
+            var nodeSet = new UANodeSet();
+            try
+            {
+                nodeSet = UANodeSet.Read(stream);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error reading NodeSet XML: {e.Message}");
+                return;
+            }
+
 
             foreach (var uri in nodeSet.NamespaceUris)
             {
@@ -86,6 +97,7 @@ namespace mtc2umati.Services
                     SystemContext.NamespaceUris.Append(uri);
                 }
             }
+
             nodeSet.Import(SystemContext, predefinedNodes);
 
             Console.WriteLine(predefinedNodes.Count + " nodes imported from " + resourcePath);
