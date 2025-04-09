@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<UANodeSet xmlns:s2="http://opcfoundation.org/UA/MachineTool/Types.xsd" xmlns:s3="http://opcfoundation.org/UA/Machinery/Types.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ua="http://unifiedautomation.com/Configuration/NodeSet.xsd" xmlns:s1="http://ifw.uni-hannover.de/umatiConnectDMG/Types.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:s4="http://opcfoundation.org/UA/DI/Types.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:s5="http://opcfoundation.org/UA/IA/Types.xsd" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
+<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:ua="http://unifiedautomation.com/Configuration/NodeSet.xsd" xmlns:s5="http://opcfoundation.org/UA/IA/Types.xsd" xmlns:s3="http://opcfoundation.org/UA/Machinery/Types.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:s1="http://ifw.uni-hannover.de/umatiConnectDMG/Types.xsd" xmlns:s2="http://opcfoundation.org/UA/MachineTool/Types.xsd" xmlns:s4="http://opcfoundation.org/UA/DI/Types.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <NamespaceUris>
         <Uri>http://ifw.uni-hannover.de/umatiConnectDMG/</Uri>
         <Uri>http://opcfoundation.org/UA/MachineTool/</Uri>
@@ -8,20 +8,22 @@
         <Uri>http://opcfoundation.org/UA/IA/</Uri>
     </NamespaceUris>
     <Models>
-        <Model PublicationDate="2025-03-18T09:51:03Z" ModelUri="http://ifw.uni-hannover.de/umatiConnectDMG/" Version="1.0.0">
-            <RequiredModel PublicationDate="2024-12-01T00:00:00Z" ModelUri="http://opcfoundation.org/UA/" Version="1.05.04"/>
-            <RequiredModel PublicationDate="2022-11-03T00:00:00Z" ModelUri="http://opcfoundation.org/UA/DI/" Version="1.04.0"/>
-            <RequiredModel PublicationDate="2024-02-28T00:00:00Z" ModelUri="http://opcfoundation.org/UA/IA/" Version="1.01.2"/>
-            <RequiredModel PublicationDate="2024-01-31T00:00:00Z" ModelUri="http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/" Version="2.0.0"/>
-            <RequiredModel PublicationDate="2024-05-01T00:00:00Z" ModelUri="http://opcfoundation.org/UA/Machinery/Jobs/" Version="1.0.1"/>
-            <RequiredModel PublicationDate="2023-08-01T00:00:00Z" ModelUri="http://opcfoundation.org/UA/Machinery/" Version="1.03.0"/>
-            <RequiredModel PublicationDate="2024-11-01T00:00:00Z" ModelUri="http://opcfoundation.org/UA/MachineTool/" Version="1.02.0"/>
+        <Model ModelUri="http://ifw.uni-hannover.de/umatiConnectDMG/" PublicationDate="2025-03-18T09:51:03Z" Version="1.0.0">
+            <RequiredModel ModelUri="http://opcfoundation.org/UA/" PublicationDate="2024-12-01T00:00:00Z" Version="1.05.04"/>
+            <RequiredModel ModelUri="http://opcfoundation.org/UA/DI/" PublicationDate="2022-11-03T00:00:00Z" Version="1.04.0"/>
+            <RequiredModel ModelUri="http://opcfoundation.org/UA/IA/" PublicationDate="2024-02-28T00:00:00Z" Version="1.01.2"/>
+            <RequiredModel ModelUri="http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/" PublicationDate="2024-01-31T00:00:00Z" Version="2.0.0"/>
+            <RequiredModel ModelUri="http://opcfoundation.org/UA/Machinery/Jobs/" PublicationDate="2024-05-01T00:00:00Z" Version="1.0.1"/>
+            <RequiredModel ModelUri="http://opcfoundation.org/UA/Machinery/" PublicationDate="2023-08-01T00:00:00Z" Version="1.03.0"/>
+            <RequiredModel ModelUri="http://opcfoundation.org/UA/MachineTool/" PublicationDate="2024-11-01T00:00:00Z" Version="1.02.0"/>
         </Model>
     </Models>
     <Aliases>
         <Alias Alias="Boolean">i=1</Alias>
         <Alias Alias="UInt16">i=5</Alias>
+        <Alias Alias="Int32">i=6</Alias>
         <Alias Alias="UInt32">i=7</Alias>
+        <Alias Alias="Float">i=10</Alias>
         <Alias Alias="Double">i=11</Alias>
         <Alias Alias="String">i=12</Alias>
         <Alias Alias="DateTime">i=13</Alias>
@@ -47,622 +49,723 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Version="1.7.1" Hash="rX+p85wBNKZj6yiqw3l28A=="/>
+            <ua:ModelInfo Tool="UaModeler" Version="1.7.0" Hash="MMa9ze3yDzQHFCtRl35t/Q=="/>
         </Extension>
     </Extensions>
     <UAObject BrowseName="1:DMGMilltap700" NodeId="ns=1;i=5003">
         <DisplayName>DMGMilltap700</DisplayName>
         <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=13</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5004</Reference>
             <Reference ReferenceType="HasAddIn">ns=1;i=5005</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=2;i=13</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5006</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5008</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5009</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=3;i=1001</Reference>
+            <Reference IsForward="false" ReferenceType="Organizes">ns=3;i=1001</Reference>
         </References>
     </UAObject>
-    <UAObject ParentNodeId="ns=1;i=5003" BrowseName="2:Equipment" NodeId="ns=1;i=5004">
+    <UAObject BrowseName="2:Equipment" NodeId="ns=1;i=5004" ParentNodeId="ns=1;i=5003">
         <DisplayName>Equipment</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=12</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5003</Reference>
         </References>
     </UAObject>
-    <UAObject ParentNodeId="ns=1;i=5003" BrowseName="4:Identification" NodeId="ns=1;i=5005">
+    <UAObject BrowseName="4:Identification" NodeId="ns=1;i=5005" ParentNodeId="ns=1;i=5003">
         <DisplayName>Identification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=11</Reference>
+            <Reference IsForward="false" ReferenceType="HasAddIn">ns=1;i=5003</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6051</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6001</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6052</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6002</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6003</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5001</Reference>
-            <Reference ReferenceType="HasAddIn" IsForward="false">ns=1;i=5003</Reference>
         </References>
     </UAObject>
-    <UAVariable ParentNodeId="ns=1;i=5005" BrowseName="4:Manufacturer" NodeId="ns=1;i=6001" DataType="LocalizedText">
+    <UAVariable AccessLevel="3" BrowseName="4:AssetId" DataType="String" NodeId="ns=1;i=6051" ParentNodeId="ns=1;i=5005">
+        <DisplayName>AssetId</DisplayName>
+        <Description>MTC: &lt;DeviceStream>/uuid</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5005</Reference>
+        </References>
+        <Value>
+            <uax:String></uax:String>
+        </Value>
+    </UAVariable>
+    <UAVariable BrowseName="4:Manufacturer" DataType="LocalizedText" NodeId="ns=1;i=6001" ParentNodeId="ns=1;i=5005">
         <DisplayName>Manufacturer</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5005" BrowseName="4:ProductInstanceUri" NodeId="ns=1;i=6002" DataType="String">
+    <UAVariable BrowseName="4:Model" DataType="LocalizedText" NodeId="ns=1;i=6052" ParentNodeId="ns=1;i=5005">
+        <DisplayName>Model</DisplayName>
+        <Description>MTC: &lt;DeviceStream>/name</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5005</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable BrowseName="4:ProductInstanceUri" DataType="String" NodeId="ns=1;i=6002" ParentNodeId="ns=1;i=5005">
         <DisplayName>ProductInstanceUri</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5005" BrowseName="4:SerialNumber" NodeId="ns=1;i=6003" DataType="String">
+    <UAVariable BrowseName="4:SerialNumber" DataType="String" NodeId="ns=1;i=6003" ParentNodeId="ns=1;i=5005">
         <DisplayName>SerialNumber</DisplayName>
         <Description>MTC: Controller/Controller/MachineSn</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
-    <UAObject ParentNodeId="ns=1;i=5005" BrowseName="2:SoftwareIdentification" NodeId="ns=1;i=5001">
+    <UAObject BrowseName="2:SoftwareIdentification" NodeId="ns=1;i=5001" ParentNodeId="ns=1;i=5005">
         <DisplayName>SoftwareIdentification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5002</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5005</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5005</Reference>
         </References>
     </UAObject>
-    <UAObject ParentNodeId="ns=1;i=5001" BrowseName="2:MDC" NodeId="ns=1;i=5002">
+    <UAObject BrowseName="2:MDC" NodeId="ns=1;i=5002" ParentNodeId="ns=1;i=5001">
         <DisplayName>MDC</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=43</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5001</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6010</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6011</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5001</Reference>
         </References>
     </UAObject>
-    <UAVariable ParentNodeId="ns=1;i=5002" BrowseName="2:Identifier" NodeId="ns=1;i=6010" DataType="String">
+    <UAVariable BrowseName="2:Identifier" DataType="String" NodeId="ns=1;i=6010" ParentNodeId="ns=1;i=5002">
         <DisplayName>Identifier</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5002</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5002</Reference>
         </References>
         <Value>
             <uax:String>0</uax:String>
         </Value>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5002" BrowseName="4:SoftwareRevision" NodeId="ns=1;i=6011" DataType="String">
+    <UAVariable BrowseName="4:SoftwareRevision" DataType="String" NodeId="ns=1;i=6011" ParentNodeId="ns=1;i=5002">
         <DisplayName>SoftwareRevision</DisplayName>
         <Description>MTC: Controller/Controller/VendorServerInfo</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5002</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5002</Reference>
         </References>
         <Value>
             <uax:String>0</uax:String>
         </Value>
     </UAVariable>
-    <UAObject ParentNodeId="ns=1;i=5003" BrowseName="2:Monitoring" NodeId="ns=1;i=5006">
+    <UAObject BrowseName="2:Monitoring" NodeId="ns=1;i=5006" ParentNodeId="ns=1;i=5003">
         <DisplayName>Monitoring</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=14</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5003</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=5022</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5007</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5015</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=5023</Reference>
         </References>
     </UAObject>
-    <UAObject ParentNodeId="ns=1;i=5006" BrowseName="2:MachineTool" NodeId="ns=1;i=5007">
+    <UAObject BrowseName="1:Channel_1" NodeId="ns=1;i=5022">
+        <DisplayName>Channel_1</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+            <Reference IsForward="false" ReferenceType="Organizes">ns=1;i=5006</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=5025</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6058</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6061</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6062</Reference>
+        </References>
+    </UAObject>
+    <UAObject BrowseName="1:ActiveTool" NodeId="ns=1;i=5025">
+        <DisplayName>ActiveTool</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+            <Reference IsForward="false" ReferenceType="Organizes">ns=1;i=5022</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6055</Reference>
+        </References>
+    </UAObject>
+    <UAVariable AccessLevel="3" BrowseName="1:ControlIdentifier1" DataType="UInt32" NodeId="ns=1;i=6055">
+        <DisplayName>ControlIdentifier1</DisplayName>
+        <Description>MTC: Path/Path_1/ToolNumber</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference IsForward="false" ReferenceType="Organizes">ns=1;i=5025</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable AccessLevel="3" BrowseName="1:ChannelMode" DataType="Int32" NodeId="ns=1;i=6058">
+        <DisplayName>ChannelMode</DisplayName>
+        <Description>MTC: Path/Path_1/ControllerMode</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference IsForward="false" ReferenceType="Organizes">ns=1;i=5022</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable AccessLevel="3" BrowseName="1:FeedOverride" DataType="Double" NodeId="ns=1;i=6061">
+        <DisplayName>FeedOverride</DisplayName>
+        <Description>MTC: Path/Path_1/PathFeedrateOverride subType JOG</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference IsForward="false" ReferenceType="Organizes">ns=1;i=5022</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable AccessLevel="3" BrowseName="1:RapidOverride" DataType="Double" NodeId="ns=1;i=6062">
+        <DisplayName>RapidOverride</DisplayName>
+        <Description>MTC: Path/Path_1/PathFeedrateOverride subType: RAPID</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference IsForward="false" ReferenceType="Organizes">ns=1;i=5022</Reference>
+        </References>
+    </UAVariable>
+    <UAObject BrowseName="2:MachineTool" NodeId="ns=1;i=5007" ParentNodeId="ns=1;i=5006">
         <DisplayName>MachineTool</DisplayName>
         <References>
-            <Reference ReferenceType="HasComponent">ns=1;i=6012</Reference>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=26</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5006</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6012</Reference>
             <Reference ReferenceType="HasAddIn">ns=1;i=5013</Reference>
             <Reference ReferenceType="HasAddIn">ns=1;i=5014</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6004</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5006</Reference>
         </References>
     </UAObject>
-    <UAVariable ParentNodeId="ns=1;i=5007" BrowseName="2:FeedOverride" NodeId="ns=1;i=6012" DataType="Double">
+    <UAVariable BrowseName="2:FeedOverride" DataType="Double" NodeId="ns=1;i=6012" ParentNodeId="ns=1;i=5007">
         <DisplayName>FeedOverride</DisplayName>
-        <Description>MTC: Path/Path_1/PathFeedrateOverride
-</Description>
+        <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=17570</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5007</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6020</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6021</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5007</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=6012" BrowseName="EngineeringUnits" NodeId="ns=1;i=6020" DataType="EUInformation">
+    <UAVariable BrowseName="EngineeringUnits" DataType="EUInformation" NodeId="ns=1;i=6020" ParentNodeId="ns=1;i=6012">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6012</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=6012</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=6012" BrowseName="EURange" NodeId="ns=1;i=6021" DataType="Range">
+    <UAVariable BrowseName="EURange" DataType="Range" NodeId="ns=1;i=6021" ParentNodeId="ns=1;i=6012">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6012</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=6012</Reference>
         </References>
     </UAVariable>
-    <UAObject ParentNodeId="ns=1;i=5007" BrowseName="3:MachineryItemState" NodeId="ns=1;i=5013">
+    <UAObject BrowseName="3:MachineryItemState" NodeId="ns=1;i=5013" ParentNodeId="ns=1;i=5007">
         <DisplayName>MachineryItemState</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=3;i=1002</Reference>
+            <Reference IsForward="false" ReferenceType="HasAddIn">ns=1;i=5007</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6022</Reference>
-            <Reference ReferenceType="HasAddIn" IsForward="false">ns=1;i=5007</Reference>
         </References>
     </UAObject>
-    <UAVariable ParentNodeId="ns=1;i=5013" BrowseName="CurrentState" NodeId="ns=1;i=6022" DataType="LocalizedText">
+    <UAVariable BrowseName="CurrentState" DataType="LocalizedText" NodeId="ns=1;i=6022" ParentNodeId="ns=1;i=5013">
         <DisplayName>CurrentState</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
-            <Reference ReferenceType="HasProperty">ns=1;i=6030</Reference>
             <Reference ReferenceType="HasTypeDefinition">i=2760</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5013</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6030</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6023</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6031</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6032</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5013</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=6022" BrowseName="EffectiveDisplayName" NodeId="ns=1;i=6030" DataType="LocalizedText">
+    <UAVariable BrowseName="EffectiveDisplayName" DataType="LocalizedText" NodeId="ns=1;i=6030" ParentNodeId="ns=1;i=6022">
         <DisplayName>EffectiveDisplayName</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6022</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=6022</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=6022" BrowseName="Id" NodeId="ns=1;i=6023" DataType="NodeId">
+    <UAVariable BrowseName="Id" DataType="NodeId" NodeId="ns=1;i=6023" ParentNodeId="ns=1;i=6022">
         <DisplayName>Id</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6022</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=6022</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=6022" BrowseName="Name" NodeId="ns=1;i=6031" DataType="QualifiedName">
+    <UAVariable BrowseName="Name" DataType="QualifiedName" NodeId="ns=1;i=6031" ParentNodeId="ns=1;i=6022">
         <DisplayName>Name</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6022</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=6022</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=6022" BrowseName="Number" NodeId="ns=1;i=6032" DataType="UInt32">
+    <UAVariable BrowseName="Number" DataType="UInt32" NodeId="ns=1;i=6032" ParentNodeId="ns=1;i=6022">
         <DisplayName>Number</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6022</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=6022</Reference>
         </References>
     </UAVariable>
-    <UAObject ParentNodeId="ns=1;i=5007" BrowseName="4:OperationCounters" NodeId="ns=1;i=5014">
+    <UAObject BrowseName="4:OperationCounters" NodeId="ns=1;i=5014" ParentNodeId="ns=1;i=5007">
         <DisplayName>OperationCounters</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=3;i=1009</Reference>
+            <Reference IsForward="false" ReferenceType="HasAddIn">ns=1;i=5007</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6029</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6024</Reference>
-            <Reference ReferenceType="HasAddIn" IsForward="false">ns=1;i=5007</Reference>
         </References>
     </UAObject>
-    <UAVariable ParentNodeId="ns=1;i=5014" BrowseName="4:OperationDuration" NodeId="ns=1;i=6029" DataType="Duration" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="4:OperationDuration" DataType="Duration" NodeId="ns=1;i=6029" ParentNodeId="ns=1;i=5014">
         <DisplayName>OperationDuration</DisplayName>
-        <Description>MTC: Controller/Controller/OperationTime || OperationDuration is the duration the MachineryItem has been powered and performing an activity. This counter is intended for machines and components where a distinction is made between switched on and in operation. For example, a drive might be powered on but not operating. It is not intended for machines or components always performing an activity like sensors always measuring data. This value shall only increase during the lifetime of the MachineryItem and shall not be reset when it is restarted. The OperationDuration is provided as Duration, i.e., in milliseconds or even fractions of a millisecond. However, the Server is not expected to update the value in such a high frequency, but maybe once a minute or once an hour, depending on the application.</Description>
+        <Description>MTC: Controller/Controller/OperationTime</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5014</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5014</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5014" BrowseName="4:PowerOnDuration" NodeId="ns=1;i=6024" DataType="Duration" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="4:PowerOnDuration" DataType="Duration" NodeId="ns=1;i=6024" ParentNodeId="ns=1;i=5014">
         <DisplayName>PowerOnDuration</DisplayName>
-        <Description>MTC: Controller/Controller/PowerOnTime ||
-PowerOnDuration is the duration the MachineryItem has been powered. The main purpose is to determine the time in which degradation of the MachineryItem occurred. The details, when the time is counted, is implementation-specific. Companion specifications might define specific rules. Typically, when the MachineryItem has supply voltage and the main CPU is running, the time is counted. This may include any kind of sleep mode, but may not include pure Wake on LAN. This value shall only increase during the lifetime of the MachineryItem and shall not be reset when it is restarted. The PowerOnDuration is provided as Duration, i.e., in milliseconds or even fractions of a millisecond. However, the Server is not expected to update the value in such a high frequency, but maybe once a minute or once an hour, depending on the application.</Description>
+        <Description>MTC: Controller/Controller/PowerOnTime</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5014</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5014</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5007" BrowseName="2:OperationMode" NodeId="ns=1;i=6004" DataType="MachineOperationMode">
+    <UAVariable BrowseName="2:OperationMode" DataType="MachineOperationMode" NodeId="ns=1;i=6004" ParentNodeId="ns=1;i=5007">
         <DisplayName>OperationMode</DisplayName>
-        <Description>MTC: Path/Path_1/ControllerMode</Description>
+        <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5007</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5007</Reference>
         </References>
     </UAVariable>
-    <UAObject ParentNodeId="ns=1;i=5006" BrowseName="2:Stacklight" NodeId="ns=1;i=5015">
+    <UAObject BrowseName="2:Stacklight" NodeId="ns=1;i=5015" ParentNodeId="ns=1;i=5006">
         <DisplayName>Stacklight</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=5;i=1002</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5006</Reference>
             <Reference ReferenceType="HasOrderedComponent">ns=1;i=5016</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5017</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5018</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5019</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6038</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5006</Reference>
         </References>
     </UAObject>
-    <UAObject ParentNodeId="ns=1;i=5015" BrowseName="Light_1" NodeId="ns=1;i=5016">
+    <UAObject BrowseName="Light_1" NodeId="ns=1;i=5016" ParentNodeId="ns=1;i=5015">
         <DisplayName>Light_1</DisplayName>
         <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=5;i=1006</Reference>
+            <Reference IsForward="false" ReferenceType="HasOrderedComponent">ns=1;i=5015</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6034</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6035</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6036</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6037</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=5;i=1006</Reference>
-            <Reference ReferenceType="HasOrderedComponent" IsForward="false">ns=1;i=5015</Reference>
         </References>
     </UAObject>
-    <UAVariable ParentNodeId="ns=1;i=5016" BrowseName="NumberInList" NodeId="ns=1;i=6034" DataType="UInteger" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="NumberInList" DataType="UInteger" NodeId="ns=1;i=6034" ParentNodeId="ns=1;i=5016">
         <DisplayName>NumberInList</DisplayName>
         <Description Locale="en">MTC: N/A || Enumerate the stacklight elements counting upwards beginning from the base of the stacklight.</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5016</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5016</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5016" BrowseName="5:SignalColor" NodeId="ns=1;i=6035" DataType="SignalColor">
+    <UAVariable BrowseName="5:SignalColor" DataType="SignalColor" NodeId="ns=1;i=6035" ParentNodeId="ns=1;i=5016">
         <DisplayName>SignalColor</DisplayName>
-        <Description Locale="en">MTC: Controller/Controller/LightState{Color]
-|| Indicates the colour the lamp element has when switched on.</Description>
+        <Description>MTC: Controller/Controller/LightStateBlue</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5016</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5016</Reference>
         </References>
+        <Value>
+            <uax:Int32>3</uax:Int32>
+        </Value>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5016" BrowseName="5:SignalMode" NodeId="ns=1;i=6036" DataType="SignalModeLight">
+    <UAVariable BrowseName="5:SignalMode" DataType="SignalModeLight" NodeId="ns=1;i=6036" ParentNodeId="ns=1;i=5016">
         <DisplayName>SignalMode</DisplayName>
-        <Description Locale="en">MTC: N/A || Shows in what way the lamp is used (continuous light, flashing, blinking) when switched on.</Description>
+        <Description Locale="en">MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5016</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5016</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5016" BrowseName="5:SignalOn" NodeId="ns=1;i=6037" DataType="Boolean">
+    <UAVariable BrowseName="5:SignalOn" DataType="Boolean" NodeId="ns=1;i=6037" ParentNodeId="ns=1;i=5016">
         <DisplayName>SignalOn</DisplayName>
-        <Description Locale="en">MTC: Controller/Controller/LightState{Color]
-|| Indicates if the signal emitted by the stack element is currently switched on or not.</Description>
+        <Description>MTC: Controller/Controller/LightStateBlue</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5016</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5016</Reference>
         </References>
     </UAVariable>
     <UAObject BrowseName="1:Light_2" NodeId="ns=1;i=5017">
         <DisplayName>Light_2</DisplayName>
         <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=5;i=1006</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5015</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6039</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6042</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6044</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6043</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=5;i=1006</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5015</Reference>
         </References>
     </UAObject>
-    <UAVariable ParentNodeId="ns=1;i=5017" BrowseName="NumberInList" NodeId="ns=1;i=6039" DataType="UInteger">
+    <UAVariable BrowseName="NumberInList" DataType="UInteger" NodeId="ns=1;i=6039" ParentNodeId="ns=1;i=5017">
         <DisplayName>NumberInList</DisplayName>
         <Description Locale="en">MTC: N/A || Enumerate the stacklight elements counting upwards beginning from the base of the stacklight.</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5017</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5017</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5017" BrowseName="5:SignalColor" NodeId="ns=1;i=6042" DataType="SignalColor" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="5:SignalColor" DataType="SignalColor" NodeId="ns=1;i=6042" ParentNodeId="ns=1;i=5017">
         <DisplayName>SignalColor</DisplayName>
-        <Description Locale="en">MTC: Controller/Controller/LightState{Color]
-|| Indicates the colour the lamp element has when switched on.</Description>
+        <Description>MTC: Controller/Controller/LightStateGreen</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5017</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5017</Reference>
         </References>
+        <Value>
+            <uax:Int32>2</uax:Int32>
+        </Value>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5017" BrowseName="5:SignalMode" NodeId="ns=1;i=6044" DataType="SignalModeLight" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="5:SignalMode" DataType="SignalModeLight" NodeId="ns=1;i=6044" ParentNodeId="ns=1;i=5017">
         <DisplayName>SignalMode</DisplayName>
-        <Description Locale="en">MTC: N/A || Shows in what way the lamp is used (continuous light, flashing, blinking) when switched on.</Description>
+        <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5017</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5017</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5017" BrowseName="5:SignalOn" NodeId="ns=1;i=6043" DataType="Boolean" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="5:SignalOn" DataType="Boolean" NodeId="ns=1;i=6043" ParentNodeId="ns=1;i=5017">
         <DisplayName>SignalOn</DisplayName>
-        <Description Locale="en">MTC: Controller/Controller/LightState{Color]
-|| Indicates if the signal emitted by the stack element is currently switched on or not.</Description>
+        <Description>Controller/Controller/LightStateGreen</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5017</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5017</Reference>
         </References>
     </UAVariable>
     <UAObject BrowseName="1:Light_3" NodeId="ns=1;i=5018">
         <DisplayName>Light_3</DisplayName>
         <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=5;i=1006</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5015</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6040</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6045</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6046</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6047</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=5;i=1006</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5015</Reference>
         </References>
     </UAObject>
-    <UAVariable ParentNodeId="ns=1;i=5018" BrowseName="NumberInList" NodeId="ns=1;i=6040" DataType="UInteger">
+    <UAVariable BrowseName="NumberInList" DataType="UInteger" NodeId="ns=1;i=6040" ParentNodeId="ns=1;i=5018">
         <DisplayName>NumberInList</DisplayName>
         <Description Locale="en">MTC: N/A || Enumerate the stacklight elements counting upwards beginning from the base of the stacklight.</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5018</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5018</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5018" BrowseName="5:SignalColor" NodeId="ns=1;i=6045" DataType="SignalColor" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="5:SignalColor" DataType="SignalColor" NodeId="ns=1;i=6045" ParentNodeId="ns=1;i=5018">
         <DisplayName>SignalColor</DisplayName>
-        <Description Locale="en">MTC: Controller/Controller/LightState{Color]
-|| Indicates the colour the lamp element has when switched on.</Description>
+        <Description>MTC: Controller/Controller/LightStateYellow</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5018</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5018</Reference>
         </References>
+        <Value>
+            <uax:Int32>4</uax:Int32>
+        </Value>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5018" BrowseName="5:SignalMode" NodeId="ns=1;i=6046" DataType="SignalModeLight" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="5:SignalMode" DataType="SignalModeLight" NodeId="ns=1;i=6046" ParentNodeId="ns=1;i=5018">
         <DisplayName>SignalMode</DisplayName>
-        <Description Locale="en">Shows in what way the lamp is used (continuous light, flashing, blinking) when switched on.</Description>
+        <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5018</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5018</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5018" BrowseName="5:SignalOn" NodeId="ns=1;i=6047" DataType="Boolean" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="5:SignalOn" DataType="Boolean" NodeId="ns=1;i=6047" ParentNodeId="ns=1;i=5018">
         <DisplayName>SignalOn</DisplayName>
-        <Description Locale="en">MTC: Controller/Controller/LightState{Color]
-|| Indicates if the signal emitted by the stack element is currently switched on or not.</Description>
+        <Description>MTC:Controller/Controller/LightStateYellow</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5018</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5018</Reference>
         </References>
     </UAVariable>
     <UAObject BrowseName="1:Light_4" NodeId="ns=1;i=5019">
         <DisplayName>Light_4</DisplayName>
         <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=5;i=1006</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5015</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6041</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6048</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6049</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6050</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=5;i=1006</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5015</Reference>
         </References>
     </UAObject>
-    <UAVariable ParentNodeId="ns=1;i=5019" BrowseName="NumberInList" NodeId="ns=1;i=6041" DataType="UInteger">
+    <UAVariable BrowseName="NumberInList" DataType="UInteger" NodeId="ns=1;i=6041" ParentNodeId="ns=1;i=5019">
         <DisplayName>NumberInList</DisplayName>
         <Description Locale="en">MTC: N/A || Enumerate the stacklight elements counting upwards beginning from the base of the stacklight.</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5019</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5019</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5019" BrowseName="5:SignalColor" NodeId="ns=1;i=6048" DataType="SignalColor" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="5:SignalColor" DataType="SignalColor" NodeId="ns=1;i=6048" ParentNodeId="ns=1;i=5019">
         <DisplayName>SignalColor</DisplayName>
-        <Description Locale="en">MTC: Controller/Controller/LightState{Color]
-|| the colour the lamp element has when switched on.</Description>
+        <Description>MTC: Controller/Controller/LightStateRed</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5019</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5019</Reference>
         </References>
+        <Value>
+            <uax:Int32>1</uax:Int32>
+        </Value>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5019" BrowseName="5:SignalMode" NodeId="ns=1;i=6049" DataType="SignalModeLight" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="5:SignalMode" DataType="SignalModeLight" NodeId="ns=1;i=6049" ParentNodeId="ns=1;i=5019">
         <DisplayName>SignalMode</DisplayName>
-        <Description Locale="en">MTC: N/A || Shows in what way the lamp is used (continuous light, flashing, blinking) when switched on.</Description>
+        <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5019</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5019</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5019" BrowseName="5:SignalOn" NodeId="ns=1;i=6050" DataType="Boolean" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="5:SignalOn" DataType="Boolean" NodeId="ns=1;i=6050" ParentNodeId="ns=1;i=5019">
         <DisplayName>SignalOn</DisplayName>
-        <Description Locale="en">MTC: Controller/Controller/LightState{Color]
-|| Indicates if the signal emitted by the stack element is currently switched on or not.</Description>
+        <Description>MTC: Controller/Controller/LightStateRed</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5019</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5019</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5015" BrowseName="5:StacklightMode" NodeId="ns=1;i=6038" DataType="StacklightOperationMode" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="5:StacklightMode" DataType="StacklightOperationMode" NodeId="ns=1;i=6038" ParentNodeId="ns=1;i=5015">
         <DisplayName>StacklightMode</DisplayName>
         <Description Locale="en">MTC: N/A || Shows in what way (stack of individual lights, level meter, running light) the stacklight unit is used.</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5015</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5015</Reference>
         </References>
     </UAVariable>
-    <UAObject ParentNodeId="ns=1;i=5003" BrowseName="2:Notification" NodeId="ns=1;i=5008">
-        <DisplayName>Notification</DisplayName>
+    <UAObject BrowseName="1:Status" NodeId="ns=1;i=5023">
+        <DisplayName>Status</DisplayName>
         <References>
-            <Reference ReferenceType="HasTypeDefinition">ns=2;i=7</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+            <Reference IsForward="false" ReferenceType="Organizes">ns=1;i=5006</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6057</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6033</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="1:EmergencyStopTriggered" NodeId="ns=1;i=6033" DataType="Boolean" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="1:Availability" DataType="LocalizedText" NodeId="ns=1;i=6057">
+        <DisplayName>Availability</DisplayName>
+        <Description>MTC: Device/{Machine}/Availability</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference IsForward="false" ReferenceType="Organizes">ns=1;i=5023</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable AccessLevel="3" BrowseName="1:EmergencyStopTriggered" DataType="Boolean" NodeId="ns=1;i=6033">
         <DisplayName>EmergencyStopTriggered</DisplayName>
         <Description>MTC: Controller/controller/EmergencyStop
 </Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5008</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5023</Reference>
         </References>
     </UAVariable>
-    <UAObject ParentNodeId="ns=1;i=5003" BrowseName="2:Production" NodeId="ns=1;i=5009">
+    <UAObject BrowseName="2:Notification" NodeId="ns=1;i=5008" ParentNodeId="ns=1;i=5003">
+        <DisplayName>Notification</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=7</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5003</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6056</Reference>
+        </References>
+    </UAObject>
+    <UAVariable AccessLevel="3" BrowseName="1:NumberOfActiveAlarms" DataType="Float" NodeId="ns=1;i=6056">
+        <DisplayName>NumberOfActiveAlarms</DisplayName>
+        <Description>MTC: Controller/Controller/NumberOfActiveAlarms</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference IsForward="false" ReferenceType="Organizes">ns=1;i=5008</Reference>
+        </References>
+    </UAVariable>
+    <UAObject BrowseName="2:Production" NodeId="ns=1;i=5009" ParentNodeId="ns=1;i=5003">
         <DisplayName>Production</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=21</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5003</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5010</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
         </References>
     </UAObject>
-    <UAObject ParentNodeId="ns=1;i=5009" BrowseName="2:ActiveProgram" NodeId="ns=1;i=5010">
+    <UAObject BrowseName="2:ActiveProgram" NodeId="ns=1;i=5010" ParentNodeId="ns=1;i=5009">
         <DisplayName>ActiveProgram</DisplayName>
         <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=32</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5009</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6025</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6027</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6026</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6005</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6006</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6028</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=2;i=32</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5011</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5009</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="1:CurrentRunTime" NodeId="ns=1;i=6025" DataType="UInt32" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="1:CurrentRunTime" DataType="UInt32" NodeId="ns=1;i=6025">
         <DisplayName>CurrentRunTime</DisplayName>
         <Description>MTC: Controller/Controller/CurrentRunTime
 </Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:DesiredParts" NodeId="ns=1;i=6027" DataType="UInt32" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="1:DesiredParts" DataType="UInt32" NodeId="ns=1;i=6027">
         <DisplayName>DesiredParts</DisplayName>
-        <Description>MTC: Controller/Controller/CurrentRunTime</Description>
+        <Description>MTC: Path/Path_1/PartCount subType TARGET</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5010" BrowseName="2:JobIdentifier" NodeId="ns=1;i=6026" DataType="String">
+    <UAVariable BrowseName="2:JobIdentifier" DataType="String" NodeId="ns=1;i=6026" ParentNodeId="ns=1;i=5010">
         <DisplayName>JobIdentifier</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5010</Reference>
         </References>
         <Value>
-            <uax:String>MTC: Production/ActiveProgram/JobIdentifier</uax:String>
+            <uax:String>MTC: Path/Path_1/Program</uax:String>
         </Value>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5010" BrowseName="2:Name" NodeId="ns=1;i=6005" DataType="String">
+    <UAVariable BrowseName="2:Name" DataType="String" NodeId="ns=1;i=6005" ParentNodeId="ns=1;i=5010">
         <DisplayName>Name</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5010</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5010" BrowseName="NumberInList" NodeId="ns=1;i=6006" DataType="UInt16">
+    <UAVariable BrowseName="NumberInList" DataType="UInt16" NodeId="ns=1;i=6006" ParentNodeId="ns=1;i=5010">
         <DisplayName>NumberInList</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5010</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:PartCounter" NodeId="ns=1;i=6028" DataType="UInt32" AccessLevel="3">
+    <UAVariable AccessLevel="3" BrowseName="1:PartCounter" DataType="UInt32" NodeId="ns=1;i=6028">
         <DisplayName>PartCounter</DisplayName>
-        <Description>MTC: Production/ActiveProgram/PartCounter</Description>
+        <Description>MTC: Path/Path_1/PartCount subType ALL</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5010</Reference>
         </References>
         <Value>
             <uax:UInt32>0</uax:UInt32>
         </Value>
     </UAVariable>
-    <UAObject ParentNodeId="ns=1;i=5010" BrowseName="2:State" NodeId="ns=1;i=5011">
+    <UAObject BrowseName="2:State" NodeId="ns=1;i=5011" ParentNodeId="ns=1;i=5010">
         <DisplayName>State</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=15</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5010</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6007</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
         </References>
     </UAObject>
-    <UAVariable ParentNodeId="ns=1;i=5011" BrowseName="CurrentState" NodeId="ns=1;i=6007" DataType="LocalizedText">
+    <UAVariable BrowseName="CurrentState" DataType="LocalizedText" NodeId="ns=1;i=6007" ParentNodeId="ns=1;i=5011">
         <DisplayName>CurrentState</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=2760</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">ns=1;i=5011</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6008</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6009</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5011</Reference>
         </References>
         <Value>
             <uax:LocalizedText/>
         </Value>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=6007" BrowseName="Id" NodeId="ns=1;i=6008" DataType="NodeId">
+    <UAVariable BrowseName="Id" DataType="NodeId" NodeId="ns=1;i=6008" ParentNodeId="ns=1;i=6007">
         <DisplayName>Id</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6007</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=6007</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=6007" BrowseName="Number" NodeId="ns=1;i=6009" DataType="UInt32">
+    <UAVariable BrowseName="Number" DataType="UInt32" NodeId="ns=1;i=6009" ParentNodeId="ns=1;i=6007">
         <DisplayName>Number</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6007</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=6007</Reference>
         </References>
     </UAVariable>
     <UAObject BrowseName="1:http://ifw.uni-hannover.de/umatiConnectDMG/" NodeId="ns=1;i=5012" SymbolicName="http___ifw_uni_hannover_de_umatiConnectDMG_">
         <DisplayName>http://ifw.uni-hannover.de/umatiConnectDMG/</DisplayName>
         <References>
-            <Reference ReferenceType="HasProperty">ns=1;i=6013</Reference>
             <Reference ReferenceType="HasTypeDefinition">i=11616</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6013</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6014</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6015</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6016</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6017</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6018</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6019</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">i=11715</Reference>
+            <Reference IsForward="false" ReferenceType="HasComponent">i=11715</Reference>
         </References>
     </UAObject>
-    <UAVariable ParentNodeId="ns=1;i=5012" BrowseName="IsNamespaceSubset" NodeId="ns=1;i=6013" DataType="Boolean">
+    <UAVariable BrowseName="IsNamespaceSubset" DataType="Boolean" NodeId="ns=1;i=6013" ParentNodeId="ns=1;i=5012">
         <DisplayName>IsNamespaceSubset</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5012</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5012</Reference>
         </References>
         <Value>
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5012" BrowseName="NamespacePublicationDate" NodeId="ns=1;i=6014" DataType="DateTime">
+    <UAVariable BrowseName="NamespacePublicationDate" DataType="DateTime" NodeId="ns=1;i=6014" ParentNodeId="ns=1;i=5012">
         <DisplayName>NamespacePublicationDate</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5012</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5012</Reference>
         </References>
         <Value>
             <uax:DateTime>2025-03-18T09:51:03Z</uax:DateTime>
         </Value>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5012" BrowseName="NamespaceUri" NodeId="ns=1;i=6015" DataType="String">
+    <UAVariable BrowseName="NamespaceUri" DataType="String" NodeId="ns=1;i=6015" ParentNodeId="ns=1;i=5012">
         <DisplayName>NamespaceUri</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5012</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5012</Reference>
         </References>
         <Value>
             <uax:String>http://ifw.uni-hannover.de/umatiConnectDMG/</uax:String>
         </Value>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5012" BrowseName="NamespaceVersion" NodeId="ns=1;i=6016" DataType="String">
+    <UAVariable BrowseName="NamespaceVersion" DataType="String" NodeId="ns=1;i=6016" ParentNodeId="ns=1;i=5012">
         <DisplayName>NamespaceVersion</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5012</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5012</Reference>
         </References>
         <Value>
             <uax:String>1.0.0</uax:String>
         </Value>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5012" BrowseName="StaticNodeIdTypes" NodeId="ns=1;i=6017" ArrayDimensions="0" ValueRank="1" DataType="IdType">
+    <UAVariable ArrayDimensions="0" ValueRank="1" BrowseName="StaticNodeIdTypes" DataType="IdType" NodeId="ns=1;i=6017" ParentNodeId="ns=1;i=5012">
         <DisplayName>StaticNodeIdTypes</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5012</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5012</Reference>
         </References>
         <Value>
             <uax:ListOfInt32>
@@ -670,18 +773,18 @@ PowerOnDuration is the duration the MachineryItem has been powered. The main pur
             </uax:ListOfInt32>
         </Value>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5012" BrowseName="StaticNumericNodeIdRange" NodeId="ns=1;i=6018" ArrayDimensions="0" ValueRank="1" DataType="NumericRange">
+    <UAVariable ArrayDimensions="0" ValueRank="1" BrowseName="StaticNumericNodeIdRange" DataType="NumericRange" NodeId="ns=1;i=6018" ParentNodeId="ns=1;i=5012">
         <DisplayName>StaticNumericNodeIdRange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5012</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5012</Reference>
         </References>
     </UAVariable>
-    <UAVariable ParentNodeId="ns=1;i=5012" BrowseName="StaticStringNodeIdPattern" NodeId="ns=1;i=6019" DataType="String">
+    <UAVariable BrowseName="StaticStringNodeIdPattern" DataType="String" NodeId="ns=1;i=6019" ParentNodeId="ns=1;i=5012">
         <DisplayName>StaticStringNodeIdPattern</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5012</Reference>
+            <Reference IsForward="false" ReferenceType="HasProperty">ns=1;i=5012</Reference>
         </References>
     </UAVariable>
 </UANodeSet>
