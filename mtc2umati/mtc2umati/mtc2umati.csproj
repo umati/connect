@@ -29,7 +29,7 @@
     <None Update="Nodesets\Opc.Ua.IA.NodeSet2.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Nodesets\opc.ua.isa95-jobcontrol.nodeset2.xml">
+    <None Update="Nodesets\Opc.Ua.ISA95-JobControl.NodeSet2.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Nodesets\Opc.Ua.Machinery.Jobs.Nodeset2.xml">

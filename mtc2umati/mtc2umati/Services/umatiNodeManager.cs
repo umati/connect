@@ -2,10 +2,6 @@
  * Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
  * =======================================================================*/
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Runtime.InteropServices;
 using Opc.Ua;
 using Opc.Ua.Export;
 using Opc.Ua.Server;
@@ -44,25 +40,25 @@ namespace mtc2umati.Services
                     externalReferences[ObjectIds.ObjectsFolder] = references = [];
                 }
 
-            Console.WriteLine("Importing NodeSet2 XML...");
+                Console.WriteLine("Importing NodeSet2 XML...");
 
-            string resourcePathDI = "./Nodesets/Opc.Ua.Di.NodeSet2.xml";
-            string resourcePathIA = "./Nodesets/Opc.Ua.IA.NodeSet2.xml";
-            string resourcePathMachinery = "./Nodesets/Opc.Ua.Machinery.NodeSet2.xml";
-            string resourcePathJobControl = "./Nodesets/opc.ua.isa95-jobcontrol.nodeset2.xml";
-            string resourcePathMachineryJobs = "./Nodesets/Opc.Ua.Machinery.Jobs.Nodeset2.xml";
-            string resourcePathMachineTool = "./Nodesets/Opc.Ua.MachineTool.NodeSet2.xml";
-            string resourcePathCNC = "./Nodesets/Opc.Ua.CNC.NodeSet.xml";
-            string resourcePathUmatiConnect = $"./Nodesets/{ConfigStore.VendorSettings.Information_model}";
+                string resourcePathDI = "./Nodesets/Opc.Ua.Di.NodeSet2.xml";
+                string resourcePathIA = "./Nodesets/Opc.Ua.IA.NodeSet2.xml";
+                string resourcePathMachinery = "./Nodesets/Opc.Ua.Machinery.NodeSet2.xml";
+                string resourcePathJobControl = "./Nodesets/Opc.Ua.ISA95-JobControl.NodeSet2.xml";
+                string resourcePathMachineryJobs = "./Nodesets/Opc.Ua.Machinery.Jobs.Nodeset2.xml";
+                string resourcePathMachineTool = "./Nodesets/Opc.Ua.MachineTool.NodeSet2.xml";
+                string resourcePathCNC = "./Nodesets/Opc.Ua.CNC.NodeSet.xml";
+                string resourcePathUmatiConnect = $"./Nodesets/{ConfigStore.VendorSettings.Information_model}";
 
-            ImportXml(externalReferences, resourcePathDI);
-            ImportXml(externalReferences, resourcePathIA);
-            ImportXml(externalReferences, resourcePathMachinery);
-            ImportXml(externalReferences, resourcePathJobControl);
-            ImportXml(externalReferences, resourcePathMachineryJobs);
-            ImportXml(externalReferences, resourcePathMachineTool);
-            ImportXml(externalReferences, resourcePathCNC);
-            ImportXml(externalReferences, resourcePathUmatiConnect);
+                ImportXml(externalReferences, resourcePathDI);
+                ImportXml(externalReferences, resourcePathIA);
+                ImportXml(externalReferences, resourcePathMachinery);
+                ImportXml(externalReferences, resourcePathJobControl);
+                ImportXml(externalReferences, resourcePathMachineryJobs);
+                ImportXml(externalReferences, resourcePathMachineTool);
+                ImportXml(externalReferences, resourcePathCNC);
+                ImportXml(externalReferences, resourcePathUmatiConnect);
             }
         }
 

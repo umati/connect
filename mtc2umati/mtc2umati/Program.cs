@@ -2,8 +2,8 @@
  * Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
  * =======================================================================*/
 
-using System;
-using System.Threading.Tasks;
+global using System;
+global using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using Opc.Ua;
 using mtc2umati.Services;
@@ -124,14 +124,14 @@ namespace mtc2umati
         {
             // Load the mapping from the Excel file
             Console.WriteLine("Creating the mapping between MTC and OPC UA...");
-            _mappedObjects = MappingLoader.LoadMapping(ConfigStore.VendorSettings.Mapping_file!, ConfigStore.VendorSettings.Mapping_sheet!)  ?? [];;
+            _mappedObjects = MappingLoader.LoadMapping(ConfigStore.VendorSettings.Mapping_file!, ConfigStore.VendorSettings.Mapping_sheet!) ?? []; ;
 
             Task.Delay(3000).Wait();
 
             // Validate vendor config for MTC connection
-            string url = ConfigStore.VendorSettings.MTCServerIP ?? throw new ArgumentNullException(nameof(ConfigStore.VendorSettings.MTCServerIP), "MTCServerIP cannot be null.");;
+            string url = ConfigStore.VendorSettings.MTCServerIP ?? throw new ArgumentNullException(nameof(ConfigStore.VendorSettings.MTCServerIP), "MTCServerIP cannot be null."); ;
             int port = ConfigStore.VendorSettings.MTCServerPort;
-            string mtcNamespace = ConfigStore.VendorSettings.MTCNamespace ?? throw new ArgumentNullException(nameof(ConfigStore.VendorSettings.MTCNamespace), "MTCNamespace cannot be null.");;
+            string mtcNamespace = ConfigStore.VendorSettings.MTCNamespace ?? throw new ArgumentNullException(nameof(ConfigStore.VendorSettings.MTCNamespace), "MTCNamespace cannot be null."); ;
 
             // Run the fetch loop
             Console.WriteLine($"Starting MTConnect XML fetch loop with URL: {url} and Port: {port}");

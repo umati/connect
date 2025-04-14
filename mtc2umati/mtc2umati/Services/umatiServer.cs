@@ -2,10 +2,8 @@
  * Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
  * =======================================================================*/
 
-using System;
 using Opc.Ua;
 using Opc.Ua.Server;
-using System.Collections.Generic;
 
 namespace mtc2umati.Services
 {

@@ -3,10 +3,6 @@
  * =======================================================================*/
 
 using Opc.Ua;
-using Opc.Ua.Server;
-using System;
-using System.Threading.Tasks;
-using mtc2umati;
 
 namespace mtc2umati.Services
 {
@@ -38,11 +34,10 @@ namespace mtc2umati.Services
             Console.WriteLine($"MachineNodeId: {parentNode?.NodeId}, BrowseName: {parentNode?.BrowseName}");
             while (true)
             {
-            WriteValuesToNodes(mappedObjects, nodeManager, parentNode);
-            await Task.Delay(10000); // Wait before updating again
+                WriteValuesToNodes(mappedObjects, nodeManager, parentNode);
+                await Task.Delay(1000); // Wait before updating again
             }
         }
-
 
         public static void WriteValuesToNodes(List<MappedObject> mappedObjects, UmatiNodeManager? nodeManager, NodeState? parentNode)
         {
@@ -97,12 +92,12 @@ namespace mtc2umati.Services
                         variableNode.Timestamp = DateTime.UtcNow;
                         variableNode.StatusCode = StatusCodes.Good;
                         variableNode.ClearChangeMasks(nodeManager?.SystemContext, true);
-                        Console.WriteLine($"Updated node '{currentNode?.BrowseName?.Name}' to value '{mappedObject.Value}'.");
+                        Console.WriteLine($"Updated node '{mappedObject.OpcPath}' to value '{mappedObject.Value}'.");
                     }
                 }
                 else
                 {
-                    Console.WriteLine($"Node '{currentNode?.BrowseName?.Name}' is not a variable (PropertyState or BaseDataVariableState).");
+                    Console.WriteLine($"Node '{currentNode?.BrowseName?.Name}' in '{mappedObject.MtcPath}' --> '{mappedObject.OpcPath}' is not a variable (PropertyState or BaseDataVariableState).");
                 }
             }
         }
