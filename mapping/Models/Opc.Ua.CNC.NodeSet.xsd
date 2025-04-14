@@ -1,0 +1,126 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ua="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:tns="http://opcfoundation.org/UA/CNC/Types.xsd" elementFormDefault="qualified" targetNamespace="http://opcfoundation.org/UA/CNC/Types.xsd">
+    <xs:import namespace="http://opcfoundation.org/UA/2008/02/Types.xsd"/>
+    <xs:simpleType name="CncAxisStatus">
+        <xs:annotation>
+            <xs:documentation>Status of a CNC axis.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="InPosition_0"/>
+            <xs:enumeration value="Moving_1"/>
+            <xs:enumeration value="Parked_2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:CncAxisStatus" name="CncAxisStatus"/>
+    <xs:complexType name="ListOfCncAxisStatus">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" nillable="true" type="tns:CncAxisStatus" name="CncAxisStatus"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element nillable="true" type="tns:ListOfCncAxisStatus" name="ListOfCncAxisStatus"/>
+    <xs:simpleType name="CncChannelProgramStatus">
+        <xs:annotation>
+            <xs:documentation>Status of program execution within a channel.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Stopped_0"/>
+            <xs:enumeration value="Running_1"/>
+            <xs:enumeration value="Waiting_2"/>
+            <xs:enumeration value="Interrupted_3"/>
+            <xs:enumeration value="Canceled_4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:CncChannelProgramStatus" name="CncChannelProgramStatus"/>
+    <xs:complexType name="ListOfCncChannelProgramStatus">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" nillable="true" type="tns:CncChannelProgramStatus" name="CncChannelProgramStatus"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element nillable="true" type="tns:ListOfCncChannelProgramStatus" name="ListOfCncChannelProgramStatus"/>
+    <xs:simpleType name="CncChannelStatus">
+        <xs:annotation>
+            <xs:documentation>Status of a CNC channel.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Active_0"/>
+            <xs:enumeration value="Interrupted_1"/>
+            <xs:enumeration value="Reset_2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:CncChannelStatus" name="CncChannelStatus"/>
+    <xs:complexType name="ListOfCncChannelStatus">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" nillable="true" type="tns:CncChannelStatus" name="CncChannelStatus"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element nillable="true" type="tns:ListOfCncChannelStatus" name="ListOfCncChannelStatus"/>
+    <xs:simpleType name="CncOperationMode">
+        <xs:annotation>
+            <xs:documentation>Modes of operation.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Manual_0"/>
+            <xs:enumeration value="MDA_1"/>
+            <xs:enumeration value="Automatic_2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:CncOperationMode" name="CncOperationMode"/>
+    <xs:complexType name="ListOfCncOperationMode">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" nillable="true" type="tns:CncOperationMode" name="CncOperationMode"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element nillable="true" type="tns:ListOfCncOperationMode" name="ListOfCncOperationMode"/>
+    <xs:simpleType name="CncSpindleStatus">
+        <xs:annotation>
+            <xs:documentation>Status of a CNC spindle.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Stopped_0"/>
+            <xs:enumeration value="InTargetArea_1"/>
+            <xs:enumeration value="Accelerating_2"/>
+            <xs:enumeration value="Decelerating_3"/>
+            <xs:enumeration value="Parked_4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:CncSpindleStatus" name="CncSpindleStatus"/>
+    <xs:complexType name="ListOfCncSpindleStatus">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" nillable="true" type="tns:CncSpindleStatus" name="CncSpindleStatus"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element nillable="true" type="tns:ListOfCncSpindleStatus" name="ListOfCncSpindleStatus"/>
+    <xs:simpleType name="CncSpindleTurnDirection">
+        <xs:annotation>
+            <xs:documentation>Turn direction of a CNC spindle.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="None_0"/>
+            <xs:enumeration value="CW_1"/>
+            <xs:enumeration value="CCW_2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:CncSpindleTurnDirection" name="CncSpindleTurnDirection"/>
+    <xs:complexType name="ListOfCncSpindleTurnDirection">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" nillable="true" type="tns:CncSpindleTurnDirection" name="CncSpindleTurnDirection"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element nillable="true" type="tns:ListOfCncSpindleTurnDirection" name="ListOfCncSpindleTurnDirection"/>
+    <xs:complexType name="CncPositionDataType">
+        <xs:annotation>
+            <xs:documentation>Structure of position elements.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" type="xs:double" name="ActPos"/>
+            <xs:element minOccurs="0" maxOccurs="1" type="xs:double" name="CmdPos"/>
+            <xs:element minOccurs="0" maxOccurs="1" type="xs:double" name="RemDist"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:CncPositionDataType" name="CncPositionDataType"/>
+    <xs:complexType name="ListOfCncPositionDataType">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" nillable="true" type="tns:CncPositionDataType" name="CncPositionDataType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element nillable="true" type="tns:ListOfCncPositionDataType" name="ListOfCncPositionDataType"/>
+</xs:schema>
