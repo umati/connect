@@ -1,6 +1,6 @@
 ###########################
 # UaModeler Project File  #
-# Generated at 10.04.2025 #
+# Generated at 14.04.2025 #
 ###########################
 
 PROJECTNAME = MAZAK-model
@@ -10,8 +10,8 @@ TEMPLATESET = ($TEMPLATES)/modeling/v1_0/t0/modeling.tt2set
 MODELS += ($MODELS)/Opc.Ua.NodeSet2.ua \
     ($MODELS)/Opc.Ua.Di.NodeSet2.ua \
     ../../Models/Opc.Ua.Machinery.NodeSet2.ua \
-    ../../Models/opc.ua.isa95-jobcontrol.nodeset2.ua \
-    ../../Models/Opc.Ua.Machinery.Jobs.Nodeset2.ua \
+    ../../Models/Opc.Ua.ISA95-JobControl.NodeSet2.ua \
+    ../../Models/Opc.Ua.Machinery.Jobs.NodeSet2.ua \
     ../../Models/Opc.Ua.IA.NodeSet2.ua \
     ../../Models/Opc.Ua.MachineTool.NodeSet2.ua \
     ../../Models/Opc.Ua.CNC.NodeSet.ua \
@@ -20,8 +20,8 @@ MODELS += ($MODELS)/Opc.Ua.NodeSet2.ua \
 COLORS = ($MODELS)/Opc.Ua.NodeSet2.ua: #0000ff\
     ($MODELS)/Opc.Ua.Di.NodeSet2.ua: #0000ff\
     ../../Models/Opc.Ua.Machinery.NodeSet2.ua: #0000ff\
-    ../../Models/opc.ua.isa95-jobcontrol.nodeset2.ua: #0000ff\
-    ../../Models/Opc.Ua.Machinery.Jobs.Nodeset2.ua: #0000ff\
+    ../../Models/Opc.Ua.ISA95-JobControl.NodeSet2.ua: #0000ff\
+    ../../Models/Opc.Ua.Machinery.Jobs.NodeSet2.ua: #0000ff\
     ../../Models/Opc.Ua.IA.NodeSet2.ua: #0000ff\
     ../../Models/Opc.Ua.MachineTool.NodeSet2.ua: #0000ff\
     ../../Models/Opc.Ua.CNC.NodeSet.ua: #0000ff\
@@ -33,8 +33,8 @@ GENERATE += umaticonnectmazak.ua
 
 LOCKEDMODELS += ($MODELS)/Opc.Ua.Di.NodeSet2.ua \
     ../../Models/Opc.Ua.Machinery.NodeSet2.ua \
-    ../../Models/opc.ua.isa95-jobcontrol.nodeset2.ua \
-    ../../Models/Opc.Ua.Machinery.Jobs.Nodeset2.ua \
+    ../../Models/Opc.Ua.ISA95-JobControl.NodeSet2.ua \
+    ../../Models/Opc.Ua.Machinery.Jobs.NodeSet2.ua \
     ../../Models/Opc.Ua.IA.NodeSet2.ua \
     ../../Models/Opc.Ua.MachineTool.NodeSet2.ua \
     ../../Models/Opc.Ua.CNC.NodeSet.ua
