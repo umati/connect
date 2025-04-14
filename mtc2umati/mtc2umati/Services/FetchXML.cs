@@ -41,6 +41,7 @@ public class XmlFetcher
 public class XmlMapper
 {
     private readonly XmlNamespaceManager _namespaceManager;
+    private string _modelName = string.Empty; // Stores the model name from the DeviceStream, maybe find a better way to do this
 
     public XmlMapper(string mtcNamespace)
     {
@@ -57,56 +58,80 @@ public class XmlMapper
             if (mappedObject.MtcPath.StartsWith("#"))
             {
                 mappedObject.Value = mappedObject.MtcPath[1..];
-                Console.WriteLine($"[INFO] Special Value {mappedObject.OpcPath} will be explicitly set to: {mappedObject.Value}");
+                continue;
+            }
+
+            // explicit rules for handling DeviceStream "name" and "uuid" and covert to UA4MT "Model" and "AssedId", whereas DMG uses "DeviceStream" and Mazak uses "Device"
+            if (mappedObject.MtcPath.StartsWith("<Device"))
+            {
+                var deviceStreamPaths = mappedObject.MtcPath.Split('/');
+                string variableName = deviceStreamPaths[1];
+                if (variableName == "name")
+                {
+                    var deviceStream = xmlDoc.XPathSelectElement($"//mt:DeviceStream[@name!='Agent']", _namespaceManager);
+                    // Check if the deviceStream is null and handle accordingly
+                    _modelName = deviceStream?.Attribute("name")?.Value ?? string.Empty;
+                    mappedObject.Value = _modelName;
+                }
+                else if (variableName == "uuid")
+                {
+                    var deviceStream = xmlDoc.XPathSelectElement($"//mt:DeviceStream[@name!='Agent']", _namespaceManager);
+                    string uuid = deviceStream?.Attribute("uuid")?.Value ?? string.Empty;
+                    mappedObject.Value = uuid;
+                }
+                else
+                {
+                    Console.WriteLine($"[ERROR] Unknown variable name '{variableName}' in DeviceStream path.");
+                }
                 continue;
             }
 
             var mtcPathParts = mappedObject.MtcPath.Split('/');
-            if (mtcPathParts.Length != 3) // this assumption needs to be changed for special cases / or maybe add another special case and special logic for Stacklight etc.
+            if (mtcPathParts.Length == 3) // this assumption needs to be changed for special cases / or maybe add another special case and special logic for Stacklight etc.
             {
-                //Console.WriteLine($"[ERROR] Invalid MTC Path: {mappedObject.MtcPath}");
-                mappedObject.Value = "Placeholder";
-                continue;
-            }
-
-            string componentType = mtcPathParts[0];
-            string componentName = mtcPathParts[1];
-            string dataItemName = mtcPathParts[2];
-            string subType = mappedObject.MtcSubtype;
-
-            var componentXPath = $"//mt:ComponentStream[@component='{componentType}' and @name='{componentName}']";
-            var component = xmlDoc.XPathSelectElement(componentXPath, _namespaceManager);
-
-            if (component != null)
-            {
-                var valueElement = subType != ""
-                    ? FindDataItemSubtypeRecursive(component, dataItemName, subType)
-                    : FindDataItemRecursive(component, dataItemName);
-
-                if (valueElement?.Value is not null && mappedObject?.MtcDataType is not null)
+                string componentType = mtcPathParts[0];
+                string componentName = mtcPathParts[1];
+                if (componentName == "{Machine}")
                 {
-                    var value = valueElement.Value;
-                    var dataType = mappedObject.MtcDataType;
-                    var convertedValue = ConvertValue(value, dataType);
+                    componentName = _modelName; // use the model name from the DeviceStream
+                }
+                string dataItemName = mtcPathParts[2].Trim();
+                string subType = mappedObject.MtcSubtype;
 
-                    if (convertedValue is not null)
+                var componentXPath = $"//mt:ComponentStream[@component='{componentType}' and @name='{componentName}']";
+                var component = xmlDoc.XPathSelectElement(componentXPath, _namespaceManager);
+
+                if (component != null)
+                {
+                    var valueElement = subType != ""
+                        ? FindDataItemSubtypeRecursive(component, dataItemName, subType)
+                        : FindDataItemRecursive(component, dataItemName);
+
+                    if (valueElement?.Value is not null && mappedObject?.MtcDataType is not null)
                     {
-                        mappedObject.Value = convertedValue;
+                        var value = valueElement.Value;
+                        var dataType = mappedObject.MtcDataType;
+                        var convertedValue = ConvertValue(value, dataType);
+
+                        if (convertedValue is not null)
+                        {
+                            mappedObject.Value = convertedValue;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"[ERROR] Conversion returned null for value '{value}' and data type '{dataType}'");
+                        }
                     }
                     else
                     {
-                        Console.WriteLine($"[ERROR] Conversion returned null for value '{value}' and data type '{dataType}'");
+                        Console.WriteLine($"[ERROR] Value '{dataItemName}'{(string.IsNullOrEmpty(subType) ? "" : $" with subtype '{subType}'")} not found under '{mappedObject?.MtcPath}"
+                            + (component is null ? $" within component: {(mappedObject != null ? mappedObject.MtcPath : "unknown")}" : ""));
                     }
                 }
                 else
                 {
-                    Console.WriteLine($"[ERROR] Value '{dataItemName}'{(string.IsNullOrEmpty(subType) ? "" : $" with subtype '{subType}'")} not found"
-                        + (component is null ? $" within component: {(mappedObject != null ? mappedObject.MtcPath : "unknown")}" : ""));
+                    Console.WriteLine($"[ERROR] Component '{componentType}' with name '{componentName}' not found in XML.");
                 }
-            }
-            else
-            {
-                Console.WriteLine($"[ERROR] Component '{componentType}' with name '{componentName}' not found in XML.");
             }
         }
         return mappedObjects;
@@ -198,7 +223,7 @@ public static class XmlFetchLoopRunner
                 mappedObjects = xmlMapper.MapXmlValues(xmlDoc, mappedObjects);
 
                 // +++++++++++++++++ Print the mapped objects after fetching XML data +++++++++++++++++++++
-                //mappedObjects.ShowMappedObjects();
+                mappedObjects.ShowMappedObjects();
             }
 
 

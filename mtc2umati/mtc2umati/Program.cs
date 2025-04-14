@@ -29,7 +29,7 @@ namespace mtc2umati
                 await CheckApplicationInstanceCertificate(config).ConfigureAwait(false);
 
                 // load the vendor configuration
-                ConfigStore.LoadConfigJSON("dmg");
+                ConfigStore.LoadConfigJSON("mazak");
 
                 // Start both the XML fetch and server in parallel
                 Task startServerTask = StartServer(config);
