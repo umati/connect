@@ -8,14 +8,14 @@ using ClosedXML.Excel;
 namespace mtc2umati.Services
 {
 
-    public class MappedObject(string opcPath, string opcDataType, string mtcPath, string mtcDataType, string mtcSubtype, object value)
+    public class MappedObject(string opcPath, string opcDataType, string mtcPath, string mtcDataType, string mtcSubtype, object? value = null)
     {
         public string OpcPath { get; set; } = opcPath;
         public string OpcDataType { get; set; } = opcDataType;
         public string MtcPath { get; set; } = mtcPath;
         public string MtcDataType { get; set; } = mtcDataType;
         public string MtcSubtype { get; set; } = mtcSubtype;
-        public object Value { get; set; } = value;
+        public object? Value { get; set; } = value;
     }
 
     public static class MappingLoader
@@ -31,14 +31,13 @@ namespace mtc2umati.Services
                     row["Data Type"]?.ToString() ?? string.Empty,
                     row["MTC Path"]?.ToString() ?? string.Empty,
                     row["MTC Data Type"]?.ToString() ?? string.Empty,
-                    row["subType"]?.ToString() ?? string.Empty,
-                    "none" // Default value for Value property
+                    row["subType"]?.ToString() ?? string.Empty
                 );
 
                 mappedObjects.Add(mappedObject);
             }
 
-            Console.WriteLine($"[INFO] {mappedObjects.Count} Mapped Objects loaded from DataTable.");
+            Console.WriteLine($"[INFO] {mappedObjects.Count} mapped objects loaded from DataTable.");
 
             return mappedObjects;
         }
