@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ua="http://unifiedautomation.com/Configuration/NodeSet.xsd" xmlns:s5="http://opcfoundation.org/UA/DI/Types.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:s3="http://opcfoundation.org/UA/Machinery/Types.xsd" xmlns:s2="http://opcfoundation.org/UA/MachineTool/Types.xsd" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:s1="http://ifw.uni-hannover.de/umatiConnectMazak/Types.xsd" xmlns:s4="http://opcfoundation.org/UA/CNC/Types.xsd">
+<UANodeSet xmlns:s4="http://opcfoundation.org/UA/CNC/Types.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:s1="http://ifw.uni-hannover.de/umatiConnectMazak/Types.xsd" xmlns:ua="http://unifiedautomation.com/Configuration/NodeSet.xsd" xmlns:s5="http://opcfoundation.org/UA/DI/Types.xsd" xmlns:s2="http://opcfoundation.org/UA/MachineTool/Types.xsd" xmlns:s3="http://opcfoundation.org/UA/Machinery/Types.xsd" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
     <NamespaceUris>
         <Uri>http://ifw.uni-hannover.de/umatiConnectMazak/</Uri>
         <Uri>http://opcfoundation.org/UA/MachineTool/</Uri>
@@ -8,15 +8,15 @@
         <Uri>http://opcfoundation.org/UA/DI/</Uri>
     </NamespaceUris>
     <Models>
-        <Model ModelUri="http://ifw.uni-hannover.de/umatiConnectMazak/" Version="1.0.0" PublicationDate="2025-04-14T07:35:12Z">
-            <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.05.04" PublicationDate="2024-12-01T00:00:00Z"/>
-            <RequiredModel ModelUri="http://opcfoundation.org/UA/DI/" Version="1.04.0" PublicationDate="2022-11-03T00:00:00Z"/>
-            <RequiredModel ModelUri="http://opcfoundation.org/UA/Machinery/" Version="1.03.0" PublicationDate="2023-08-01T00:00:00Z"/>
-            <RequiredModel ModelUri="http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/" Version="2.0.0" PublicationDate="2024-01-31T00:00:00Z"/>
-            <RequiredModel ModelUri="http://opcfoundation.org/UA/Machinery/Jobs/" Version="1.0.1" PublicationDate="2024-05-01T00:00:00Z"/>
-            <RequiredModel ModelUri="http://opcfoundation.org/UA/IA/" Version="1.01.2" PublicationDate="2024-02-28T00:00:00Z"/>
-            <RequiredModel ModelUri="http://opcfoundation.org/UA/MachineTool/" Version="1.02.0" PublicationDate="2024-11-01T00:00:00Z"/>
-            <RequiredModel ModelUri="http://opcfoundation.org/UA/CNC" Version="1.0.0" PublicationDate="2017-06-19T16:01:00Z"/>
+        <Model PublicationDate="2025-04-14T07:54:12Z" ModelUri="http://ifw.uni-hannover.de/umatiConnectMazak/" Version="1.0.0">
+            <RequiredModel PublicationDate="2024-12-01T00:00:00Z" ModelUri="http://opcfoundation.org/UA/" Version="1.05.04"/>
+            <RequiredModel PublicationDate="2022-11-03T00:00:00Z" ModelUri="http://opcfoundation.org/UA/DI/" Version="1.04.0"/>
+            <RequiredModel PublicationDate="2023-08-01T00:00:00Z" ModelUri="http://opcfoundation.org/UA/Machinery/" Version="1.03.0"/>
+            <RequiredModel PublicationDate="2024-01-31T00:00:00Z" ModelUri="http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/" Version="2.0.0"/>
+            <RequiredModel PublicationDate="2024-05-01T00:00:00Z" ModelUri="http://opcfoundation.org/UA/Machinery/Jobs/" Version="1.0.1"/>
+            <RequiredModel PublicationDate="2024-02-28T00:00:00Z" ModelUri="http://opcfoundation.org/UA/IA/" Version="1.01.2"/>
+            <RequiredModel PublicationDate="2024-11-01T00:00:00Z" ModelUri="http://opcfoundation.org/UA/MachineTool/" Version="1.02.0"/>
+            <RequiredModel PublicationDate="2017-06-19T16:01:00Z" ModelUri="http://opcfoundation.org/UA/CNC" Version="1.0.0"/>
         </Model>
     </Models>
     <Aliases>
@@ -46,10 +46,10 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Hash="LSaVswqLVInShtJXMk8C7A==" Version="1.7.1" Tool="UaModeler"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="6ZVVVQ4b7wOuU6gb0AF+dA==" Version="1.7.1"/>
         </Extension>
     </Extensions>
-    <UAObject BrowseName="1:MazakReference" NodeId="ns=1;i=5003">
+    <UAObject NodeId="ns=1;i=5003" BrowseName="1:MazakReference">
         <DisplayName>MazakReference</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=13</Reference>
@@ -62,7 +62,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=5009</Reference>
         </References>
     </UAObject>
-    <UAObject BrowseName="3:Components" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5023">
+    <UAObject ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5023" BrowseName="3:Components">
         <DisplayName>Components</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=3;i=1006</Reference>
@@ -70,7 +70,7 @@
             <Reference ReferenceType="Organizes">ns=1;i=5027</Reference>
         </References>
     </UAObject>
-    <UAObject BrowseName="1:AxisList" NodeId="ns=1;i=5027">
+    <UAObject NodeId="ns=1;i=5027" BrowseName="1:AxisList">
         <DisplayName>AxisList</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=4;i=1008</Reference>
@@ -82,7 +82,7 @@
             <Reference ReferenceType="Organizes">ns=1;i=5030</Reference>
         </References>
     </UAObject>
-    <UAObject BrowseName="1:bAxis" NodeId="ns=1;i=5031">
+    <UAObject NodeId="ns=1;i=5031" BrowseName="1:bAxis">
         <DisplayName>bAxis</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=4;i=1004</Reference>
@@ -106,7 +106,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6177</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="4:ActChannel" ParentNodeId="ns=1;i=5031" NodeId="ns=1;i=6180" AccessLevel="3" DataType="NodeId">
+    <UAVariable ParentNodeId="ns=1;i=5031" AccessLevel="3" NodeId="ns=1;i=6180" BrowseName="4:ActChannel" DataType="NodeId">
         <DisplayName Locale="en">ActChannel</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -119,7 +119,7 @@
             </uax:NodeId>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ActLoad" ParentNodeId="ns=1;i=5031" NodeId="ns=1;i=6181" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5031" AccessLevel="3" NodeId="ns=1;i=6181" BrowseName="4:ActLoad" DataType="Double">
         <DisplayName Locale="en">ActLoad</DisplayName>
         <Description>MTC: Rotary/B/Load</Description>
         <References>
@@ -132,7 +132,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6181" NodeId="ns=1;i=6182" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6181" NodeId="ns=1;i=6182" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -159,7 +159,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6181" NodeId="ns=1;i=6183" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6181" NodeId="ns=1;i=6183" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -167,7 +167,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6181</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ActPower" ParentNodeId="ns=1;i=5031" NodeId="ns=1;i=6184" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5031" AccessLevel="3" NodeId="ns=1;i=6184" BrowseName="4:ActPower" DataType="Double">
         <DisplayName Locale="en">ActPower</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -180,7 +180,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6184" NodeId="ns=1;i=6185" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6184" NodeId="ns=1;i=6185" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -207,7 +207,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6184" NodeId="ns=1;i=6186" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6184" NodeId="ns=1;i=6186" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -215,7 +215,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6184</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ActStatus" ParentNodeId="ns=1;i=5031" NodeId="ns=1;i=6162" AccessLevel="3" DataType="CncAxisStatus">
+    <UAVariable ParentNodeId="ns=1;i=5031" AccessLevel="3" NodeId="ns=1;i=6162" BrowseName="4:ActStatus" DataType="CncAxisStatus">
         <DisplayName Locale="en">ActStatus</DisplayName>
         <Description>MTC: Rotary/B/AxisState</Description>
         <References>
@@ -223,7 +223,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5031</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ActTorque" ParentNodeId="ns=1;i=5031" NodeId="ns=1;i=6187" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5031" AccessLevel="3" NodeId="ns=1;i=6187" BrowseName="4:ActTorque" DataType="Double">
         <DisplayName Locale="en">ActTorque</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -236,7 +236,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6187" NodeId="ns=1;i=6188" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6187" NodeId="ns=1;i=6188" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -263,7 +263,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6187" NodeId="ns=1;i=6189" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6187" NodeId="ns=1;i=6189" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -271,7 +271,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6187</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:AngularVelocity" NodeId="ns=1;i=6044" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6044" BrowseName="1:AngularVelocity" DataType="UInt32">
         <DisplayName>AngularVelocity</DisplayName>
         <Description>MTC: Rotary/B/AngularVelocity</Description>
         <References>
@@ -279,7 +279,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5031</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:CmdTorque" ParentNodeId="ns=1;i=5031" NodeId="ns=1;i=6190" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5031" AccessLevel="3" NodeId="ns=1;i=6190" BrowseName="4:CmdTorque" DataType="Double">
         <DisplayName Locale="en">CmdTorque</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -292,7 +292,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6190" NodeId="ns=1;i=6191" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6190" NodeId="ns=1;i=6191" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -319,7 +319,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6190" NodeId="ns=1;i=6192" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6190" NodeId="ns=1;i=6192" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -340,7 +340,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsInactive" ParentNodeId="ns=1;i=5031" NodeId="ns=1;i=6193" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5031" AccessLevel="3" NodeId="ns=1;i=6193" BrowseName="4:IsInactive" DataType="Boolean">
         <DisplayName Locale="en">IsInactive</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -351,7 +351,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsReferenced" ParentNodeId="ns=1;i=5031" NodeId="ns=1;i=6163" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5031" AccessLevel="3" NodeId="ns=1;i=6163" BrowseName="4:IsReferenced" DataType="Boolean">
         <DisplayName Locale="en">IsReferenced</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -362,7 +362,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsRotational" ParentNodeId="ns=1;i=5031" NodeId="ns=1;i=6164" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5031" AccessLevel="3" NodeId="ns=1;i=6164" BrowseName="4:IsRotational" DataType="Boolean">
         <DisplayName Locale="en">IsRotational</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -373,7 +373,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsVirtual" ParentNodeId="ns=1;i=5031" NodeId="ns=1;i=6194" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5031" AccessLevel="3" NodeId="ns=1;i=6194" BrowseName="4:IsVirtual" DataType="Boolean">
         <DisplayName Locale="en">IsVirtual</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -384,7 +384,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:PosDirect" ParentNodeId="ns=1;i=5031" NodeId="ns=1;i=6165" AccessLevel="3" DataType="CncPositionDataType">
+    <UAVariable ParentNodeId="ns=1;i=5031" AccessLevel="3" NodeId="ns=1;i=6165" BrowseName="4:PosDirect" DataType="CncPositionDataType">
         <DisplayName Locale="en">PosDirect</DisplayName>
         <Description Locale="en">Position actual value referring to axis' direct measurement system.</Description>
         <References>
@@ -411,7 +411,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ActPos" ParentNodeId="ns=1;i=6165" NodeId="ns=1;i=6166" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6165" NodeId="ns=1;i=6166" BrowseName="4:ActPos" DataType="Double">
         <DisplayName Locale="en">ActPos</DisplayName>
         <Description>MTC: Rotary/B/Angle</Description>
         <References>
@@ -422,7 +422,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:CmdPos" ParentNodeId="ns=1;i=6165" NodeId="ns=1;i=6167" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6165" NodeId="ns=1;i=6167" BrowseName="4:CmdPos" DataType="Double">
         <DisplayName Locale="en">CmdPos</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -433,7 +433,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:EngineeringUnits" ParentNodeId="ns=1;i=6165" NodeId="ns=1;i=6168" AccessLevel="3" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6165" AccessLevel="3" NodeId="ns=1;i=6168" BrowseName="4:EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -441,7 +441,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6165</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:EURange" ParentNodeId="ns=1;i=6165" NodeId="ns=1;i=6169" AccessLevel="3" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6165" AccessLevel="3" NodeId="ns=1;i=6169" BrowseName="4:EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -449,7 +449,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6165</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:RemDist" ParentNodeId="ns=1;i=6165" NodeId="ns=1;i=6170" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6165" NodeId="ns=1;i=6170" BrowseName="4:RemDist" DataType="Double">
         <DisplayName Locale="en">RemDist</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -460,7 +460,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:PosIndirect" ParentNodeId="ns=1;i=5031" NodeId="ns=1;i=6171" AccessLevel="3" DataType="CncPositionDataType">
+    <UAVariable ParentNodeId="ns=1;i=5031" AccessLevel="3" NodeId="ns=1;i=6171" BrowseName="4:PosIndirect" DataType="CncPositionDataType">
         <DisplayName Locale="en">PosIndirect</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -487,7 +487,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ActPos" ParentNodeId="ns=1;i=6171" NodeId="ns=1;i=6172" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6171" NodeId="ns=1;i=6172" BrowseName="4:ActPos" DataType="Double">
         <DisplayName Locale="en">ActPos</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -498,7 +498,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:CmdPos" ParentNodeId="ns=1;i=6171" NodeId="ns=1;i=6173" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6171" NodeId="ns=1;i=6173" BrowseName="4:CmdPos" DataType="Double">
         <DisplayName Locale="en">CmdPos</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -509,7 +509,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:EngineeringUnits" ParentNodeId="ns=1;i=6171" NodeId="ns=1;i=6174" AccessLevel="3" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6171" AccessLevel="3" NodeId="ns=1;i=6174" BrowseName="4:EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -517,7 +517,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6171</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:EURange" ParentNodeId="ns=1;i=6171" NodeId="ns=1;i=6175" AccessLevel="3" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6171" AccessLevel="3" NodeId="ns=1;i=6175" BrowseName="4:EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -525,7 +525,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6171</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:RemDist" ParentNodeId="ns=1;i=6171" NodeId="ns=1;i=6176" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6171" NodeId="ns=1;i=6176" BrowseName="4:RemDist" DataType="Double">
         <DisplayName Locale="en">RemDist</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -536,7 +536,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="1:RotaryMode" NodeId="ns=1;i=6046" AccessLevel="3" DataType="String">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6046" BrowseName="1:RotaryMode" DataType="String">
         <DisplayName>RotaryMode</DisplayName>
         <Description>MTC: Rotary/B/RotaryMode</Description>
         <References>
@@ -544,7 +544,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5031</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:RotaryVelocity" NodeId="ns=1;i=6047" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6047" BrowseName="1:RotaryVelocity" DataType="UInt32">
         <DisplayName>RotaryVelocity</DisplayName>
         <Description>MTC: Rotary/B/RotaryVelocity</Description>
         <References>
@@ -555,7 +555,7 @@
             <uax:UInt32>0</uax:UInt32>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="1:Temperature" NodeId="ns=1;i=6230" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6230" BrowseName="1:Temperature" DataType="UInt32">
         <DisplayName>Temperature</DisplayName>
         <Description>MTC: Rotary/B/Temperature</Description>
         <References>
@@ -566,7 +566,7 @@
             <uax:UInt32>0</uax:UInt32>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ZeroOffset" ParentNodeId="ns=1;i=5031" NodeId="ns=1;i=6177" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5031" AccessLevel="3" NodeId="ns=1;i=6177" BrowseName="4:ZeroOffset" DataType="Double">
         <DisplayName Locale="en">ZeroOffset</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -579,7 +579,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6177" NodeId="ns=1;i=6178" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6177" NodeId="ns=1;i=6178" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -606,7 +606,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6177" NodeId="ns=1;i=6179" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6177" NodeId="ns=1;i=6179" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -614,7 +614,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6177</Reference>
         </References>
     </UAVariable>
-    <UAObject BrowseName="1:cAxis" NodeId="ns=1;i=5032">
+    <UAObject NodeId="ns=1;i=5032" BrowseName="1:cAxis">
         <DisplayName>cAxis</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=4;i=1004</Reference>
@@ -638,7 +638,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6210</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="4:ActChannel" ParentNodeId="ns=1;i=5032" NodeId="ns=1;i=6213" AccessLevel="3" DataType="NodeId">
+    <UAVariable ParentNodeId="ns=1;i=5032" AccessLevel="3" NodeId="ns=1;i=6213" BrowseName="4:ActChannel" DataType="NodeId">
         <DisplayName Locale="en">ActChannel</DisplayName>
         <Description Locale="en">NodeId of the channel object (CncChannelType) that administrates this drive to expose drive’s channel affiliation.</Description>
         <References>
@@ -651,7 +651,7 @@
             </uax:NodeId>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ActLoad" ParentNodeId="ns=1;i=5032" NodeId="ns=1;i=6214" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5032" AccessLevel="3" NodeId="ns=1;i=6214" BrowseName="4:ActLoad" DataType="Double">
         <DisplayName Locale="en">ActLoad</DisplayName>
         <Description>MTC: Rotary/C/Load</Description>
         <References>
@@ -664,7 +664,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6214" NodeId="ns=1;i=6215" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6214" NodeId="ns=1;i=6215" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -690,14 +690,14 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6214" NodeId="ns=1;i=6216" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6214" NodeId="ns=1;i=6216" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6214</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ActPower" ParentNodeId="ns=1;i=5032" NodeId="ns=1;i=6217" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5032" AccessLevel="3" NodeId="ns=1;i=6217" BrowseName="4:ActPower" DataType="Double">
         <DisplayName Locale="en">ActPower</DisplayName>
         <Description Locale="en">Drive power actual value.</Description>
         <References>
@@ -710,7 +710,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6217" NodeId="ns=1;i=6218" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6217" NodeId="ns=1;i=6218" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -736,14 +736,14 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6217" NodeId="ns=1;i=6219" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6217" NodeId="ns=1;i=6219" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6217</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ActStatus" ParentNodeId="ns=1;i=5032" NodeId="ns=1;i=6195" AccessLevel="3" DataType="CncAxisStatus">
+    <UAVariable ParentNodeId="ns=1;i=5032" AccessLevel="3" NodeId="ns=1;i=6195" BrowseName="4:ActStatus" DataType="CncAxisStatus">
         <DisplayName Locale="en">ActStatus</DisplayName>
         <Description>MTC: Rotary/C/AxisState</Description>
         <References>
@@ -751,7 +751,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5032</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ActTorque" ParentNodeId="ns=1;i=5032" NodeId="ns=1;i=6220" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5032" AccessLevel="3" NodeId="ns=1;i=6220" BrowseName="4:ActTorque" DataType="Double">
         <DisplayName Locale="en">ActTorque</DisplayName>
         <Description Locale="en">Drive torque actual value.</Description>
         <References>
@@ -764,7 +764,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6220" NodeId="ns=1;i=6221" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6220" NodeId="ns=1;i=6221" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -790,14 +790,14 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6220" NodeId="ns=1;i=6222" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6220" NodeId="ns=1;i=6222" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6220</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:AngularVelocity" NodeId="ns=1;i=6055" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6055" BrowseName="1:AngularVelocity" DataType="UInt32">
         <DisplayName>AngularVelocity</DisplayName>
         <Description>MTC: Rotary/C/AngularVelocity</Description>
         <References>
@@ -805,7 +805,7 @@
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5032</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:CmdTorque" ParentNodeId="ns=1;i=5032" NodeId="ns=1;i=6223" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5032" AccessLevel="3" NodeId="ns=1;i=6223" BrowseName="4:CmdTorque" DataType="Double">
         <DisplayName Locale="en">CmdTorque</DisplayName>
         <Description Locale="en">Drive torque setpoint value.</Description>
         <References>
@@ -818,7 +818,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6223" NodeId="ns=1;i=6224" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6223" NodeId="ns=1;i=6224" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -844,7 +844,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6223" NodeId="ns=1;i=6225" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6223" NodeId="ns=1;i=6225" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -864,7 +864,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsInactive" ParentNodeId="ns=1;i=5032" NodeId="ns=1;i=6226" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5032" AccessLevel="3" NodeId="ns=1;i=6226" BrowseName="4:IsInactive" DataType="Boolean">
         <DisplayName Locale="en">IsInactive</DisplayName>
         <Description Locale="en">Drive inactive state (true in case of inactive drive, else false).</Description>
         <References>
@@ -875,7 +875,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsReferenced" ParentNodeId="ns=1;i=5032" NodeId="ns=1;i=6196" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5032" AccessLevel="3" NodeId="ns=1;i=6196" BrowseName="4:IsReferenced" DataType="Boolean">
         <DisplayName Locale="en">IsReferenced</DisplayName>
         <Description Locale="en">Axis reference state (true in case of successfully refereneced axis, else false).</Description>
         <References>
@@ -886,7 +886,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsRotational" ParentNodeId="ns=1;i=5032" NodeId="ns=1;i=6197" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5032" AccessLevel="3" NodeId="ns=1;i=6197" BrowseName="4:IsRotational" DataType="Boolean">
         <DisplayName Locale="en">IsRotational</DisplayName>
         <Description Locale="en">Axis type (true in case of rotational axis, in case of linear type or other false).</Description>
         <References>
@@ -897,7 +897,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsVirtual" ParentNodeId="ns=1;i=5032" NodeId="ns=1;i=6227" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5032" AccessLevel="3" NodeId="ns=1;i=6227" BrowseName="4:IsVirtual" DataType="Boolean">
         <DisplayName Locale="en">IsVirtual</DisplayName>
         <Description Locale="en">Virtual axis (no hardware present; true in case of virtual axis, else fals).</Description>
         <References>
@@ -908,7 +908,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:PosDirect" ParentNodeId="ns=1;i=5032" NodeId="ns=1;i=6198" AccessLevel="3" DataType="CncPositionDataType">
+    <UAVariable ParentNodeId="ns=1;i=5032" AccessLevel="3" NodeId="ns=1;i=6198" BrowseName="4:PosDirect" DataType="CncPositionDataType">
         <DisplayName Locale="en">PosDirect</DisplayName>
         <Description Locale="en">Position actual value referring to axis' direct measurement system.</Description>
         <References>
@@ -935,7 +935,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ActPos" ParentNodeId="ns=1;i=6198" NodeId="ns=1;i=6199" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6198" NodeId="ns=1;i=6199" BrowseName="4:ActPos" DataType="Double">
         <DisplayName Locale="en">ActPos</DisplayName>
         <Description>MTC: Rotary/C/Angle</Description>
         <References>
@@ -946,7 +946,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:CmdPos" ParentNodeId="ns=1;i=6198" NodeId="ns=1;i=6200" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6198" NodeId="ns=1;i=6200" BrowseName="4:CmdPos" DataType="Double">
         <DisplayName Locale="en">CmdPos</DisplayName>
         <Description Locale="en">Position setpoint value.</Description>
         <References>
@@ -957,21 +957,21 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:EngineeringUnits" ParentNodeId="ns=1;i=6198" NodeId="ns=1;i=6201" AccessLevel="3" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6198" AccessLevel="3" NodeId="ns=1;i=6201" BrowseName="4:EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6198</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:EURange" ParentNodeId="ns=1;i=6198" NodeId="ns=1;i=6202" AccessLevel="3" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6198" AccessLevel="3" NodeId="ns=1;i=6202" BrowseName="4:EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6198</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:RemDist" ParentNodeId="ns=1;i=6198" NodeId="ns=1;i=6203" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6198" NodeId="ns=1;i=6203" BrowseName="4:RemDist" DataType="Double">
         <DisplayName Locale="en">RemDist</DisplayName>
         <Description Locale="en">Remaining distance to go.</Description>
         <References>
@@ -982,7 +982,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:PosIndirect" ParentNodeId="ns=1;i=5032" NodeId="ns=1;i=6204" AccessLevel="3" DataType="CncPositionDataType">
+    <UAVariable ParentNodeId="ns=1;i=5032" AccessLevel="3" NodeId="ns=1;i=6204" BrowseName="4:PosIndirect" DataType="CncPositionDataType">
         <DisplayName Locale="en">PosIndirect</DisplayName>
         <Description Locale="en">Position actual value referring to axis' indirect measurement system.</Description>
         <References>
@@ -1009,7 +1009,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ActPos" ParentNodeId="ns=1;i=6204" NodeId="ns=1;i=6205" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6204" NodeId="ns=1;i=6205" BrowseName="4:ActPos" DataType="Double">
         <DisplayName Locale="en">ActPos</DisplayName>
         <Description Locale="en">Position current value.</Description>
         <References>
@@ -1020,7 +1020,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:CmdPos" ParentNodeId="ns=1;i=6204" NodeId="ns=1;i=6206" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6204" NodeId="ns=1;i=6206" BrowseName="4:CmdPos" DataType="Double">
         <DisplayName Locale="en">CmdPos</DisplayName>
         <Description Locale="en">Position setpoint value.</Description>
         <References>
@@ -1031,21 +1031,21 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:EngineeringUnits" ParentNodeId="ns=1;i=6204" NodeId="ns=1;i=6207" AccessLevel="3" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6204" AccessLevel="3" NodeId="ns=1;i=6207" BrowseName="4:EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6204</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:EURange" ParentNodeId="ns=1;i=6204" NodeId="ns=1;i=6208" AccessLevel="3" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6204" AccessLevel="3" NodeId="ns=1;i=6208" BrowseName="4:EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6204</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:RemDist" ParentNodeId="ns=1;i=6204" NodeId="ns=1;i=6209" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6204" NodeId="ns=1;i=6209" BrowseName="4:RemDist" DataType="Double">
         <DisplayName Locale="en">RemDist</DisplayName>
         <Description Locale="en">Remaining distance to go.</Description>
         <References>
@@ -1056,7 +1056,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="1:RotaryMode" NodeId="ns=1;i=6236" AccessLevel="3" DataType="String">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6236" BrowseName="1:RotaryMode" DataType="String">
         <DisplayName>RotaryMode</DisplayName>
         <Description>MTC: Rotary/C/RotaryMode</Description>
         <References>
@@ -1064,7 +1064,7 @@
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5032</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:RotaryVelocity" NodeId="ns=1;i=6229" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6229" BrowseName="1:RotaryVelocity" DataType="UInt32">
         <DisplayName>RotaryVelocity</DisplayName>
         <Description>MTC: Rotary/C/RotaryVelocity</Description>
         <References>
@@ -1072,7 +1072,7 @@
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5032</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:Temperature" NodeId="ns=1;i=6231" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6231" BrowseName="1:Temperature" DataType="UInt32">
         <DisplayName>Temperature</DisplayName>
         <Description>MTC: Rotary/C/Temperature</Description>
         <References>
@@ -1080,7 +1080,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5032</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ZeroOffset" ParentNodeId="ns=1;i=5032" NodeId="ns=1;i=6210" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5032" AccessLevel="3" NodeId="ns=1;i=6210" BrowseName="4:ZeroOffset" DataType="Double">
         <DisplayName Locale="en">ZeroOffset</DisplayName>
         <Description Locale="en">Active axis zero offset.</Description>
         <References>
@@ -1093,7 +1093,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6210" NodeId="ns=1;i=6211" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6210" NodeId="ns=1;i=6211" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -1119,14 +1119,14 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6210" NodeId="ns=1;i=6212" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6210" NodeId="ns=1;i=6212" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6210</Reference>
         </References>
     </UAVariable>
-    <UAObject BrowseName="1:xAxis" NodeId="ns=1;i=5028">
+    <UAObject NodeId="ns=1;i=5028" BrowseName="1:xAxis">
         <DisplayName>xAxis</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=4;i=1004</Reference>
@@ -1148,7 +1148,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6078</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="4:ActChannel" ParentNodeId="ns=1;i=5028" NodeId="ns=1;i=6081" AccessLevel="3" DataType="NodeId">
+    <UAVariable ParentNodeId="ns=1;i=5028" AccessLevel="3" NodeId="ns=1;i=6081" BrowseName="4:ActChannel" DataType="NodeId">
         <DisplayName Locale="en">ActChannel</DisplayName>
         <Description Locale="en">NodeId of the channel object (CncChannelType) that administrates this drive to expose drive’s channel affiliation.</Description>
         <References>
@@ -1161,7 +1161,7 @@
             </uax:NodeId>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ActLoad" ParentNodeId="ns=1;i=5028" NodeId="ns=1;i=6082" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5028" AccessLevel="3" NodeId="ns=1;i=6082" BrowseName="4:ActLoad" DataType="Double">
         <DisplayName Locale="en">ActLoad</DisplayName>
         <Description>MTC: Linear/X/Load</Description>
         <References>
@@ -1174,7 +1174,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6082" NodeId="ns=1;i=6083" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6082" NodeId="ns=1;i=6083" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -1200,14 +1200,14 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6082" NodeId="ns=1;i=6084" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6082" NodeId="ns=1;i=6084" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6082</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ActPower" ParentNodeId="ns=1;i=5028" NodeId="ns=1;i=6085" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5028" AccessLevel="3" NodeId="ns=1;i=6085" BrowseName="4:ActPower" DataType="Double">
         <DisplayName Locale="en">ActPower</DisplayName>
         <Description Locale="en">Drive power actual value.</Description>
         <References>
@@ -1220,7 +1220,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6085" NodeId="ns=1;i=6086" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6085" NodeId="ns=1;i=6086" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -1246,14 +1246,14 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6085" NodeId="ns=1;i=6087" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6085" NodeId="ns=1;i=6087" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6085</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ActStatus" ParentNodeId="ns=1;i=5028" NodeId="ns=1;i=6063" AccessLevel="3" DataType="CncAxisStatus">
+    <UAVariable ParentNodeId="ns=1;i=5028" AccessLevel="3" NodeId="ns=1;i=6063" BrowseName="4:ActStatus" DataType="CncAxisStatus">
         <DisplayName Locale="en">ActStatus</DisplayName>
         <Description>MTC: Linear/X/AxisState</Description>
         <References>
@@ -1261,7 +1261,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5028</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ActTorque" ParentNodeId="ns=1;i=5028" NodeId="ns=1;i=6088" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5028" AccessLevel="3" NodeId="ns=1;i=6088" BrowseName="4:ActTorque" DataType="Double">
         <DisplayName Locale="en">ActTorque</DisplayName>
         <Description Locale="en">Drive torque actual value.</Description>
         <References>
@@ -1274,7 +1274,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6088" NodeId="ns=1;i=6089" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6088" NodeId="ns=1;i=6089" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -1300,14 +1300,14 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6088" NodeId="ns=1;i=6090" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6088" NodeId="ns=1;i=6090" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6088</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:AxisFeedrate" NodeId="ns=1;i=6052" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6052" BrowseName="1:AxisFeedrate" DataType="UInt32">
         <DisplayName>AxisFeedrate</DisplayName>
         <Description>MTC: Linear/X/AxisFeedrate</Description>
         <References>
@@ -1315,7 +1315,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5028</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:CmdTorque" ParentNodeId="ns=1;i=5028" NodeId="ns=1;i=6091" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5028" AccessLevel="3" NodeId="ns=1;i=6091" BrowseName="4:CmdTorque" DataType="Double">
         <DisplayName Locale="en">CmdTorque</DisplayName>
         <Description Locale="en">Drive torque setpoint value.</Description>
         <References>
@@ -1328,7 +1328,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6091" NodeId="ns=1;i=6092" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6091" NodeId="ns=1;i=6092" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -1354,7 +1354,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6091" NodeId="ns=1;i=6093" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6091" NodeId="ns=1;i=6093" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -1374,7 +1374,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsInactive" ParentNodeId="ns=1;i=5028" NodeId="ns=1;i=6094" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5028" AccessLevel="3" NodeId="ns=1;i=6094" BrowseName="4:IsInactive" DataType="Boolean">
         <DisplayName Locale="en">IsInactive</DisplayName>
         <Description Locale="en">Drive inactive state (true in case of inactive drive, else false).</Description>
         <References>
@@ -1385,7 +1385,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsReferenced" ParentNodeId="ns=1;i=5028" NodeId="ns=1;i=6064" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5028" AccessLevel="3" NodeId="ns=1;i=6064" BrowseName="4:IsReferenced" DataType="Boolean">
         <DisplayName Locale="en">IsReferenced</DisplayName>
         <Description Locale="en">Axis reference state (true in case of successfully refereneced axis, else false).</Description>
         <References>
@@ -1396,7 +1396,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsRotational" ParentNodeId="ns=1;i=5028" NodeId="ns=1;i=6065" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5028" AccessLevel="3" NodeId="ns=1;i=6065" BrowseName="4:IsRotational" DataType="Boolean">
         <DisplayName Locale="en">IsRotational</DisplayName>
         <Description Locale="en">Axis type (true in case of rotational axis, in case of linear type or other false).</Description>
         <References>
@@ -1407,7 +1407,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsVirtual" ParentNodeId="ns=1;i=5028" NodeId="ns=1;i=6095" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5028" AccessLevel="3" NodeId="ns=1;i=6095" BrowseName="4:IsVirtual" DataType="Boolean">
         <DisplayName Locale="en">IsVirtual</DisplayName>
         <Description Locale="en">Virtual axis (no hardware present; true in case of virtual axis, else fals).</Description>
         <References>
@@ -1418,7 +1418,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:PosDirect" ParentNodeId="ns=1;i=5028" NodeId="ns=1;i=6066" AccessLevel="3" DataType="CncPositionDataType">
+    <UAVariable ParentNodeId="ns=1;i=5028" AccessLevel="3" NodeId="ns=1;i=6066" BrowseName="4:PosDirect" DataType="CncPositionDataType">
         <DisplayName Locale="en">PosDirect</DisplayName>
         <Description Locale="en">Position actual value referring to axis' direct measurement system.</Description>
         <References>
@@ -1445,7 +1445,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ActPos" ParentNodeId="ns=1;i=6066" NodeId="ns=1;i=6067" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6066" NodeId="ns=1;i=6067" BrowseName="4:ActPos" DataType="Double">
         <DisplayName Locale="en">ActPos</DisplayName>
         <Description>MTC: Linear/X/Position</Description>
         <References>
@@ -1456,7 +1456,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:CmdPos" ParentNodeId="ns=1;i=6066" NodeId="ns=1;i=6068" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6066" NodeId="ns=1;i=6068" BrowseName="4:CmdPos" DataType="Double">
         <DisplayName Locale="en">CmdPos</DisplayName>
         <Description Locale="en">Position setpoint value.</Description>
         <References>
@@ -1467,21 +1467,21 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:EngineeringUnits" ParentNodeId="ns=1;i=6066" NodeId="ns=1;i=6069" AccessLevel="3" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6066" AccessLevel="3" NodeId="ns=1;i=6069" BrowseName="4:EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6066</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:EURange" ParentNodeId="ns=1;i=6066" NodeId="ns=1;i=6070" AccessLevel="3" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6066" AccessLevel="3" NodeId="ns=1;i=6070" BrowseName="4:EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6066</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:RemDist" ParentNodeId="ns=1;i=6066" NodeId="ns=1;i=6071" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6066" NodeId="ns=1;i=6071" BrowseName="4:RemDist" DataType="Double">
         <DisplayName Locale="en">RemDist</DisplayName>
         <Description Locale="en">Remaining distance to go.</Description>
         <References>
@@ -1492,7 +1492,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:PosIndirect" ParentNodeId="ns=1;i=5028" NodeId="ns=1;i=6072" AccessLevel="3" DataType="CncPositionDataType">
+    <UAVariable ParentNodeId="ns=1;i=5028" AccessLevel="3" NodeId="ns=1;i=6072" BrowseName="4:PosIndirect" DataType="CncPositionDataType">
         <DisplayName Locale="en">PosIndirect</DisplayName>
         <Description Locale="en">Position actual value referring to axis' indirect measurement system.</Description>
         <References>
@@ -1519,7 +1519,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ActPos" ParentNodeId="ns=1;i=6072" NodeId="ns=1;i=6073" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6072" NodeId="ns=1;i=6073" BrowseName="4:ActPos" DataType="Double">
         <DisplayName Locale="en">ActPos</DisplayName>
         <Description Locale="en">Position current value.</Description>
         <References>
@@ -1530,7 +1530,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:CmdPos" ParentNodeId="ns=1;i=6072" NodeId="ns=1;i=6074" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6072" NodeId="ns=1;i=6074" BrowseName="4:CmdPos" DataType="Double">
         <DisplayName Locale="en">CmdPos</DisplayName>
         <Description Locale="en">Position setpoint value.</Description>
         <References>
@@ -1541,21 +1541,21 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:EngineeringUnits" ParentNodeId="ns=1;i=6072" NodeId="ns=1;i=6075" AccessLevel="3" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6072" AccessLevel="3" NodeId="ns=1;i=6075" BrowseName="4:EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6072</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:EURange" ParentNodeId="ns=1;i=6072" NodeId="ns=1;i=6076" AccessLevel="3" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6072" AccessLevel="3" NodeId="ns=1;i=6076" BrowseName="4:EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6072</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:RemDist" ParentNodeId="ns=1;i=6072" NodeId="ns=1;i=6077" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6072" NodeId="ns=1;i=6077" BrowseName="4:RemDist" DataType="Double">
         <DisplayName Locale="en">RemDist</DisplayName>
         <Description Locale="en">Remaining distance to go.</Description>
         <References>
@@ -1566,7 +1566,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="1:Temperature" NodeId="ns=1;i=6232" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6232" BrowseName="1:Temperature" DataType="UInt32">
         <DisplayName>Temperature</DisplayName>
         <Description>MTC: Linear/X/Temperature</Description>
         <References>
@@ -1574,7 +1574,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5028</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ZeroOffset" ParentNodeId="ns=1;i=5028" NodeId="ns=1;i=6078" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5028" AccessLevel="3" NodeId="ns=1;i=6078" BrowseName="4:ZeroOffset" DataType="Double">
         <DisplayName Locale="en">ZeroOffset</DisplayName>
         <Description Locale="en">Active axis zero offset.</Description>
         <References>
@@ -1587,7 +1587,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6078" NodeId="ns=1;i=6079" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6078" NodeId="ns=1;i=6079" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -1613,14 +1613,14 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6078" NodeId="ns=1;i=6080" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6078" NodeId="ns=1;i=6080" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6078</Reference>
         </References>
     </UAVariable>
-    <UAObject BrowseName="1:yAxis" NodeId="ns=1;i=5029">
+    <UAObject NodeId="ns=1;i=5029" BrowseName="1:yAxis">
         <DisplayName>yAxis</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=4;i=1004</Reference>
@@ -1642,7 +1642,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6111</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="4:ActChannel" ParentNodeId="ns=1;i=5029" NodeId="ns=1;i=6114" AccessLevel="3" DataType="NodeId">
+    <UAVariable ParentNodeId="ns=1;i=5029" AccessLevel="3" NodeId="ns=1;i=6114" BrowseName="4:ActChannel" DataType="NodeId">
         <DisplayName Locale="en">ActChannel</DisplayName>
         <Description Locale="en">NodeId of the channel object (CncChannelType) that administrates this drive to expose drive’s channel affiliation.</Description>
         <References>
@@ -1655,7 +1655,7 @@
             </uax:NodeId>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ActLoad" ParentNodeId="ns=1;i=5029" NodeId="ns=1;i=6115" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5029" AccessLevel="3" NodeId="ns=1;i=6115" BrowseName="4:ActLoad" DataType="Double">
         <DisplayName Locale="en">ActLoad</DisplayName>
         <Description>MTC: Linear/Y/Load</Description>
         <References>
@@ -1668,7 +1668,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6115" NodeId="ns=1;i=6116" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6115" NodeId="ns=1;i=6116" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -1694,14 +1694,14 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6115" NodeId="ns=1;i=6117" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6115" NodeId="ns=1;i=6117" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6115</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ActPower" ParentNodeId="ns=1;i=5029" NodeId="ns=1;i=6118" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5029" AccessLevel="3" NodeId="ns=1;i=6118" BrowseName="4:ActPower" DataType="Double">
         <DisplayName Locale="en">ActPower</DisplayName>
         <Description Locale="en">Drive power actual value.</Description>
         <References>
@@ -1714,7 +1714,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6118" NodeId="ns=1;i=6119" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6118" NodeId="ns=1;i=6119" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -1740,14 +1740,14 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6118" NodeId="ns=1;i=6120" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6118" NodeId="ns=1;i=6120" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6118</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ActStatus" ParentNodeId="ns=1;i=5029" NodeId="ns=1;i=6096" AccessLevel="3" DataType="CncAxisStatus">
+    <UAVariable ParentNodeId="ns=1;i=5029" AccessLevel="3" NodeId="ns=1;i=6096" BrowseName="4:ActStatus" DataType="CncAxisStatus">
         <DisplayName Locale="en">ActStatus</DisplayName>
         <Description>MTC: Linear/Y/AxisState</Description>
         <References>
@@ -1755,7 +1755,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5029</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ActTorque" ParentNodeId="ns=1;i=5029" NodeId="ns=1;i=6121" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5029" AccessLevel="3" NodeId="ns=1;i=6121" BrowseName="4:ActTorque" DataType="Double">
         <DisplayName Locale="en">ActTorque</DisplayName>
         <Description Locale="en">Drive torque actual value.</Description>
         <References>
@@ -1768,7 +1768,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6121" NodeId="ns=1;i=6122" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6121" NodeId="ns=1;i=6122" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -1794,14 +1794,14 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6121" NodeId="ns=1;i=6123" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6121" NodeId="ns=1;i=6123" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6121</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:AxisFeedrate" NodeId="ns=1;i=6240" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6240" BrowseName="1:AxisFeedrate" DataType="UInt32">
         <DisplayName>AxisFeedrate</DisplayName>
         <Description>MTC: Linear/Y/AxisFeedrate</Description>
         <References>
@@ -1809,7 +1809,7 @@
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5029</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:CmdTorque" ParentNodeId="ns=1;i=5029" NodeId="ns=1;i=6124" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5029" AccessLevel="3" NodeId="ns=1;i=6124" BrowseName="4:CmdTorque" DataType="Double">
         <DisplayName Locale="en">CmdTorque</DisplayName>
         <Description Locale="en">Drive torque setpoint value.</Description>
         <References>
@@ -1822,7 +1822,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6124" NodeId="ns=1;i=6125" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6124" NodeId="ns=1;i=6125" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -1848,7 +1848,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6124" NodeId="ns=1;i=6126" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6124" NodeId="ns=1;i=6126" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -1868,7 +1868,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsInactive" ParentNodeId="ns=1;i=5029" NodeId="ns=1;i=6127" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5029" AccessLevel="3" NodeId="ns=1;i=6127" BrowseName="4:IsInactive" DataType="Boolean">
         <DisplayName Locale="en">IsInactive</DisplayName>
         <Description Locale="en">Drive inactive state (true in case of inactive drive, else false).</Description>
         <References>
@@ -1879,7 +1879,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsReferenced" ParentNodeId="ns=1;i=5029" NodeId="ns=1;i=6097" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5029" AccessLevel="3" NodeId="ns=1;i=6097" BrowseName="4:IsReferenced" DataType="Boolean">
         <DisplayName Locale="en">IsReferenced</DisplayName>
         <Description Locale="en">Axis reference state (true in case of successfully refereneced axis, else false).</Description>
         <References>
@@ -1890,7 +1890,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsRotational" ParentNodeId="ns=1;i=5029" NodeId="ns=1;i=6098" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5029" AccessLevel="3" NodeId="ns=1;i=6098" BrowseName="4:IsRotational" DataType="Boolean">
         <DisplayName Locale="en">IsRotational</DisplayName>
         <Description Locale="en">Axis type (true in case of rotational axis, in case of linear type or other false).</Description>
         <References>
@@ -1901,7 +1901,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsVirtual" ParentNodeId="ns=1;i=5029" NodeId="ns=1;i=6128" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5029" AccessLevel="3" NodeId="ns=1;i=6128" BrowseName="4:IsVirtual" DataType="Boolean">
         <DisplayName Locale="en">IsVirtual</DisplayName>
         <Description Locale="en">Virtual axis (no hardware present; true in case of virtual axis, else fals).</Description>
         <References>
@@ -1912,7 +1912,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:PosDirect" ParentNodeId="ns=1;i=5029" NodeId="ns=1;i=6099" AccessLevel="3" DataType="CncPositionDataType">
+    <UAVariable ParentNodeId="ns=1;i=5029" AccessLevel="3" NodeId="ns=1;i=6099" BrowseName="4:PosDirect" DataType="CncPositionDataType">
         <DisplayName Locale="en">PosDirect</DisplayName>
         <Description Locale="en">Position actual value referring to axis' direct measurement system.</Description>
         <References>
@@ -1939,7 +1939,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ActPos" ParentNodeId="ns=1;i=6099" NodeId="ns=1;i=6100" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6099" NodeId="ns=1;i=6100" BrowseName="4:ActPos" DataType="Double">
         <DisplayName Locale="en">ActPos</DisplayName>
         <Description>MTC: Linear/Y/Position</Description>
         <References>
@@ -1950,7 +1950,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:CmdPos" ParentNodeId="ns=1;i=6099" NodeId="ns=1;i=6101" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6099" NodeId="ns=1;i=6101" BrowseName="4:CmdPos" DataType="Double">
         <DisplayName Locale="en">CmdPos</DisplayName>
         <Description Locale="en">Position setpoint value.</Description>
         <References>
@@ -1961,21 +1961,21 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:EngineeringUnits" ParentNodeId="ns=1;i=6099" NodeId="ns=1;i=6102" AccessLevel="3" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6099" AccessLevel="3" NodeId="ns=1;i=6102" BrowseName="4:EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6099</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:EURange" ParentNodeId="ns=1;i=6099" NodeId="ns=1;i=6103" AccessLevel="3" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6099" AccessLevel="3" NodeId="ns=1;i=6103" BrowseName="4:EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6099</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:RemDist" ParentNodeId="ns=1;i=6099" NodeId="ns=1;i=6104" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6099" NodeId="ns=1;i=6104" BrowseName="4:RemDist" DataType="Double">
         <DisplayName Locale="en">RemDist</DisplayName>
         <Description Locale="en">Remaining distance to go.</Description>
         <References>
@@ -1986,7 +1986,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:PosIndirect" ParentNodeId="ns=1;i=5029" NodeId="ns=1;i=6105" AccessLevel="3" DataType="CncPositionDataType">
+    <UAVariable ParentNodeId="ns=1;i=5029" AccessLevel="3" NodeId="ns=1;i=6105" BrowseName="4:PosIndirect" DataType="CncPositionDataType">
         <DisplayName Locale="en">PosIndirect</DisplayName>
         <Description Locale="en">Position actual value referring to axis' indirect measurement system.</Description>
         <References>
@@ -2013,7 +2013,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ActPos" ParentNodeId="ns=1;i=6105" NodeId="ns=1;i=6106" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6105" NodeId="ns=1;i=6106" BrowseName="4:ActPos" DataType="Double">
         <DisplayName Locale="en">ActPos</DisplayName>
         <Description Locale="en">Position current value.</Description>
         <References>
@@ -2024,7 +2024,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:CmdPos" ParentNodeId="ns=1;i=6105" NodeId="ns=1;i=6107" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6105" NodeId="ns=1;i=6107" BrowseName="4:CmdPos" DataType="Double">
         <DisplayName Locale="en">CmdPos</DisplayName>
         <Description Locale="en">Position setpoint value.</Description>
         <References>
@@ -2035,21 +2035,21 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:EngineeringUnits" ParentNodeId="ns=1;i=6105" NodeId="ns=1;i=6108" AccessLevel="3" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6105" AccessLevel="3" NodeId="ns=1;i=6108" BrowseName="4:EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6105</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:EURange" ParentNodeId="ns=1;i=6105" NodeId="ns=1;i=6109" AccessLevel="3" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6105" AccessLevel="3" NodeId="ns=1;i=6109" BrowseName="4:EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6105</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:RemDist" ParentNodeId="ns=1;i=6105" NodeId="ns=1;i=6110" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6105" NodeId="ns=1;i=6110" BrowseName="4:RemDist" DataType="Double">
         <DisplayName Locale="en">RemDist</DisplayName>
         <Description Locale="en">Remaining distance to go.</Description>
         <References>
@@ -2060,7 +2060,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="1:Temperature" NodeId="ns=1;i=6235" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6235" BrowseName="1:Temperature" DataType="UInt32">
         <DisplayName>Temperature</DisplayName>
         <Description>MTC: Linear/Y/Temperature</Description>
         <References>
@@ -2071,7 +2071,7 @@
             <uax:UInt32>0</uax:UInt32>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ZeroOffset" ParentNodeId="ns=1;i=5029" NodeId="ns=1;i=6111" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5029" AccessLevel="3" NodeId="ns=1;i=6111" BrowseName="4:ZeroOffset" DataType="Double">
         <DisplayName Locale="en">ZeroOffset</DisplayName>
         <Description Locale="en">Active axis zero offset.</Description>
         <References>
@@ -2084,7 +2084,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6111" NodeId="ns=1;i=6112" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6111" NodeId="ns=1;i=6112" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -2110,14 +2110,14 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6111" NodeId="ns=1;i=6113" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6111" NodeId="ns=1;i=6113" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6111</Reference>
         </References>
     </UAVariable>
-    <UAObject BrowseName="1:zAxis" NodeId="ns=1;i=5030">
+    <UAObject NodeId="ns=1;i=5030" BrowseName="1:zAxis">
         <DisplayName>zAxis</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=4;i=1004</Reference>
@@ -2139,7 +2139,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6144</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="4:ActChannel" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6147" AccessLevel="3" DataType="NodeId">
+    <UAVariable ParentNodeId="ns=1;i=5030" AccessLevel="3" NodeId="ns=1;i=6147" BrowseName="4:ActChannel" DataType="NodeId">
         <DisplayName Locale="en">ActChannel</DisplayName>
         <Description Locale="en">NodeId of the channel object (CncChannelType) that administrates this drive to expose drive’s channel affiliation.</Description>
         <References>
@@ -2152,7 +2152,7 @@
             </uax:NodeId>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ActLoad" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6148" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5030" AccessLevel="3" NodeId="ns=1;i=6148" BrowseName="4:ActLoad" DataType="Double">
         <DisplayName Locale="en">ActLoad</DisplayName>
         <Description>MTC: Linear/Z/Load</Description>
         <References>
@@ -2165,7 +2165,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6148" NodeId="ns=1;i=6149" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6148" NodeId="ns=1;i=6149" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -2191,14 +2191,14 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6148" NodeId="ns=1;i=6150" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6148" NodeId="ns=1;i=6150" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6148</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ActPower" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6151" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5030" AccessLevel="3" NodeId="ns=1;i=6151" BrowseName="4:ActPower" DataType="Double">
         <DisplayName Locale="en">ActPower</DisplayName>
         <Description Locale="en">Drive power actual value.</Description>
         <References>
@@ -2211,7 +2211,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6151" NodeId="ns=1;i=6152" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6151" NodeId="ns=1;i=6152" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -2237,14 +2237,14 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6151" NodeId="ns=1;i=6153" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6151" NodeId="ns=1;i=6153" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6151</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ActStatus" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6129" AccessLevel="3" DataType="CncAxisStatus">
+    <UAVariable ParentNodeId="ns=1;i=5030" AccessLevel="3" NodeId="ns=1;i=6129" BrowseName="4:ActStatus" DataType="CncAxisStatus">
         <DisplayName Locale="en">ActStatus</DisplayName>
         <Description>MTC: Linear/Z/AxisState</Description>
         <References>
@@ -2252,7 +2252,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5030</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:ActTorque" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6154" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5030" AccessLevel="3" NodeId="ns=1;i=6154" BrowseName="4:ActTorque" DataType="Double">
         <DisplayName Locale="en">ActTorque</DisplayName>
         <Description Locale="en">Drive torque actual value.</Description>
         <References>
@@ -2265,7 +2265,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6154" NodeId="ns=1;i=6155" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6154" NodeId="ns=1;i=6155" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -2291,14 +2291,14 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6154" NodeId="ns=1;i=6156" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6154" NodeId="ns=1;i=6156" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6154</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:AxisFeedrate" NodeId="ns=1;i=6243" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6243" BrowseName="1:AxisFeedrate" DataType="UInt32">
         <DisplayName>AxisFeedrate</DisplayName>
         <Description>MTC: Linear/Z/AxisFeedrate</Description>
         <References>
@@ -2306,7 +2306,7 @@
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5030</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:CmdTorque" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6157" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5030" AccessLevel="3" NodeId="ns=1;i=6157" BrowseName="4:CmdTorque" DataType="Double">
         <DisplayName Locale="en">CmdTorque</DisplayName>
         <Description Locale="en">Drive torque setpoint value.</Description>
         <References>
@@ -2319,7 +2319,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6157" NodeId="ns=1;i=6158" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6157" NodeId="ns=1;i=6158" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -2345,7 +2345,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6157" NodeId="ns=1;i=6159" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6157" NodeId="ns=1;i=6159" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -2365,7 +2365,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsInactive" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6160" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5030" AccessLevel="3" NodeId="ns=1;i=6160" BrowseName="4:IsInactive" DataType="Boolean">
         <DisplayName Locale="en">IsInactive</DisplayName>
         <Description Locale="en">Drive inactive state (true in case of inactive drive, else false).</Description>
         <References>
@@ -2376,7 +2376,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsReferenced" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6130" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5030" AccessLevel="3" NodeId="ns=1;i=6130" BrowseName="4:IsReferenced" DataType="Boolean">
         <DisplayName Locale="en">IsReferenced</DisplayName>
         <Description Locale="en">Axis reference state (true in case of successfully refereneced axis, else false).</Description>
         <References>
@@ -2387,7 +2387,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsRotational" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6131" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5030" AccessLevel="3" NodeId="ns=1;i=6131" BrowseName="4:IsRotational" DataType="Boolean">
         <DisplayName Locale="en">IsRotational</DisplayName>
         <Description Locale="en">Axis type (true in case of rotational axis, in case of linear type or other false).</Description>
         <References>
@@ -2398,7 +2398,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:IsVirtual" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6161" AccessLevel="3" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5030" AccessLevel="3" NodeId="ns=1;i=6161" BrowseName="4:IsVirtual" DataType="Boolean">
         <DisplayName Locale="en">IsVirtual</DisplayName>
         <Description Locale="en">Virtual axis (no hardware present; true in case of virtual axis, else fals).</Description>
         <References>
@@ -2409,7 +2409,7 @@
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:PosDirect" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6132" AccessLevel="3" DataType="CncPositionDataType">
+    <UAVariable ParentNodeId="ns=1;i=5030" AccessLevel="3" NodeId="ns=1;i=6132" BrowseName="4:PosDirect" DataType="CncPositionDataType">
         <DisplayName Locale="en">PosDirect</DisplayName>
         <Description Locale="en">Position actual value referring to axis' direct measurement system.</Description>
         <References>
@@ -2436,7 +2436,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ActPos" ParentNodeId="ns=1;i=6132" NodeId="ns=1;i=6133" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6132" NodeId="ns=1;i=6133" BrowseName="4:ActPos" DataType="Double">
         <DisplayName Locale="en">ActPos</DisplayName>
         <Description>MTC: Linear/Z/Position</Description>
         <References>
@@ -2447,7 +2447,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:CmdPos" ParentNodeId="ns=1;i=6132" NodeId="ns=1;i=6134" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6132" NodeId="ns=1;i=6134" BrowseName="4:CmdPos" DataType="Double">
         <DisplayName Locale="en">CmdPos</DisplayName>
         <Description Locale="en">Position setpoint value.</Description>
         <References>
@@ -2458,21 +2458,21 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:EngineeringUnits" ParentNodeId="ns=1;i=6132" NodeId="ns=1;i=6135" AccessLevel="3" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6132" AccessLevel="3" NodeId="ns=1;i=6135" BrowseName="4:EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6132</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:EURange" ParentNodeId="ns=1;i=6132" NodeId="ns=1;i=6136" AccessLevel="3" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6132" AccessLevel="3" NodeId="ns=1;i=6136" BrowseName="4:EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6132</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:RemDist" ParentNodeId="ns=1;i=6132" NodeId="ns=1;i=6137" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6132" NodeId="ns=1;i=6137" BrowseName="4:RemDist" DataType="Double">
         <DisplayName Locale="en">RemDist</DisplayName>
         <Description Locale="en">Remaining distance to go.</Description>
         <References>
@@ -2483,7 +2483,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:PosIndirect" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6138" AccessLevel="3" DataType="CncPositionDataType">
+    <UAVariable ParentNodeId="ns=1;i=5030" AccessLevel="3" NodeId="ns=1;i=6138" BrowseName="4:PosIndirect" DataType="CncPositionDataType">
         <DisplayName Locale="en">PosIndirect</DisplayName>
         <Description Locale="en">Position actual value referring to axis' indirect measurement system.</Description>
         <References>
@@ -2510,7 +2510,7 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ActPos" ParentNodeId="ns=1;i=6138" NodeId="ns=1;i=6139" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6138" NodeId="ns=1;i=6139" BrowseName="4:ActPos" DataType="Double">
         <DisplayName Locale="en">ActPos</DisplayName>
         <Description Locale="en">Position current value.</Description>
         <References>
@@ -2521,7 +2521,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:CmdPos" ParentNodeId="ns=1;i=6138" NodeId="ns=1;i=6140" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6138" NodeId="ns=1;i=6140" BrowseName="4:CmdPos" DataType="Double">
         <DisplayName Locale="en">CmdPos</DisplayName>
         <Description Locale="en">Position setpoint value.</Description>
         <References>
@@ -2532,21 +2532,21 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:EngineeringUnits" ParentNodeId="ns=1;i=6138" NodeId="ns=1;i=6141" AccessLevel="3" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6138" AccessLevel="3" NodeId="ns=1;i=6141" BrowseName="4:EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6138</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:EURange" ParentNodeId="ns=1;i=6138" NodeId="ns=1;i=6142" AccessLevel="3" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6138" AccessLevel="3" NodeId="ns=1;i=6142" BrowseName="4:EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6138</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="4:RemDist" ParentNodeId="ns=1;i=6138" NodeId="ns=1;i=6143" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=6138" NodeId="ns=1;i=6143" BrowseName="4:RemDist" DataType="Double">
         <DisplayName Locale="en">RemDist</DisplayName>
         <Description Locale="en">Remaining distance to go.</Description>
         <References>
@@ -2557,7 +2557,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="1:Temperature" NodeId="ns=1;i=6238" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6238" BrowseName="1:Temperature" DataType="UInt32">
         <DisplayName>Temperature</DisplayName>
         <Description>MTC: Linear/Z/Temperature</Description>
         <References>
@@ -2568,7 +2568,7 @@
             <uax:UInt32>0</uax:UInt32>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="4:ZeroOffset" ParentNodeId="ns=1;i=5030" NodeId="ns=1;i=6144" AccessLevel="3" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5030" AccessLevel="3" NodeId="ns=1;i=6144" BrowseName="4:ZeroOffset" DataType="Double">
         <DisplayName Locale="en">ZeroOffset</DisplayName>
         <Description Locale="en">Active axis zero offset.</Description>
         <References>
@@ -2581,7 +2581,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6144" NodeId="ns=1;i=6145" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6144" NodeId="ns=1;i=6145" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -2607,21 +2607,21 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6144" NodeId="ns=1;i=6146" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6144" NodeId="ns=1;i=6146" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6144</Reference>
         </References>
     </UAVariable>
-    <UAObject BrowseName="2:Equipment" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5004">
+    <UAObject ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5004" BrowseName="2:Equipment">
         <DisplayName>Equipment</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=12</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
         </References>
     </UAObject>
-    <UAObject BrowseName="5:Identification" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5005">
+    <UAObject ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5005" BrowseName="5:Identification">
         <DisplayName>Identification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=11</Reference>
@@ -2634,7 +2634,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=5012</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="5:AssetId" ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6062" AccessLevel="3" DataType="String">
+    <UAVariable ParentNodeId="ns=1;i=5005" AccessLevel="3" NodeId="ns=1;i=6062" BrowseName="5:AssetId" DataType="String">
         <DisplayName>AssetId</DisplayName>
         <Description>MTC: &lt;DeviceStream>/uuid</Description>
         <References>
@@ -2645,7 +2645,7 @@
             <uax:String></uax:String>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="5:Manufacturer" ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6001" DataType="LocalizedText">
+    <UAVariable ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6001" BrowseName="5:Manufacturer" DataType="LocalizedText">
         <DisplayName>Manufacturer</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -2653,7 +2653,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="5:Model" ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6061" DataType="LocalizedText">
+    <UAVariable ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6061" BrowseName="5:Model" DataType="LocalizedText">
         <DisplayName>Model</DisplayName>
         <Description>MTC: &lt;DeviceStream>/name</Description>
         <References>
@@ -2661,7 +2661,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="5:ProductInstanceUri" ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6002" DataType="String">
+    <UAVariable ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6002" BrowseName="5:ProductInstanceUri" DataType="String">
         <DisplayName>ProductInstanceUri</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -2669,7 +2669,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="5:SerialNumber" ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6003" DataType="String">
+    <UAVariable ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6003" BrowseName="5:SerialNumber" DataType="String">
         <DisplayName>SerialNumber</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -2677,7 +2677,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
-    <UAObject BrowseName="2:SoftwareIdentification" ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=5012">
+    <UAObject ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=5012" BrowseName="2:SoftwareIdentification">
         <DisplayName>SoftwareIdentification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
@@ -2686,7 +2686,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=5014</Reference>
         </References>
     </UAObject>
-    <UAObject BrowseName="2:Control" ParentNodeId="ns=1;i=5012" NodeId="ns=1;i=5013">
+    <UAObject ParentNodeId="ns=1;i=5012" NodeId="ns=1;i=5013" BrowseName="2:Control">
         <DisplayName>Control</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=43</Reference>
@@ -2696,7 +2696,7 @@
             <Reference ReferenceType="HasProperty">ns=1;i=6011</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="2:Identifier" ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6010" DataType="String">
+    <UAVariable ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6010" BrowseName="2:Identifier" DataType="String">
         <DisplayName>Identifier</DisplayName>
         <Description>MTC: Device/{Machine}/Application</Description>
         <References>
@@ -2707,7 +2707,7 @@
             <uax:String>0</uax:String>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="1:Manufacturer" NodeId="ns=1;i=6014" AccessLevel="3" DataType="String">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6014" BrowseName="1:Manufacturer" DataType="String">
         <DisplayName>Manufacturer</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -2717,7 +2717,7 @@
             <uax:String>MTC: Device/{Machine}/Application subType MANUFACTURER</uax:String>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="5:SoftwareRevision" ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6011" DataType="String">
+    <UAVariable ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6011" BrowseName="5:SoftwareRevision" DataType="String">
         <DisplayName>SoftwareRevision</DisplayName>
         <Description>MTC: Device/{Machine}/Application subType VERSION</Description>
         <References>
@@ -2728,7 +2728,7 @@
             <uax:String>0</uax:String>
         </Value>
     </UAVariable>
-    <UAObject BrowseName="1:OS" NodeId="ns=1;i=5014">
+    <UAObject NodeId="ns=1;i=5014" BrowseName="1:OS">
         <DisplayName>OS</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=43</Reference>
@@ -2738,7 +2738,7 @@
             <Reference ReferenceType="HasProperty">ns=1;i=6013</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="2:Identifier" ParentNodeId="ns=1;i=5014" NodeId="ns=1;i=6012" DataType="String">
+    <UAVariable ParentNodeId="ns=1;i=5014" NodeId="ns=1;i=6012" BrowseName="2:Identifier" DataType="String">
         <DisplayName>Identifier</DisplayName>
         <Description>MTC: Device/{Machine}/OperatingSystem 
 </Description>
@@ -2750,7 +2750,7 @@
             <uax:String>0</uax:String>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="1:Manufacturer" NodeId="ns=1;i=6015" AccessLevel="3" DataType="String">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6015" BrowseName="1:Manufacturer" DataType="String">
         <DisplayName>Manufacturer</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -2760,7 +2760,7 @@
             <uax:String>MTC: Device/{Machine}/OperatingSystem subType MANUFACTURER</uax:String>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="5:SoftwareRevision" ParentNodeId="ns=1;i=5014" NodeId="ns=1;i=6013" DataType="String">
+    <UAVariable ParentNodeId="ns=1;i=5014" NodeId="ns=1;i=6013" BrowseName="5:SoftwareRevision" DataType="String">
         <DisplayName>SoftwareRevision</DisplayName>
         <Description>MTC: Device/{Machine}/OperatingSystem subType VERSION</Description>
         <References>
@@ -2771,7 +2771,7 @@
             <uax:String>0</uax:String>
         </Value>
     </UAVariable>
-    <UAObject BrowseName="2:Monitoring" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5006">
+    <UAObject ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5006" BrowseName="2:Monitoring">
         <DisplayName>Monitoring</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=14</Reference>
@@ -2782,7 +2782,7 @@
             <Reference ReferenceType="Organizes">ns=1;i=5033</Reference>
         </References>
     </UAObject>
-    <UAObject BrowseName="1:Channel1" NodeId="ns=1;i=5016">
+    <UAObject NodeId="ns=1;i=5016" BrowseName="1:Channel1">
         <DisplayName>Channel1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=16</Reference>
@@ -2795,7 +2795,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6016</Reference>
         </References>
     </UAObject>
-    <UAObject BrowseName="1:ActiveTool" NodeId="ns=1;i=5017">
+    <UAObject NodeId="ns=1;i=5017" BrowseName="1:ActiveTool">
         <DisplayName>ActiveTool</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
@@ -2803,7 +2803,7 @@
             <Reference ReferenceType="Organizes">ns=1;i=6026</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="1:ControllIdentifier1" NodeId="ns=1;i=6026" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6026" BrowseName="1:ControllIdentifier1" DataType="UInt32">
         <DisplayName>ControllIdentifier1</DisplayName>
         <Description>MTC: Path/path/ToolNumber</Description>
         <References>
@@ -2811,7 +2811,7 @@
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="2:ChannelMode" ParentNodeId="ns=1;i=5016" NodeId="ns=1;i=6043" DataType="ChannelMode">
+    <UAVariable ParentNodeId="ns=1;i=5016" NodeId="ns=1;i=6043" BrowseName="2:ChannelMode" DataType="ChannelMode">
         <DisplayName>ChannelMode</DisplayName>
         <Description>MTC: Path/path/ControllerMode</Description>
         <References>
@@ -2819,7 +2819,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5016</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="2:ChannelState" ParentNodeId="ns=1;i=5016" NodeId="ns=1;i=6045" DataType="ChannelState">
+    <UAVariable ParentNodeId="ns=1;i=5016" NodeId="ns=1;i=6045" BrowseName="2:ChannelState" DataType="ChannelState">
         <DisplayName>ChannelState</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -2827,7 +2827,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5016</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="2:FeedOverride" ParentNodeId="ns=1;i=5016" NodeId="ns=1;i=6050" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5016" NodeId="ns=1;i=6050" BrowseName="2:FeedOverride" DataType="Double">
         <DisplayName>FeedOverride</DisplayName>
         <Description>MTC: Path/path/PathFeedrateOverride subType PROGRAMMED</Description>
         <References>
@@ -2840,7 +2840,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6050" NodeId="ns=1;i=6051" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6050" NodeId="ns=1;i=6051" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -2848,7 +2848,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6050</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6050" NodeId="ns=1;i=6053" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6050" NodeId="ns=1;i=6053" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -2856,7 +2856,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6050</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="2:Name" ParentNodeId="ns=1;i=5016" NodeId="ns=1;i=6056" DataType="String">
+    <UAVariable ParentNodeId="ns=1;i=5016" NodeId="ns=1;i=6056" BrowseName="2:Name" DataType="String">
         <DisplayName>Name</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -2864,7 +2864,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5016</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="2:RapidOverride" ParentNodeId="ns=1;i=5016" NodeId="ns=1;i=6016" DataType="Double">
+    <UAVariable ParentNodeId="ns=1;i=5016" NodeId="ns=1;i=6016" BrowseName="2:RapidOverride" DataType="Double">
         <DisplayName>RapidOverride</DisplayName>
         <Description>MTC: Path/path/PathFeedrateOverride subType RAPID</Description>
         <References>
@@ -2877,7 +2877,7 @@
             <uax:Double>0</uax:Double>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="EngineeringUnits" ParentNodeId="ns=1;i=6016" NodeId="ns=1;i=6017" DataType="EUInformation">
+    <UAVariable ParentNodeId="ns=1;i=6016" NodeId="ns=1;i=6017" BrowseName="EngineeringUnits" DataType="EUInformation">
         <DisplayName>EngineeringUnits</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -2885,7 +2885,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6016</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="EURange" ParentNodeId="ns=1;i=6016" NodeId="ns=1;i=6018" DataType="Range">
+    <UAVariable ParentNodeId="ns=1;i=6016" NodeId="ns=1;i=6018" BrowseName="EURange" DataType="Range">
         <DisplayName>EURange</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -2893,7 +2893,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6016</Reference>
         </References>
     </UAVariable>
-    <UAObject BrowseName="2:MachineTool" ParentNodeId="ns=1;i=5006" NodeId="ns=1;i=5007">
+    <UAObject ParentNodeId="ns=1;i=5006" NodeId="ns=1;i=5007" BrowseName="2:MachineTool">
         <DisplayName>MachineTool</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=26</Reference>
@@ -2901,7 +2901,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6004</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="2:OperationMode" ParentNodeId="ns=1;i=5007" NodeId="ns=1;i=6004" DataType="MachineOperationMode">
+    <UAVariable ParentNodeId="ns=1;i=5007" NodeId="ns=1;i=6004" BrowseName="2:OperationMode" DataType="MachineOperationMode">
         <DisplayName>OperationMode</DisplayName>
         <Description>MTC: Path/path/ControllerMode</Description>
         <References>
@@ -2909,7 +2909,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5007</Reference>
         </References>
     </UAVariable>
-    <UAObject BrowseName="1:Process" NodeId="ns=1;i=5035">
+    <UAObject NodeId="ns=1;i=5035" BrowseName="3:Process">
         <DisplayName>Process</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
@@ -2922,7 +2922,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6032</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="1:CuttingSpeed" NodeId="ns=1;i=6028" AccessLevel="3" DataType="String">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6028" BrowseName="1:CuttingSpeed" DataType="String">
         <DisplayName>CuttingSpeed</DisplayName>
         <Description>MTC: Path/path/CuttingSpeed</Description>
         <References>
@@ -2930,7 +2930,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5035</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="DryRun" NodeId="ns=1;i=6027" AccessLevel="3" DataType="Boolean">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6027" BrowseName="DryRun" DataType="Boolean">
         <DisplayName>DryRun</DisplayName>
         <Description>MTC: Path/path/ControllerModeOverride
 subType DRY_RUN</Description>
@@ -2939,7 +2939,7 @@ subType DRY_RUN</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5035</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:MachineAxisLock" NodeId="ns=1;i=6029" AccessLevel="3" DataType="Boolean">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6029" BrowseName="1:MachineAxisLock" DataType="Boolean">
         <DisplayName>MachineAxisLock</DisplayName>
         <Description>MTC: Path/path/ControllerModeOverride
 subType MACHINE_AXIS_LOCK</Description>
@@ -2948,7 +2948,7 @@ subType MACHINE_AXIS_LOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5035</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:Orientation" NodeId="ns=1;i=6031" AccessLevel="3" DataType="String">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6031" BrowseName="1:Orientation" DataType="String">
         <DisplayName>Orientation</DisplayName>
         <Description>MTC: Path/path/Orientation</Description>
         <References>
@@ -2956,7 +2956,7 @@ subType MACHINE_AXIS_LOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5035</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:PathPosition" NodeId="ns=1;i=6033" AccessLevel="3" DataType="String">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6033" BrowseName="1:PathPosition" DataType="String">
         <DisplayName>PathPosition</DisplayName>
         <Description>MTC: Path/path/PathPosition</Description>
         <References>
@@ -2964,7 +2964,7 @@ subType MACHINE_AXIS_LOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5035</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:SingleBlock" NodeId="ns=1;i=6032" AccessLevel="3" DataType="Boolean">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6032" BrowseName="1:SingleBlock" DataType="Boolean">
         <DisplayName>SingleBlock</DisplayName>
         <Description>MTC: Path/path/ControllerModeOverride
 subType SINGLE_BLOCK</Description>
@@ -2973,7 +2973,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5035</Reference>
         </References>
     </UAVariable>
-    <UAObject BrowseName="1:Status" NodeId="ns=1;i=5033">
+    <UAObject NodeId="ns=1;i=5033" BrowseName="3:Status">
         <DisplayName>Status</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
@@ -2985,7 +2985,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent">ns=1;i=6039</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="1:Availability" NodeId="ns=1;i=6054" AccessLevel="3" DataType="LocalizedText">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6054" BrowseName="1:Availability" DataType="LocalizedText">
         <DisplayName>Availability</DisplayName>
         <Description>MTC: Device/{Machine}/Availability</Description>
         <References>
@@ -2993,7 +2993,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5033</Reference>
         </References>
     </UAVariable>
-    <UAObject BrowseName="1:Coolant" NodeId="ns=1;i=5002">
+    <UAObject NodeId="ns=1;i=5002" BrowseName="1:Coolant">
         <DisplayName>Coolant</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
@@ -3002,7 +3002,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5033</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="1:Concentration" NodeId="ns=1;i=6035" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6035" BrowseName="1:Concentration" DataType="UInt32">
         <DisplayName>Concentration</DisplayName>
         <Description>MTC: Coolant/coolant/Concentration</Description>
         <References>
@@ -3010,7 +3010,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5002</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:Temperature" NodeId="ns=1;i=6036" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6036" BrowseName="1:Temperature" DataType="UInt32">
         <DisplayName>Temperature</DisplayName>
         <Description>MTC: Coolant/coolant/Temperature</Description>
         <References>
@@ -3018,7 +3018,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5002</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:DoorState" NodeId="ns=1;i=6030" AccessLevel="3" DataType="Boolean">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6030" BrowseName="1:DoorState" DataType="Boolean">
         <DisplayName>DoorState</DisplayName>
         <Description>MTC: Door/door/DoorState</Description>
         <References>
@@ -3026,7 +3026,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5033</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:EmergencyStopTriggered" NodeId="ns=1;i=6022" AccessLevel="3" DataType="Boolean">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6022" BrowseName="1:EmergencyStopTriggered" DataType="Boolean">
         <DisplayName>EmergencyStopTriggered</DisplayName>
         <Description>MTC: Controller/controller/EmergencyStop</Description>
         <References>
@@ -3034,7 +3034,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5033</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:Temperature" NodeId="ns=1;i=6039" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6039" BrowseName="1:Temperature" DataType="UInt32">
         <DisplayName>Temperature</DisplayName>
         <Description>MTC: Environmental/environmental/Temperature</Description>
         <References>
@@ -3042,14 +3042,14 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5033</Reference>
         </References>
     </UAVariable>
-    <UAObject BrowseName="2:Notification" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5008">
+    <UAObject ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5008" BrowseName="2:Notification">
         <DisplayName>Notification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=7</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
         </References>
     </UAObject>
-    <UAObject BrowseName="2:Production" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5009">
+    <UAObject ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5009" BrowseName="2:Production">
         <DisplayName>Production</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=21</Reference>
@@ -3059,7 +3059,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent">ns=1;i=6037</Reference>
         </References>
     </UAObject>
-    <UAObject BrowseName="2:ActiveProgram" ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=5010">
+    <UAObject ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=5010" BrowseName="2:ActiveProgram">
         <DisplayName>ActiveProgram</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=32</Reference>
@@ -3074,7 +3074,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent">ns=1;i=5011</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="1:DesiredParts" NodeId="ns=1;i=6020" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6020" BrowseName="1:DesiredParts" DataType="UInt32">
         <DisplayName>DesiredParts</DisplayName>
         <Description>MTC: Path/path/PartCount subType TARGET</Description>
         <References>
@@ -3082,7 +3082,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="2:JobIdentifier" ParentNodeId="ns=1;i=5010" NodeId="ns=1;i=6019" DataType="String">
+    <UAVariable ParentNodeId="ns=1;i=5010" NodeId="ns=1;i=6019" BrowseName="2:JobIdentifier" DataType="String">
         <DisplayName>JobIdentifier</DisplayName>
         <Description>MTC: Path/path/Program</Description>
         <References>
@@ -3090,7 +3090,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:Material" NodeId="ns=1;i=6038" AccessLevel="3" DataType="String">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6038" BrowseName="1:Material" DataType="String">
         <DisplayName>Material</DisplayName>
         <Description>MTC: Stock/stock/Material</Description>
         <References>
@@ -3098,7 +3098,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="2:Name" ParentNodeId="ns=1;i=5010" NodeId="ns=1;i=6005" DataType="String">
+    <UAVariable ParentNodeId="ns=1;i=5010" NodeId="ns=1;i=6005" BrowseName="2:Name" DataType="String">
         <DisplayName>Name</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -3106,7 +3106,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="NumberInList" ParentNodeId="ns=1;i=5010" NodeId="ns=1;i=6006" DataType="UInt16">
+    <UAVariable ParentNodeId="ns=1;i=5010" NodeId="ns=1;i=6006" BrowseName="NumberInList" DataType="UInt16">
         <DisplayName>NumberInList</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -3114,7 +3114,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:PartCounter" NodeId="ns=1;i=6021" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6021" BrowseName="1:PartCounter" DataType="UInt32">
         <DisplayName>PartCounter</DisplayName>
         <Description>MTC: Path/path/PartCount subType ALL</Description>
         <References>
@@ -3122,7 +3122,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:ProcessTimer" NodeId="ns=1;i=6034" AccessLevel="3" DataType="UInt32">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6034" BrowseName="1:ProcessTimer" DataType="UInt32">
         <DisplayName>ProcessTimer</DisplayName>
         <Description>MTC: Path/path/ProcessTimer</Description>
         <References>
@@ -3130,7 +3130,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
-    <UAObject BrowseName="2:State" ParentNodeId="ns=1;i=5010" NodeId="ns=1;i=5011">
+    <UAObject ParentNodeId="ns=1;i=5010" NodeId="ns=1;i=5011" BrowseName="2:State">
         <DisplayName>State</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=15</Reference>
@@ -3141,7 +3141,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent">ns=1;i=6060</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="CurrentState" ParentNodeId="ns=1;i=5011" NodeId="ns=1;i=6007" DataType="LocalizedText">
+    <UAVariable ParentNodeId="ns=1;i=5011" NodeId="ns=1;i=6007" BrowseName="CurrentState" DataType="LocalizedText">
         <DisplayName>CurrentState</DisplayName>
         <Description>MTC: Path/path/Execution</Description>
         <References>
@@ -3154,7 +3154,7 @@ subType SINGLE_BLOCK</Description>
             <uax:LocalizedText/>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="Id" ParentNodeId="ns=1;i=6007" NodeId="ns=1;i=6008" DataType="NodeId">
+    <UAVariable ParentNodeId="ns=1;i=6007" NodeId="ns=1;i=6008" BrowseName="Id" DataType="NodeId">
         <DisplayName>Id</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -3162,7 +3162,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6007</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="Number" ParentNodeId="ns=1;i=6007" NodeId="ns=1;i=6009" DataType="UInt32">
+    <UAVariable ParentNodeId="ns=1;i=6007" NodeId="ns=1;i=6009" BrowseName="Number" DataType="UInt32">
         <DisplayName>Number</DisplayName>
         <Description>MTC: N/A</Description>
         <References>
@@ -3170,7 +3170,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6007</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:Rotation" NodeId="ns=1;i=6058" AccessLevel="3" DataType="String">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6058" BrowseName="1:Rotation" DataType="String">
         <DisplayName>Rotation</DisplayName>
         <Description>MTC: Path/path/Rotation</Description>
         <References>
@@ -3178,7 +3178,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5011</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:Translation" NodeId="ns=1;i=6059" AccessLevel="3" DataType="String">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6059" BrowseName="1:Translation" DataType="String">
         <DisplayName>Translation</DisplayName>
         <Description>MTC: Path/path/Translation</Description>
         <References>
@@ -3186,7 +3186,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5011</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:WorkOffset" NodeId="ns=1;i=6060" AccessLevel="3" DataType="String">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6060" BrowseName="1:WorkOffset" DataType="String">
         <DisplayName>WorkOffset</DisplayName>
         <Description>Path/path/WorkOffset</Description>
         <References>
@@ -3194,7 +3194,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5011</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:PalletID" NodeId="ns=1;i=6040" AccessLevel="3" DataType="String">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6040" BrowseName="1:PalletID" DataType="String">
         <DisplayName>PalletID</DisplayName>
         <Description>MTC: Controller/controller/PalletId</Description>
         <References>
@@ -3202,7 +3202,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5009</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="1:User" NodeId="ns=1;i=6037" AccessLevel="3" DataType="String">
+    <UAVariable AccessLevel="3" NodeId="ns=1;i=6037" BrowseName="1:User" DataType="String">
         <DisplayName>User</DisplayName>
         <Description>MTC: Personnel/personnel/User</Description>
         <References>
@@ -3210,7 +3210,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5009</Reference>
         </References>
     </UAVariable>
-    <UAObject BrowseName="1:http://ifw.uni-hannover.de/umatiConnectMazak/" SymbolicName="http___ifw_uni_hannover_de_umatiConnectMazak_" NodeId="ns=1;i=5001">
+    <UAObject SymbolicName="http___ifw_uni_hannover_de_umatiConnectMazak_" NodeId="ns=1;i=5001" BrowseName="1:http://ifw.uni-hannover.de/umatiConnectMazak/">
         <DisplayName>http://ifw.uni-hannover.de/umatiConnectMazak/</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=11616</Reference>
@@ -3225,7 +3225,7 @@ subType SINGLE_BLOCK</Description>
             <Reference ReferenceType="HasProperty">ns=1;i=6049</Reference>
         </References>
     </UAObject>
-    <UAVariable BrowseName="DefaultAccessRestrictions" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6233" DataType="AccessRestrictionType">
+    <UAVariable ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6233" BrowseName="DefaultAccessRestrictions" DataType="AccessRestrictionType">
         <DisplayName>DefaultAccessRestrictions</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -3236,7 +3236,7 @@ subType SINGLE_BLOCK</Description>
             <RolePermission Permissions="1">i=15644</RolePermission>
         </RolePermissions>
     </UAVariable>
-    <UAVariable BrowseName="IsNamespaceSubset" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6023" DataType="Boolean">
+    <UAVariable ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6023" BrowseName="IsNamespaceSubset" DataType="Boolean">
         <DisplayName>IsNamespaceSubset</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -3246,17 +3246,17 @@ subType SINGLE_BLOCK</Description>
             <uax:Boolean>false</uax:Boolean>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="NamespacePublicationDate" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6024" DataType="DateTime">
+    <UAVariable ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6024" BrowseName="NamespacePublicationDate" DataType="DateTime">
         <DisplayName>NamespacePublicationDate</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5001</Reference>
         </References>
         <Value>
-            <uax:DateTime>2025-04-14T07:35:12Z</uax:DateTime>
+            <uax:DateTime>2025-04-14T07:54:12Z</uax:DateTime>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="NamespaceUri" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6025" DataType="String">
+    <UAVariable ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6025" BrowseName="NamespaceUri" DataType="String">
         <DisplayName>NamespaceUri</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -3266,7 +3266,7 @@ subType SINGLE_BLOCK</Description>
             <uax:String>http://ifw.uni-hannover.de/umatiConnectMazak/</uax:String>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="NamespaceVersion" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6041" DataType="String">
+    <UAVariable ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6041" BrowseName="NamespaceVersion" DataType="String">
         <DisplayName>NamespaceVersion</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
@@ -3276,21 +3276,21 @@ subType SINGLE_BLOCK</Description>
             <uax:String>1.0.0</uax:String>
         </Value>
     </UAVariable>
-    <UAVariable BrowseName="StaticNodeIdTypes" ArrayDimensions="0" ValueRank="1" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6042" DataType="IdType">
+    <UAVariable ParentNodeId="ns=1;i=5001" ValueRank="1" ArrayDimensions="0" NodeId="ns=1;i=6042" BrowseName="StaticNodeIdTypes" DataType="IdType">
         <DisplayName>StaticNodeIdTypes</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5001</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="StaticNumericNodeIdRange" ArrayDimensions="0" ValueRank="1" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6048" DataType="NumericRange">
+    <UAVariable ParentNodeId="ns=1;i=5001" ValueRank="1" ArrayDimensions="0" NodeId="ns=1;i=6048" BrowseName="StaticNumericNodeIdRange" DataType="NumericRange">
         <DisplayName>StaticNumericNodeIdRange</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5001</Reference>
         </References>
     </UAVariable>
-    <UAVariable BrowseName="StaticStringNodeIdPattern" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6049" DataType="String">
+    <UAVariable ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6049" BrowseName="StaticStringNodeIdPattern" DataType="String">
         <DisplayName>StaticStringNodeIdPattern</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
