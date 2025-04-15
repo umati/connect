@@ -220,7 +220,7 @@ namespace mtc2umati.Services
                     // +++++++++++++++++ Print the mapped objects after fetching XML data +++++++++++++++++++++
                     // mappedObjects.ShowMappedObjects();
                 }
-                var delayTask = Task.Delay(3000); // 3 seconds delay
+                var delayTask = Task.Delay(1000); // 1 seconds delay
                 var completedTask = await Task.WhenAny(delayTask, cancellationTask);
             }
         }

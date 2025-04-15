@@ -22,7 +22,7 @@ namespace mtc2umati.Services
 
             string namespaceUri = ConfigStore.VendorSettings.OPCNamespace!;
             ushort namespaceIndex = (ushort)_server.CurrentInstance.NamespaceUris.GetIndex(namespaceUri);
-            Console.WriteLine($"Namespace index for '{namespaceUri}' is {namespaceIndex}.");
+            Console.WriteLine($"[INFO] Namespace index for '{namespaceUri}' is {namespaceIndex}.");
 
             var nodeManager = masterNodeManager.NodeManagers.OfType<UmatiNodeManager>().FirstOrDefault();
 
@@ -47,12 +47,12 @@ namespace mtc2umati.Services
                 Console.WriteLine("[ERROR] NodeManager or ParentNode is null.");
                 return;
             }
+
             // Update the DisplayName and BrowseName of the predefined machine node with the name that was acutally found in the XML file
             // This is usefull, since the machine name in the config.json file and information model can be generic
             parentNode.DisplayName = new LocalizedText("en", ConfigStore.VendorSettings.ActualModelName!);
             parentNode.BrowseName = new QualifiedName(ConfigStore.VendorSettings.ActualModelName!, parentNode.NodeId.NamespaceIndex);
-            var property = parentNode.GetType().GetProperty("TypeDefinitionId", BindingFlags.Public | BindingFlags.Instance);
-            //Console.WriteLine($"TypeDefinitionId: {property?.GetValue(parentNode)}");
+
 
             foreach (var mappedObject in mappedObjects)
             {
@@ -90,6 +90,16 @@ namespace mtc2umati.Services
                     }
                 }
 
+                // Add the reference to the MTConnect folder for newly added nodes --> extract to seperate method or helper class
+                if ((ConfigStore.VendorSettings.Mode == 1 && mappedObject.ModellingRule == "New") ||
+                    mappedObject.ModellingRule == "DMG specific")
+                {
+                    if (currentNode != null && nodeManager != null)
+                    {
+                        AddHasAddInReference(currentNode, nodeManager, mappedObject);
+                    }
+                }
+
                 if (currentNode is BaseVariableState variableNode)
                 {
                     // Only update the value if it changed
@@ -108,6 +118,35 @@ namespace mtc2umati.Services
                 }
             }
         }
+
+        public static void AddHasAddInReference(NodeState node, UmatiNodeManager nodeManager, MappedObject mappedObject)
+        {
+            var folder = ConfigStore.VendorSettings.MTConnect_FolderState;
+            if (folder != null && node != null)
+                    {
+                        var existingReferences = new List<IReference>();
+                        folder.GetReferences(nodeManager.SystemContext, existingReferences);
+
+                        bool referenceExists = existingReferences.Any(r =>
+                            r.ReferenceTypeId == ReferenceTypeIds.HasAddIn &&
+                            r.TargetId.Equals(node.NodeId) &&
+                            !r.IsInverse);
+
+                        if (!referenceExists)
+                        {
+                            folder.AddReference(ReferenceTypeIds.HasAddIn, false, node.NodeId);
+                            node.AddReference(ReferenceTypeIds.HasAddIn, true, folder.NodeId);
+
+                            folder.ClearChangeMasks(nodeManager.SystemContext, false);
+                            node.ClearChangeMasks(nodeManager.SystemContext, false);
+
+                            Console.WriteLine($"Added HasAddIn reference to MTConnect folder and node '{mappedObject.OpcPath}'.");
+                        }
+                    }
+
+        }
+
+
     }
 }
 

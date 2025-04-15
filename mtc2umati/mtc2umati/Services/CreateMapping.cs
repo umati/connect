@@ -8,8 +8,9 @@ using ClosedXML.Excel;
 namespace mtc2umati.Services
 {
 
-    public class MappedObject(string opcPath, string opcDataType, string mtcPath, string mtcDataType, string mtcSubtype, object? value = null)
+    public class MappedObject(string ModellingRule, string opcPath, string opcDataType, string mtcPath, string mtcDataType, string mtcSubtype, object? value = null)
     {
+        public string ModellingRule { get; set; } = ModellingRule;
         public string OpcPath { get; set; } = opcPath;
         public string OpcDataType { get; set; } = opcDataType;
         public string MtcPath { get; set; } = mtcPath;
@@ -27,13 +28,13 @@ namespace mtc2umati.Services
             foreach (DataRow row in dataTable.Rows)
             {
                 var mappedObject = new MappedObject(
+                    row["Modelling Rule"]?.ToString() ?? string.Empty,
                     row["OPC Path"]?.ToString() ?? string.Empty,
                     row["Data Type"]?.ToString() ?? string.Empty,
                     row["MTC Path"]?.ToString() ?? string.Empty,
                     row["MTC Data Type"]?.ToString() ?? string.Empty,
                     row["subType"]?.ToString() ?? string.Empty
                 );
-
                 mappedObjects.Add(mappedObject);
             }
 
@@ -45,7 +46,7 @@ namespace mtc2umati.Services
         public static List<MappedObject>? LoadMapping(string filePath, string sheetName)
         {
             // Define the columns needed for mapping
-            var columnsToRead = new[] { "OPC Path", "Data Type", "MTC Path", "subType", "MTC Data Type" };
+            var columnsToRead = new[] { "Modelling Rule", "OPC Path", "Data Type", "MTC Path", "subType", "MTC Data Type" };
             var columnsToIgnore = new[] { "subType" };
             var dataTable = DataTableExtensions.ReadMappingXlsxFile(filePath, sheetName, columnsToRead);
 
@@ -67,6 +68,7 @@ namespace mtc2umati.Services
             Console.WriteLine("--- Mapped Values ---");
             foreach (var obj in mappedObjects)
             {
+                Console.WriteLine($"Modelling Rule: {obj.ModellingRule}");
                 Console.WriteLine($"OPC Path: {obj.OpcPath}");
                 Console.WriteLine($"MTC Path: {obj.MtcPath}");
                 if (!string.IsNullOrEmpty(obj.MtcSubtype))

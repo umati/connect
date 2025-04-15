@@ -2,6 +2,7 @@
  * Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
  * =======================================================================*/
 
+using System.Reflection;
 using Opc.Ua;
 using Opc.Ua.Export;
 using Opc.Ua.Server;
@@ -60,6 +61,15 @@ namespace mtc2umati.Services
                 ImportXml(externalReferences, resourcePathMachineTool);
                 ImportXml(externalReferences, resourcePathCNC);
                 ImportXml(externalReferences, resourcePathUmatiConnect);
+
+                if (ConfigStore.VendorSettings.Mode == 1)
+                {
+                    ushort umatiNamespaceIndex = (ushort)SystemContext.NamespaceUris.GetIndex(ConfigStore.VendorSettings.OPCNamespace!);
+                    FolderState mtcConnectFolder = CreateMtcConnectFolder(
+                        GetPredefinedNodes().FirstOrDefault(n => n.BrowseName.Name == ConfigStore.VendorSettings.Machine_Name)!,
+                        umatiNamespaceIndex, SystemContext);
+                    ConfigStore.VendorSettings.MTConnect_FolderState = mtcConnectFolder;
+                }
             }
         }
 
@@ -81,7 +91,6 @@ namespace mtc2umati.Services
             }
 
 
-            // nodeSet.NamespaceUris is an ordered list — use it directly
             foreach (var uri in nodeSet.NamespaceUris)
             {
                 if (SystemContext.NamespaceUris.GetIndex(uri) == -1)
@@ -90,9 +99,6 @@ namespace mtc2umati.Services
                 }
             }
 
-            m_namespaceIndex = (ushort)SystemContext.NamespaceUris.GetIndex(nodeSet.NamespaceUris[0]);
-            Console.WriteLine($"Namespace index for '{nodeSet.NamespaceUris[0]}' is {m_namespaceIndex}.");
-
             nodeSet.Import(SystemContext, predefinedNodes);
 
             Console.WriteLine(predefinedNodes.Count + " nodes imported from " + resourcePath);
@@ -100,21 +106,28 @@ namespace mtc2umati.Services
             foreach (var node in predefinedNodes)
             {
                 AddPredefinedNode(SystemContext, node);
-                //if namespaceindex is 9 print info:
-                if (node.NodeId.NamespaceIndex == 9)
-                {
-                    Console.WriteLine($"NodeId: {node.NodeId}, BrowseName: {node.BrowseName}, DisplayName: {node.DisplayName}");
-                }
             }
-
-
             // ensure the reverse references exist.
             AddReverseReferences(externalReferences);
         }
 
-        #region Private Fields
-        private ushort m_namespaceIndex;
-        #endregion
+        public FolderState CreateMtcConnectFolder(NodeState parentNode, ushort namespaceIndex, ISystemContext systemContext)
+        {
+            var folder = new FolderState(parentNode)
+            {
+                DisplayName = new Opc.Ua.LocalizedText("en", "MTConnect"),
+                BrowseName = new QualifiedName("MTConnect", namespaceIndex),
+                TypeDefinitionId = ObjectTypeIds.FolderType,
+                NodeId = new NodeId("MTConnect", namespaceIndex)
+            };
+            folder.Create(systemContext, folder.NodeId, folder.BrowseName, folder.DisplayName, true);
+            folder.Description = new Opc.Ua.LocalizedText("en", "Folder to store the MTConnect data stored that was newly added in the umatiConnect project");
+
+            parentNode.AddChild(folder);
+            AddPredefinedNode(systemContext, folder);
+
+            return folder;
+        }
     }
 }
 

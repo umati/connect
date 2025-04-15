@@ -3,6 +3,7 @@
  * =======================================================================*/
 
 using Newtonsoft.Json;
+using Opc.Ua;
 
 namespace mtc2umati
 {
@@ -54,5 +55,6 @@ namespace mtc2umati
         public string? Machine_Name { get; set; }
         public int Mode { get; set; }
         public string? ActualModelName { get; set; }
+        public FolderState? MTConnect_FolderState { get; set; }
     }
 }
