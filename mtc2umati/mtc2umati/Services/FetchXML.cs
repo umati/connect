@@ -36,7 +36,7 @@ namespace mtc2umati.Services
     public class XmlMapper
     {
         private readonly XmlNamespaceManager _namespaceManager;
-        private string _modelName = string.Empty; // Stores the model name from the DeviceStream, maybe find a better way to do this
+        public string _modelName = string.Empty; // Stores the model name from the DeviceStream, maybe find a better way to do this
 
         public XmlMapper(string mtcNamespace)
         {
@@ -64,9 +64,9 @@ namespace mtc2umati.Services
                     if (variableName == "name")
                     {
                         var deviceStream = xmlDoc.XPathSelectElement($"//mt:DeviceStream[@name!='Agent']", _namespaceManager);
-                        // Check if the deviceStream is null and handle accordingly
                         _modelName = deviceStream?.Attribute("name")?.Value ?? string.Empty;
                         mappedObject.Value = _modelName;
+                        ConfigStore.VendorSettings.ActualModelName = _modelName; // Save the model name in the config store to write it to the machine node later
                     }
                     else if (variableName == "uuid")
                     {

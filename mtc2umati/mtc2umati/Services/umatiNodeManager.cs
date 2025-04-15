@@ -17,6 +17,7 @@ namespace mtc2umati.Services
             "http://opcfoundation.org/UA/Machinery/",
             "http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/",
             "http://opcfoundation.org/UA/Machinery/Jobs/",
+            "http://opcfoundation.org/UA/MachineTool/",
             "http://opcfoundation.org/UA/IA/",
             "http://opcfoundation.org/UA/CNC",
             ConfigStore.VendorSettings.OPCNamespace)
@@ -80,19 +81,17 @@ namespace mtc2umati.Services
             }
 
 
+            // nodeSet.NamespaceUris is an ordered list — use it directly
             foreach (var uri in nodeSet.NamespaceUris)
             {
-                // if namespace not in namespaceUris, add it
-                if (SystemContext.NamespaceUris.GetIndex(uri) != -1)
+                if (SystemContext.NamespaceUris.GetIndex(uri) == -1)
                 {
-                    m_namespaceIndex = (ushort)SystemContext.NamespaceUris.GetIndex(uri);
-                }
-                else
-                {
-                    m_namespaceIndex = (ushort)SystemContext.NamespaceUris.Count;
                     SystemContext.NamespaceUris.Append(uri);
                 }
             }
+
+            m_namespaceIndex = (ushort)SystemContext.NamespaceUris.GetIndex(nodeSet.NamespaceUris[0]);
+            Console.WriteLine($"Namespace index for '{nodeSet.NamespaceUris[0]}' is {m_namespaceIndex}.");
 
             nodeSet.Import(SystemContext, predefinedNodes);
 
@@ -101,7 +100,14 @@ namespace mtc2umati.Services
             foreach (var node in predefinedNodes)
             {
                 AddPredefinedNode(SystemContext, node);
+                //if namespaceindex is 9 print info:
+                if (node.NodeId.NamespaceIndex == 9)
+                {
+                    Console.WriteLine($"NodeId: {node.NodeId}, BrowseName: {node.BrowseName}, DisplayName: {node.DisplayName}");
+                }
             }
+
+
             // ensure the reverse references exist.
             AddReverseReferences(externalReferences);
         }

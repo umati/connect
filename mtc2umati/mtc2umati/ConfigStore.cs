@@ -22,22 +22,22 @@ namespace mtc2umati
 
             var config = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
 
-            if (config == null || !config.ContainsKey(vendor))
+            if (config == null || !config.TryGetValue(vendor, out Dictionary<string, string>? value))
             {
                 throw new KeyNotFoundException($"Vendor '{vendor}' not found in config.");
             }
 
             VendorSettings = new VendorConfig
             {
-                MTCServerIP = config[vendor]["MTConnectServerIP"],
-                MTCServerPort = int.Parse(config[vendor]["MTConnectServerPort"]),
-                MTCNamespace = config[vendor]["MTConnectNamespace"],
-                Mapping_file = config[vendor]["Mapping_file"],
-                Mapping_sheet = config[vendor]["Mapping_sheet"],
-                Information_model = config[vendor]["Information_model"],
-                OPCNamespace = config[vendor]["OPCNamespace"],
-                Machine_Name = config[vendor]["Machine_Name"],
-                Mode = int.Parse(config[vendor]["Mode"])
+                MTCServerIP = value["MTConnectServerIP"],
+                MTCServerPort = int.Parse(value["MTConnectServerPort"]),
+                MTCNamespace = value["MTConnectNamespace"],
+                Mapping_file = value["Mapping_file"],
+                Mapping_sheet = value["Mapping_sheet"],
+                Information_model = value["Information_model"],
+                OPCNamespace = value["OPCNamespace"],
+                Machine_Name = value["Machine_Name"],
+                Mode = int.Parse(value["Mode"])
             };
         }
     }
@@ -53,5 +53,6 @@ namespace mtc2umati
         public string? OPCNamespace { get; set; }
         public string? Machine_Name { get; set; }
         public int Mode { get; set; }
+        public string? ActualModelName { get; set; }
     }
 }

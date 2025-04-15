@@ -2,6 +2,7 @@
  * Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
  * =======================================================================*/
 
+using System.Reflection;
 using Opc.Ua;
 
 namespace mtc2umati.Services
@@ -46,6 +47,12 @@ namespace mtc2umati.Services
                 Console.WriteLine("[ERROR] NodeManager or ParentNode is null.");
                 return;
             }
+            // Update the DisplayName and BrowseName of the predefined machine node with the name that was acutally found in the XML file
+            // This is usefull, since the machine name in the config.json file and information model can be generic
+            parentNode.DisplayName = new LocalizedText("en", ConfigStore.VendorSettings.ActualModelName!);
+            parentNode.BrowseName = new QualifiedName(ConfigStore.VendorSettings.ActualModelName!, parentNode.NodeId.NamespaceIndex);
+            var property = parentNode.GetType().GetProperty("TypeDefinitionId", BindingFlags.Public | BindingFlags.Instance);
+            //Console.WriteLine($"TypeDefinitionId: {property?.GetValue(parentNode)}");
 
             foreach (var mappedObject in mappedObjects)
             {

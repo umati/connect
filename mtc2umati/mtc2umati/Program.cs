@@ -29,7 +29,7 @@ namespace mtc2umati
                 await CheckApplicationInstanceCertificate(config).ConfigureAwait(false);
 
                 // load the vendor configuration
-                ConfigStore.LoadConfigJSON("mazak");
+                ConfigStore.LoadConfigJSON("dmg");
 
                 // Start both the XML fetch and server in parallel
                 Task startServerTask = StartServer(config);
@@ -118,15 +118,13 @@ namespace mtc2umati
         }
 
         #region Fetch MTC data
-
-
         private static async Task FetchMTCXML()
         {
             // Load the mapping from the Excel file
             Console.WriteLine("Creating the mapping between MTC and OPC UA...");
             _mappedObjects = MappingLoader.LoadMapping(ConfigStore.VendorSettings.Mapping_file!, ConfigStore.VendorSettings.Mapping_sheet!) ?? []; ;
 
-            Task.Delay(3000).Wait();
+            Task.Delay(1000).Wait();
 
             // Validate vendor config for MTC connection
             string url = ConfigStore.VendorSettings.MTCServerIP ?? throw new ArgumentNullException(nameof(ConfigStore.VendorSettings.MTCServerIP), "MTCServerIP cannot be null."); ;
@@ -137,7 +135,9 @@ namespace mtc2umati
             Console.WriteLine($"Starting MTConnect XML fetch loop with URL: {url} and Port: {port}");
             await XmlFetchLoopRunner.RunXmlFetchLoopAsync(url, port, mtcNamespace, _mappedObjects);
         }
+        #endregion
 
+        #region Write OPC UA values
         private static async Task UmatiWriteValues()
         {
             if (_server == null || _mappedObjects.Count == 0)
@@ -145,7 +145,6 @@ namespace mtc2umati
                 Console.WriteLine("Server is not initialized or no mapped objects available. Have you closed the mapping.xlsx file?");
                 return;
             }
-
             var writer = new UmatiWriter(_server);
             await writer.UpdateNodesAsync(_mappedObjects).ConfigureAwait(false);
         }
