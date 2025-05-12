@@ -8,11 +8,12 @@ using ClosedXML.Excel;
 namespace mtc2umati.Services
 {
 
-    public class MappedObject(string ModellingRule, string opcPath, string opcDataType, string mtcPath, string mtcDataType, string mtcSubtype, object? value = null)
+    public class MappedObject(string ModellingRule, string opcPath, string opcDataType, string mtcName, string mtcPath, string mtcDataType, string mtcSubtype, object? value = null)
     {
         public string ModellingRule { get; set; } = ModellingRule;
         public string OpcPath { get; set; } = opcPath;
         public string OpcDataType { get; set; } = opcDataType;
+        public string MtcName { get; set; } = mtcName;
         public string MtcPath { get; set; } = mtcPath;
         public string MtcDataType { get; set; } = mtcDataType;
         public string MtcSubtype { get; set; } = mtcSubtype;
@@ -31,6 +32,7 @@ namespace mtc2umati.Services
                     row["Modelling Rule"]?.ToString() ?? string.Empty,
                     row["OPC Path"]?.ToString() ?? string.Empty,
                     row["Data Type"]?.ToString() ?? string.Empty,
+                    row["MTC Name"]?.ToString() ?? string.Empty,
                     row["MTC Path"]?.ToString() ?? string.Empty,
                     row["MTC Data Type"]?.ToString() ?? string.Empty,
                     row["subType"]?.ToString() ?? string.Empty
@@ -46,7 +48,7 @@ namespace mtc2umati.Services
         public static List<MappedObject>? LoadMapping(string filePath, string sheetName)
         {
             // Define the columns needed for mapping
-            var columnsToRead = new[] { "Modelling Rule", "OPC Path", "Data Type", "MTC Path", "subType", "MTC Data Type" };
+            var columnsToRead = new[] { "Modelling Rule", "OPC Path", "Data Type", "MTC Name", "MTC Path", "subType", "MTC Data Type" };
             var columnsToIgnore = new[] { "subType" };
             var dataTable = DataTableExtensions.ReadMappingXlsxFile(filePath, sheetName, columnsToRead);
 

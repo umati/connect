@@ -89,9 +89,25 @@ namespace mtc2umati.Services
                         }
                     }
                 }
+                #region Data conversion
+                if (mappedObject.Value is not null and not (object)"UNAVAILABLE")
+                {
+                    mappedObject.Value = DataConverter.ConvertValue(mappedObject);
+                }
+                #endregion
 
-                // Add the reference to the MTConnect folder for newly added nodes --> extract to seperate method or helper class
+                #region Mode handling
+                // [MODE 1] When the adapter mode is set to 1 in the config, the value of the new nodes is set to null.
                 if ((ConfigStore.VendorSettings.Mode == 1 && mappedObject.ModellingRule == "New") ||
+                    mappedObject.ModellingRule == "DMG specific")
+                {
+                    mappedObject.Value = null;
+                }
+
+                // [MODE 2] Default: When the adapter mode is set to 2 in the config, the new nodes are inside the Server tree with normal values.
+
+                // [MODE 3] When the adapter mode is set to 3 in the config, add the reference to the MTConnect folder for newly added nodes.
+                if ((ConfigStore.VendorSettings.Mode == 3 && mappedObject.ModellingRule == "New") ||
                     mappedObject.ModellingRule == "DMG specific")
                 {
                     if (currentNode != null && nodeManager != null)
@@ -99,7 +115,8 @@ namespace mtc2umati.Services
                         AddHasAddInReference(currentNode, nodeManager, mappedObject);
                     }
                 }
-
+                #endregion
+                #region Value updating
                 if (currentNode is BaseVariableState variableNode)
                 {
                     // Only update the value if it changed
@@ -116,6 +133,7 @@ namespace mtc2umati.Services
                 {
                     Console.WriteLine($"Node '{currentNode?.BrowseName?.Name}' in '{mappedObject.MtcPath}' --> '{mappedObject.OpcPath}' is not a variable (PropertyState or BaseDataVariableState).");
                 }
+                #endregion
             }
         }
 
@@ -123,30 +141,27 @@ namespace mtc2umati.Services
         {
             var folder = ConfigStore.VendorSettings.MTConnect_FolderState;
             if (folder != null && node != null)
-                    {
-                        var existingReferences = new List<IReference>();
-                        folder.GetReferences(nodeManager.SystemContext, existingReferences);
+            {
+                var existingReferences = new List<IReference>();
+                folder.GetReferences(nodeManager.SystemContext, existingReferences);
 
-                        bool referenceExists = existingReferences.Any(r =>
-                            r.ReferenceTypeId == ReferenceTypeIds.HasAddIn &&
-                            r.TargetId.Equals(node.NodeId) &&
-                            !r.IsInverse);
+                bool referenceExists = existingReferences.Any(r =>
+                    r.ReferenceTypeId == ReferenceTypeIds.HasAddIn &&
+                    r.TargetId.Equals(node.NodeId) &&
+                    !r.IsInverse);
 
-                        if (!referenceExists)
-                        {
-                            folder.AddReference(ReferenceTypeIds.HasAddIn, false, node.NodeId);
-                            node.AddReference(ReferenceTypeIds.HasAddIn, true, folder.NodeId);
+                if (!referenceExists)
+                {
+                    folder.AddReference(ReferenceTypeIds.HasAddIn, false, node.NodeId);
+                    node.AddReference(ReferenceTypeIds.HasAddIn, true, folder.NodeId);
 
-                            folder.ClearChangeMasks(nodeManager.SystemContext, false);
-                            node.ClearChangeMasks(nodeManager.SystemContext, false);
+                    folder.ClearChangeMasks(nodeManager.SystemContext, false);
+                    node.ClearChangeMasks(nodeManager.SystemContext, false);
 
-                            Console.WriteLine($"Added HasAddIn reference to MTConnect folder and node '{mappedObject.OpcPath}'.");
-                        }
-                    }
-
+                    Console.WriteLine($"Added HasAddIn reference to MTConnect folder and node '{mappedObject.OpcPath}'.");
+                }
+            }
         }
-
-
     }
 }
 

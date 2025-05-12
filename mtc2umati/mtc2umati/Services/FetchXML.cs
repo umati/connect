@@ -82,7 +82,7 @@ namespace mtc2umati.Services
                 }
 
                 var mtcPathParts = mappedObject.MtcPath.Split('/');
-                if (mtcPathParts.Length == 3) // this assumption needs to be changed for special cases / or maybe add another special case and special logic for Stacklight etc.
+                if (mtcPathParts.Length == 3)
                 {
                     string componentType = mtcPathParts[0];
                     string componentName = mtcPathParts[1];
@@ -186,9 +186,9 @@ namespace mtc2umati.Services
                     _ => value,// String or unknown type, return as is
                 };
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine($"[ERROR] Failed to convert value '{value}' to type '{dataType}': {ex.Message}");
+                //Console.WriteLine($"[ERROR] Failed to convert value '{value}' to type '{dataType}': {ex.Message}");
                 return null;
             }
         }

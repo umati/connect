@@ -62,7 +62,7 @@ namespace mtc2umati.Services
                 ImportXml(externalReferences, resourcePathCNC);
                 ImportXml(externalReferences, resourcePathUmatiConnect);
 
-                if (ConfigStore.VendorSettings.Mode == 1)
+                if (ConfigStore.VendorSettings.Mode == 3)
                 {
                     ushort umatiNamespaceIndex = (ushort)SystemContext.NamespaceUris.GetIndex(ConfigStore.VendorSettings.OPCNamespace!);
                     FolderState mtcConnectFolder = CreateMtcConnectFolder(
