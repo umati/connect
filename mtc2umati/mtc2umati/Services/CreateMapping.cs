@@ -8,7 +8,8 @@ using ClosedXML.Excel;
 namespace mtc2umati.Services
 {
 
-    public class MappedObject(string ModellingRule, string opcPath, string opcDataType, string mtcName, string mtcPath, string mtcDataType, string mtcSubtype, object? value = null)
+    public class MappedObject(string ModellingRule, string opcPath, string opcDataType, 
+        string mtcName, string mtcPath, string mtcDataType, string mtcSubtype, object? value = null)
     {
         public string ModellingRule { get; set; } = ModellingRule;
         public string OpcPath { get; set; } = opcPath;
@@ -18,6 +19,7 @@ namespace mtc2umati.Services
         public string MtcDataType { get; set; } = mtcDataType;
         public string MtcSubtype { get; set; } = mtcSubtype;
         public object? Value { get; set; } = value;
+        public object? ConvertedValue { get; set; } = null;
     }
 
     public static class MappingLoader
@@ -29,13 +31,13 @@ namespace mtc2umati.Services
             foreach (DataRow row in dataTable.Rows)
             {
                 var mappedObject = new MappedObject(
-                    row["Modelling Rule"]?.ToString() ?? string.Empty,
-                    row["OPC Path"]?.ToString() ?? string.Empty,
-                    row["Data Type"]?.ToString() ?? string.Empty,
-                    row["MTC Name"]?.ToString() ?? string.Empty,
-                    row["MTC Path"]?.ToString() ?? string.Empty,
-                    row["MTC Data Type"]?.ToString() ?? string.Empty,
-                    row["subType"]?.ToString() ?? string.Empty
+                    row["Modelling Rule"]?.ToString()?.Trim() ?? string.Empty,
+                    row["OPC Path"]?.ToString()?.Trim() ?? string.Empty,
+                    row["Data Type"]?.ToString()?.Trim() ?? string.Empty,
+                    row["MTC Name"]?.ToString()?.Trim() ?? string.Empty,
+                    row["MTC Path"]?.ToString()?.Trim() ?? string.Empty,
+                    row["MTC Data Type"]?.ToString()?.Trim() ?? string.Empty,
+                    row["subType"]?.ToString()?.Trim() ?? string.Empty
                 );
                 mappedObjects.Add(mappedObject);
             }

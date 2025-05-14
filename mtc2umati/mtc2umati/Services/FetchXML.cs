@@ -8,10 +8,12 @@ using System.Xml.XPath;
 
 namespace mtc2umati.Services
 {
+    #region Fetch XML from MTC
     public class XmlFetcher
     {
         private static readonly HttpClient httpClient = new();
 
+        
         public static async Task<XDocument?> FetchXmlAsync(string url, int port)
         {
             try
@@ -30,13 +32,15 @@ namespace mtc2umati.Services
                 Console.WriteLine($"[ERROR] Failed to fetch XML: {ex.Message}");
                 return null;
             }
-        }
+        }     
     }
+    #endregion
 
+    #region Read & convert data
     public class XmlMapper
     {
         private readonly XmlNamespaceManager _namespaceManager;
-        public string _modelName = string.Empty; // Stores the model name from the DeviceStream, maybe find a better way to do this
+        public string _modelName = string.Empty; // Stores the model name from the DeviceStream
 
         public XmlMapper(string mtcNamespace)
         {
@@ -49,90 +53,84 @@ namespace mtc2umati.Services
         {
             foreach (var mappedObject in mappedObjects)
             {
-                // if mappedObject.MtcPath starts with # then use this entry as the mappedObject.Value and strip the # character
-                if (mappedObject.MtcPath.StartsWith('#'))
+                if (mappedObject.MtcPath is not null)
+                // There are three cases for the MtcPath to handle:
+                // 1. The MTC value is static and set in the mapping.xlsx --> MtcPath starts with #, use this entry as the mappedObject.Value and strip the # character.
+                // 2. Model name and AssedID/uuid are read in a specific way from the MTC DeviceStream --> MtcPath starts with <Device.
+                // 3. [Default] The MTC value is the value of a <ComponentStream> element --> MtcPath consists of 3 elements split by "/". An element can be also be the <Device> placeholder.  
                 {
-                    mappedObject.Value = mappedObject.MtcPath[1..];
-                    continue;
-                }
-
-                // explicit rules for handling DeviceStream "name" and "uuid" and covert to UA4MT "Model" and "AssedId"
-                if (mappedObject.MtcPath.StartsWith("<Device"))
-                {
-                    var deviceStreamPaths = mappedObject.MtcPath.Split('/');
-                    string variableName = deviceStreamPaths[1];
-                    if (variableName == "name")
+                    if (mappedObject.MtcPath.StartsWith('#')) // Case 1
                     {
-                        var deviceStream = xmlDoc.XPathSelectElement($"//mt:DeviceStream[@name!='Agent']", _namespaceManager);
-                        _modelName = deviceStream?.Attribute("name")?.Value ?? string.Empty;
-                        mappedObject.Value = _modelName;
-                        ConfigStore.VendorSettings.ActualModelName = _modelName; // Save the model name in the config store to write it to the machine node later
+                        mappedObject.Value = mappedObject.MtcPath[1..];
                     }
-                    else if (variableName == "uuid")
-                    {
-                        var deviceStream = xmlDoc.XPathSelectElement($"//mt:DeviceStream[@name!='Agent']", _namespaceManager);
-                        string uuid = deviceStream?.Attribute("uuid")?.Value ?? string.Empty;
-                        mappedObject.Value = uuid;
-                    }
-                    else
-                    {
-                        Console.WriteLine($"[ERROR] Unknown variable name '{variableName}' in DeviceStream path.");
-                    }
-                    continue;
-                }
 
-                var mtcPathParts = mappedObject.MtcPath.Split('/');
-                if (mtcPathParts.Length == 3)
-                {
-                    string componentType = mtcPathParts[0];
-                    string componentName = mtcPathParts[1];
-                    if (componentName == "{Machine}")
+                    else if (mappedObject.MtcPath.StartsWith("<Device")) // Case 2
                     {
-                        componentName = _modelName; // use the model name from the DeviceStream
-                    }
-                    string dataItemName = mtcPathParts[2].Trim();
-                    string subType = mappedObject.MtcSubtype;
-
-                    var componentXPath = $"//mt:ComponentStream[@component='{componentType}' and @name='{componentName}']";
-                    var component = xmlDoc.XPathSelectElement(componentXPath, _namespaceManager);
-
-                    if (component != null)
-                    {
-                        var valueElement = subType != ""
-                            ? FindDataItemSubtypeRecursive(component, dataItemName, subType)
-                            : FindDataItemRecursive(component, dataItemName);
-
-                        if (valueElement?.Value is not null && mappedObject?.MtcDataType is not null)
+                        var deviceStreamPaths = mappedObject.MtcPath.Split('/');
+                        string variableName = deviceStreamPaths[1];
+                        if (variableName == "name")
                         {
-                            var value = valueElement.Value;
-                            var dataType = mappedObject.MtcDataType;
-                            var convertedValue = ConvertValue(value, dataType);
+                            var deviceStream = xmlDoc.XPathSelectElement($"//mt:DeviceStream[@name!='Agent']", _namespaceManager);
+                            _modelName = deviceStream?.Attribute("name")?.Value ?? string.Empty;
+                            mappedObject.Value = _modelName;
+                            ConfigStore.VendorSettings.ActualModelName = _modelName; // Save the model name in the config store to write it to the machine node later
+                        }
+                        else if (variableName == "uuid")
+                        {
+                            var deviceStream = xmlDoc.XPathSelectElement($"//mt:DeviceStream[@name!='Agent']", _namespaceManager);
+                            string uuid = deviceStream?.Attribute("uuid")?.Value ?? string.Empty;
+                            mappedObject.Value = uuid;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"[ERROR] Unknown variable name '{variableName}' in DeviceStream path.");
+                        }
+                    }
 
-                            if (convertedValue is not null)
+                    else if (mappedObject.MtcPath?.Split('/').Length == 3) // Case 3
+                    {
+                        var mtcPathParts = mappedObject.MtcPath.Split('/');
+                        string componentType = mtcPathParts[0];
+                        string componentName = mtcPathParts[1];
+                        if (componentName == "{Machine}")
+                        {
+                            componentName = _modelName; // use the model name from the DeviceStream
+                        }
+                        string dataItemName = mtcPathParts[2].Trim();
+                        string subType = mappedObject.MtcSubtype;
+
+                        var componentXPath = $"//mt:ComponentStream[@component='{componentType}' and @name='{componentName}']";
+                        var component = xmlDoc.XPathSelectElement(componentXPath, _namespaceManager);
+
+                        if (component != null)
+                        {
+                            var valueElement = subType != ""
+                                ? FindDataItemSubtypeRecursive(component, dataItemName, subType)
+                                : FindDataItemRecursive(component, dataItemName);
+
+                            if (valueElement != null)
                             {
-                                mappedObject.Value = convertedValue;
-                            }
-                            else
-                            {
-                                Console.WriteLine($"[ERROR] Conversion returned null for value '{value}' and data type '{dataType}'");
+                                //var convertedValue = TypeConversion(valueElement.Value, mappedObject.MtcDataType);
+                                //mappedObject.Value = convertedValue;
+                                mappedObject.Value = valueElement.Value;
                             }
                         }
                         else
                         {
-                            Console.WriteLine($"[ERROR] Value '{dataItemName}'{(string.IsNullOrEmpty(subType) ? "" : $" with subtype '{subType}'")} not found under '{mappedObject?.MtcPath}"
-                                + (component is null ? $" within component: {(mappedObject != null ? mappedObject.MtcPath : "unknown")}" : ""));
+                            continue;
                         }
                     }
-                    else
+                    if (mappedObject?.Value is not null)
                     {
-                        Console.WriteLine($"[ERROR] Component '{componentType}' with name '{componentName}' not found in XML.");
+                        mappedObject.ConvertedValue = DataConverter.ConvertValue(mappedObject);
                     }
                 }
             }
             return mappedObjects;
         }
+        #endregion
 
-
+        #region Helper methods
         // Recursive method to search for DataItem without SubType
         private static XElement? FindDataItemRecursive(XElement parentElement, string dataItemName)
         {
@@ -170,28 +168,9 @@ namespace mtc2umati.Services
                 if (result != null)
                     return result;
             }
-
             return null;
         }
-
-        private static object? ConvertValue(string value, string dataType)
-        {
-            try
-            {
-                return dataType.ToLower() switch
-                {
-                    "int" or "integer" => int.Parse(value),
-                    "double" or "float" => double.Parse(value),
-                    "bool" or "boolean" => bool.Parse(value),
-                    _ => value,// String or unknown type, return as is
-                };
-            }
-            catch (Exception)
-            {
-                //Console.WriteLine($"[ERROR] Failed to convert value '{value}' to type '{dataType}': {ex.Message}");
-                return null;
-            }
-        }
+        #endregion
     }
 
     // Cyclic XML fetch logic
@@ -212,15 +191,14 @@ namespace mtc2umati.Services
                     Console.WriteLine("[WARN] Failed to fetch XML, skipping iteration.");
                     continue;
                 }
-
                 else
                 {
                     mappedObjects = xmlMapper.MapXmlValues(xmlDoc, mappedObjects);
 
                     // +++++++++++++++++ Print the mapped objects after fetching XML data +++++++++++++++++++++
-                    // mappedObjects.ShowMappedObjects();
+                    //mappedObjects.ShowMappedObjects();
                 }
-                var delayTask = Task.Delay(1000); // 1 seconds delay
+                var delayTask = Task.Delay(1000); // Time in milliseconds to wait between fetches
                 var completedTask = await Task.WhenAny(delayTask, cancellationTask);
             }
         }

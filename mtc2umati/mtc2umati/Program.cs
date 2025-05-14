@@ -124,8 +124,6 @@ namespace mtc2umati
             Console.WriteLine("Creating the mapping between MTC and OPC UA...");
             _mappedObjects = MappingLoader.LoadMapping(ConfigStore.VendorSettings.Mapping_file!, ConfigStore.VendorSettings.Mapping_sheet!) ?? []; ;
 
-            Task.Delay(1000).Wait();
-
             // Validate vendor config for MTC connection
             string url = ConfigStore.VendorSettings.MTCServerIP ?? throw new ArgumentNullException(nameof(ConfigStore.VendorSettings.MTCServerIP), "MTCServerIP cannot be null."); ;
             int port = ConfigStore.VendorSettings.MTCServerPort;

@@ -36,7 +36,7 @@ namespace mtc2umati.Services
             while (true)
             {
                 WriteValuesToNodes(mappedObjects, nodeManager, parentNode);
-                await Task.Delay(1000); // Wait before updating again
+                await Task.Delay(100); // Time in milliseconds to wait before updating again
             }
         }
 
@@ -89,12 +89,7 @@ namespace mtc2umati.Services
                         }
                     }
                 }
-                #region Data conversion
-                if (mappedObject.Value is not null and not (object)"UNAVAILABLE")
-                {
-                    mappedObject.Value = DataConverter.ConvertValue(mappedObject);
-                }
-                #endregion
+
 
                 #region Mode handling
                 // [MODE 1] When the adapter mode is set to 1 in the config, the value of the new nodes is set to null.
@@ -118,15 +113,15 @@ namespace mtc2umati.Services
                 #endregion
                 #region Value updating
                 if (currentNode is BaseVariableState variableNode)
-                {
+                {  
                     // Only update the value if it changed
-                    if (variableNode.Value?.ToString() != mappedObject.Value?.ToString())
+                    if (variableNode.Value?.ToString() != mappedObject.ConvertedValue?.ToString())
                     {
-                        variableNode.Value = mappedObject.Value;
+                        variableNode.Value = mappedObject.ConvertedValue;
                         variableNode.Timestamp = DateTime.UtcNow;
                         variableNode.StatusCode = StatusCodes.Good;
                         variableNode.ClearChangeMasks(nodeManager?.SystemContext, true);
-                        Console.WriteLine($"Updated node '{mappedObject.OpcPath}' to value '{mappedObject.Value}'.");
+                        Console.WriteLine($"Updated node '{mappedObject.OpcPath}' to value '{mappedObject.ConvertedValue}'.");
                     }
                 }
                 else
