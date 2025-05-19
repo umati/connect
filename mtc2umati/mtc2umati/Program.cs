@@ -4,8 +4,8 @@
 
 global using System;
 global using System.Threading.Tasks;
-using System.Security.Cryptography.X509Certificates;
 using Opc.Ua;
+using Opc.Ua.Configuration;
 using mtc2umati.Services;
 
 namespace mtc2umati
@@ -21,12 +21,22 @@ namespace mtc2umati
             {
                 // load the application configuration.
                 ApplicationConfiguration config = await LoadApplicationConfiguration("umatiConnect.Server").ConfigureAwait(false);
+                var application = new ApplicationInstance
+                {
+                    ApplicationName = "UmatiConnect",
+                    ApplicationType = ApplicationType.Server,
+                    ApplicationConfiguration = config
+                };
+
+                // check the application certificate.
+                bool certOK = await application.CheckApplicationInstanceCertificates(false);
+                if (!certOK)
+                {
+                    throw new Exception("Application instance certificate invalid!");
+                }
 
                 // auto accept any untrusted certificates.
                 config.SecurityConfiguration.AutoAcceptUntrustedCertificates = true;
-
-                // check the application certificate.
-                await CheckApplicationInstanceCertificate(config).ConfigureAwait(false);
 
                 // load the vendor configuration
                 ConfigStore.LoadConfigJSON("mazak");
@@ -67,22 +77,6 @@ namespace mtc2umati
             }
         }
 
-        private static async Task CheckApplicationInstanceCertificate(ApplicationConfiguration config)
-        {
-            try
-            {
-                // check the application instance certificate.
-                CertificateIdentifier id = config.SecurityConfiguration.ApplicationCertificate;
-
-                X509Certificate2 certificate = await id.Find(true).ConfigureAwait(false) ?? throw new Exception("Application instance certificate not found: " + id);
-                Console.WriteLine("Application instance certificate found: {0}", id);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Error checking application instance certificate: {e.Message}");
-                throw;
-            }
-        }
         #region Start OPC UA Server
         private static async Task StartServer(ApplicationConfiguration config)
         {
@@ -104,6 +98,7 @@ namespace mtc2umati
             }
         }
         #endregion
+
         private static void CertificateValidator_CertificateValidation(CertificateValidator validator, CertificateValidationEventArgs e)
         {
             try

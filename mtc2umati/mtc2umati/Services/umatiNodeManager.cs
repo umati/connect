@@ -121,7 +121,7 @@ namespace mtc2umati.Services
                 NodeId = new NodeId("MTConnect", namespaceIndex)
             };
             folder.Create(systemContext, folder.NodeId, folder.BrowseName, folder.DisplayName, true);
-            folder.Description = new Opc.Ua.LocalizedText("en", "Folder to store the MTConnect data stored that was newly added in the umatiConnect project");
+            folder.Description = new Opc.Ua.LocalizedText("en", "Folder to store the MTConnect data that was newly added in the umatiConnect project");
 
             parentNode.AddChild(folder);
             AddPredefinedNode(systemContext, folder);

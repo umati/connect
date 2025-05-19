@@ -139,7 +139,7 @@ namespace mtc2umati.Services
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine($"[ERROR] Value '{mappedObject.Value}' of '{mappedObject.MtcName}' in '{mappedObject.OpcPath} could not be converted to {mappedObject.OpcDataType}.");
+                    //Console.WriteLine($"[ERROR] Value '{mappedObject.Value}' of '{mappedObject.MtcName}' in '{mappedObject.OpcPath} could not be converted to {mappedObject.OpcDataType}.");
                 }
             }
         }
