@@ -28,15 +28,15 @@ namespace mtc2umati
                     ApplicationConfiguration = config
                 };
 
+                // auto accept any untrusted certificates.
+                config.SecurityConfiguration.AutoAcceptUntrustedCertificates = true;
+            
                 // check the application certificate.
                 bool certOK = await application.CheckApplicationInstanceCertificates(false);
                 if (!certOK)
                 {
                     throw new Exception("Application instance certificate invalid!");
                 }
-
-                // auto accept any untrusted certificates.
-                config.SecurityConfiguration.AutoAcceptUntrustedCertificates = true;
 
                 // load the vendor configuration
                 ConfigStore.LoadConfigJSON("mazak");

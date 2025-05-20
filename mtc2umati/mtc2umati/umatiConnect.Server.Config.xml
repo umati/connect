@@ -90,7 +90,7 @@
 
   <ServerConfiguration>
     <BaseAddresses>
-      <ua:String>opc.tcp://localhost:4840/</ua:String>
+      <ua:String>opc.tcp://localhost:5440/</ua:String>
     </BaseAddresses>
 
     <SecurityPolicies>
