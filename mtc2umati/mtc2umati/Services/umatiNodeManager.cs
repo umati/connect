@@ -62,14 +62,26 @@ namespace mtc2umati.Services
                 ImportXml(externalReferences, resourcePathCNC);
                 ImportXml(externalReferences, resourcePathUmatiConnect);
 
+                ushort umatiNamespaceIndex = (ushort)SystemContext.NamespaceUris.GetIndex(ConfigStore.VendorSettings.OPCNamespace!);
                 if (ConfigStore.VendorSettings.Mode == 3)
                 {
-                    ushort umatiNamespaceIndex = (ushort)SystemContext.NamespaceUris.GetIndex(ConfigStore.VendorSettings.OPCNamespace!);
                     FolderState mtcConnectFolder = CreateMtcConnectFolder(
                         GetPredefinedNodes().FirstOrDefault(n => n.BrowseName.Name == ConfigStore.VendorSettings.Machine_Name)!,
                         umatiNamespaceIndex, SystemContext);
                     ConfigStore.VendorSettings.MTConnect_FolderState = mtcConnectFolder;
                 }
+
+                // +++++++++++++++++++++++++++ Testing ++++++++++++++++++++++++++++
+                PropertyState locationPropertyNode = CreateLocationPropertyNode(
+                    GetPredefinedNodes()
+                        .OfType<BaseObjectState>()
+                        .FirstOrDefault(n =>
+                            n.DisplayName != null &&
+                            n.DisplayName == "Identification" &&
+                            n.NodeId.NamespaceIndex == umatiNamespaceIndex)!,
+                    umatiNamespaceIndex,
+                    SystemContext);
+                AddReverseReferences(externalReferences);
             }
         }
 
@@ -128,6 +140,28 @@ namespace mtc2umati.Services
 
             return folder;
         }
+
+        public PropertyState CreateLocationPropertyNode(NodeState parentNode, ushort namespaceIndex, ISystemContext systemContext)
+        {
+            var property = new PropertyState(parentNode)
+            {
+                DisplayName = new Opc.Ua.LocalizedText("en", "Location"),
+                BrowseName = new QualifiedName("Location", namespaceIndex),
+                TypeDefinitionId = VariableTypeIds.PropertyType,
+                NodeId = new NodeId("Location", namespaceIndex),
+                DataType = DataTypeIds.String,
+                ValueRank = ValueRanks.Scalar,
+            };
+            property.Create(systemContext, property.NodeId, property.BrowseName, property.DisplayName, true);
+            property.Description = new Opc.Ua.LocalizedText("en", "Test for location property");
+
+            parentNode.AddChild(property);
+            parentNode.AddReference(ReferenceTypeIds.HasProperty, false, property.NodeId);
+            AddPredefinedNode(systemContext, property);
+
+            return property;
+        }
     }
 }
+
 

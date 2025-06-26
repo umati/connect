@@ -22,7 +22,7 @@
         "Mode": 2
     },
     "mazakShowroom": {
-        "MTConnectServerIP": "http://192.168.88.151",
+        "MTConnectServerIP": "http://10.1.1.17",
         "MTConnectServerPort": 5000,
         "MTConnectNamespace": "urn:mtconnect.org:MTConnectStreams:1.3",
         "Mapping_file": "./Mapping.xlsx",

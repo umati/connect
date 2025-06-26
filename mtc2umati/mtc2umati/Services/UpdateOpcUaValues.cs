@@ -65,7 +65,7 @@ namespace mtc2umati.Services
                 // Using Child-Parent-References would be easier, but is currently not working, since the Child-Parent-References are not set up when importing the XML NodeSet
                 // var childReferences = new List<BaseInstanceState>();
                 // node.GetChildren(nodeManager.SystemContext, childReferences);
-                // Console.WriteLine($"Children found: {childReferences.Count}");
+                // Console.WriteLine($"Children found: {childReferences.Count}");       
 
                 for (int i = 0; i < opcPathParts.Length; i++)
                 {
@@ -89,7 +89,6 @@ namespace mtc2umati.Services
                         }
                     }
                 }
-
 
                 #region Mode handling
                 // [MODE 1] When the adapter mode is set to 1 in the config, the value of the new nodes is set to null.
