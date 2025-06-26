@@ -1,0 +1,6 @@
+numpy
+pandas
+Flask
+paho-mqtt
+openpyxl
+asyncio

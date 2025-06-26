@@ -1,0 +1,1898 @@
+{
+    "opc_path": "Production/User",
+    "opc_datatype": "String",
+    "mtc_path": "Personnel/personnel/User",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/bAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/B/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": 0.0
+}{
+    "opc_path": "Components/AxisList/bAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Rotary/B/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/bAxis/AngularVelocity",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/B/AngularVelocity",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/bAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/B/Angle",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/bAxis/RotaryMode",
+    "opc_datatype": "String",
+    "mtc_path": "Rotary/B/RotaryMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/C/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Rotary/C/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/AngularVelocity",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/C/AngularVelocity",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/C/Angle",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/cAxis/RotaryMode",
+    "opc_datatype": "String",
+    "mtc_path": "Rotary/C/RotaryMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "SPINDLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/RotaryVelocity",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/C/RotaryVelocity",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/cAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/C/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 27
+}{
+    "opc_path": "Components/AxisList/xAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/X/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 2.0
+}{
+    "opc_path": "Components/AxisList/xAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Linear/X/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/xAxis/AxisFeedrate",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/X/AxisFeedrate",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/xAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/X/Position",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/xAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/X/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 38
+}{
+    "opc_path": "Components/AxisList/yAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Y/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 33.0
+}{
+    "opc_path": "Components/AxisList/yAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Linear/Y/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/yAxis/AxisFeedrate",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Y/AxisFeedrate",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/yAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Y/Position",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/yAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Y/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 46
+}{
+    "opc_path": "Components/AxisList/zAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Z/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 3.0
+}{
+    "opc_path": "Components/AxisList/zAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Linear/Z/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/zAxis/AxisFeedrate",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Z/AxisFeedrate",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/zAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Z/Position",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/zAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Z/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 37
+}{
+    "opc_path": "Monitoring/Channel1/ActiveTool/ControllIdentifier1",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/ToolNumber",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Monitoring/Channel1/ChannelMode",
+    "opc_datatype": "ChannelMode",
+    "mtc_path": "Path/path/ControllerMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "MANUAL_DATA_INPUT"
+}{
+    "opc_path": "Monitoring/Channel1/FeedOverride",
+    "opc_datatype": "Double",
+    "mtc_path": "Path/path/PathFeedrateOverride",
+    "mtc_subtype": "PROGRAMMED",
+    "mtc_datatype": "Float",
+    "value": 100.0
+}{
+    "opc_path": "Monitoring/Channel1/RapidOverride",
+    "opc_datatype": "Double",
+    "mtc_path": "Path/path/PathFeedrateOverride",
+    "mtc_subtype": "RAPID",
+    "mtc_datatype": "Float",
+    "value": 50.0
+}{
+    "opc_path": "Monitoring/MachineTool/OperationMode",
+    "opc_datatype": "MachineOperationMode",
+    "mtc_path": "Path/path/ControllerMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "MANUAL_DATA_INPUT"
+}{
+    "opc_path": "Monitoring/Process/CuttingSpeed",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/CuttingSpeed",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Process/DryRun",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Path/path/ControllerModeOverride",
+    "mtc_subtype": "DRY_RUN",
+    "mtc_datatype": "String",
+    "value": "OFF"
+}{
+    "opc_path": "Monitoring/Process/MachineAxisLock",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Path/path/ControllerModeOverride",
+    "mtc_subtype": "MACHINE_AXIS_LOCK",
+    "mtc_datatype": "String",
+    "value": "OFF"
+}{
+    "opc_path": "Monitoring/Process/Orientation",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Orientation",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "0 299.03965 0"
+}{
+    "opc_path": "Monitoring/Process/PathPosition",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/PathPosition",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "587.5579 190.4518 854.4272"
+}{
+    "opc_path": "Monitoring/Process/SingleBlock",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Path/path/ControllerModeOverride",
+    "mtc_subtype": "SINGLE_BLOCK",
+    "mtc_datatype": "String",
+    "value": "OFF"
+}{
+    "opc_path": "Monitoring/Status/Coolant/Concentration",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Coolant/coolant/Concentration",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Status/Coolant/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Coolant/coolant/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Status/DoorState",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Door/door/DoorState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "CLOSED"
+}{
+    "opc_path": "Monitoring/Status/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Environmental/environmental/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Status/EmergencyStopTriggered",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Controller/controller/EmergencyStop",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "ARMED"
+}{
+    "opc_path": "Production/ActiveProgram/DesiredParts",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/PartCount",
+    "mtc_subtype": "TARGET",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Production/ActiveProgram/JobIdentifier",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Program",
+    "mtc_subtype": "MAIN",
+    "mtc_datatype": "String",
+    "value": "QT-250-TB-OP2"
+}{
+    "opc_path": "Production/ActiveProgram/Material",
+    "opc_datatype": "String",
+    "mtc_path": "Stock/stock/Material",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Production/ActiveProgram/PartCounter",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/PartCount",
+    "mtc_subtype": "ALL",
+    "mtc_datatype": "Float",
+    "value": 125
+}{
+    "opc_path": "Production/ActiveProgram/ProcessTimer",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/ProcessTimer",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Production/ActiveProgram/State/CurrentState",
+    "opc_datatype": "LocalizedText",
+    "mtc_path": "Path/path/Execution",
+    "mtc_subtype": "None",
+    "mtc_datatype": NaN,
+    "value": "None"
+}{
+    "opc_path": "Production/ActiveProgram/State/Rotation",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Rotation",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "0 0.0217 0"
+}{
+    "opc_path": "Production/ActiveProgram/State/Translation",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Translation",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "-591.1579 -600.2518 -856.5272"
+}{
+    "opc_path": "Production/ActiveProgram/State/WorkOffset",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/WorkOffset",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "G54.1P101"
+}{
+    "opc_path": "Production/PalletID",
+    "opc_datatype": "String",
+    "mtc_path": "Controller/controller/PalletId",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": "2"
+}{
+    "opc_path": "Production/User",
+    "opc_datatype": "String",
+    "mtc_path": "Personnel/personnel/User",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/bAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/B/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": 0.0
+}{
+    "opc_path": "Components/AxisList/bAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Rotary/B/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/bAxis/AngularVelocity",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/B/AngularVelocity",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/bAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/B/Angle",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/bAxis/RotaryMode",
+    "opc_datatype": "String",
+    "mtc_path": "Rotary/B/RotaryMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/C/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Rotary/C/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/AngularVelocity",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/C/AngularVelocity",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/C/Angle",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/cAxis/RotaryMode",
+    "opc_datatype": "String",
+    "mtc_path": "Rotary/C/RotaryMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "SPINDLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/RotaryVelocity",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/C/RotaryVelocity",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/cAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/C/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 27
+}{
+    "opc_path": "Components/AxisList/xAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/X/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 2.0
+}{
+    "opc_path": "Components/AxisList/xAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Linear/X/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/xAxis/AxisFeedrate",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/X/AxisFeedrate",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/xAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/X/Position",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/xAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/X/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 38
+}{
+    "opc_path": "Components/AxisList/yAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Y/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 33.0
+}{
+    "opc_path": "Components/AxisList/yAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Linear/Y/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/yAxis/AxisFeedrate",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Y/AxisFeedrate",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/yAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Y/Position",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/yAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Y/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 46
+}{
+    "opc_path": "Components/AxisList/zAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Z/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 3.0
+}{
+    "opc_path": "Components/AxisList/zAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Linear/Z/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/zAxis/AxisFeedrate",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Z/AxisFeedrate",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/zAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Z/Position",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/zAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Z/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 37
+}{
+    "opc_path": "Monitoring/Channel1/ActiveTool/ControllIdentifier1",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/ToolNumber",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Monitoring/Channel1/ChannelMode",
+    "opc_datatype": "ChannelMode",
+    "mtc_path": "Path/path/ControllerMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "MANUAL_DATA_INPUT"
+}{
+    "opc_path": "Monitoring/Channel1/FeedOverride",
+    "opc_datatype": "Double",
+    "mtc_path": "Path/path/PathFeedrateOverride",
+    "mtc_subtype": "PROGRAMMED",
+    "mtc_datatype": "Float",
+    "value": 100.0
+}{
+    "opc_path": "Monitoring/Channel1/RapidOverride",
+    "opc_datatype": "Double",
+    "mtc_path": "Path/path/PathFeedrateOverride",
+    "mtc_subtype": "RAPID",
+    "mtc_datatype": "Float",
+    "value": 50.0
+}{
+    "opc_path": "Monitoring/MachineTool/OperationMode",
+    "opc_datatype": "MachineOperationMode",
+    "mtc_path": "Path/path/ControllerMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "MANUAL_DATA_INPUT"
+}{
+    "opc_path": "Monitoring/Process/CuttingSpeed",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/CuttingSpeed",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Process/DryRun",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Path/path/ControllerModeOverride",
+    "mtc_subtype": "DRY_RUN",
+    "mtc_datatype": "String",
+    "value": "OFF"
+}{
+    "opc_path": "Monitoring/Process/MachineAxisLock",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Path/path/ControllerModeOverride",
+    "mtc_subtype": "MACHINE_AXIS_LOCK",
+    "mtc_datatype": "String",
+    "value": "OFF"
+}{
+    "opc_path": "Monitoring/Process/Orientation",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Orientation",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "0 299.03965 0"
+}{
+    "opc_path": "Monitoring/Process/PathPosition",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/PathPosition",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "587.5579 190.4518 854.4272"
+}{
+    "opc_path": "Monitoring/Process/SingleBlock",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Path/path/ControllerModeOverride",
+    "mtc_subtype": "SINGLE_BLOCK",
+    "mtc_datatype": "String",
+    "value": "OFF"
+}{
+    "opc_path": "Monitoring/Status/Coolant/Concentration",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Coolant/coolant/Concentration",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Status/Coolant/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Coolant/coolant/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Status/DoorState",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Door/door/DoorState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "CLOSED"
+}{
+    "opc_path": "Monitoring/Status/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Environmental/environmental/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Status/EmergencyStopTriggered",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Controller/controller/EmergencyStop",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "ARMED"
+}{
+    "opc_path": "Production/ActiveProgram/DesiredParts",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/PartCount",
+    "mtc_subtype": "TARGET",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Production/ActiveProgram/JobIdentifier",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Program",
+    "mtc_subtype": "MAIN",
+    "mtc_datatype": "String",
+    "value": "QT-250-TB-OP2"
+}{
+    "opc_path": "Production/ActiveProgram/Material",
+    "opc_datatype": "String",
+    "mtc_path": "Stock/stock/Material",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Production/ActiveProgram/PartCounter",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/PartCount",
+    "mtc_subtype": "ALL",
+    "mtc_datatype": "Float",
+    "value": 125
+}{
+    "opc_path": "Production/ActiveProgram/ProcessTimer",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/ProcessTimer",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Production/ActiveProgram/State/CurrentState",
+    "opc_datatype": "LocalizedText",
+    "mtc_path": "Path/path/Execution",
+    "mtc_subtype": "None",
+    "mtc_datatype": NaN,
+    "value": "None"
+}{
+    "opc_path": "Production/ActiveProgram/State/Rotation",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Rotation",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "0 0.0217 0"
+}{
+    "opc_path": "Production/ActiveProgram/State/Translation",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Translation",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "-591.1579 -600.2518 -856.5272"
+}{
+    "opc_path": "Production/ActiveProgram/State/WorkOffset",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/WorkOffset",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "G54.1P101"
+}{
+    "opc_path": "Production/PalletID",
+    "opc_datatype": "String",
+    "mtc_path": "Controller/controller/PalletId",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": "2"
+}{
+    "opc_path": "Production/User",
+    "opc_datatype": "String",
+    "mtc_path": "Personnel/personnel/User",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/bAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/B/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": 0.0
+}{
+    "opc_path": "Components/AxisList/bAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Rotary/B/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/bAxis/AngularVelocity",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/B/AngularVelocity",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/bAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/B/Angle",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/bAxis/RotaryMode",
+    "opc_datatype": "String",
+    "mtc_path": "Rotary/B/RotaryMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/C/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Rotary/C/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/AngularVelocity",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/C/AngularVelocity",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/C/Angle",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/cAxis/RotaryMode",
+    "opc_datatype": "String",
+    "mtc_path": "Rotary/C/RotaryMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "SPINDLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/RotaryVelocity",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/C/RotaryVelocity",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/cAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/C/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 27
+}{
+    "opc_path": "Components/AxisList/xAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/X/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 2.0
+}{
+    "opc_path": "Components/AxisList/xAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Linear/X/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/xAxis/AxisFeedrate",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/X/AxisFeedrate",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/xAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/X/Position",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/xAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/X/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 38
+}{
+    "opc_path": "Components/AxisList/yAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Y/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 33.0
+}{
+    "opc_path": "Components/AxisList/yAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Linear/Y/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/yAxis/AxisFeedrate",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Y/AxisFeedrate",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/yAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Y/Position",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/yAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Y/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 46
+}{
+    "opc_path": "Components/AxisList/zAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Z/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 3.0
+}{
+    "opc_path": "Components/AxisList/zAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Linear/Z/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/zAxis/AxisFeedrate",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Z/AxisFeedrate",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/zAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Z/Position",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/zAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Z/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 37
+}{
+    "opc_path": "Monitoring/Channel1/ActiveTool/ControllIdentifier1",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/ToolNumber",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Monitoring/Channel1/ChannelMode",
+    "opc_datatype": "ChannelMode",
+    "mtc_path": "Path/path/ControllerMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "MANUAL_DATA_INPUT"
+}{
+    "opc_path": "Monitoring/Channel1/FeedOverride",
+    "opc_datatype": "Double",
+    "mtc_path": "Path/path/PathFeedrateOverride",
+    "mtc_subtype": "PROGRAMMED",
+    "mtc_datatype": "Float",
+    "value": 100.0
+}{
+    "opc_path": "Monitoring/Channel1/RapidOverride",
+    "opc_datatype": "Double",
+    "mtc_path": "Path/path/PathFeedrateOverride",
+    "mtc_subtype": "RAPID",
+    "mtc_datatype": "Float",
+    "value": 50.0
+}{
+    "opc_path": "Monitoring/MachineTool/OperationMode",
+    "opc_datatype": "MachineOperationMode",
+    "mtc_path": "Path/path/ControllerMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "MANUAL_DATA_INPUT"
+}{
+    "opc_path": "Monitoring/Process/CuttingSpeed",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/CuttingSpeed",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Process/DryRun",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Path/path/ControllerModeOverride",
+    "mtc_subtype": "DRY_RUN",
+    "mtc_datatype": "String",
+    "value": "OFF"
+}{
+    "opc_path": "Monitoring/Process/MachineAxisLock",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Path/path/ControllerModeOverride",
+    "mtc_subtype": "MACHINE_AXIS_LOCK",
+    "mtc_datatype": "String",
+    "value": "OFF"
+}{
+    "opc_path": "Monitoring/Process/Orientation",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Orientation",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "0 299.03965 0"
+}{
+    "opc_path": "Monitoring/Process/PathPosition",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/PathPosition",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "587.5579 190.4518 854.4272"
+}{
+    "opc_path": "Monitoring/Process/SingleBlock",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Path/path/ControllerModeOverride",
+    "mtc_subtype": "SINGLE_BLOCK",
+    "mtc_datatype": "String",
+    "value": "OFF"
+}{
+    "opc_path": "Monitoring/Status/Coolant/Concentration",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Coolant/coolant/Concentration",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Status/Coolant/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Coolant/coolant/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Status/DoorState",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Door/door/DoorState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "CLOSED"
+}{
+    "opc_path": "Monitoring/Status/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Environmental/environmental/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Status/EmergencyStopTriggered",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Controller/controller/EmergencyStop",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "ARMED"
+}{
+    "opc_path": "Production/ActiveProgram/DesiredParts",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/PartCount",
+    "mtc_subtype": "TARGET",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Production/ActiveProgram/JobIdentifier",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Program",
+    "mtc_subtype": "MAIN",
+    "mtc_datatype": "String",
+    "value": "QT-250-TB-OP2"
+}{
+    "opc_path": "Production/ActiveProgram/Material",
+    "opc_datatype": "String",
+    "mtc_path": "Stock/stock/Material",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Production/ActiveProgram/PartCounter",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/PartCount",
+    "mtc_subtype": "ALL",
+    "mtc_datatype": "Float",
+    "value": 125
+}{
+    "opc_path": "Production/ActiveProgram/ProcessTimer",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/ProcessTimer",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Production/ActiveProgram/State/CurrentState",
+    "opc_datatype": "LocalizedText",
+    "mtc_path": "Path/path/Execution",
+    "mtc_subtype": "None",
+    "mtc_datatype": NaN,
+    "value": "None"
+}{
+    "opc_path": "Production/ActiveProgram/State/Rotation",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Rotation",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "0 0.0217 0"
+}{
+    "opc_path": "Production/ActiveProgram/State/Translation",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Translation",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "-591.1579 -600.2518 -856.5272"
+}{
+    "opc_path": "Production/ActiveProgram/State/WorkOffset",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/WorkOffset",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "G54.1P101"
+}{
+    "opc_path": "Production/PalletID",
+    "opc_datatype": "String",
+    "mtc_path": "Controller/controller/PalletId",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": "2"
+}{
+    "opc_path": "Production/User",
+    "opc_datatype": "String",
+    "mtc_path": "Personnel/personnel/User",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/bAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/B/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": 0.0
+}{
+    "opc_path": "Components/AxisList/bAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Rotary/B/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/bAxis/AngularVelocity",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/B/AngularVelocity",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/bAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/B/Angle",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/bAxis/RotaryMode",
+    "opc_datatype": "String",
+    "mtc_path": "Rotary/B/RotaryMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/C/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Rotary/C/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/AngularVelocity",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/C/AngularVelocity",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/C/Angle",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/cAxis/RotaryMode",
+    "opc_datatype": "String",
+    "mtc_path": "Rotary/C/RotaryMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "SPINDLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/RotaryVelocity",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/C/RotaryVelocity",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/cAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/C/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 27
+}{
+    "opc_path": "Components/AxisList/xAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/X/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 2.0
+}{
+    "opc_path": "Components/AxisList/xAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Linear/X/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/xAxis/AxisFeedrate",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/X/AxisFeedrate",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/xAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/X/Position",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/xAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/X/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 38
+}{
+    "opc_path": "Components/AxisList/yAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Y/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 33.0
+}{
+    "opc_path": "Components/AxisList/yAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Linear/Y/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/yAxis/AxisFeedrate",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Y/AxisFeedrate",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/yAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Y/Position",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/yAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Y/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 46
+}{
+    "opc_path": "Components/AxisList/zAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Z/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 3.0
+}{
+    "opc_path": "Components/AxisList/zAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Linear/Z/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/zAxis/AxisFeedrate",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Z/AxisFeedrate",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/zAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Z/Position",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/zAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Z/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 37
+}{
+    "opc_path": "Monitoring/Channel1/ActiveTool/ControllIdentifier1",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/ToolNumber",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Monitoring/Channel1/ChannelMode",
+    "opc_datatype": "ChannelMode",
+    "mtc_path": "Path/path/ControllerMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "MANUAL_DATA_INPUT"
+}{
+    "opc_path": "Monitoring/Channel1/FeedOverride",
+    "opc_datatype": "Double",
+    "mtc_path": "Path/path/PathFeedrateOverride",
+    "mtc_subtype": "PROGRAMMED",
+    "mtc_datatype": "Float",
+    "value": 100.0
+}{
+    "opc_path": "Monitoring/Channel1/RapidOverride",
+    "opc_datatype": "Double",
+    "mtc_path": "Path/path/PathFeedrateOverride",
+    "mtc_subtype": "RAPID",
+    "mtc_datatype": "Float",
+    "value": 50.0
+}{
+    "opc_path": "Monitoring/MachineTool/OperationMode",
+    "opc_datatype": "MachineOperationMode",
+    "mtc_path": "Path/path/ControllerMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "MANUAL_DATA_INPUT"
+}{
+    "opc_path": "Monitoring/Process/CuttingSpeed",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/CuttingSpeed",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Process/DryRun",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Path/path/ControllerModeOverride",
+    "mtc_subtype": "DRY_RUN",
+    "mtc_datatype": "String",
+    "value": "OFF"
+}{
+    "opc_path": "Monitoring/Process/MachineAxisLock",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Path/path/ControllerModeOverride",
+    "mtc_subtype": "MACHINE_AXIS_LOCK",
+    "mtc_datatype": "String",
+    "value": "OFF"
+}{
+    "opc_path": "Monitoring/Process/Orientation",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Orientation",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "0 299.03965 0"
+}{
+    "opc_path": "Monitoring/Process/PathPosition",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/PathPosition",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "587.5579 190.4518 854.4272"
+}{
+    "opc_path": "Monitoring/Process/SingleBlock",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Path/path/ControllerModeOverride",
+    "mtc_subtype": "SINGLE_BLOCK",
+    "mtc_datatype": "String",
+    "value": "OFF"
+}{
+    "opc_path": "Monitoring/Status/Coolant/Concentration",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Coolant/coolant/Concentration",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Status/Coolant/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Coolant/coolant/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Status/DoorState",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Door/door/DoorState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "CLOSED"
+}{
+    "opc_path": "Monitoring/Status/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Environmental/environmental/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Status/EmergencyStopTriggered",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Controller/controller/EmergencyStop",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "ARMED"
+}{
+    "opc_path": "Production/ActiveProgram/DesiredParts",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/PartCount",
+    "mtc_subtype": "TARGET",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Production/ActiveProgram/JobIdentifier",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Program",
+    "mtc_subtype": "MAIN",
+    "mtc_datatype": "String",
+    "value": "QT-250-TB-OP2"
+}{
+    "opc_path": "Production/ActiveProgram/Material",
+    "opc_datatype": "String",
+    "mtc_path": "Stock/stock/Material",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Production/ActiveProgram/PartCounter",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/PartCount",
+    "mtc_subtype": "ALL",
+    "mtc_datatype": "Float",
+    "value": 125
+}{
+    "opc_path": "Production/ActiveProgram/ProcessTimer",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/ProcessTimer",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Production/ActiveProgram/State/CurrentState",
+    "opc_datatype": "LocalizedText",
+    "mtc_path": "Path/path/Execution",
+    "mtc_subtype": "None",
+    "mtc_datatype": NaN,
+    "value": "None"
+}{
+    "opc_path": "Production/ActiveProgram/State/Rotation",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Rotation",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "0 0.0217 0"
+}{
+    "opc_path": "Production/ActiveProgram/State/Translation",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Translation",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "-591.1579 -600.2518 -856.5272"
+}{
+    "opc_path": "Production/ActiveProgram/State/WorkOffset",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/WorkOffset",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "G54.1P101"
+}{
+    "opc_path": "Production/PalletID",
+    "opc_datatype": "String",
+    "mtc_path": "Controller/controller/PalletId",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": "2"
+}{
+    "opc_path": "Production/User",
+    "opc_datatype": "String",
+    "mtc_path": "Personnel/personnel/User",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/bAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/B/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": 0.0
+}{
+    "opc_path": "Components/AxisList/bAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Rotary/B/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/bAxis/AngularVelocity",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/B/AngularVelocity",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/bAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/B/Angle",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/bAxis/RotaryMode",
+    "opc_datatype": "String",
+    "mtc_path": "Rotary/B/RotaryMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/C/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Rotary/C/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/AngularVelocity",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/C/AngularVelocity",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Rotary/C/Angle",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/cAxis/RotaryMode",
+    "opc_datatype": "String",
+    "mtc_path": "Rotary/C/RotaryMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "SPINDLE"
+}{
+    "opc_path": "Components/AxisList/cAxis/RotaryVelocity",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/C/RotaryVelocity",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/cAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Rotary/C/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 27
+}{
+    "opc_path": "Components/AxisList/xAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/X/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 2.0
+}{
+    "opc_path": "Components/AxisList/xAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Linear/X/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/xAxis/AxisFeedrate",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/X/AxisFeedrate",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/xAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/X/Position",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/xAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/X/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 38
+}{
+    "opc_path": "Components/AxisList/yAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Y/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 33.0
+}{
+    "opc_path": "Components/AxisList/yAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Linear/Y/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/yAxis/AxisFeedrate",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Y/AxisFeedrate",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/yAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Y/Position",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/yAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Y/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 46
+}{
+    "opc_path": "Components/AxisList/zAxis/ActLoad",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Z/Load",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 3.0
+}{
+    "opc_path": "Components/AxisList/zAxis/ActStatus",
+    "opc_datatype": "CncAxisStatus",
+    "mtc_path": "Linear/Z/AxisState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "STOPPED"
+}{
+    "opc_path": "Components/AxisList/zAxis/AxisFeedrate",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Z/AxisFeedrate",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Components/AxisList/zAxis/PosDirect/ActPos",
+    "opc_datatype": "Double",
+    "mtc_path": "Linear/Z/Position",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": null
+}{
+    "opc_path": "Components/AxisList/zAxis/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Linear/Z/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 37
+}{
+    "opc_path": "Monitoring/Channel1/ActiveTool/ControllIdentifier1",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/ToolNumber",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Monitoring/Channel1/ChannelMode",
+    "opc_datatype": "ChannelMode",
+    "mtc_path": "Path/path/ControllerMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "MANUAL_DATA_INPUT"
+}{
+    "opc_path": "Monitoring/Channel1/FeedOverride",
+    "opc_datatype": "Double",
+    "mtc_path": "Path/path/PathFeedrateOverride",
+    "mtc_subtype": "PROGRAMMED",
+    "mtc_datatype": "Float",
+    "value": 100.0
+}{
+    "opc_path": "Monitoring/Channel1/RapidOverride",
+    "opc_datatype": "Double",
+    "mtc_path": "Path/path/PathFeedrateOverride",
+    "mtc_subtype": "RAPID",
+    "mtc_datatype": "Float",
+    "value": 50.0
+}{
+    "opc_path": "Monitoring/MachineTool/OperationMode",
+    "opc_datatype": "MachineOperationMode",
+    "mtc_path": "Path/path/ControllerMode",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "MANUAL_DATA_INPUT"
+}{
+    "opc_path": "Monitoring/Process/CuttingSpeed",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/CuttingSpeed",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Process/DryRun",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Path/path/ControllerModeOverride",
+    "mtc_subtype": "DRY_RUN",
+    "mtc_datatype": "String",
+    "value": "OFF"
+}{
+    "opc_path": "Monitoring/Process/MachineAxisLock",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Path/path/ControllerModeOverride",
+    "mtc_subtype": "MACHINE_AXIS_LOCK",
+    "mtc_datatype": "String",
+    "value": "OFF"
+}{
+    "opc_path": "Monitoring/Process/Orientation",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Orientation",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "0 299.03965 0"
+}{
+    "opc_path": "Monitoring/Process/PathPosition",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/PathPosition",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "587.5579 190.4518 854.4272"
+}{
+    "opc_path": "Monitoring/Process/SingleBlock",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Path/path/ControllerModeOverride",
+    "mtc_subtype": "SINGLE_BLOCK",
+    "mtc_datatype": "String",
+    "value": "OFF"
+}{
+    "opc_path": "Monitoring/Status/Coolant/Concentration",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Coolant/coolant/Concentration",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Status/Coolant/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Coolant/coolant/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Status/DoorState",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Door/door/DoorState",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "CLOSED"
+}{
+    "opc_path": "Monitoring/Status/Temperature",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Environmental/environmental/Temperature",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Monitoring/Status/EmergencyStopTriggered",
+    "opc_datatype": "Boolean",
+    "mtc_path": "Controller/controller/EmergencyStop",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "ARMED"
+}{
+    "opc_path": "Production/ActiveProgram/DesiredParts",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/PartCount",
+    "mtc_subtype": "TARGET",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Production/ActiveProgram/JobIdentifier",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Program",
+    "mtc_subtype": "MAIN",
+    "mtc_datatype": "String",
+    "value": "QT-250-TB-OP2"
+}{
+    "opc_path": "Production/ActiveProgram/Material",
+    "opc_datatype": "String",
+    "mtc_path": "Stock/stock/Material",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}{
+    "opc_path": "Production/ActiveProgram/PartCounter",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/PartCount",
+    "mtc_subtype": "ALL",
+    "mtc_datatype": "Float",
+    "value": 125
+}{
+    "opc_path": "Production/ActiveProgram/ProcessTimer",
+    "opc_datatype": "UInt32",
+    "mtc_path": "Path/path/ProcessTimer",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": 0
+}{
+    "opc_path": "Production/ActiveProgram/State/CurrentState",
+    "opc_datatype": "LocalizedText",
+    "mtc_path": "Path/path/Execution",
+    "mtc_subtype": "None",
+    "mtc_datatype": NaN,
+    "value": "None"
+}{
+    "opc_path": "Production/ActiveProgram/State/Rotation",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Rotation",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "0 0.0217 0"
+}{
+    "opc_path": "Production/ActiveProgram/State/Translation",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/Translation",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "-591.1579 -600.2518 -856.5272"
+}{
+    "opc_path": "Production/ActiveProgram/State/WorkOffset",
+    "opc_datatype": "String",
+    "mtc_path": "Path/path/WorkOffset",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "G54.1P101"
+}{
+    "opc_path": "Production/PalletID",
+    "opc_datatype": "String",
+    "mtc_path": "Controller/controller/PalletId",
+    "mtc_subtype": "None",
+    "mtc_datatype": "Float",
+    "value": "2"
+}{
+    "opc_path": "Production/User",
+    "opc_datatype": "String",
+    "mtc_path": "Personnel/personnel/User",
+    "mtc_subtype": "None",
+    "mtc_datatype": "String",
+    "value": "UNAVAILABLE"
+}
