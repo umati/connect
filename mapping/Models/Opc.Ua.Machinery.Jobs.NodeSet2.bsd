@@ -1,0 +1,56 @@
+<opc:TypeDictionary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ua="http://opcfoundation.org/UA/" xmlns:opc="http://opcfoundation.org/BinarySchema/" xmlns:tns="http://opcfoundation.org/UA/Machinery/Jobs/" TargetNamespace="http://opcfoundation.org/UA/Machinery/Jobs/" DefaultByteOrder="LittleEndian" xmlns:ns1="http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/">
+    <opc:Import Namespace="http://opcfoundation.org/UA/"/>
+    <opc:Import Namespace="http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/"/>
+    <opc:StructuredType Name="BOMComponentInformationDataType" BaseType="ua:ExtensionObject">
+        <opc:Field Name="Identification" TypeName="tns:OutputInformationDataType"/>
+        <opc:Field Name="Quantity" TypeName="opc:Double"/>
+        <opc:Field Name="EngineeringUnits" TypeName="ua:EUInformation"/>
+    </opc:StructuredType>
+    <opc:StructuredType Name="BOMInformationDataType" BaseType="ua:ExtensionObject">
+        <opc:Field Name="Identification" TypeName="tns:OutputInformationDataType"/>
+        <opc:Field Name="NoOfComponentInformation" TypeName="opc:Int32"/>
+        <opc:Field Name="ComponentInformation" LengthField="NoOfComponentInformation" TypeName="tns:BOMComponentInformationDataType"/>
+    </opc:StructuredType>
+    <opc:StructuredType Name="OutputInformationDataType" BaseType="ua:ExtensionObject">
+        <opc:Field Name="OrderNumberSpecified" TypeName="opc:Bit"/>
+        <opc:Field Name="LotNumberSpecified" TypeName="opc:Bit"/>
+        <opc:Field Name="SerialNumberSpecified" TypeName="opc:Bit"/>
+        <opc:Field Name="Reserved1" TypeName="opc:Bit" Length="29"/>
+        <opc:Field Name="ItemNumber" TypeName="opc:CharArray"/>
+        <opc:Field Name="OutputInfo" TypeName="tns:OutputInfoType"/>
+        <opc:Field Name="OrderNumber" SwitchField="OrderNumberSpecified" TypeName="opc:CharArray"/>
+        <opc:Field Name="LotNumber" SwitchField="LotNumberSpecified" TypeName="opc:CharArray"/>
+        <opc:Field Name="SerialNumber" SwitchField="SerialNumberSpecified" TypeName="opc:CharArray"/>
+    </opc:StructuredType>
+    <opc:StructuredType Name="OutputPerformanceInfoDataType" BaseType="ua:ExtensionObject">
+        <opc:Field Name="StartTimeSpecified" TypeName="opc:Bit"/>
+        <opc:Field Name="EndTimeSpecified" TypeName="opc:Bit"/>
+        <opc:Field Name="Reserved1" TypeName="opc:Bit" Length="30"/>
+        <opc:Field Name="Identification" TypeName="tns:OutputInformationDataType"/>
+        <opc:Field Name="StartTime" SwitchField="StartTimeSpecified" TypeName="opc:DateTime"/>
+        <opc:Field Name="EndTime" SwitchField="EndTimeSpecified" TypeName="opc:DateTime"/>
+        <opc:Field Name="NoOfParameters" TypeName="opc:Int32"/>
+        <opc:Field Name="Parameters" LengthField="NoOfParameters" TypeName="ns1:ISA95ParameterDataType"/>
+    </opc:StructuredType>
+    <opc:EnumeratedType Name="JobExecutionMode" LengthInBits="32">
+        <opc:EnumeratedValue Name="SimulationMode" Value="0"/>
+        <opc:EnumeratedValue Name="TestMode" Value="1"/>
+        <opc:EnumeratedValue Name="ProductionMode" Value="2"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType Name="JobResult" LengthInBits="32">
+        <opc:EnumeratedValue Name="Unknown" Value="0"/>
+        <opc:EnumeratedValue Name="Successful" Value="1"/>
+        <opc:EnumeratedValue Name="Unsuccessful" Value="2"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType Name="ProcessIrregularity" LengthInBits="32">
+        <opc:EnumeratedValue Name="CapabilityUnavailable" Value="0"/>
+        <opc:EnumeratedValue Name="Detected" Value="1"/>
+        <opc:EnumeratedValue Name="NotDetected" Value="2"/>
+        <opc:EnumeratedValue Name="NotYetDetermined" Value="3"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType IsOptionSet="true" Name="OutputInfoType" LengthInBits="8">
+        <opc:EnumeratedValue Name="OrderNumber" Value="0"/>
+        <opc:EnumeratedValue Name="LotNumber" Value="1"/>
+        <opc:EnumeratedValue Name="SerialNumber" Value="2"/>
+    </opc:EnumeratedType>
+</opc:TypeDictionary>
