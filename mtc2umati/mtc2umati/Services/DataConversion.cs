@@ -101,7 +101,8 @@ namespace mtc2umati.Services
             {
                 if (double.TryParse(mappedObject.Value?.ToString(), out var val))
                 {
-                    mappedObject.Value = val * 1000.0;
+                    mappedObject.Value = val / 3600; // * 1000.0;
+                    mappedObject.Value = Math.Round((double)mappedObject.Value, 0);
                 }
             }
 
@@ -121,6 +122,16 @@ namespace mtc2umati.Services
                     "AUTOMATIC" => 1,
                     "MANUAL" => 0,
                     _ => operationModeVal
+                };
+            }
+            else if (mappedObject.MtcName == "Execution" && mappedObject.Value is LocalizedText ExecutionVal)
+            {
+                mappedObject.Value = ExecutionVal switch
+                {
+                    { Text: "READY" } => new LocalizedText("en", "Initializing"),
+                    { Text: "ACTIVE" } => new LocalizedText("en", "Running"),
+                    { Text: "STOPPED" } => new LocalizedText("en", "Ended"),
+                    _ => ExecutionVal
                 };
             }
             #endregion

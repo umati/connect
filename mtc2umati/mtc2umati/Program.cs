@@ -39,7 +39,7 @@ namespace mtc2umati
                 }
 
                 // load the vendor configuration
-                ConfigStore.LoadConfigJSON("mazakShowroom");
+                ConfigStore.LoadConfigJSON("dmg2");
 
                 // Start both the XML fetch and server in parallel
                 Task startServerTask = StartServer(config);
