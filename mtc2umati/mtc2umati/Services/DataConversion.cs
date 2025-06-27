@@ -111,7 +111,7 @@ namespace mtc2umati.Services
                 mappedObject.Value = controllerModeVal switch
                 {
                     "AUTOMATIC" => 0,
-                    "MANUAL" => 1,
+                    "MANUAL" => 2,
                     _ => controllerModeVal
                 };
             }
