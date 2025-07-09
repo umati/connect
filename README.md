@@ -34,8 +34,8 @@ Developed with NET9.0 https://dotnet.microsoft.com/en-us/download/dotnet/9.0
 
 ### Run
 - `cd umati2mtc`
-- `python3 -m venv .venv`
-- `source .venv/bin/activate`
+- `python -m venv .venv`
+- `.\.venv\Scripts\activate`
 - `pip install -r requirements.txt`
 - `python main.py`
 

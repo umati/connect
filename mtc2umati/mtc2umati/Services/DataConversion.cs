@@ -121,6 +121,7 @@ namespace mtc2umati.Services
                 {
                     "AUTOMATIC" => 1,
                     "MANUAL" => 0,
+                    "MANUAL_DATA_INPUT" => 2,
                     _ => operationModeVal
                 };
             }

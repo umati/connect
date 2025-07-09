@@ -4,11 +4,24 @@
         "MTConnectServerPort": 5500,
         "MQTTServerIP": "localhost",
         "MQTTPort": 1883,
-        "Mapping_file": "./models/Mapping.xlsx",
-        "Mapping_sheet": "Mapping_Mazak",
-        "Information_model": "models/current_SR2.xml",
+        "Mapping_file": "../mtc2umati/mtc2umati/Mapping.xlsx",
+        "Mapping_sheet": "Mapping_MazakShowroom",
+        "Information_model": "models/current_SR.xml",
         "MTConnectNamespace": "urn:mtconnect.org:MTConnectStreams:1.3",
         "DevicestreamName": "Mazak",
+        "Gateway_topic_prefix": "umati/v2/company/client/MachineToolType/#",
+        "Gateway_topic_prefix_actual": "umati/v2/company/client/MachineToolType/#"
+    },
+        "mazak_SR2": {
+        "MTConnectServerIP": "localhost",
+        "MTConnectServerPort": 5500,
+        "MQTTServerIP": "localhost",
+        "MQTTPort": 1883,
+        "Mapping_file": "../mtc2umati/mtc2umati/Mapping.xlsx",
+        "Mapping_sheet": "Mapping_MazakShowroom",
+        "Information_model": "models/current_SR2.xml",
+        "MTConnectNamespace": "urn:mtconnect.org:MTConnectStreams:2.0",
+        "DevicestreamName": "HCN001",
         "Gateway_topic_prefix": "umati/v2/company/client/MachineToolType/#",
         "Gateway_topic_prefix_actual": "umati/v2/company/client/MachineToolType/#"
     },
@@ -35,18 +48,5 @@
         "Information_model": "models/current.xml",
         "Gateway_topic_prefix": "umati/v2/company/client/list/MachineToolType/#",
         "Gateway_topic_prefix_actual": "umati/v2/company/client/list/MachineToolType"
-    },
-    "mazak_OS_test": {
-        "MTConnectServerIP": "localhost",
-        "MTConnectServerPort": 5500,
-        "MQTTServerIP": "localhost",
-        "MQTTPort": 1883,
-        "Mapping_file": "./models/Mapping.xlsx",
-        "Mapping_sheet": "Mapping_Mazak",
-        "Information_model": "models/current_OS_copy.xml",
-        "MTConnectNamespace": "urn:mtconnect.org:MTConnectStreams:2.0",
-        "DevicestreamName": "HCN001",
-        "Gateway_topic_prefix": "umati/v2/company/client/MachineToolType/#",
-        "Gateway_topic_prefix_actual": "umati/v2/company/client/MachineToolType/#"
     }
 }

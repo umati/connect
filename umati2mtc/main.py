@@ -65,7 +65,6 @@ async def main():
         await asyncio.gather(task_process_queue, task_update_xml, return_exceptions=True)
         print("Shutdown complete.")
 
-
 if __name__ == "__main__":
     try:
         asyncio.run(main())

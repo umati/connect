@@ -2,8 +2,7 @@
 # Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
 # ========================================================================
 
-import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+#import xml.etree.ElementTree as ET
 import asyncio
 
 # Helper for Manipulation of XML state
@@ -16,7 +15,7 @@ from services.add_mtc_structure import MissingComponentStreamError, MissingEleme
 async def update_xml_with_values(mapped_objects, xml_state: XmlState, devicestream_name: str, mtc_ns: str):
     """
     Update the XML state with values from mapped_objects.
-    This function runs in a separate asyncio task and continuously updates the XML state
+    This function runs in a separate asyncio task and continuously updates the XML state.
     mapped_objects: List of objects containing mtc_path, mtc_subtype and value.
     xml_state: XmlState instance containing the current XML state.
     mtc_ns: Namespace for MTConnect XML elements.
@@ -45,7 +44,7 @@ async def update_xml_with_values(mapped_objects, xml_state: XmlState, devicestre
                             ns = {'m': mtc_ns}  # Namespace mapping for MTConnect
                         )
 
-                    except MissingComponentStreamError as e:
+                    except MissingComponentStreamError:
                         try:
                             add_component_stream(
                                 xml_object=xml_state,
@@ -66,7 +65,7 @@ async def update_xml_with_values(mapped_objects, xml_state: XmlState, devicestre
                         except DeviceStreamError as e:
                             print(f"\033[91m[ERROR] Error adding ComponentStream for {component}/{component_name}: {e}\033[0m")
                             continue
-                    except MissingElementError as e:
+                    except MissingElementError:
                         try:
                             add_element_to_stream(
                                 xml_object=xml_state,

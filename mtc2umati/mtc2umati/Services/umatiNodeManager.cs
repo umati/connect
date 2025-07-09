@@ -72,16 +72,16 @@ namespace mtc2umati.Services
                 }
 
                 // +++++++++++++++++++++++++++ Testing ++++++++++++++++++++++++++++
-                PropertyState locationPropertyNode = CreateLocationPropertyNode(
-                    GetPredefinedNodes()
-                        .OfType<BaseObjectState>()
-                        .FirstOrDefault(n =>
-                            n.DisplayName != null &&
-                            n.DisplayName == "Identification" &&
-                            n.NodeId.NamespaceIndex == umatiNamespaceIndex)!,
-                    umatiNamespaceIndex,
-                    SystemContext);
-                AddReverseReferences(externalReferences);
+                // PropertyState locationPropertyNode = CreateLocationPropertyNode(
+                //     GetPredefinedNodes()
+                //         .OfType<BaseObjectState>()
+                //         .FirstOrDefault(n =>
+                //             n.DisplayName != null &&
+                //             n.DisplayName == "Identification" &&
+                //             n.NodeId.NamespaceIndex == umatiNamespaceIndex)!,
+                //     umatiNamespaceIndex,
+                //     SystemContext);
+                // AddReverseReferences(externalReferences);
             }
         }
 
