@@ -4,6 +4,7 @@
 
 from threading import Lock
 import xml.etree.ElementTree as ET
+from datetime import datetime
 
 class XmlState:
     """
@@ -50,3 +51,21 @@ def initialize_xml_state(xml_file_path: str) -> XmlState:
     except Exception as e:
         print(f"[ERROR] Error loading XML file '{xml_file_path}': {e}")
         raise
+
+def update_creation_time(xml_state, mtc_ns: str):
+    """
+    Update the creationTime attribute in the MTConnectStreams Header.
+    
+    Args:
+        xml_state (XmlState): The current XML state object.
+        mtc_ns (str): The MTConnect namespace, e.g., "urn:mtconnect.org:MTConnectStreams:1.3"
+    """
+    ns_map = {'m': mtc_ns}
+    root = xml_state.get_root()
+    header = root.find('m:Header', ns_map)
+    if header is not None:
+        new_time = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+        header.set('creationTime', new_time)
+        print(f"[INFO] Updated creationTime to {new_time}")
+    else:
+        print("\033[91m[ERROR] Header element not found in XML.\033[0m")

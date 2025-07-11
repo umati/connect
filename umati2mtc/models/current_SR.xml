@@ -95,8 +95,8 @@
           <ProgramComment dataItemId="pcmt" timestamp="2025-07-09T06:56:40.630218Z" name="program_cmt" sequence="31">UNAVAILABLE</ProgramComment>
           <ProgramEdit dataItemId="peditmode" timestamp="2025-07-09T06:56:40.630218Z" sequence="32">UNAVAILABLE</ProgramEdit>
           <ProgramEditName dataItemId="peditname" timestamp="2025-07-09T06:56:40.630218Z" sequence="33">UNAVAILABLE</ProgramEditName>
-          <PathFeedrateOverride dataItemId="pfo" timestamp="2025-07-09T06:58:00.718889Z" name="Fovr" sequence="132" subType="PROGRAMMED">0</PathFeedrateOverride>
-          <PathFeedrateOverride dataItemId="pfr" timestamp="2025-07-09T06:57:56.173779Z" name="Frapidovr" sequence="106" subType="RAPID">0</PathFeedrateOverride>
+          <PathFeedrateOverride dataItemId="pfo" timestamp="2025-07-09T06:58:00.718889Z" name="Fovr" sequence="132" subType="PROGRAMMED">15</PathFeedrateOverride>
+          <PathFeedrateOverride dataItemId="pfr" timestamp="2025-07-09T06:57:56.173779Z" name="Frapidovr" sequence="106" subType="RAPID">16</PathFeedrateOverride>
           <Program dataItemId="pgm" timestamp="2025-07-09T06:58:00.159401Z" name="program" sequence="131">4365</Program>
           <x:R174 dataItemId="r174" timestamp="2025-07-09T06:57:56.173779Z" name="R174" sequence="122">0</x:R174>
           <x:R176 dataItemId="r176" timestamp="2025-07-09T06:57:56.173779Z" name="R176" sequence="123">0</x:R176>

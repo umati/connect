@@ -117,6 +117,22 @@ namespace mtc2umati.Services
 
             foreach (var node in predefinedNodes)
             {
+                // 
+                if (node is BaseDataVariableState variableNode && variableNode.DataType == DataTypeIds.Range)
+                {
+                    // Set the value to a scalar ExtensionObject
+                    variableNode.Value = new ExtensionObject(new Opc.Ua.Range
+                    {
+                        Low = 0.0,
+                        High = 0.0
+                    });
+
+                    variableNode.DataType = DataTypeIds.Range; // Still using Range as the DataType
+                    variableNode.ValueRank = ValueRanks.Scalar; // Ensure it's scalar
+                    variableNode.ArrayDimensions = null; // Prevent empty array interpretation for scalar
+                    variableNode.ValueRank = -1; // Set ValueRank to -1 for scalar
+                }
+
                 AddPredefinedNode(SystemContext, node);
             }
             // ensure the reverse references exist.
@@ -140,27 +156,27 @@ namespace mtc2umati.Services
 
             return folder;
         }
+        // +++++++++++++++++++++++++++ Basic logic for adding nodes ++++++++++++++++++++++++++++
+        // public PropertyState CreateLocationPropertyNode(NodeState parentNode, ushort namespaceIndex, ISystemContext systemContext)
+        // {
+        //     var property = new PropertyState(parentNode)
+        //     {
+        //         DisplayName = new Opc.Ua.LocalizedText("en", "Location"),
+        //         BrowseName = new QualifiedName("Location", namespaceIndex),
+        //         TypeDefinitionId = VariableTypeIds.PropertyType,
+        //         NodeId = new NodeId("Location", namespaceIndex),
+        //         DataType = DataTypeIds.String,
+        //         ValueRank = ValueRanks.Scalar,
+        //     };
+        //     property.Create(systemContext, property.NodeId, property.BrowseName, property.DisplayName, true);
+        //     property.Description = new Opc.Ua.LocalizedText("en", "Test for location property");
 
-        public PropertyState CreateLocationPropertyNode(NodeState parentNode, ushort namespaceIndex, ISystemContext systemContext)
-        {
-            var property = new PropertyState(parentNode)
-            {
-                DisplayName = new Opc.Ua.LocalizedText("en", "Location"),
-                BrowseName = new QualifiedName("Location", namespaceIndex),
-                TypeDefinitionId = VariableTypeIds.PropertyType,
-                NodeId = new NodeId("Location", namespaceIndex),
-                DataType = DataTypeIds.String,
-                ValueRank = ValueRanks.Scalar,
-            };
-            property.Create(systemContext, property.NodeId, property.BrowseName, property.DisplayName, true);
-            property.Description = new Opc.Ua.LocalizedText("en", "Test for location property");
+        //     parentNode.AddChild(property);
+        //     parentNode.AddReference(ReferenceTypeIds.HasProperty, false, property.NodeId);
+        //     AddPredefinedNode(systemContext, property);
 
-            parentNode.AddChild(property);
-            parentNode.AddReference(ReferenceTypeIds.HasProperty, false, property.NodeId);
-            AddPredefinedNode(systemContext, property);
-
-            return property;
-        }
+        //     return property;
+        // }
     }
 }
 

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MTConnectDevices xmlns:m="urn:mtconnect.org:MTConnectDevices:1.3" xmlns="urn:mtconnect.org:MTConnectDevices:1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mtconnect.org:MTConnectDevices:1.3 http://www.mtconnect.org/schemas/MTConnectDevices_1.3.xsd">
+  <Header creationTime="2025-07-11T11:52:55Z" sender="MAZATROL-PC" instanceId="1752216509" version="1.3.0.17" assetBufferSize="1024" assetCount="0" bufferSize="131072"/>
+  <Devices>
+    <Device id="d1" name="Mazak" uuid="Mazak">
+      <Description manufacturer="Mazak Corporation">Unknown w/SMooth-?</Description>
+      <DataItems>
+        <DataItem category="EVENT" id="avail" name="avail" type="AVAILABILITY"/>
+        <DataItem category="EVENT" id="functionalmode" name="functionalmode" type="FUNCTIONAL_MODE"/>
+        <DataItem category="EVENT" id="d1_asset_chg" type="ASSET_CHANGED"/>
+        <DataItem category="EVENT" id="d1_asset_rem" type="ASSET_REMOVED"/>
+      </DataItems>
+      <Components>
+        <Axes id="a" name="base">
+          <DataItems>
+            <DataItem category="CONDITION" id="servo" name="servo_cond" type="ACTUATOR"/>
+            <DataItem category="CONDITION" id="spndl" name="spindle_cond" type="SYSTEM"/>
+          </DataItems>
+          <Components>
+            <Linear id="x" name="X">
+              <DataItems>
+                <DataItem category="SAMPLE" coordinateSystem="MACHINE" id="xpm" name="Xabs" nativeUnits="MILLIMETER" subType="ACTUAL" type="POSITION" units="MILLIMETER"/>
+                <DataItem category="SAMPLE" coordinateSystem="WORK" id="xpw" name="Xpos" nativeUnits="MILLIMETER" subType="ACTUAL" type="POSITION" units="MILLIMETER"/>
+                <DataItem category="CONDITION" id="xt" name="Xtravel" type="POSITION"/>
+                <DataItem category="SAMPLE" id="xl" name="Xload" nativeUnits="PERCENT" type="LOAD" units="PERCENT"/>
+                <DataItem category="SAMPLE" id="xf" name="Xfrt" nativeUnits="MILLIMETER/SECOND" type="AXIS_FEEDRATE" units="MILLIMETER/SECOND"/>
+              </DataItems>
+            </Linear>
+            <Linear id="y" name="Y">
+              <DataItems>
+                <DataItem category="SAMPLE" coordinateSystem="MACHINE" id="ypm" name="Yabs" nativeUnits="MILLIMETER" subType="ACTUAL" type="POSITION" units="MILLIMETER"/>
+                <DataItem category="SAMPLE" coordinateSystem="WORK" id="ypw" name="Ypos" nativeUnits="MILLIMETER" subType="ACTUAL" type="POSITION" units="MILLIMETER"/>
+                <DataItem category="CONDITION" id="yt" name="Ytravel" type="POSITION"/>
+                <DataItem category="SAMPLE" id="yl" name="Yload" nativeUnits="PERCENT" type="LOAD" units="PERCENT"/>
+                <DataItem category="SAMPLE" id="yf" name="Yfrt" nativeUnits="MILLIMETER/SECOND" type="AXIS_FEEDRATE" units="MILLIMETER/SECOND"/>
+              </DataItems>
+            </Linear>
+            <Linear id="z" name="Z">
+              <DataItems>
+                <DataItem category="SAMPLE" coordinateSystem="MACHINE" id="zpm" name="Zabs" nativeUnits="MILLIMETER" subType="ACTUAL" type="POSITION" units="MILLIMETER"/>
+                <DataItem category="SAMPLE" coordinateSystem="WORK" id="zpw" name="Zpos" nativeUnits="MILLIMETER" subType="ACTUAL" type="POSITION" units="MILLIMETER"/>
+                <DataItem category="CONDITION" id="zt" name="Ztravel" type="POSITION"/>
+                <DataItem category="SAMPLE" id="zl" name="Zload" nativeUnits="PERCENT" type="LOAD" units="PERCENT"/>
+                <DataItem category="SAMPLE" id="zf" name="Zfrt" nativeUnits="MILLIMETER/SECOND" type="AXIS_FEEDRATE" units="MILLIMETER/SECOND"/>
+              </DataItems>
+            </Linear>
+            <Rotary id="c" name="C">
+              <DataItems>
+                <DataItem category="SAMPLE" id="cl" name="Cload" nativeUnits="PERCENT" type="LOAD" units="PERCENT"/>
+                <DataItem category="SAMPLE" id="sl" name="Sload" nativeUnits="PERCENT" type="LOAD" units="PERCENT"/>
+                <DataItem category="CONDITION" id="ct" name="Ctravel" type="ANGLE"/>
+                <DataItem category="SAMPLE" id="cf" name="Cfrt" nativeUnits="DEGREE/MINUTE" type="ANGULAR_VELOCITY" units="DEGREE/SECOND"/>
+                <DataItem category="SAMPLE" id="cs" name="Srpm" nativeUnits="REVOLUTION/MINUTE" subType="ACTUAL" type="ROTARY_VELOCITY" units="REVOLUTION/MINUTE"/>
+                <DataItem category="SAMPLE" id="ctemp" name="Stemp" nativeUnits="CELSIUS" type="TEMPERATURE" units="CELSIUS"/>
+                <DataItem category="SAMPLE" coordinateSystem="MACHINE" id="cposm" name="Cabs" nativeUnits="DEGREE" subType="ACTUAL" type="ANGLE" units="DEGREE"/>
+                <DataItem category="SAMPLE" coordinateSystem="WORK" id="cposw" name="Cpos" nativeUnits="DEGREE" subType="ACTUAL" type="ANGLE" units="DEGREE"/>
+                <DataItem category="EVENT" id="rf" name="crfunc" type="ROTARY_MODE">
+                  <Constraints>
+                    <Value>SPINDLE</Value>
+                    <Value>INDEX</Value>
+                  </Constraints>
+                </DataItem>
+                <DataItem category="CONDITION" id="spc" name="Sload_cond" type="LOAD"/>
+                <DataItem category="CONDITION" id="tmp" name="Stemp_cond" type="TEMPERATURE"/>
+              </DataItems>
+            </Rotary>
+          </Components>
+        </Axes>
+        <Controller id="cont" name="controller">
+          <DataItems>
+            <DataItem category="CONDITION" id="ccond" name="comms_cond" type="COMMUNICATIONS"/>
+            <DataItem category="CONDITION" id="logic" name="logic_cond" type="LOGIC_PROGRAM"/>
+            <DataItem category="CONDITION" id="system" name="system_cond" type="SYSTEM"/>
+            <DataItem category="EVENT" id="estop" name="estop" type="EMERGENCY_STOP"/>
+            <DataItem category="SAMPLE" id="atime" name="auto_time" subType="x:AUTO" type="ACCUMULATED_TIME"/>
+            <DataItem category="SAMPLE" id="yltime" name="total_time" subType="x:TOTAL" type="ACCUMULATED_TIME"/>
+            <DataItem category="SAMPLE" id="ctime" name="cut_time" subType="x:CUT" type="ACCUMULATED_TIME"/>
+            <DataItem category="SAMPLE" id="tcltime" name="total_auto_cut_time" subType="x:TOTALCUTTIME" type="ACCUMULATED_TIME"/>
+            <DataItem category="EVENT" id="pltnum" name="pallet_num" type="PALLET_ID"/>
+          </DataItems>
+          <Components>
+            <Path id="path1" name="path">
+              <DataItems>
+                <DataItem category="EVENT" id="peditmode" type="PROGRAM_EDIT"/>
+                <DataItem category="EVENT" id="peditname" type="PROGRAM_EDIT_NAME"/>
+                <DataItem category="SAMPLE" id="pfr" name="Frapidovr" subType="RAPID" type="PATH_FEEDRATE_OVERRIDE"/>
+                <DataItem category="SAMPLE" id="pfo" name="Fovr" subType="PROGRAMMED" type="PATH_FEEDRATE_OVERRIDE"/>
+                <DataItem category="EVENT" id="Sovr" name="Sovr" type="ROTARY_VELOCITY_OVERRIDE"/>
+                <DataItem category="EVENT" id="pgm" name="program" type="PROGRAM"/>
+                <DataItem category="EVENT" id="spgm" name="subprogram" subType="x:SUB" type="PROGRAM"/>
+                <DataItem category="EVENT" id="ln" name="line" type="LINE"/>
+                <DataItem category="EVENT" id="unit" name="unitNum" type="x:UNIT"/>
+                <DataItem category="EVENT" id="seq" name="sequenceNum" type="x:SEQUENCE_NUMBER"/>
+                <DataItem category="EVENT" id="pc" name="PartCountAct" type="PART_COUNT"/>
+                <DataItem category="SAMPLE" coordinateSystem="WORK" id="pf" name="Fact" nativeUnits="MILLIMETER/SECOND" subType="ACTUAL" type="PATH_FEEDRATE" units="MILLIMETER/SECOND"/>
+                <DataItem category="EVENT" id="tid" name="Tool_number" type="TOOL_NUMBER"/>
+                <DataItem category="EVENT" id="tid2" name="Tool_group" type="x:TOOL_GROUP"/>
+                <DataItem category="EVENT" id="tid3" name="Tool_suffix" type="x:TOOL_SUFFIX"/>
+                <DataItem category="EVENT" id="exec" name="execution" type="EXECUTION"/>
+                <DataItem category="EVENT" id="mode" name="mode" type="CONTROLLER_MODE"/>
+                <DataItem category="EVENT" id="pcmt" name="program_cmt" type="PROGRAM_COMMENT"/>
+                <DataItem category="EVENT" id="spcmt" name="subprogram_cmt" subType="x:SUB" type="PROGRAM_COMMENT"/>
+                <DataItem category="CONDITION" id="motion" name="motion_cond" type="MOTION_PROGRAM"/>
+                <DataItem category="CONDITION" id="path_system" name="path_system" type="SYSTEM"/>
+                <DataItem category="EVENT" id="tarpc" name="target_count" type="x:R172"/>
+                <DataItem category="EVENT" id="r174" name="R174" type="x:R174"/>
+                <DataItem category="EVENT" id="r176" name="R176" type="x:R176"/>
+                <DataItem category="EVENT" id="r178" name="R178" type="x:R178"/>
+              </DataItems>
+            </Path>
+          </Components>
+        </Controller>
+        <Door id="door1" name="door">
+          <DataItems>
+            <DataItem category="EVENT" id="door" name="doorstate" type="DOOR_STATE"/>
+          </DataItems>
+        </Door>
+        <Systems id="systems" name="systems">
+          <Components>
+            <Electric id="elec" name="electric">
+              <DataItems>
+                <DataItem category="CONDITION" id="electric" name="electric_cond" type="SYSTEM"/>
+              </DataItems>
+            </Electric>
+            <Hydraulic id="hydraulic" name="hydraulic">
+              <DataItems>
+                <DataItem category="CONDITION" id="hydhealth" name="hydra_cond" type="SYSTEM"/>
+              </DataItems>
+            </Hydraulic>
+            <Coolant id="coolant" name="coolant">
+              <DataItems>
+                <DataItem category="CONDITION" id="coolhealth" name="coolant_cond" type="SYSTEM"/>
+                <DataItem category="SAMPLE" id="cooltemp" name="cooltemp" nativeUnits="CELSIUS" type="TEMPERATURE" units="CELSIUS"/>
+                <DataItem category="SAMPLE" id="concentration" name="CONCENTRATION" nativeUnits="PERCENT" type="CONCENTRATION" units="PERCENT"/>
+              </DataItems>
+            </Coolant>
+            <Pneumatic id="pneumatic" name="pneumatic">
+              <DataItems>
+                <DataItem category="CONDITION" id="pneucond" name="pneu_cond" type="SYSTEM"/>
+              </DataItems>
+            </Pneumatic>
+            <Lubrication id="lubrication" name="lubrication">
+              <DataItems>
+                <DataItem category="CONDITION" id="lube" name="lubrication_cond" type="SYSTEM"/>
+              </DataItems>
+            </Lubrication>
+          </Components>
+        </Systems>
+      </Components>
+    </Device>
+  </Devices>
+</MTConnectDevices>

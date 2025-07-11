@@ -7,7 +7,7 @@
         "Mapping_sheet": "Mapping_DMG",
         "Information_model": "umaticonnectdmg.xml",
         "OPCNamespace": "http://ifw.uni-hannover.de/umatiConnectDMG/",
-        "Machine_Name": "DMGMilltap700",
+        "Machine_Name": "DMGReference",
         "Mode": 3
     },
     "dmg2": {
@@ -18,7 +18,7 @@
         "Mapping_sheet": "Mapping_DMG",
         "Information_model": "umaticonnectdmg.xml",
         "OPCNamespace": "http://ifw.uni-hannover.de/umatiConnectDMG/",
-        "Machine_Name": "DMGMilltap700",
+        "Machine_Name": "DMGReference",
         "Mode": 3
     },
     "mazak": {

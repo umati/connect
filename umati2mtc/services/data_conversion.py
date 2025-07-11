@@ -75,6 +75,19 @@ def convert_value(value, mtc_name):
                     value = "UNAVAILABLE"
 
             return value
+
+        elif mtc_name == "Execution":
+            match str(value):
+                case "Initializing":
+                    value = "READY"
+                case "Running":
+                    value = "ACTIVE"
+                case "Ended":
+                    value = "STOPPED"
+                case _:
+                    value = "UNAVAILABLE"
+
+            return value
         
         else:
             # Handle other data types as needed

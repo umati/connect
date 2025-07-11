@@ -5,6 +5,7 @@
 import asyncio
 import threading
 from queue import Queue
+from datetime import datetime
 
 # Flask app
 from app import create_app
@@ -23,13 +24,32 @@ shutdown_event = asyncio.Event()  # Used to signal shutdown
 
 def load_config():
     try:
-        ConfigStore.load_config_json("mazak_SR") #ConfigStore.load_config_json("mazak_OS")
+        ConfigStore.load_config_json("mazak_SR2")
         mapped_objects = load_mapping(ConfigStore.Mapping_file, ConfigStore.Mapping_sheet)
         print(f"[INFO] Loaded {len(mapped_objects)} mapped objects from {ConfigStore.Mapping_file}.")
         return mapped_objects
     except Exception as e:
         print(f"[ERROR] Configuration error: {e}")
         return None
+    
+
+async def send_shdr(mapped_objects, host='0.0.0.0', port=7878):
+    try:
+        reader, writer = await asyncio.open_connection(host, port)
+        print(f"[SHDR] Connected to MTConnect Agent at {host}:{port}")
+
+        while True:
+            ts = datetime.utcnow().isoformat() + "Z"
+            # Format: <timestamp>|<dataitem name>|<value>
+            line = f"{ts}|Frapidovr|87\n"
+            writer.write(line.encode())
+            await writer.drain()
+            await asyncio.sleep(1)
+
+    except ConnectionRefusedError:
+        print(f"[SHDR] Failed to connect to {host}:{port}. Is the agent running?")
+    except Exception as e:
+        print(f"[SHDR] Error: {e}")
 
 
 async def main():
@@ -47,11 +67,14 @@ async def main():
     flask_thread = threading.Thread(target=lambda: app.run(host=ConfigStore.MTConnectServerIP, port=ConfigStore.MTConnectServerPort), daemon=True)
     flask_thread.start()  # Start Flask app in a separate thread
 
+    task_send_shdr = asyncio.create_task(send_shdr(mapped_objects))  # Start SHDR sender
     # Start background tasks
     start_mqtt(ConfigStore.MQTTServerIP, ConfigStore.MQTTPort, ConfigStore.Gateway_topic_prefix, data_queue) # Start MQTT client and put messages into data_queue
-    await asyncio.sleep(5)
+    #await asyncio.sleep(5)
     task_process_queue = asyncio.create_task(process_queue(data_queue, mapped_objects))
     task_update_xml = asyncio.create_task(update_xml_with_values(mapped_objects, xml_state, ConfigStore.DevicestreamName, ConfigStore.MTConnectNamespace))
+    
+
 
     print("Adapter initialized. Press Ctrl+C to exit.")
 
@@ -62,7 +85,8 @@ async def main():
         print("Shutdown requested. Cancelling tasks...")
         task_process_queue.cancel()
         task_update_xml.cancel()
-        await asyncio.gather(task_process_queue, task_update_xml, return_exceptions=True)
+        task_send_shdr.cancel()
+        await asyncio.gather(task_process_queue, task_update_xml, task_send_shdr, return_exceptions=True)
         print("Shutdown complete.")
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@
 # Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
 # ========================================================================
 
-from flask import Flask, Response
+from flask import Flask, request, Response
 from helper.xml_state import XmlState
 
 def create_app(xml_state: XmlState) -> Flask:
@@ -19,6 +19,11 @@ def create_app(xml_state: XmlState) -> Flask:
 
     @app.route("/sample")
     def sample():
+        from_seq = request.args.get("from", default="1")
+        count = request.args.get("count", default="100")
+
+        # You can log or use these if needed
+        print(f"Requested from={from_seq}, count={count}")
         xml_str = xml_state.to_string()
         return Response(xml_str, mimetype="application/xml")
 

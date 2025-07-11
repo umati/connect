@@ -62,7 +62,7 @@ namespace mtc2umati.Services
                     break;
                     
                 case "EUInformation":
-                    // OPC UA EUInformation = ExtensionObject
+
                     try
                     {
                         var parts = mappedObject.Value?.ToString()?.Split(',');
@@ -91,8 +91,9 @@ namespace mtc2umati.Services
                 mappedObject.Value = lightStateVal switch
                 {
                     "UNAVAILABLE" => null,
-                    "OFF" => 0,
-                    "ON" => 1,
+                    "OFF" => false,
+                    "ON" => true,
+                    "BLINKING" => true,
                     _ => lightStateVal
                 };
             }
@@ -119,8 +120,8 @@ namespace mtc2umati.Services
             {
                 mappedObject.Value = operationModeVal switch
                 {
-                    "AUTOMATIC" => 1,
                     "MANUAL" => 0,
+                    "AUTOMATIC" => 1,
                     "MANUAL_DATA_INPUT" => 2,
                     _ => operationModeVal
                 };
