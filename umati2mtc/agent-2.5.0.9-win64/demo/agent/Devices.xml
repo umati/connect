@@ -83,8 +83,8 @@
               <DataItems>
                 <DataItem category="EVENT" id="peditmode" type="PROGRAM_EDIT"/>
                 <DataItem category="EVENT" id="peditname" type="PROGRAM_EDIT_NAME"/>
-                <DataItem category="SAMPLE" id="pfr" name="Frapidovr" subType="RAPID" type="PATH_FEEDRATE_OVERRIDE"/>
-                <DataItem category="SAMPLE" id="pfo" name="Fovr" subType="PROGRAMMED" type="PATH_FEEDRATE_OVERRIDE"/>
+                <DataItem category="EVENT" id="pfr" name="Frapidovr" subType="RAPID" type="PATH_FEEDRATE_OVERRIDE"/>
+                <DataItem category="EVENT" id="pfo" name="Fovr" subType="PROGRAMMED" type="PATH_FEEDRATE_OVERRIDE"/>
                 <DataItem category="EVENT" id="Sovr" name="Sovr" type="ROTARY_VELOCITY_OVERRIDE"/>
                 <DataItem category="EVENT" id="pgm" name="program" type="PROGRAM"/>
                 <DataItem category="EVENT" id="spgm" name="subprogram" subType="x:SUB" type="PROGRAM"/>

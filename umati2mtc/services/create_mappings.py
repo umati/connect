@@ -52,7 +52,7 @@ def load_mapping(mapping_file_path, sheet_name):
             mtc_name=row["MTC Name"],
             mtc_path=mtc_path,
             mtc_subtype=sub_type,
-            mtc_specname=row["SpecName"],
+            mtc_specname=row["SpecName"] if pd.notna(row["SpecName"]) else None,
             mtc_datatype=row["MTC Data Type"],
             value=None
         )

@@ -21,4 +21,4 @@ def start_mqtt(IP, port, topic_prefix, message_queue):
     client.connect(IP, port, 60)
     client.subscribe(topic_prefix)
     client.loop_start()  # run MQTT in background thread
-    print(f"\033[92m[INFO] MQTT client started and connected to {IP}:{port} -> subscribed to {topic_prefix}\033[0m")
+    print(f"\033[92m[MQTT] MQTT client started and connected to {IP}:{port} -> subscribed to {topic_prefix}\033[0m")

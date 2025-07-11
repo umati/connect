@@ -16,12 +16,20 @@ def convert_value(value, mtc_name):
     elif "Opc.Ua" in str(value):
         value = "UNAVAILABLE"  # Replace with actual condition for unavailable value
         return value
-    
-    # Excecution muss angepasst werden Path/path/Execution und AxisState
-    
+        
     else:
         if type(value) is dict: # Handle LocalizedText
             value = value.get("text")
+            if mtc_name == "Execution":
+                match str(value):
+                    case "Initializing":
+                        value = "READY"
+                    case "Running":
+                        value = "ACTIVE"
+                    case "Ended":
+                        value = "STOPPED"
+                    case _:
+                        value = "UNAVAILABLE"
             return value
         
         elif type(value) is float:  # Handle Range
@@ -71,19 +79,6 @@ def convert_value(value, mtc_name):
                     value = "AUTOMATIC"
                 case "0":
                     value = "MANUAL"
-                case _:
-                    value = "UNAVAILABLE"
-
-            return value
-
-        elif mtc_name == "Execution":
-            match str(value):
-                case "Initializing":
-                    value = "READY"
-                case "Running":
-                    value = "ACTIVE"
-                case "Ended":
-                    value = "STOPPED"
                 case _:
                     value = "UNAVAILABLE"
 
