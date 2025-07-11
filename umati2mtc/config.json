@@ -12,7 +12,7 @@
         "Gateway_topic_prefix": "umati/v2/ifw/MachineToolType/#"
     },
         "mazak_SR2": {
-        "MTConnectServerIP": "0.0.0.0",
+        "MTConnectServerIP": "localhost",
         "MTConnectServerPort": 5500,
         "MQTTServerIP": "localhost",
         "MQTTPort": 1883,

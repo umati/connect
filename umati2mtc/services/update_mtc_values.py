@@ -25,8 +25,8 @@ async def update_xml_with_values(mapped_objects, xml_state: XmlState, devicestre
             update_creation_time(xml_state, mtc_ns)
             for mapped_object in mapped_objects:
                 if mapped_object.value is not None:
-                    print("__________________________________________________________________________________________________________________________")
-                    print(f"[UPDATING] Trying to update {mapped_object.mtc_path} (optional SubType {mapped_object.mtc_subtype}) with value: {mapped_object.value}")
+                    #print("__________________________________________________________________________________________________________________________")
+                    #print(f"[UPDATING] Trying to update {mapped_object.mtc_path} (optional SubType {mapped_object.mtc_subtype}) with value: {mapped_object.value}")
                     component = mapped_object.mtc_path.split("/")[0]
                     component_name = mapped_object.mtc_path.split("/")[1]
                     element_name = mapped_object.mtc_path.split("/")[2]

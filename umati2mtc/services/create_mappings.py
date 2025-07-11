@@ -8,12 +8,13 @@ class MappedObject:
     """
     Stores OPC UA to MTConnect mapping data including value.
     """
-    def __init__(self, opc_path: str, opc_datatype: str, mtc_name: str, mtc_path: str, mtc_subtype: str, mtc_datatype: str, value):
+    def __init__(self, opc_path: str, opc_datatype: str, mtc_name: str, mtc_path: str, mtc_subtype: str, mtc_specname: str, mtc_datatype: str, value):
         self.opc_path = opc_path
         self.opc_datatype = opc_datatype
         self.mtc_name = mtc_name
         self.mtc_path = mtc_path
         self.mtc_subtype = mtc_subtype
+        self.mtc_specname = mtc_specname
         self.mtc_datatype = mtc_datatype
         self.value = value
 
@@ -51,6 +52,7 @@ def load_mapping(mapping_file_path, sheet_name):
             mtc_name=row["MTC Name"],
             mtc_path=mtc_path,
             mtc_subtype=sub_type,
+            mtc_specname=row["SpecName"],
             mtc_datatype=row["MTC Data Type"],
             value=None
         )

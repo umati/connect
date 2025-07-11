@@ -66,6 +66,6 @@ def update_creation_time(xml_state, mtc_ns: str):
     if header is not None:
         new_time = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
         header.set('creationTime', new_time)
-        print(f"[INFO] Updated creationTime to {new_time}")
+        #print(f"[INFO] Updated creationTime to {new_time}")
     else:
         print("\033[91m[ERROR] Header element not found in XML.\033[0m")

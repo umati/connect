@@ -39,7 +39,7 @@ def find_value_in_stream(xml_object: XmlState, component: str, component_name: s
     if not component_streams:
         raise MissingComponentStreamError(f"No ComponentStream found with component='{component}' and name='{component_name}'.")
     
-    print(f"[UPDATING] Found {len(component_streams)} ComponentStream(s) for component='{component}' and name='{component_name}'.")
+    #print(f"[UPDATING] Found {len(component_streams)} ComponentStream(s) for component='{component}' and name='{component_name}'.")
     current_time = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
 
     for cs in component_streams:
@@ -47,7 +47,7 @@ def find_value_in_stream(xml_object: XmlState, component: str, component_name: s
             if subtype == "None" or elem.attrib.get('subType') == subtype:
                 elem.text = new_value
                 elem.set("timestamp", current_time)
-                print(f"\033[92m[SUCCESS] Updated {element_name} with value '{new_value}'\033[0m")
+                #print(f"\033[92m[SUCCESS] Updated {element_name} with value '{new_value}'\033[0m")
                 return
     raise MissingElementError(f"Element '{element_name}' with optional subType='{subtype}' not found.")
 
