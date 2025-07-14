@@ -8,7 +8,7 @@ using ClosedXML.Excel;
 namespace mtc2umati.Services
 {
 
-    public class MappedObject(string ModellingRule, string opcPath, string opcDataType, 
+    public class MappedObject(string ModellingRule, string opcPath, string opcDataType,
         string mtcName, string mtcPath, string mtcDataType, string mtcSubtype, object? value = null)
     {
         public string ModellingRule { get; set; } = ModellingRule;

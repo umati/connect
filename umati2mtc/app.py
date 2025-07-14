@@ -3,7 +3,9 @@
 # ========================================================================
 
 from flask import Flask, Response
+
 from helper.xml_state import XmlState
+
 
 def create_app(xml_state: XmlState) -> Flask:
     app = Flask(__name__)

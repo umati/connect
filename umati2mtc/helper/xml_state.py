@@ -2,13 +2,15 @@
 # Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
 # ========================================================================
 
-from threading import Lock
 import xml.etree.ElementTree as ET
+from threading import Lock
+
 
 class XmlState:
     """
     Thread-safe wrapper for a live XML ElementTree.
     """
+
     def __init__(self, tree: ET.ElementTree):
         self._tree = tree
         self._lock = Lock()
@@ -26,21 +28,22 @@ class XmlState:
         """
         with self._lock:
             self._tree = new_tree
-            
-            
+
     def get_root(self) -> ET.Element:
         """
         Direct access to the root element (used by xml_manipulator).
         """
         with self._lock:
             return self._tree.getroot()
-    
+
     def to_string(self) -> str:
         """
         Convert current XML to a string.
         """
         with self._lock:
-            return ET.tostring(self._tree.getroot(), encoding="utf-8", xml_declaration=True).decode("utf-8")
+            return ET.tostring(
+                self._tree.getroot(), encoding="utf-8", xml_declaration=True
+            ).decode("utf-8")
 
 
 def initialize_xml_state(xml_file_path: str) -> XmlState:

@@ -30,7 +30,7 @@ namespace mtc2umati
 
                 // auto accept any untrusted certificates.
                 config.SecurityConfiguration.AutoAcceptUntrustedCertificates = true;
-            
+
                 // check the application certificate.
                 bool certOK = await application.CheckApplicationInstanceCertificates(false);
                 if (!certOK)

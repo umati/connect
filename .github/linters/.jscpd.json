@@ -1,6 +1,6 @@
 {
   "threshold": 8,
   "reporters": ["consoleFull"],
-  "ignore": ["**/wwwroot/**"],
+  "ignore": ["**/wwwroot/**", "**/**.xml"],
   "absolute": true
 }

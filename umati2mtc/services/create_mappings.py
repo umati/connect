@@ -4,11 +4,22 @@
 
 import pandas as pd
 
+
 class MappedObject:
     """
     Stores OPC UA to MTConnect mapping data including value.
     """
-    def __init__(self, opc_path: str, opc_datatype: str, mtc_name: str, mtc_path: str, mtc_subtype: str, mtc_datatype: str, value):
+
+    def __init__(
+        self,
+        opc_path: str,
+        opc_datatype: str,
+        mtc_name: str,
+        mtc_path: str,
+        mtc_subtype: str,
+        mtc_datatype: str,
+        value,
+    ):
         self.opc_path = opc_path
         self.opc_datatype = opc_datatype
         self.mtc_name = mtc_name
@@ -16,6 +27,7 @@ class MappedObject:
         self.mtc_subtype = mtc_subtype
         self.mtc_datatype = mtc_datatype
         self.value = value
+
 
 def load_mapping(mapping_file_path, sheet_name):
     """
@@ -34,12 +46,12 @@ def load_mapping(mapping_file_path, sheet_name):
         mtc_path = str(row["MTC Path"]).strip() if pd.notna(row["MTC Path"]) else None
 
         if (
-            mtc_path is None or
-            mtc_path.startswith("#") or
-            "{" in mtc_path or
-            "}" in mtc_path or
-            "<" in mtc_path or
-            ">" in mtc_path
+            mtc_path is None
+            or mtc_path.startswith("#")
+            or "{" in mtc_path
+            or "}" in mtc_path
+            or "<" in mtc_path
+            or ">" in mtc_path
         ):
             continue
 
@@ -52,9 +64,8 @@ def load_mapping(mapping_file_path, sheet_name):
             mtc_path=mtc_path,
             mtc_subtype=sub_type,
             mtc_datatype=row["MTC Data Type"],
-            value=None
+            value=None,
         )
         mapped_objects.append(mapped_object)
 
     return mapped_objects
-

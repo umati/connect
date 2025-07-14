@@ -3,7 +3,9 @@
 # ========================================================================
 
 import asyncio
+
 from services.data_conversion import try_convert_value
+
 
 async def process_queue(data_queue, mapped_objects):
     """
@@ -19,8 +21,12 @@ async def process_queue(data_queue, mapped_objects):
                 mqtt_data = data_queue.get()
 
                 for mapped_object in mapped_objects:
-                    mapped_object.value = get_value_from_json(mqtt_data, mapped_object.opc_path)
-                    mapped_object.value = try_convert_value(mapped_object.value, mapped_object.mtc_name)
+                    mapped_object.value = get_value_from_json(
+                        mqtt_data, mapped_object.opc_path
+                    )
+                    mapped_object.value = try_convert_value(
+                        mapped_object.value, mapped_object.mtc_name
+                    )
                 await asyncio.sleep(1)  # avoid tight loop
     except asyncio.CancelledError or KeyboardInterrupt:
         print("Processing queue task cancelled.")
