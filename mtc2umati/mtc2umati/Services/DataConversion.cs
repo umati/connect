@@ -126,6 +126,7 @@ namespace mtc2umati.Services
                     _ => operationModeVal
                 };
             }
+            // special case for Execution
             else if (mappedObject.MtcName == "Execution" && mappedObject.Value is LocalizedText ExecutionVal)
             {
                 mappedObject.Value = ExecutionVal switch
@@ -136,9 +137,20 @@ namespace mtc2umati.Services
                     _ => ExecutionVal
                 };
             }
+            else if (mappedObject.MtcName == "StateNumber" && mappedObject.Value is string StateNumberVal)
+            {
+                mappedObject.Value = StateNumberVal switch
+                {
+                    "UNAVAILABLE" => 0,
+                    // "MAINTENANCE" => 1, N/A
+                    "READY" => 2,
+                    "PROCESSING" => 3,
+                    _ => StateNumberVal
+                };
+            }
             #endregion
 
-            return mappedObject.Value ?? throw new InvalidOperationException("Value cannot be null.");
+                return mappedObject.Value ?? throw new InvalidOperationException("Value cannot be null.");
         }
 
         #region Conversion helper

@@ -11,6 +11,7 @@ def on_message(client, userdata, msg):
     try:
         payload = json.loads(msg.payload.decode())
         userdata.put(payload)  # Put message in the shared queue
+        #print(f"\033[92m[MQTT] Received message on topic {msg.topic}: {payload}\033[0m")
     except Exception as e:
         print("Error processing MQTT message:", e)
 

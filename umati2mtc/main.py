@@ -54,7 +54,7 @@ async def main():
     task_process_queue = asyncio.create_task(process_queue(data_queue, mapped_objects)) # Process the queue of MQTT messages and update mapped_objects with values
     asyncio.create_task(start_shdr_server(mapped_objects))
 
-    task_update_xml = asyncio.create_task(update_xml_with_values(mapped_objects, xml_state, ConfigStore.DevicestreamName, ConfigStore.MTConnectNamespace))
+    #task_update_xml = asyncio.create_task(update_xml_with_values(mapped_objects, xml_state, ConfigStore.DevicestreamName, ConfigStore.MTConnectNamespace)) # deprecated
     
 
 
@@ -66,8 +66,9 @@ async def main():
     except KeyboardInterrupt:
         print("Shutdown requested. Cancelling tasks...")
         task_process_queue.cancel()
-        task_update_xml.cancel()
-        await asyncio.gather(task_process_queue, task_update_xml, return_exceptions=True)
+        #task_update_xml.cancel()
+        #await asyncio.gather(task_process_queue, task_update_xml, return_exceptions=True)
+        await asyncio.gather(task_process_queue, return_exceptions=True)
         print("Shutdown complete.")
 
 if __name__ == "__main__":

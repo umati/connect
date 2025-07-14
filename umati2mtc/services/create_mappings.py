@@ -36,7 +36,6 @@ def load_mapping(mapping_file_path, sheet_name):
 
         if (
             mtc_path is None or
-            mtc_path.startswith("#") or
             "{" in mtc_path or
             "}" in mtc_path or
             "<" in mtc_path or

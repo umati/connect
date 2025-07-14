@@ -42,7 +42,7 @@
         "MQTTServerIP": "localhost",
         "MQTTPort": 1883,
         "Mapping_file": "../mtc2umati/mtc2umati/Mapping.xlsx",
-        "Mapping_sheet": "Mapping_DMG_testing",
+        "Mapping_sheet": "Mapping_MazakShowroom_testing",
         "Information_model": "models/current_SR.xml",
         "MTConnectNamespace": "urn:mtconnect.org:MTConnectStreams:1.3",
         "DevicestreamName": "Mazak",

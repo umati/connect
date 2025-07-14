@@ -17,10 +17,10 @@ async def process_queue(data_queue, mapped_objects):
         while True:
             while not data_queue.empty():
                 mqtt_data = data_queue.get()
-
                 for mapped_object in mapped_objects:
                     mapped_object.value = get_value_from_json(mqtt_data, mapped_object.opc_path)
                     mapped_object.value = try_convert_value(mapped_object.value, mapped_object.mtc_name)
+                    
                 await asyncio.sleep(1)  # avoid tight loop
     except asyncio.CancelledError or KeyboardInterrupt:
         print("Processing queue task cancelled.")
