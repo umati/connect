@@ -112,7 +112,7 @@ namespace mtc2umati.Services
                 #endregion
                 #region Value updating
                 if (currentNode is BaseVariableState variableNode)
-                {  
+                {
                     // Only update the value if it changed
                     if (variableNode.Value?.ToString() != mappedObject.ConvertedValue?.ToString())
                     {

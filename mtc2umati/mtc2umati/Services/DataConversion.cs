@@ -19,7 +19,7 @@ namespace mtc2umati.Services
                 case "LocalizedText" when mappedObject.Value is string localizedTextVal:
                     mappedObject.Value = new LocalizedText("en", localizedTextVal);
                     break;
-                
+
                 case "Double":
                     TryConvert(value => Convert.ToDouble(value), mappedObject);
                     break;
@@ -40,7 +40,7 @@ namespace mtc2umati.Services
                 case "Duration":
                     TryConvert(value => Convert.ToDouble(value), mappedObject);
                     break;
-                
+
                 case "Range":
                     // OPC UA Range = ExtensionObject
                     try
@@ -60,7 +60,7 @@ namespace mtc2umati.Services
                         Console.WriteLine($"[ERROR] Value '{mappedObject.Value}' of '{mappedObject.MtcName}' in '{mappedObject.OpcPath} could not be converted to {mappedObject.OpcDataType}.");
                     }
                     break;
-                    
+
                 case "EUInformation":
 
                     try
@@ -84,10 +84,10 @@ namespace mtc2umati.Services
                     break;
             }
             #endregion
-            
+
             #region Specific conversion
             if (mappedObject.MtcName.StartsWith("LightState") && mappedObject.Value is string lightStateVal)
-            {                
+            {
                 mappedObject.Value = lightStateVal switch
                 {
                     "UNAVAILABLE" => null,
@@ -173,5 +173,5 @@ namespace mtc2umati.Services
 }
 
 
-            
+
 

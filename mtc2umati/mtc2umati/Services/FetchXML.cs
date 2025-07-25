@@ -13,7 +13,7 @@ namespace mtc2umati.Services
     {
         private static readonly HttpClient httpClient = new();
 
-        
+
         public static async Task<XDocument?> FetchXmlAsync(string url, int port)
         {
             try
@@ -32,7 +32,7 @@ namespace mtc2umati.Services
                 Console.WriteLine($"[ERROR] Failed to fetch XML: {ex.Message}");
                 return null;
             }
-        }     
+        }
     }
     #endregion
 

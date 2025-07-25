@@ -5,6 +5,7 @@
 import json
 import os
 
+
 class ConfigStore:
     MTConnectServerIP = None
     MTConnectServerPort = 0
@@ -21,9 +22,11 @@ class ConfigStore:
     def load_config_json(vendor: str):
         config_path = "./config.json"
         if not os.path.exists(config_path):
-            raise FileNotFoundError(f"[ERROR] Configuration file not found at {config_path}")
+            raise FileNotFoundError(
+                f"[ERROR] Configuration file not found at {config_path}"
+            )
 
-        with open(config_path, 'r', encoding='utf-8') as file:
+        with open(config_path, "r", encoding="utf-8") as file:
             config = json.load(file)
 
         if vendor not in config:

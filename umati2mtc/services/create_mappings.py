@@ -4,6 +4,7 @@
 
 import pandas as pd
 
+
 class MappedObject:
     """
     Stores OPC UA to MTConnect mapping data including value.
@@ -17,6 +18,7 @@ class MappedObject:
         self.mtc_specname = mtc_specname
         self.mtc_datatype = mtc_datatype
         self.value = value
+
 
 def load_mapping(mapping_file_path, sheet_name):
     """
@@ -53,9 +55,8 @@ def load_mapping(mapping_file_path, sheet_name):
             mtc_subtype=sub_type,
             mtc_specname=row["SpecName"] if pd.notna(row["SpecName"]) else None,
             mtc_datatype=row["MTC Data Type"],
-            value=None
+            value=None,
         )
         mapped_objects.append(mapped_object)
 
     return mapped_objects
-

@@ -2,8 +2,10 @@
 # Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
 # ========================================================================
 
-from flask import Flask, request, Response
+from flask import Flask, Response
+
 from helper.xml_state import XmlState
+
 
 def create_app(xml_state: XmlState) -> Flask:
     app = Flask(__name__)
