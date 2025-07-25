@@ -1,3 +1,1 @@
-*.lib filter=lfs diff=lfs merge=lfs -text
-umati2mtc/agent-2.5.0.9-win64/lib/agent_lib.lib filter=lfs diff=lfs merge=lfs -text
 umati2mtc/mtc_cppagent/lib/agent_lib.lib filter=lfs diff=lfs merge=lfs -text
