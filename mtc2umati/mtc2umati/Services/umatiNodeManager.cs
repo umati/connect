@@ -1,6 +1,5 @@
-/* ========================================================================
- * Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
- * =======================================================================*/
+// SPDX-License-Identifier: Apache-2.0
+// Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
 
 using System.Reflection;
 using Opc.Ua;
@@ -48,7 +47,7 @@ namespace mtc2umati.Services
                 string resourcePathIA = "./Nodesets/Opc.Ua.IA.NodeSet2.xml";
                 string resourcePathMachinery = "./Nodesets/Opc.Ua.Machinery.NodeSet2.xml";
                 string resourcePathJobControl = "./Nodesets/Opc.Ua.ISA95-JobControl.NodeSet2.xml";
-                string resourcePathMachineryJobs = "./Nodesets/Opc.Ua.Machinery.Jobs.Nodeset2.xml";
+                string resourcePathMachineryJobs = "./Nodesets/Opc.Ua.Machinery.Jobs.NodeSet2.xml";
                 string resourcePathMachineTool = "./Nodesets/Opc.Ua.MachineTool.NodeSet2.xml";
                 string resourcePathCNC = "./Nodesets/Opc.Ua.CNC.NodeSet.xml";
                 string resourcePathUmatiConnect = $"./Nodesets/{ConfigStore.VendorSettings.Information_model}";
@@ -70,18 +69,6 @@ namespace mtc2umati.Services
                         umatiNamespaceIndex, SystemContext);
                     ConfigStore.VendorSettings.MTConnect_FolderState = mtcConnectFolder;
                 }
-
-                // +++++++++++++++++++++++++++ Testing ++++++++++++++++++++++++++++
-                // PropertyState locationPropertyNode = CreateLocationPropertyNode(
-                //     GetPredefinedNodes()
-                //         .OfType<BaseObjectState>()
-                //         .FirstOrDefault(n =>
-                //             n.DisplayName != null &&
-                //             n.DisplayName == "Identification" &&
-                //             n.NodeId.NamespaceIndex == umatiNamespaceIndex)!,
-                //     umatiNamespaceIndex,
-                //     SystemContext);
-                // AddReverseReferences(externalReferences);
             }
         }
 
@@ -117,25 +104,8 @@ namespace mtc2umati.Services
 
             foreach (var node in predefinedNodes)
             {
-                // 
-                if (node is BaseDataVariableState variableNode && variableNode.DataType == DataTypeIds.Range)
-                {
-                    // Set the value to a scalar ExtensionObject
-                    variableNode.Value = new ExtensionObject(new Opc.Ua.Range
-                    {
-                        Low = 0.0,
-                        High = 0.0
-                    });
-
-                    variableNode.DataType = DataTypeIds.Range; // Still using Range as the DataType
-                    variableNode.ValueRank = ValueRanks.Scalar; // Ensure it's scalar
-                    variableNode.ArrayDimensions = null; // Prevent empty array interpretation for scalar
-                    variableNode.ValueRank = -1; // Set ValueRank to -1 for scalar
-                }
-
                 AddPredefinedNode(SystemContext, node);
             }
-            // ensure the reverse references exist.
             AddReverseReferences(externalReferences);
         }
 
@@ -156,27 +126,6 @@ namespace mtc2umati.Services
 
             return folder;
         }
-        // +++++++++++++++++++++++++++ Basic logic for adding nodes ++++++++++++++++++++++++++++
-        // public PropertyState CreateLocationPropertyNode(NodeState parentNode, ushort namespaceIndex, ISystemContext systemContext)
-        // {
-        //     var property = new PropertyState(parentNode)
-        //     {
-        //         DisplayName = new Opc.Ua.LocalizedText("en", "Location"),
-        //         BrowseName = new QualifiedName("Location", namespaceIndex),
-        //         TypeDefinitionId = VariableTypeIds.PropertyType,
-        //         NodeId = new NodeId("Location", namespaceIndex),
-        //         DataType = DataTypeIds.String,
-        //         ValueRank = ValueRanks.Scalar,
-        //     };
-        //     property.Create(systemContext, property.NodeId, property.BrowseName, property.DisplayName, true);
-        //     property.Description = new Opc.Ua.LocalizedText("en", "Test for location property");
-
-        //     parentNode.AddChild(property);
-        //     parentNode.AddReference(ReferenceTypeIds.HasProperty, false, property.NodeId);
-        //     AddPredefinedNode(systemContext, property);
-
-        //     return property;
-        // }
     }
 }
 

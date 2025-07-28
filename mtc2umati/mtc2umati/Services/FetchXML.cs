@@ -1,6 +1,5 @@
-/* ========================================================================
- * Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
- * =======================================================================*/
+// SPDX-License-Identifier: Apache-2.0
+// Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
 
 using System.Xml;
 using System.Xml.Linq;
@@ -12,7 +11,6 @@ namespace mtc2umati.Services
     public class XmlFetcher
     {
         private static readonly HttpClient httpClient = new();
-
 
         public static async Task<XDocument?> FetchXmlAsync(string url, int port)
         {
@@ -29,7 +27,8 @@ namespace mtc2umati.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[ERROR] Failed to fetch XML: {ex.Message}");
+                Console.WriteLine($"[ERROR] Failed to fetch XML: {ex.Message}, waiting 10 seconds before retrying...");
+                await Task.Delay(10000);
                 return null;
             }
         }
@@ -73,7 +72,7 @@ namespace mtc2umati.Services
                             var deviceStream = xmlDoc.XPathSelectElement($"//mt:DeviceStream[@name!='Agent']", _namespaceManager);
                             _modelName = deviceStream?.Attribute("name")?.Value ?? string.Empty;
                             mappedObject.Value = _modelName;
-                            ConfigStore.VendorSettings.ActualModelName = _modelName; // Save the model name in the config store to write it to the machine node later
+                            ConfigStore.VendorSettings.ActualModelName = _modelName; // Save the model name in the ConfigStore to write it to the machine node later
                         }
                         else if (variableName == "uuid")
                         {
@@ -110,8 +109,6 @@ namespace mtc2umati.Services
 
                             if (valueElement != null)
                             {
-                                //var convertedValue = TypeConversion(valueElement.Value, mappedObject.MtcDataType);
-                                //mappedObject.Value = convertedValue;
                                 mappedObject.Value = valueElement.Value;
                             }
                         }
@@ -188,14 +185,13 @@ namespace mtc2umati.Services
                 XDocument? xmlDoc = await XmlFetcher.FetchXmlAsync(url, port);
                 if (xmlDoc == null)
                 {
-                    Console.WriteLine("[WARN] Failed to fetch XML, skipping iteration.");
+                    Console.WriteLine("[ERROR] Failed to fetch XML, skipping iteration.");
                     continue;
                 }
                 else
                 {
                     mappedObjects = xmlMapper.MapXmlValues(xmlDoc, mappedObjects);
-
-                    // +++++++++++++++++ Print the mapped objects after fetching XML data +++++++++++++++++++++
+                    // Log the mapped objects for debugging
                     //mappedObjects.ShowMappedObjects();
                 }
                 var delayTask = Task.Delay(1000); // Time in milliseconds to wait between fetches

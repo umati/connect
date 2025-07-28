@@ -18,7 +18,7 @@ namespace mtc2umati
         {
             try
             {
-                // load the application configuration.
+                // Load the application configuration.
                 ApplicationConfiguration config = await LoadApplicationConfiguration("umatiConnect.Server").ConfigureAwait(false);
                 var application = new ApplicationInstance
                 {
@@ -27,18 +27,21 @@ namespace mtc2umati
                     ApplicationConfiguration = config
                 };
 
-                // auto accept any untrusted certificates.
+                // Auto accept any untrusted certificates.
                 config.SecurityConfiguration.AutoAcceptUntrustedCertificates = true;
 
-                // check the application certificate.
+                // Check the application certificate.
                 bool certOK = await application.CheckApplicationInstanceCertificates(false);
                 if (!certOK)
                 {
                     throw new Exception("Application instance certificate invalid!");
                 }
 
-                // load the vendor configuration
-                ConfigStore.LoadConfigJSON("mazakShowroom");
+                // Load the vendor configuration from environment variable or default to "mazak"
+                string vendorConfig = Environment.GetEnvironmentVariable("VENDOR_CONFIG") ?? "mazak";
+                ConfigStore.LoadConfigJSON(vendorConfig);
+
+                Console.WriteLine($"Using vendor configuration: {vendorConfig}");
 
                 // Start both the XML fetch and server in parallel
                 Task startServerTask = StartServer(config);
@@ -62,7 +65,7 @@ namespace mtc2umati
                 ApplicationConfiguration config = await ApplicationConfiguration.Load(
                     filePath, ApplicationType.Server).ConfigureAwait(false);
 
-                // ensure the application certificate is in the trusted peer store, else use dummy certificate
+                // Ensure the application certificate is in the trusted peer store, else use dummy certificate
                 if (config.SecurityConfiguration.AutoAcceptUntrustedCertificates)
                 {
                     config.CertificateValidator.CertificateValidation += new CertificateValidationEventHandler(CertificateValidator_CertificateValidation);
@@ -102,7 +105,7 @@ namespace mtc2umati
         {
             try
             {
-                // allow
+                // allow untrusted certificates
                 e.Accept = true;
             }
             catch (Exception exception)

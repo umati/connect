@@ -1,6 +1,5 @@
-/* ========================================================================
- * Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
- * =======================================================================*/
+// SPDX-License-Identifier: Apache-2.0
+// Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
 
 using System.Reflection;
 using Opc.Ua;
@@ -49,7 +48,7 @@ namespace mtc2umati.Services
             }
 
             // Update the DisplayName and BrowseName of the predefined machine node with the name that was acutally found in the XML file
-            // This is usefull, since the machine name in the config.json file and information model can be generic
+            // This is useful, since this allows generic machine names in the config.json file and information model, e.g. "DMGReference"
             parentNode.DisplayName = new LocalizedText("en", ConfigStore.VendorSettings.ActualModelName!);
             parentNode.BrowseName = new QualifiedName(ConfigStore.VendorSettings.ActualModelName!, parentNode.NodeId.NamespaceIndex);
 
@@ -57,15 +56,9 @@ namespace mtc2umati.Services
             foreach (var mappedObject in mappedObjects)
             {
                 string opcPath = mappedObject.OpcPath;
-
                 string[] opcPathParts = opcPath.Split('/');
 
-                NodeState? currentNode = parentNode;
-
-                // Using Child-Parent-References would be easier, but is currently not working, since the Child-Parent-References are not set up when importing the XML NodeSet
-                // var childReferences = new List<BaseInstanceState>();
-                // node.GetChildren(nodeManager.SystemContext, childReferences);
-                // Console.WriteLine($"Children found: {childReferences.Count}");       
+                NodeState? currentNode = parentNode;    
 
                 for (int i = 0; i < opcPathParts.Length; i++)
                 {
@@ -90,17 +83,17 @@ namespace mtc2umati.Services
                     }
                 }
 
-                #region Mode handling
-                // [MODE 1] When the adapter mode is set to 1 in the config, the value of the new nodes is set to null.
+                #region Mode handling for new nodes => data that is not in the companion specification 
+                // [MODE 1] Newly added nodes have their value set to null.
                 if ((ConfigStore.VendorSettings.Mode == 1 && mappedObject.ModellingRule == "New") ||
                     mappedObject.ModellingRule == "DMG specific")
                 {
                     mappedObject.Value = null;
                 }
 
-                // [MODE 2] Default: When the adapter mode is set to 2 in the config, the new nodes are inside the Server tree with normal values.
+                // [MODE 2] Default: Newly added nodes have their actual value and are structured inside the model tree.
 
-                // [MODE 3] When the adapter mode is set to 3 in the config, add the reference to the MTConnect folder for newly added nodes.
+                // [MODE 3] When the adapter mode is set to 3 in the config, new nodes appear in an MTConnect folder under the main machine folder.
                 if ((ConfigStore.VendorSettings.Mode == 3 && mappedObject.ModellingRule == "New") ||
                     mappedObject.ModellingRule == "DMG specific")
                 {
