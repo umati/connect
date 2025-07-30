@@ -4,8 +4,8 @@ import datetime
 async def handle_connection(mapped_objects, reader, writer):
     while True:
         try:
-            now = datetime.datetime.now(datetime.timezone.utc)
-            
+            now = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+        
             # Build SHDR message with all available specname-value pairs
             shdr_parts = [now]
             for mapped_object in mapped_objects:

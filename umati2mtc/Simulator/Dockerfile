@@ -13,8 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy all contents into the container
 COPY . .
 
-# Optional: expose port if it's a web app
-EXPOSE 7878
-
-# Set the default command to run your app
-CMD ["python", "-u", "main.py"]
+# Set the default command to run your app python -u main.py
+CMD ["python", "-u", "publish_json_via_mqtt.py"]

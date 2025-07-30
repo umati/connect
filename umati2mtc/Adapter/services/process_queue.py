@@ -12,7 +12,6 @@ async def process_queue(data_queue, mapped_objects):
     """
     try:
         while True:
-            print("Data queue size:", data_queue.qsize())
             mqtt_data = data_queue.get()
             for mapped_object in mapped_objects:
                 mapped_object.value = get_value_from_json(

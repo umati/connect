@@ -1,19 +1,18 @@
 services:
-  mtc-adapter:
-    container_name: mtc-adapter
-    image: mtc-adapter:latest
-    depends_on:
-      - mosquitto
-    build:
-      context: ./Adapter
-      dockerfile: Dockerfile
-    ports:
-      - "7878:7878"
-    environment:
-      - BROKER_IP=mosquitto
-      - BROKER_PORT=1883
-      - MQTT_TOPIC_PREFIX=umati2mtc
-    command: python -u main.py
+  # mtc-adapter:
+  #   container_name: mtc-adapter
+  #   image: mtc-adapter:latest
+  #   depends_on:
+  #     - mosquitto
+  #   build:
+  #     context: ./Adapter
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "7878:7878"
+  #   environment:
+  #     - BROKER_IP=mosquitto
+  #     - BROKER_PORT=1883
+  #     - MQTT_TOPIC_PREFIX=umati2mtc
 
   mosquitto:
     image: eclipse-mosquitto:latest
@@ -24,3 +23,15 @@ services:
       - ./mosquitto/config:/mosquitto/config
       - ./mosquitto/data:/mosquitto/data
       - ./mosquitto/log:/mosquitto/log
+
+  simulator:
+    container_name: simulator
+    image: simulator:latest
+    build:
+      context: ./Simulator
+      dockerfile: Dockerfile
+    depends_on:
+      - mosquitto
+    environment:
+      - MQTT_BROKER_IP=mosquitto
+      - MQTT_BROKER_PORT=1883
