@@ -7,11 +7,10 @@ import random
 import paho.mqtt.client as mqtt
 import os
 
-BROKER_IP = os.getenv("MQTT_BROKER_IP")
-BROKER_PORT = os.getenv("MQTT_BROKER_PORT")
-BROKER_PORT = int(os.getenv("MQTT_BROKER_PORT"))
+BROKER_IP = os.getenv("MQTT_BROKER_IP", "localhost")
+BROKER_PORT = int(os.getenv("MQTT_BROKER_PORT", 1883))
 INPUT_FILE = "mqtt_messages.jsonl"
-PUBLISH_INTERVAL = 1.0         # Seconds between messages
+PUBLISH_INTERVAL = 1.0 # Seconds between messages
 
 # Load the first message line
 with open(INPUT_FILE, "r") as f:
@@ -32,9 +31,9 @@ print(f"Simulating messages on topic '{topic}'...")
 
 try:
     while True:
-        # Modify FeedOverride with a random value
-        payload = json.loads(json.dumps(base_payload))  # Deep copy
-        new_value = random.randint(2, 104)
+        # Simulate a random value for FeedOverride 
+        payload = json.loads(json.dumps(base_payload))
+        new_value = random.randint(0, 120)
         try:
             payload["Monitoring"]["MachineTool"]["FeedOverride"]["value"] = new_value
         except KeyError as e:

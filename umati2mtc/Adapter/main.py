@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
 
+import os
 import asyncio
 from queue import Queue
 
@@ -12,6 +13,11 @@ from services.create_mappings import load_mapping
 from services.mqtt_client import start_mqtt
 from services.process_queue import process_queue
 from services.send_shdr import start_shdr_server
+
+BROKER_IP = os.getenv("MQTT_BROKER_IP") if os.getenv("MQTT_BROKER_IP") else "localhost"
+BROKER_PORT = int(os.getenv("MQTT_BROKER_PORT", 1883))
+TOPIC_PREFIX = os.getenv("MQTT_TOPIC_PREFIX", "umati/v2/ifw/MachineToolType/#")
+
 
 shutdown_event = asyncio.Event()  # Used to signal shutdown
 
@@ -29,24 +35,21 @@ def load_config():
     
 
 async def main():
-
-    mapped_objects = load_config()  # Load configuration and mappings
-
-    data_queue = Queue()  # Create a queue for MQTT messages
-
-    # Start background tasks
+    # Load configuration and mappings
+    mapped_objects = load_config()  
+    
+    # Create a queue for MQTT messages
+    data_queue = Queue()  
+    
     # Start MQTT client and put messages into data_queue
-    start_mqtt(
-        ConfigStore.MQTTServerIP,
-        ConfigStore.MQTTPort,
-        ConfigStore.Gateway_topic_prefix,
-        data_queue,
-    )
+    start_mqtt(BROKER_IP, BROKER_PORT, TOPIC_PREFIX, data_queue)  
+    
+    # Process the queue of MQTT messages and update mapped_objects with values
+    task_process_queue = asyncio.create_task(process_queue(data_queue, mapped_objects)) 
 
-    #await asyncio.sleep(5)
-    task_process_queue = asyncio.create_task(process_queue(data_queue, mapped_objects)) # Process the queue of MQTT messages and update mapped_objects with values
-    task_shdr_server = asyncio.create_task(start_shdr_server(mapped_objects)) # Start the SHDR server to send data to the MTConnect agent
-
+    # Start the SHDR server to send data to the MTConnect agent
+    task_shdr_server = asyncio.create_task(start_shdr_server(mapped_objects))
+    
     print("Adapter initialized. Press Ctrl+C to exit.")
 
     try:

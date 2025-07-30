@@ -1,18 +1,18 @@
 services:
-  # mtc-adapter:
-  #   container_name: mtc-adapter
-  #   image: mtc-adapter:latest
-  #   depends_on:
-  #     - mosquitto
-  #   build:
-  #     context: ./Adapter
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "7878:7878"
-  #   environment:
-  #     - BROKER_IP=mosquitto
-  #     - BROKER_PORT=1883
-  #     - MQTT_TOPIC_PREFIX=umati2mtc
+  mtc-adapter:
+    container_name: mtc-adapter
+    image: mtc-adapter:latest
+    depends_on:
+      - mosquitto
+    build:
+      context: ./Adapter
+      dockerfile: Dockerfile
+    ports:
+      - "7878:7878"
+    environment:
+      - MQTT_BROKER_IP=mosquitto
+      - MQTT_BROKER_PORT=1883
+      - MQTT_TOPIC_PREFIX=umati/v2/ifw/MachineToolType/#
 
   mosquitto:
     image: eclipse-mosquitto:latest
