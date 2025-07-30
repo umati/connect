@@ -4,7 +4,7 @@ import datetime
 async def handle_connection(mapped_objects, reader, writer):
     while True:
         try:
-            now = datetime.datetime.utcnow().isoformat() + "Z"
+            now = datetime.datetime.now(datetime.timezone.utc)
             
             # Build SHDR message with all available specname-value pairs
             shdr_parts = [now]
@@ -29,16 +29,19 @@ async def handle_connection(mapped_objects, reader, writer):
             await asyncio.sleep(10)  # Wait before retrying
             pass
 
-
-
 async def start_shdr_server(mapped_objects):
-    server = await asyncio.start_server(
+    try:
+        server = await asyncio.start_server(
         lambda r, w: handle_connection(mapped_objects, r, w),
         host='127.0.0.1',
         port=7878
-    )
-    print("SHDR Adapter running on 127.0.0.1:7878")
-    async with server:
-        await server.serve_forever()
+        )
+        print("SHDR Adapter running on 127.0.0.1:7878")
+        async with server:
+            await server.serve_forever()
+    except Exception as e:
+        print(f"[SHDR Server Error] {e}")
+        print("Failed to start SHDR server. Retrying in 10 seconds...")
+        await asyncio.sleep(10)
 
 

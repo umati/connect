@@ -1,0 +1,26 @@
+services:
+  mtc-adapter:
+    container_name: mtc-adapter
+    image: mtc-adapter:latest
+    depends_on:
+      - mosquitto
+    build:
+      context: ./Adapter
+      dockerfile: Dockerfile
+    ports:
+      - "7878:7878"
+    environment:
+      - BROKER_IP=mosquitto
+      - BROKER_PORT=1883
+      - MQTT_TOPIC_PREFIX=umati2mtc
+    command: python -u main.py
+
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log

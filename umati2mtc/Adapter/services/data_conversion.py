@@ -1,21 +1,20 @@
-# ========================================================================
-# Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
-# ========================================================================
+# SPDX-License-Identifier: Apache-2.0
+# Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
 
 
-# general conversion function
+# General conversion method for values from OPC UA to MTConnect data types
 def convert_value(value, mtc_name):
     """
     Convert the value to the specified MTConnect data type.
     :param value: The value to convert.
-    :param mtc_name: The name of the MTConnect data type.
+    :param mtc_name: The name of the MTConnect variable.
     :return: The converted value.
     """
     if value is None:
         return None
 
-    elif "Opc.Ua" in str(value):
-        value = "UNAVAILABLE"  # Replace with actual condition for unavailable value
+    elif "Opc.Ua" in str(value): # If the Gateway can't find nodes in the OPC UA server, it throws an exception, leaving the value as "Opc.Ua .... 
+        value = "UNAVAILABLE"
         return value
         
     else:
@@ -90,16 +89,11 @@ def convert_value(value, mtc_name):
             return str(value)
 
 
-# ========================================================================#
-
-# Helper for conversion of values from OPC UA to MTConnect data types
-
-
 def try_convert_value(value, mtc_name):
     """
     Attempt to convert the value to the specified MTConnect data type.
     :param value: The value to convert.
-    :param mtc_name: The name of the MTConnect data type.
+    :param mtc_name: The name of the MTConnect variable.
     :return: The converted value or None if conversion fails.
     """
     try:

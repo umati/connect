@@ -1,36 +1,30 @@
-# ========================================================================
-# Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover
-# ========================================================================
+# SPDX-License-Identifier: Apache-2.0
+# Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
 
 import asyncio
-
 from services.data_conversion import try_convert_value
-
 
 async def process_queue(data_queue, mapped_objects):
     """
-    Process the queue of tasks.
-    This function will run in a separate asyncio task
-    It retrieves data from the queue and processes it according to the mapped objects.
+    Process the data_queue by retrieving data from the queue and update the value of mapped objects.
     data_queue: The queue containing MQTT messages.
     mapped_objects: A list of MappedObject instances that define how to map MQTT data to MTConnect paths and hold the values.
     """
     try:
         while True:
-            while not data_queue.empty():
-                mqtt_data = data_queue.get()
-                for mapped_object in mapped_objects:
-                    mapped_object.value = get_value_from_json(
-                        mqtt_data, mapped_object.opc_path
-                    )
-                    mapped_object.value = try_convert_value(
-                        mapped_object.value, mapped_object.mtc_name
-                    )
-                await asyncio.sleep(1)  # avoid tight loop
+            print("Data queue size:", data_queue.qsize())
+            mqtt_data = data_queue.get()
+            for mapped_object in mapped_objects:
+                mapped_object.value = get_value_from_json(
+                    mqtt_data, mapped_object.opc_path
+                )
+                mapped_object.value = try_convert_value(
+                    mapped_object.value, mapped_object.mtc_name
+                )
+            await asyncio.sleep(1)  # avoid tight loop
     except asyncio.CancelledError or KeyboardInterrupt:
         print("Processing queue task cancelled.")
         raise
-
 
 def get_value_from_json(json_obj, path):
     """
