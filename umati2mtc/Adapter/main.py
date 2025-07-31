@@ -14,10 +14,12 @@ from services.mqtt_client import start_mqtt
 from services.process_queue import process_queue
 from services.send_shdr import start_shdr_server
 
-BROKER_IP = os.getenv("MQTT_BROKER_IP") if os.getenv("MQTT_BROKER_IP") else "localhost"
+# Environment variables for MQTT and SHDR server configuration
+BROKER_IP = os.getenv("MQTT_BROKER_IP", "mosquitto")
 BROKER_PORT = int(os.getenv("MQTT_BROKER_PORT", 1883))
 TOPIC_PREFIX = os.getenv("MQTT_TOPIC_PREFIX", "umati/v2/ifw/MachineToolType/#")
-
+SHDR_IP = os.getenv("SHDR_SERVER_IP", "127.0.0.1")
+SHDR_PORT = int(os.getenv("SHDR_SERVER_PORT", 7878))
 
 shutdown_event = asyncio.Event()  # Used to signal shutdown
 
@@ -48,7 +50,7 @@ async def main():
     task_process_queue = asyncio.create_task(process_queue(data_queue, mapped_objects)) 
 
     # Start the SHDR server to send data to the MTConnect agent
-    task_shdr_server = asyncio.create_task(start_shdr_server(mapped_objects))
+    task_shdr_server = asyncio.create_task(start_shdr_server(SHDR_IP, SHDR_PORT, mapped_objects))
     
     print("Adapter initialized. Press Ctrl+C to exit.")
 

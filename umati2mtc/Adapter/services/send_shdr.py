@@ -1,5 +1,6 @@
 import asyncio
 import datetime
+import os
 
 async def handle_connection(mapped_objects, reader, writer):
     while True:
@@ -29,14 +30,14 @@ async def handle_connection(mapped_objects, reader, writer):
             await asyncio.sleep(10)  # Wait before retrying
             pass
 
-async def start_shdr_server(mapped_objects):
+async def start_shdr_server(shdr_server_ip, shdr_server_port, mapped_objects):
     try:
         server = await asyncio.start_server(
         lambda r, w: handle_connection(mapped_objects, r, w),
-        host='127.0.0.1',
-        port=7878
+        host=shdr_server_ip,
+        port=shdr_server_port
         )
-        print("SHDR Adapter running on 127.0.0.1:7878")
+        print("SHDR Adapter running on {}:{}".format(shdr_server_ip, shdr_server_port))
         async with server:
             await server.serve_forever()
     except Exception as e:

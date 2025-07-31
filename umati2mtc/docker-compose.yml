@@ -4,6 +4,7 @@ services:
     image: mtc-adapter:latest
     depends_on:
       - mosquitto
+      - mtc-agent
     build:
       context: ./Adapter
       dockerfile: Dockerfile
@@ -13,6 +14,9 @@ services:
       - MQTT_BROKER_IP=mosquitto
       - MQTT_BROKER_PORT=1883
       - MQTT_TOPIC_PREFIX=umati/v2/ifw/MachineToolType/#
+      - SHDR_SERVER_IP=0.0.0.0
+      - SHDR_SERVER_PORT=7878      
+    restart: unless-stopped
 
   mosquitto:
     image: eclipse-mosquitto:latest
@@ -23,6 +27,7 @@ services:
       - ./mosquitto/config:/mosquitto/config
       - ./mosquitto/data:/mosquitto/data
       - ./mosquitto/log:/mosquitto/log
+    restart: unless-stopped
 
   simulator:
     container_name: simulator
@@ -35,3 +40,14 @@ services:
     environment:
       - MQTT_BROKER_IP=mosquitto
       - MQTT_BROKER_PORT=1883
+    restart: unless-stopped
+
+  mtc-agent:
+    image: "mtconnect/demo:latest"
+    container_name: mtc-agent
+    volumes:
+      - ./Agent:/mtconnect/config
+      - ./Agent/log:/mtconnect/log
+    ports:
+      - "5000:5000"
+    command: mtcagent run /mtconnect/config/agent.dock
