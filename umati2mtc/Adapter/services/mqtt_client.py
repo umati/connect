@@ -1,32 +1,46 @@
 # SPDX-License-Identifier: Apache-2.0
-# Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
+# Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
-import json
+"""
+MQTT client service for receiving OPC UA umati data.
+
+This module handles MQTT connection, subscription, and message processing.
+"""
+
 import asyncio
-import paho.mqtt.client as mqtt
-import time
+import json
 
-# MQTT callback: message received
-def on_message(client, userdata, msg):
-    global mqtt_data
+try:
+    import paho.mqtt.client as mqtt  # type: ignore[import-untyped]
+except ImportError:
+    print("[ERROR] paho-mqtt not installed. => pip install paho-mqtt")
+    raise
+
+
+def on_message(_client, userdata, msg):
+    """Processes received MQTT messages and adds to queue."""
     try:
         payload = json.loads(msg.payload.decode())
         userdata.put(payload)  # Put message in the shared queue
-    except Exception as e:
-        print("Error processing MQTT message:", e)
+    except (json.JSONDecodeError, UnicodeDecodeError) as e:
+        print(f"Error processing MQTT message: {e}")
 
-# Start MQTT client in separate thread
-def start_mqtt(IP, port, topic_prefix, message_queue):
+
+def start_mqtt(broker_ip: str, port: int, topic_prefix: str, message_queue):
+    """Start MQTT client and subscribe to specified topics."""
     try:
         client = mqtt.Client(userdata=message_queue)
         client.on_message = on_message
-        client.connect(IP, port, 60)
+        client.connect(broker_ip, port, 60)
         client.subscribe(topic_prefix)
         client.loop_start()  # run MQTT in background thread
         print(
-            f"\033[92m[INFO] MQTT client started and connected to {IP}:{port} -> subscribed to {topic_prefix}\033[0m"
+            f"[INFO] MQTT client connected to {broker_ip}:{port} -> subscribed to {topic_prefix}"
         )
-    except Exception as e:
-        print(f"\033[91m[ERROR] Failed to start MQTT client: {e}\033[0m")
+
+    except (ConnectionRefusedError, OSError, ValueError) as e:
+        print(f"[ERROR] Failed to start MQTT client: {e}")
         print("Retrying in 10 seconds...")
-        asyncio.get_event_loop().call_later(10, start_mqtt, IP, port, topic_prefix, message_queue)
+        asyncio.get_event_loop().call_later(
+            10, start_mqtt, broker_ip, port, topic_prefix, message_queue
+        )

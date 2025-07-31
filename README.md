@@ -1,50 +1,50 @@
 # umatiConnect
 
-Compatibility layer between umati OPC UA for Machine Tools and MTConnect
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![.NET](https://img.shields.io/badge/.NET-9.0-blue.svg)](https://dotnet.microsoft.com/download/dotnet/9.0)
+[![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/downloads/)
 
-## MTC2UMATI - MTConnect to umati OPC UA adapter
+Bidirectional data bridge between umati OPC UA for Machine Tools and MTConnect.
 
-- Connects to a MTConnect machine specified in the config.json
-- Creates an OPC UA server based on the UA4MT nodeset
-- Renames machine name in the OPC UA server to match the MTConnect machine name
-- Continously updates values based on the mapping in Mapping.xlsx
-- URL, Ports, and other settings are specified in the config.json file
+## Architecture
 
-### Base settings (MAZAK sample server)
+This project provides two software adapters:
 
-- OPC UA Server URL: `opc.tcp://localhost:5440`
-- MTConnect URL: `http://mtconnect.mazakcorp.com:5719/current`
+- **`mtc2umati`** (.NET 9.0): Sets up an umati OPC UA Server, reads MTConnect XML data streams and writes to the corresponding OPC UA nodes
+- **`umati2mtc`** (Python 3.11): Translates umati OPC UA data provided by the umati Gateway to MTConnect SHDR format and sends it to an MTConnect Agent.
 
-#### Run MTC2UMATI
+Both components support Excel-based mapping configurations and containerized deployment.
 
-- `cd mtc2umati/mtc2umati`
-- `dotnet run`
+## Quick Start
 
-Developed with NET9.0 <https://dotnet.microsoft.com/en-us/download/dotnet/9.0>
+### MTConnect → umati (C#/.NET)
+```bash
+cd mtc2umati
+docker compose up --build -d
+```
+- Connects to public Mazak MTConnect Server at http://mtconnect.mazakcorp.com:5719/current (might be offline).
+- New server can be added or configured in the config.json file.
+- The umati OPC UA Server will be available at `opc.tcp://localhost:5440`.
 
-## UMATI2MTC - umati OPC UA to MTConnect adapter
+### umati OPC UA→ MTConnect (Python)
+```bash
+cd umati2mtc
+docker compose up --build -d
+```
+- Simulates incoming data from an umati Gateway, sent to an MQTT broker at `mqtt://localhost:1883`.
+- Parses the data and writes it to an MTConnect Agent using SHDR format.
+- The MTConnect Agent dashboard will be available at `http://localhost:5000`.
 
-- Connects to an MQTT broker and subscribes to umatiGateway topic
-- Creates a flask app that serves the XML in MTConnect format
-- Processes data published by the umatiGateway
-- Continuously updates XML values based on the mapping in Mapping.xlsx
-- URL, Ports, and other settings are specified in the config.json
+## Configuration
 
-### Base settings
+Mapping configurations are stored in Excel files (`Mapping.xlsx`) allowing data transformations between protocols without code changes.
 
-- MQTT Broker URL: `mqtt://localhost:1883`
-- MTConnect URL (Flask app): `http://localhost:5500/current`
+## Standards Compliance
 
-#### Run UMATI2MTC
-
-- `cd umati2mtc`
-- `python -m venv .venv`
-- `.\.venv\Scripts\activate`
-- `pip install -r requirements.txt`
-- `python main.py`
+- **umati**: OPC UA Companion Specification for Machine Tools (OPC 40501-1)
+- **MTConnect**: MTConnect Standard Part 2 & 3 (v2.2.0)
+- **OPC UA**: Core specifications with security profiles
 
 ## License
 
-![GitHub](https://img.shields.io/github/license/umati/connect)
-
-This implementation is licensed under the [Apache License v2.0](LICENSE) except otherwise stated in the header of a file.
+This implementation is licensed under the [Apache License v2.0](LICENSE).

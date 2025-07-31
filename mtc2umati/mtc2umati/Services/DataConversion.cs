@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-// Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
+// Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
 using Opc.Ua;
 
@@ -25,7 +25,6 @@ namespace mtc2umati.Services
                     break;
 
                 case "UInt32":
-                    //TryConvert(value => Convert.ToDouble(value), mappedObject);
                     TryConvert(value => Convert.ToInt32(value), mappedObject);
                     break;
 
@@ -42,7 +41,7 @@ namespace mtc2umati.Services
                     break;
 
                 case "Range":
-                    // OPC UA Range = ExtensionObject
+                    // OPC UA Range is an ExtensionObject
                     try
                     {
                         var parts = mappedObject.Value?.ToString()?.Split(',');
@@ -98,11 +97,11 @@ namespace mtc2umati.Services
                 };
             }
 
-            else if (mappedObject.MtcName == "PowerOnTime")
+            else if (mappedObject.MtcName == "AccumulatedTime")
             {
                 if (double.TryParse(mappedObject.Value?.ToString(), out var val))
                 {
-                    mappedObject.Value = val / 3600; // * 1000.0;
+                    mappedObject.Value = val / 3600;
                     mappedObject.Value = Math.Round((double)mappedObject.Value, 0);
                 }
             }
@@ -141,16 +140,15 @@ namespace mtc2umati.Services
             {
                 mappedObject.Value = StateNumberVal switch
                 {
-                    "UNAVAILABLE" => 0,
-                    // "MAINTENANCE" => 1, N/A
-                    "READY" => 2,
-                    "PROCESSING" => 3,
+                    "UNAVAILABLE" => (uint)0,
+                    "READY" => (uint)2,
+                    "PROCESSING" => (uint)3,
                     _ => StateNumberVal
                 };
             }
             #endregion
 
-                return mappedObject.Value ?? throw new InvalidOperationException("Value cannot be null.");
+            return mappedObject.Value ?? throw new InvalidOperationException("Value cannot be null.");
         }
 
         #region Conversion helper

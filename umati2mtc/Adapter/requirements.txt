@@ -1,5 +1,7 @@
 numpy
 pandas
+pandas-stubs
 paho-mqtt
+types-paho-mqtt
 openpyxl
 asyncio

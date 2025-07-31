@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-// Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
+// Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
 using Opc.Ua;
 using Opc.Ua.Server;
