@@ -8,5 +8,11 @@ services:
     ports:
       - "5440:5440"
     environment:
-      - VENDOR_CONFIG=mazak_sampleserver #dmg, mazak, mazak_sampleserver
+      - VENDOR_CONFIG=mazak_sampleserver
     restart: unless-stopped
+    networks:
+      - mtc2umati-net
+
+networks:
+  mtc2umati-net:
+    name: mtc2umati-net
