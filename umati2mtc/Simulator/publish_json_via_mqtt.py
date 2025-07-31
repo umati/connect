@@ -2,15 +2,16 @@
 # Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
 
 import json
-import time
-import random
-import paho.mqtt.client as mqtt
 import os
+import random
+import time
+
+import paho.mqtt.client as mqtt
 
 BROKER_IP = os.getenv("MQTT_BROKER_IP", "localhost")
 BROKER_PORT = int(os.getenv("MQTT_BROKER_PORT", 1883))
 INPUT_FILE = "mqtt_message.json"
-PUBLISH_INTERVAL = 1 # Seconds between messages
+PUBLISH_INTERVAL = 1  # Seconds between messages
 
 # Load the full JSON object
 with open(INPUT_FILE, "r", encoding="utf-8") as f:
@@ -30,11 +31,13 @@ print(f"Simulating messages on topic '{topic}'...")
 try:
     power_on_time = 0
     while True:
-        # Simulate a random value for FeedOverride 
+        # Simulate a random value for FeedOverride
         payload = json.loads(json.dumps(base_payload))
         feed_override = random.randint(0, 120)
         try:
-            payload["Monitoring"]["MachineTool"]["FeedOverride"]["value"] = feed_override
+            payload["Monitoring"]["MachineTool"]["FeedOverride"]["value"] = (
+                feed_override
+            )
             payload["Monitoring"]["MachineTool"]["PowerOnDuration"] = power_on_time
         except KeyError as e:
             print(f"[ERROR] Could not update FeedOverride: {e}")
@@ -42,7 +45,9 @@ try:
 
         payload_json = json.dumps(payload)
         client.publish(topic, payload_json)
-        print(f"Published to {topic} | FeedOverride: {feed_override} | PowerOnDuration: {power_on_time}")
+        print(
+            f"Published to {topic} | FeedOverride: {feed_override} | PowerOnDuration: {power_on_time}"
+        )
         power_on_time += PUBLISH_INTERVAL
         time.sleep(PUBLISH_INTERVAL)
 except KeyboardInterrupt:

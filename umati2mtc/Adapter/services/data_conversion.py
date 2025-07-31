@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-# Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
+# Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
 
 # General conversion method for values from OPC UA to MTConnect data types
@@ -13,10 +13,11 @@ def convert_value(value, mtc_name):
     if value is None:
         return None
 
-    elif "Opc.Ua" in str(value): # If the Gateway can't find nodes in the OPC UA server, it throws an exception, leaving the value as "Opc.Ua .... 
+    # Gateway throws an exception "Opc.Ua..." when nodes are missing
+    elif "Opc.Ua" in str(value):  
         value = "UNAVAILABLE"
         return value
-        
+
     else:
         if type(value) is dict:  # Handle LocalizedText
             value = value.get("text")

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-// Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
+// Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
 using Opc.Ua;
 
@@ -150,7 +150,7 @@ namespace mtc2umati.Services
             }
             #endregion
 
-                return mappedObject.Value ?? throw new InvalidOperationException("Value cannot be null.");
+            return mappedObject.Value ?? throw new InvalidOperationException("Value cannot be null.");
         }
 
         #region Conversion helper

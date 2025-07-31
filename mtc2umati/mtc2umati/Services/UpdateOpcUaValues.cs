@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-// Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
+// Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
 using System.Reflection;
 using Opc.Ua;
@@ -58,7 +58,7 @@ namespace mtc2umati.Services
                 string opcPath = mappedObject.OpcPath;
                 string[] opcPathParts = opcPath.Split('/');
 
-                NodeState? currentNode = parentNode;    
+                NodeState? currentNode = parentNode;
 
                 for (int i = 0; i < opcPathParts.Length; i++)
                 {

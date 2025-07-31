@@ -1,8 +1,9 @@
 # SPDX-License-Identifier: Apache-2.0
-# Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
+# Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
 import json
 import os
+
 
 class ConfigStore:
     Mapping_file = None

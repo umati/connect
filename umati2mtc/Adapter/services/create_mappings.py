@@ -1,13 +1,25 @@
 # SPDX-License-Identifier: Apache-2.0
-# Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
+# Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
 import pandas as pd
+
 
 class MappedObject:
     """
     Stores OPC UA to MTConnect mapping data including value.
     """
-    def __init__(self, opc_path: str, opc_datatype: str, mtc_name: str, mtc_path: str, mtc_subtype: str, mtc_specname: str, mtc_datatype: str, value):
+
+    def __init__(
+        self,
+        opc_path: str,
+        opc_datatype: str,
+        mtc_name: str,
+        mtc_path: str,
+        mtc_subtype: str,
+        mtc_specname: str,
+        mtc_datatype: str,
+        value,
+    ):
         self.opc_path = opc_path
         self.opc_datatype = opc_datatype
         self.mtc_name = mtc_name
@@ -35,11 +47,11 @@ def load_mapping(mapping_file_path, sheet_name):
         mtc_path = str(row["MTC Path"]).strip() if pd.notna(row["MTC Path"]) else None
 
         if (
-            mtc_path is None or
-            "{" in mtc_path or
-            "}" in mtc_path or
-            "<" in mtc_path or
-            ">" in mtc_path
+            mtc_path is None
+            or "{" in mtc_path
+            or "}" in mtc_path
+            or "<" in mtc_path
+            or ">" in mtc_path
         ):
             continue
 

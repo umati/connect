@@ -1,3 +1,4 @@
+---
 services:
   mosquitto:
     image: eclipse-mosquitto:latest
@@ -11,7 +12,7 @@ services:
     restart: unless-stopped
     networks:
       - umati2mtc-net
-  
+
   simulator:
     container_name: simulator
     image: simulator:latest
@@ -43,7 +44,7 @@ services:
       - MQTT_BROKER_PORT=1883
       - MQTT_TOPIC_PREFIX=umati/v2/ifw/MachineToolType/#
       - SHDR_SERVER_IP=0.0.0.0
-      - SHDR_SERVER_PORT=7878      
+      - SHDR_SERVER_PORT=7878
     restart: unless-stopped
     networks:
       - umati2mtc-net

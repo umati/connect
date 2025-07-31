@@ -1,10 +1,11 @@
 # SPDX-License-Identifier: Apache-2.0
-# Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
+# Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
-import json
 import asyncio
+import json
+
 import paho.mqtt.client as mqtt
-import time
+
 
 # MQTT callback: message received
 def on_message(client, userdata, msg):
@@ -14,6 +15,7 @@ def on_message(client, userdata, msg):
         userdata.put(payload)  # Put message in the shared queue
     except Exception as e:
         print("Error processing MQTT message:", e)
+
 
 # Start MQTT client in separate thread
 def start_mqtt(IP, port, topic_prefix, message_queue):
@@ -29,4 +31,6 @@ def start_mqtt(IP, port, topic_prefix, message_queue):
     except Exception as e:
         print(f"\033[91m[ERROR] Failed to start MQTT client: {e}\033[0m")
         print("Retrying in 10 seconds...")
-        asyncio.get_event_loop().call_later(10, start_mqtt, IP, port, topic_prefix, message_queue)
+        asyncio.get_event_loop().call_later(
+            10, start_mqtt, IP, port, topic_prefix, message_queue
+        )

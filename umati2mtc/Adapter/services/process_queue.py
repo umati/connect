@@ -1,14 +1,16 @@
 # SPDX-License-Identifier: Apache-2.0
-# Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
+# Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
 import asyncio
+
 from services.data_conversion import try_convert_value
+
 
 async def process_queue(data_queue, mapped_objects):
     """
     Process the data_queue by retrieving data from the queue and update the value of mapped objects.
     data_queue: The queue containing MQTT messages.
-    mapped_objects: A list of MappedObject instances that define how to map MQTT data to MTConnect paths and hold the values.
+    mapped_objects: A list of MappedObject instances that hold data paths and values.
     """
     try:
         while True:
@@ -24,6 +26,7 @@ async def process_queue(data_queue, mapped_objects):
     except asyncio.CancelledError or KeyboardInterrupt:
         print("Processing queue task cancelled.")
         raise
+
 
 def get_value_from_json(json_obj, path):
     """
