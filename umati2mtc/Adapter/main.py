@@ -25,7 +25,7 @@ shutdown_event = asyncio.Event()  # Used to signal shutdown
 
 def load_config():
     try:
-        ConfigStore.load_config_json("mazak_SR2")
+        ConfigStore.load_config_json("mazak_SR")
         mapped_objects = load_mapping(
             ConfigStore.Mapping_file, ConfigStore.Mapping_sheet
         )

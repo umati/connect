@@ -430,3 +430,91 @@
 2025-07-31T07:11:29.406116Z (0x00007f40a6694b30) [error] Connector::connected: Connection refused: Connection refused
 2025-07-31T07:12:08.300356Z (0x00007f40a6671b30) [error] Connector::reader: End of file: End of file
 2025-07-31T07:12:08.300921Z (0x00007f40a6671b30) [error] Connector::reader->Connector::reconnect->Connector::close: Closing mtc-adapter:7878 (Local Port:37712)
+2025-07-31T07:15:44.586404Z (0x00007fdf8315bb30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:15:44.586473Z (0x00007fdf83138b30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:15:44.586456Z (0x00007fdf8317eb30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:15:44.590298Z (0x00007fdf8317eb30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:15:44.589964Z (0x00007fdf83138b30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:15:44.589469Z (0x00007fdf8315bb30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:15:44.590805Z (0x00007fdf8317eb30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:15:44.592311Z (0x00007fdf8317eb30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:15:44.592028Z (0x00007fdf8315bb30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:15:44.591415Z (0x00007fdf83138b30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:15:44.592829Z (0x00007fdf8315bb30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:15:44.593099Z (0x00007fdf83138b30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:31:23.202881Z (0x00007fdf8315bb30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:31:23.203545Z (0x00007fdf8315bb30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:31:23.205198Z (0x00007fdf8317eb30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:31:23.205757Z (0x00007fdf8317eb30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:31:23.206362Z (0x00007fdf8315bb30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:31:23.206330Z (0x00007fdf83138b30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:31:23.206383Z (0x00007fdf8317eb30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:31:23.207081Z (0x00007fdf8315bb30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:31:23.207535Z (0x00007fdf83138b30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:31:23.207811Z (0x00007fdf8317eb30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:31:23.208231Z (0x00007fdf8315bb30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:31:23.209237Z (0x00007fdf8315bb30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:33:02.172699Z (0x00007fdf83138b30) [error] Connector::reader: End of file: End of file
+2025-07-31T07:33:02.173377Z (0x00007fdf83138b30) [error] Connector::reader->Connector::reconnect->Connector::close: Closing mtc-adapter:7878 (Local Port:55858)
+2025-07-31T07:42:00.654189Z (0x00007fed03c77b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:42:10.657096Z (0x00007fed03c77b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:42:20.660059Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:42:30.663454Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:42:40.664250Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:42:50.667341Z (0x00007fed03c77b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:42:57.820425Z (0x00007fed03c54b30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:42:57.820536Z (0x00007fed03c31b30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:42:57.820627Z (0x00007fed03c77b30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:42:57.821597Z (0x00007fed03c54b30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:42:57.822092Z (0x00007fed03c31b30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:42:57.822833Z (0x00007fed03c77b30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:42:57.823708Z (0x00007fed03c54b30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:42:57.824228Z (0x00007fed03c31b30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:42:57.824857Z (0x00007fed03c77b30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:42:57.825424Z (0x00007fed03c54b30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:42:57.825979Z (0x00007fed03c31b30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:42:57.826369Z (0x00007fed03c77b30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:43:00.670774Z (0x00007fed03c77b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:43:10.672099Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:43:20.675388Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:43:30.678387Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:43:40.679284Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:43:50.682545Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:44:00.685516Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:44:10.686383Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:44:20.689313Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:44:30.692167Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:44:40.693072Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:44:50.696165Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:45:00.699088Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:45:10.700026Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:45:20.701447Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:45:30.704519Z (0x00007fed03c31b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:45:40.705543Z (0x00007fed03c54b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:45:50.708619Z (0x00007fed03c54b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:46:00.711879Z (0x00007fed03c54b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:46:10.712926Z (0x00007fed03c54b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:48:54.548015Z (0x00007f47b8922b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:49:52.633212Z (0x00007f47b8922b30) [error] Connector::reader: End of file: End of file
+2025-07-31T07:49:52.633877Z (0x00007f47b8922b30) [error] Connector::reader->Connector::reconnect->Connector::close: Closing mtc-adapter:7878 (Local Port:38266)
+2025-07-31T07:50:24.190349Z (0x00007f63092f0b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T07:51:27.780145Z (0x00007f63092f0b30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:51:27.780996Z (0x00007f63092f0b30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:51:27.781374Z (0x00007f63092cdb30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:51:27.782074Z (0x00007f63092cdb30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:51:27.783950Z (0x00007f63092aab30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:51:27.784555Z (0x00007f63092aab30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:51:27.785084Z (0x00007f63092aab30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:51:27.785381Z (0x00007f63092aab30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:51:27.785090Z (0x00007f63092cdb30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:51:27.786155Z (0x00007f63092cdb30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:51:27.785154Z (0x00007f63092f0b30) [warning] SessionImpl::requested->Session::fail: Operation failed: Could not read request
+2025-07-31T07:51:27.786662Z (0x00007f63092f0b30) [warning] SessionImpl::requested->Session::fail: Closing: The socket was closed due to a timeout - The socket was closed due to a timeout
+2025-07-31T07:54:28.635226Z (0x00007f63092cdb30) [error] Connector::reader: End of file: End of file
+2025-07-31T07:54:28.635867Z (0x00007f63092cdb30) [error] Connector::reader->Connector::reconnect->Connector::close: Closing mtc-adapter:7878 (Local Port:46950)
+2025-07-31T07:59:40.854753Z (0x00007f8a504cdb30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T08:00:40.026834Z (0x00007f8a504aab30) [error] Connector::reader: End of file: End of file
+2025-07-31T08:00:40.027408Z (0x00007f8a504aab30) [error] Connector::reader->Connector::reconnect->Connector::close: Closing mtc-adapter:7878 (Local Port:45544)
+2025-07-31T08:05:21.104324Z (0x00007f6e15bf1b30) [error] Connector::connected: Connection refused: Connection refused
+2025-07-31T08:05:47.134157Z (0x00007f6e15bf1b30) [error] Connector::reader: End of file: End of file
+2025-07-31T08:05:47.134680Z (0x00007f6e15bf1b30) [error] Connector::reader->Connector::reconnect->Connector::close: Closing mtc-adapter:7878 (Local Port:44294)

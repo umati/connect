@@ -5,16 +5,8 @@ import json
 import os
 
 class ConfigStore:
-    MTConnectServerIP = None
-    MTConnectServerPort = 0
-    MQTTServerIP = None
-    MQTTPort = 0
     Mapping_file = None
     Mapping_sheet = None
-    Information_model = None
-    DevicestreamName = None
-    MTConnectNamespace = None
-    Gateway_topic_prefix = None
 
     @staticmethod
     def load_config_json(vendor: str):
@@ -32,14 +24,6 @@ class ConfigStore:
 
         value = config[vendor]
 
-        ConfigStore.MTConnectServerIP = value["MTConnectServerIP"]
-        ConfigStore.MTConnectServerPort = int(value["MTConnectServerPort"])
-        ConfigStore.MQTTServerIP = value["MQTTServerIP"]
-        ConfigStore.MQTTPort = int(value["MQTTPort"])
         ConfigStore.Mapping_file = value["Mapping_file"]
         ConfigStore.Mapping_sheet = value["Mapping_sheet"]
-        ConfigStore.Information_model = value["Information_model"]
-        ConfigStore.DevicestreamName = value["DevicestreamName"]
-        ConfigStore.MTConnectNamespace = value["MTConnectNamespace"]
-        ConfigStore.Gateway_topic_prefix = value["Gateway_topic_prefix"]
         print(f"[INFO] Configuration loaded for vendor '{vendor}'")

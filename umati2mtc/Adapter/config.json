@@ -1,52 +1,6 @@
 {
-    "mazak_SR": {
-        "MTConnectServerIP": "localhost",
-        "MTConnectServerPort": 5500,
-        "MQTTServerIP": "mosquitto",
-        "MQTTPort": 1883,
+    "mazak": {
         "Mapping_file": "Mapping.xlsx",
-        "Mapping_sheet": "Mapping_MazakShowroom_testing",
-        "Information_model": "models/current_SR.xml",
-        "MTConnectNamespace": "urn:mtconnect.org:MTConnectStreams:1.3",
-        "DevicestreamName": "Mazak",
-        "Gateway_topic_prefix": "umati/v2/ifw/MachineToolType/#"
-    },
-        "mazak_SR2": {
-        "MTConnectServerIP": "localhost",
-        "MTConnectServerPort": 5500,
-        "MQTTServerIP": "localhost",
-        "MQTTPort": 1883,
-        "Mapping_file": "Mapping.xlsx",
-        "Mapping_sheet": "Mapping_MazakShowroom_testing",
-        "Information_model": "models/current_SR.xml",
-        "MTConnectNamespace": "urn:mtconnect.org:MTConnectStreams:1.3",
-        "DevicestreamName": "Mazak",
-        "Gateway_topic_prefix": "umati/v2/ifw/MachineToolType/#"
-    },
-    "mazak_OS": {
-        "MTConnectServerIP": "localhost",
-        "MTConnectServerPort": 5500,
-        "MQTTServerIP": "localhost",
-        "MQTTPort": 1883,
-        "Mapping_file": "Mapping.xlsx",
-        "Mapping_sheet": "Mapping_Mazak",
-        "Information_model": "models/current_OS.xml",
-        "MTConnectNamespace": "urn:mtconnect.org:MTConnectStreams:2.0",
-        "DevicestreamName": "HCN001",
-        "Gateway_topic_prefix": "umati/v2/company/client/MachineToolType/#",
-        "Gateway_topic_prefix_actual": "umati/v2/company/client/MachineToolType/#"
-    },
-    "dmg": {
-        "MTConnectServerIP": "localhost",
-        "MTConnectServerPort": 5500,
-        "MQTTServerIP": "localhost",
-        "MQTTPort": 1883,
-        "Mapping_file": "Mapping.xlsx",
-        "Mapping_sheet": "Mapping_MazakShowroom_testing",
-        "Information_model": "models/current_SR.xml",
-        "MTConnectNamespace": "urn:mtconnect.org:MTConnectStreams:1.3",
-        "DevicestreamName": "Mazak",
-        "Gateway_topic_prefix": "umati/v2/company/ifw/list/MachineToolType/#",
-        "Gateway_topic_prefix_actual": "umati/v2/company/client/list/MachineToolType"
+        "Mapping_sheet": "Mazak_MTC"
     }
 }

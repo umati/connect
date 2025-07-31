@@ -1,6 +1,8 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
+
 import asyncio
 import datetime
-import os
 
 async def handle_connection(mapped_objects, reader, writer):
     while True:

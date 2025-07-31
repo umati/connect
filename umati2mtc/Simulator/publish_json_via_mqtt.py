@@ -10,7 +10,7 @@ import os
 BROKER_IP = os.getenv("MQTT_BROKER_IP", "localhost")
 BROKER_PORT = int(os.getenv("MQTT_BROKER_PORT", 1883))
 INPUT_FILE = "mqtt_messages.jsonl"
-PUBLISH_INTERVAL = 1.0 # Seconds between messages
+PUBLISH_INTERVAL = 1 # Seconds between messages
 
 # Load the first message line
 with open(INPUT_FILE, "r") as f:
@@ -30,19 +30,22 @@ client.loop_start()
 print(f"Simulating messages on topic '{topic}'...")
 
 try:
+    power_on_time = 0
     while True:
         # Simulate a random value for FeedOverride 
         payload = json.loads(json.dumps(base_payload))
-        new_value = random.randint(0, 120)
+        feed_override = random.randint(0, 120)
         try:
-            payload["Monitoring"]["MachineTool"]["FeedOverride"]["value"] = new_value
+            payload["Monitoring"]["MachineTool"]["FeedOverride"]["value"] = feed_override
+            payload["Monitoring"]["MachineTool"]["PowerOnDuration"] = power_on_time
         except KeyError as e:
             print(f"[ERROR] Could not update FeedOverride: {e}")
             break
 
         payload_json = json.dumps(payload)
         client.publish(topic, payload_json)
-        print(f"Published to {topic} | FeedOverride: {new_value}")
+        print(f"Published to {topic} | FeedOverride: {feed_override} | PowerOnDuration: {power_on_time}")
+        power_on_time += PUBLISH_INTERVAL
         time.sleep(PUBLISH_INTERVAL)
 except KeyboardInterrupt:
     print("Simulation stopped.")
