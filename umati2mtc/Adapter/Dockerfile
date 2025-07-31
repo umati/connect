@@ -19,5 +19,13 @@ COPY . .
 # Optional: expose port if it's a web app
 EXPOSE 7878
 
+# Add a user
+RUN useradd -m appuser && chown -R appuser:appuser /app
+USER appuser
+
+# Basic healthcheck
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+    CMD curl --fail http://localhost:7878/health || exit 1
+
 # Set the default command to run your app
 CMD ["python", "-u", "main.py"]

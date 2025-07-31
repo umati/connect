@@ -21,8 +21,16 @@ FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish ./
 
-# Optional: expose port if it's a web app
+# Port of the umati server
 EXPOSE 5440
+
+# Add a user
+RUN useradd -m appuser && chown -R appuser:appuser /app
+USER appuser
+
+# Basic healthcheck
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+    CMD curl --fail http://localhost:5440/health || exit 1
 
 # Run the application
 ENTRYPOINT ["dotnet", "mtc2umati.dll"]

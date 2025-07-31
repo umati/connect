@@ -35,9 +35,9 @@ try:
         payload = json.loads(json.dumps(base_payload))
         feed_override = random.randint(0, 120)
         try:
-            payload["Monitoring"]["MachineTool"]["FeedOverride"]["value"] = (
-                feed_override
-            )
+            payload["Monitoring"]["MachineTool"]["FeedOverride"][
+                "value"
+            ] = feed_override
             payload["Monitoring"]["MachineTool"]["PowerOnDuration"] = power_on_time
         except KeyError as e:
             print(f"[ERROR] Could not update FeedOverride: {e}")

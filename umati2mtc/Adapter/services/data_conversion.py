@@ -14,7 +14,7 @@ def convert_value(value, mtc_name):
         return None
 
     # Gateway throws an exception "Opc.Ua..." when nodes are missing
-    elif "Opc.Ua" in str(value):  
+    elif "Opc.Ua" in str(value):
         value = "UNAVAILABLE"
         return value
 
