@@ -2,3 +2,4 @@
 **/obj
 **/.venv
 **/__pycache__
+*.log
