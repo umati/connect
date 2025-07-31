@@ -1,11 +1,18 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
+"""
+SHDR (Simple Hierarchical Data Representation) server for MTConnect communication.
+
+This module implements the SHDR protocol server to send data to MTConnect agents.
+"""
+
 import asyncio
 import datetime
 
 
-async def handle_connection(mapped_objects, reader, writer):
+async def handle_connection(mapped_objects, _reader, writer):
+    """Handle SHDR client connection and send formatted data messages."""
     while True:
         try:
             now = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%fZ")
@@ -32,24 +39,24 @@ async def handle_connection(mapped_objects, reader, writer):
             await writer.drain()
 
             await asyncio.sleep(1)  # Adjustable send rate
-        except Exception as e:
+        except (ConnectionResetError, BrokenPipeError, OSError) as e:
             print(f"[SHDR Error] {e}")
             print("[SHDR] Retrying in 10 seconds...")
             await asyncio.sleep(10)  # Wait before retrying
-            pass
 
 
 async def start_shdr_server(shdr_server_ip, shdr_server_port, mapped_objects):
+    """Start SHDR server to send data to MTConnect agents."""
     try:
         server = await asyncio.start_server(
             lambda r, w: handle_connection(mapped_objects, r, w),
             host=shdr_server_ip,
             port=shdr_server_port,
         )
-        print("SHDR Adapter running on {}:{}".format(shdr_server_ip, shdr_server_port))
+        print(f"SHDR Adapter running on {shdr_server_ip}:{shdr_server_port}")
         async with server:
             await server.serve_forever()
-    except Exception as e:
+    except (OSError, ValueError) as e:
         print(f"[SHDR Server Error] {e}")
         print("Failed to start SHDR server. Retrying in 10 seconds...")
         await asyncio.sleep(10)

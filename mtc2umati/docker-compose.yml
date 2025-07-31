@@ -1,4 +1,5 @@
----
+version: "3.8"
+
 services:
   mtc2umati:
     container_name: mtc2umati
@@ -17,4 +18,3 @@ services:
 networks:
   mtc2umati-net:
     name: mtc2umati-net
-

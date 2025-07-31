@@ -20,7 +20,7 @@ COPY . .
 EXPOSE 7878
 
 # Add a user
-RUN useradd -m appuser && chown -R appuser:appuser /app
+RUN useradd -m appuser
 USER appuser
 
 # Basic healthcheck

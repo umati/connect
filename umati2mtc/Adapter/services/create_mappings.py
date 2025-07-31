@@ -1,45 +1,41 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
+"""
+Mapping creation utilities for OPC UA to MTConnect data mapping.
+
+This module handles loading and processing Excel mapping files.
+"""
+
 import pandas as pd
+from dataclasses import dataclass
+from typing import Optional
 
 
+@dataclass
 class MappedObject:
-    """
-    Stores OPC UA to MTConnect mapping data including value.
-    """
+    """Data structure for OPC UA to MTConnect mapping with current value."""
+    
+    opc_path: str
+    opc_datatype: str
+    mtc_name: str
+    mtc_path: str
+    mtc_subtype: str
+    mtc_specname: Optional[str]
+    mtc_datatype: str
+    value: Optional[str] = None
 
-    def __init__(
-        self,
-        opc_path: str,
-        opc_datatype: str,
-        mtc_name: str,
-        mtc_path: str,
-        mtc_subtype: str,
-        mtc_specname: str,
-        mtc_datatype: str,
-        value,
-    ):
-        self.opc_path = opc_path
-        self.opc_datatype = opc_datatype
-        self.mtc_name = mtc_name
-        self.mtc_path = mtc_path
-        self.mtc_subtype = mtc_subtype
-        self.mtc_specname = mtc_specname
-        self.mtc_datatype = mtc_datatype
+    def get_mtc_path(self) -> str:
+        """Get the MTConnect path."""
+        return self.mtc_path
+
+    def set_value(self, value: Optional[str]) -> None:
+        """Set the current value."""
         self.value = value
 
 
-def load_mapping(mapping_file_path, sheet_name):
-    """
-    Reads the Excel mapping file and returns a list of MappedObject instances.
-
-    Skips:
-    - Rows where "MTC Path" is None
-    - Rows where "MTC Path" starts with "#"
-    - Rows containing braces "{}" or angle brackets "<>"
-    - If "subType" is None, it is set to the string "None"
-    """
+def load_mapping(mapping_file_path: str, sheet_name: str) -> list[MappedObject]:
+    """Load mapping data from Excel file and create MappedObject instances."""
     df_mapping = pd.read_excel(mapping_file_path, sheet_name, header=0)
     mapped_objects = []
 
@@ -48,10 +44,10 @@ def load_mapping(mapping_file_path, sheet_name):
 
         if (
             mtc_path is None
-            or "{" in mtc_path
-            or "}" in mtc_path
-            or "<" in mtc_path
-            or ">" in mtc_path
+            or "{" in str(mtc_path)
+            or "}" in str(mtc_path)
+            or "<" in str(mtc_path)
+            or ">" in str(mtc_path)
         ):
             continue
 

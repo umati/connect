@@ -1,5 +1,11 @@
 # SPDX-License-Identifier: Apache-2.0
-# Copyright (c) 2025 Aleks Arzer, Institut für Fertigungstechnik und Werkzeugmaschinen, Leibniz Universität Hannover. All rights reserved.
+# Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
+
+"""
+MQTT simulator for testing UMATI to MTConnect integration.
+
+This module publishes simulated OPC UA umati JSON messages via MQTT broker.
+"""
 
 import json
 import os
@@ -28,30 +34,35 @@ client.loop_start()
 
 print(f"Simulating messages on topic '{topic}'...")
 
-try:
-    power_on_time = 0
-    while True:
-        # Simulate a random value for FeedOverride
-        payload = json.loads(json.dumps(base_payload))
-        feed_override = random.randint(0, 120)
-        try:
-            payload["Monitoring"]["MachineTool"]["FeedOverride"][
-                "value"
-            ] = feed_override
-            payload["Monitoring"]["MachineTool"]["PowerOnDuration"] = power_on_time
-        except KeyError as e:
-            print(f"[ERROR] Could not update FeedOverride: {e}")
-            break
+def main():
+    """Main simulation loop that publishes MQTT messages with simulated data."""
+    try:
+        ON_TIME = 0
+        while True:
+            # Simulate a random value for FeedOverride
+            payload = json.loads(json.dumps(base_payload))
+            feed_override = random.randint(0, 120)
+            try:
+                payload["Monitoring"]["MachineTool"]["FeedOverride"]["value"] = (
+                    feed_override
+                )
+                payload["Monitoring"]["MachineTool"]["PowerOnDuration"] = ON_TIME
+            except KeyError as e:
+                print(f"[ERROR] Could not update FeedOverride: {e}")
+                break
 
-        payload_json = json.dumps(payload)
-        client.publish(topic, payload_json)
-        print(
-            f"Published to {topic} | FeedOverride: {feed_override} | PowerOnDuration: {power_on_time}"
-        )
-        power_on_time += PUBLISH_INTERVAL
-        time.sleep(PUBLISH_INTERVAL)
-except KeyboardInterrupt:
-    print("Simulation stopped.")
-finally:
-    client.loop_stop()
-    client.disconnect()
+            payload_json = json.dumps(payload)
+            client.publish(topic, payload_json)
+            print(
+                f"Published to {topic} | FeedOverride: {feed_override} | PowerOnDuration: {ON_TIME}"
+            )
+            ON_TIME += PUBLISH_INTERVAL
+            time.sleep(PUBLISH_INTERVAL)
+    except KeyboardInterrupt:
+        print("Simulation stopped.")
+    finally:
+        client.loop_stop()
+        client.disconnect()
+
+if __name__ == "__main__":
+    main()

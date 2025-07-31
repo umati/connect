@@ -1,4 +1,5 @@
----
+version: '3.8'
+
 services:
   mosquitto:
     image: eclipse-mosquitto:latest
@@ -50,7 +51,7 @@ services:
       - umati2mtc-net
 
   mtc-agent:
-    image: "mtconnect/demo:latest"
+    image: mtconnect/demo:latest
     container_name: mtc-agent
     volumes:
       - ./Agent:/mtconnect/config
