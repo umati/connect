@@ -12,10 +12,15 @@ import os
 import random
 import time
 
-import paho.mqtt.client as mqtt
+try:
+    import paho.mqtt.client as mqtt
+except ImportError:
+    print("[ERROR] paho-mqtt not installed. => pip install paho-mqtt")
+    raise
+
 
 BROKER_IP = os.getenv("MQTT_BROKER_IP", "localhost")
-BROKER_PORT = int(os.getenv("MQTT_BROKER_PORT", 1883))
+BROKER_PORT = int(os.getenv("MQTT_BROKER_PORT", "1883"))
 INPUT_FILE = "mqtt_message.json"
 PUBLISH_INTERVAL = 1  # Seconds between messages
 
@@ -34,10 +39,11 @@ client.loop_start()
 
 print(f"Simulating messages on topic '{topic}'...")
 
+
 def main():
     """Main simulation loop that publishes MQTT messages with simulated data."""
     try:
-        ON_TIME = 0
+        on_time = 0
         while True:
             # Simulate a random value for FeedOverride
             payload = json.loads(json.dumps(base_payload))
@@ -46,7 +52,7 @@ def main():
                 payload["Monitoring"]["MachineTool"]["FeedOverride"]["value"] = (
                     feed_override
                 )
-                payload["Monitoring"]["MachineTool"]["PowerOnDuration"] = ON_TIME
+                payload["Monitoring"]["MachineTool"]["PowerOnDuration"] = on_time
             except KeyError as e:
                 print(f"[ERROR] Could not update FeedOverride: {e}")
                 break
@@ -54,15 +60,16 @@ def main():
             payload_json = json.dumps(payload)
             client.publish(topic, payload_json)
             print(
-                f"Published to {topic} | FeedOverride: {feed_override} | PowerOnDuration: {ON_TIME}"
+                f"Published to {topic} | FeedOverride: {feed_override} | PowerOnDuration: {on_time}"
             )
-            ON_TIME += PUBLISH_INTERVAL
+            on_time += PUBLISH_INTERVAL
             time.sleep(PUBLISH_INTERVAL)
     except KeyboardInterrupt:
         print("Simulation stopped.")
     finally:
         client.loop_stop()
         client.disconnect()
+
 
 if __name__ == "__main__":
     main()

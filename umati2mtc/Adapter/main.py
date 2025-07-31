@@ -1,8 +1,10 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
+# pylint: disable=import-error
+
 """
-Main entry point for the UMATI to MTConnect adapter.
+Main entry point for the UMATI OPC UA to MTConnect adapter.
 
 This module orchestrates the MQTT client, message processing, and SHDR server
 to bridge OPC UA umati data to MTConnect format.

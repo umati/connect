@@ -7,20 +7,20 @@ Mapping creation utilities for OPC UA to MTConnect data mapping.
 This module handles loading and processing Excel mapping files.
 """
 
-import pandas as pd
 from dataclasses import dataclass
 from typing import Optional
+
+import pandas as pd  # type: ignore[import-untyped]
 
 
 @dataclass
 class MappedObject:
     """Data structure for OPC UA to MTConnect mapping with current value."""
-    
+
     opc_path: str
     opc_datatype: str
     mtc_name: str
     mtc_path: str
-    mtc_subtype: str
     mtc_specname: Optional[str]
     mtc_datatype: str
     value: Optional[str] = None
@@ -51,14 +51,11 @@ def load_mapping(mapping_file_path: str, sheet_name: str) -> list[MappedObject]:
         ):
             continue
 
-        sub_type = row["subType"] if pd.notna(row["subType"]) else "None"
-
         mapped_object = MappedObject(
             opc_path=row["OPC Path"],
             opc_datatype=row["Data Type"],
             mtc_name=row["MTC Name"],
             mtc_path=mtc_path,
-            mtc_subtype=sub_type,
             mtc_specname=row["SpecName"] if pd.notna(row["SpecName"]) else None,
             mtc_datatype=row["MTC Data Type"],
             value=None,

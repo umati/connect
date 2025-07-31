@@ -11,14 +11,14 @@ import asyncio
 import json
 
 try:
-    import paho.mqtt.client as mqtt
+    import paho.mqtt.client as mqtt  # type: ignore[import-untyped]
 except ImportError:
-    print("[ERROR] paho-mqtt package not installed. Please install with: pip install paho-mqtt")
+    print("[ERROR] paho-mqtt not installed. => pip install paho-mqtt")
     raise
 
 
 def on_message(_client, userdata, msg):
-    """MQTT message callback - processes received messages and adds to queue."""
+    """Processes received MQTT messages and adds to queue."""
     try:
         payload = json.loads(msg.payload.decode())
         userdata.put(payload)  # Put message in the shared queue

@@ -6,17 +6,16 @@
 
 ## Overview
 
-UMATI2MTC is a Python-based application that bridges OPC UA umati (universal machine tool interface) data sources with MTConnect agents. It enables real-time data conversion and mapping from OPC UA umati nodes to MTConnect SHDR (Simple Hierarchical Data Representation) format, facilitating Industry 4.0 connectivity for machine tools and manufacturing equipment.
+UMATI2MTC is a Python-based application that translates data from the umati Gateway software to MTConnect.
+The provided docker compose file sets up a complete environment with an MQTT broker, a simulator for umati data, the adapter for processing and converting the data, and an MTConnect agent to serve the converted data.
 
 ### Key Features
 
-- **Real-time OPC UA umati Data Processing**: Receives OPC UA umati data via MQTT
+- **Real-time OPC UA umati Data Processing**: Receives OPC UA umati data from an MQTT-Broker
 - **MTConnect SHDR Server**: Implements SHDR server for MTConnect agent communication
-- **Flexible Mapping System**: Excel-based configuration for mapping umati data to MTConnect
-- **MQTT Message Broker**: Centralized message distribution using Mosquitto
+- **Variable Mapping**: Excel-based configuration for mapping umati OPC UA data and MTConnect data
 - **Simulation Capabilities**: Built-in simulator for testing and development
-- **Docker Compose Integration**: Complete containerized deployment with 4 services
-- **Multi-Vendor Support**: Pre-configured support for various machine tool vendors
+- **Docker Compose Integration**: Complete containerized deployment
 
 ## Architecture
 
@@ -93,6 +92,7 @@ docker-compose ps
 **Purpose**: Central message broker for OPC UA umati data distribution
 
 **Configuration**:
+
 ```yaml
 mosquitto:
   image: eclipse-mosquitto:latest
@@ -105,26 +105,12 @@ mosquitto:
     - ./mosquitto/log:/mosquitto/log
 ```
 
-**Key Features**:
-- Anonymous authentication enabled
-- Persistent message storage
-- File-based logging
-- Automatic restart on failure
-
-**Configuration File** (`mosquitto/config/mosquitto.conf`):
-```
-listener 1883
-allow_anonymous true
-persistence true
-persistence_location /mosquitto/data/
-log_dest file /mosquitto/log/mosquitto.log
-```
-
 ### 2. Simulator
 
 **Purpose**: Generates simulated OPC UA umati data for testing
 
 **Configuration**:
+
 ```yaml
 simulator:
   container_name: simulator
@@ -140,33 +126,17 @@ simulator:
 ```
 
 **Features**:
+
 - Publishes JSON messages every second
 - Simulates machine tool data (FeedOverride, PowerOnDuration)
-- Random value generation for realistic testing
-- Graceful shutdown handling
-
-**Sample Message Structure**:
-```json
-{
-  "topic": "umati/v2/ifw/MachineToolType/nsu=http_3A_2F_2Fexample.com_2FMRMachineTool_2F;i=66382",
-  "payload": {
-    "Monitoring": {
-      "MachineTool": {
-        "FeedOverride": {
-          "value": 100.0
-        },
-        "PowerOnDuration": 1
-      }
-    }
-  }
-}
-```
+- Random value generation
 
 ### 3. MTConnect Adapter
 
 **Purpose**: Core bridge application that converts umati data to MTConnect SHDR
 
 **Configuration**:
+
 ```yaml
 mtc-adapter:
   container_name: mtc-adapter
@@ -188,12 +158,14 @@ mtc-adapter:
 ```
 
 **Core Components**:
+
 - **MQTT Client**: Subscribes to umati topics
 - **Message Queue**: Buffers incoming messages
 - **Data Processor**: Converts umati data to MTConnect format
 - **SHDR Server**: Sends data to MTConnect agent
 
 **Services**:
+
 - `mqtt_client.py`: MQTT message reception
 - `process_queue.py`: Message processing and mapping
 - `data_conversion.py`: Data type conversions
@@ -205,6 +177,7 @@ mtc-adapter:
 **Purpose**: Provides MTConnect interface for machine data
 
 **Configuration**:
+
 ```yaml
 mtc-agent:
   image: "mtconnect/demo:latest"
@@ -218,12 +191,14 @@ mtc-agent:
 ```
 
 **Features**:
+
 - Standard MTConnect agent implementation
 - SHDR adapter integration
 - Web interface for data access
 - Configurable device definitions
 
 **Agent Configuration** (`Agent/agent.dock`):
+
 ```
 Devices = Devices.xml
 SchemaVersion = 2.0
@@ -243,21 +218,22 @@ Adapters {
 
 ### Environment Variables
 
-| Service | Variable | Default | Description |
-|---------|----------|---------|-------------|
-| Simulator | `MQTT_BROKER_IP` | `mosquitto` | MQTT broker hostname |
-| Simulator | `MQTT_BROKER_PORT` | `1883` | MQTT broker port |
-| Adapter | `MQTT_BROKER_IP` | `mosquitto` | MQTT broker hostname |
-| Adapter | `MQTT_BROKER_PORT` | `1883` | MQTT broker port |
-| Adapter | `MQTT_TOPIC_PREFIX` | `umati/v2/ifw/MachineToolType/#` | MQTT topic filter |
-| Adapter | `SHDR_SERVER_IP` | `0.0.0.0` | SHDR server bind address |
-| Adapter | `SHDR_SERVER_PORT` | `7878` | SHDR server port |
+| Service   | Variable            | Default                          | Description              |
+| --------- | ------------------- | -------------------------------- | ------------------------ |
+| Simulator | `MQTT_BROKER_IP`    | `mosquitto`                      | MQTT broker hostname     |
+| Simulator | `MQTT_BROKER_PORT`  | `1883`                           | MQTT broker port         |
+| Adapter   | `MQTT_BROKER_IP`    | `mosquitto`                      | MQTT broker hostname     |
+| Adapter   | `MQTT_BROKER_PORT`  | `1883`                           | MQTT broker port         |
+| Adapter   | `MQTT_TOPIC_PREFIX` | `umati/v2/ifw/MachineToolType/#` | MQTT topic filter        |
+| Adapter   | `SHDR_SERVER_IP`    | `0.0.0.0`                        | SHDR server bind address |
+| Adapter   | `SHDR_SERVER_PORT`  | `7878`                           | SHDR server port         |
 
 ### Mapping Configuration
 
 The adapter uses Excel mapping files to convert umati data to MTConnect format:
 
 **Configuration** (`Adapter/config.json`):
+
 ```json
 {
   "mazak": {
@@ -268,138 +244,51 @@ The adapter uses Excel mapping files to convert umati data to MTConnect format:
 ```
 
 **Mapping File Structure** (`Adapter/Mapping.xlsx`):
-| Column | Description | Example |
-|--------|-------------|---------|
-| Modelling Rule | Node creation rule | `Mandatory`, `Optional`, `New` |
-| OPC Path | Path to OPC UA node | `Machine/Controller/Status` |
-| Data Type | OPC UA data type | `String`, `Double`, `Boolean` |
-| MTC Name | MTConnect data item name | `Execution` |
-| MTC Path | Path to MTConnect data | `Controller/Execution` |
-| MTC Data Type | MTConnect data type | `EVENT` |
-| subType | MTConnect subtype | `ACTIVE`, `READY` |
-
-## Usage
-
-### Starting the Complete System
-
-```bash
-# Start all services in background
-docker-compose up -d
-
-# View logs from all services
-docker-compose logs -f
-
-# View logs from specific service
-docker-compose logs -f mtc-adapter
-```
-
-### Individual Service Management
-
-```bash
-# Start specific service
-docker-compose up -d mosquitto
-
-# Stop specific service
-docker-compose stop mtc-adapter
-
-# Restart specific service
-docker-compose restart simulator
-
-# Rebuild specific service
-docker-compose build mtc-adapter
-```
-
-### Testing the System
-
-1. **Check MQTT Messages**:
-   ```bash
-   # Install mosquitto client
-   apt-get install mosquitto-clients
-   
-   # Subscribe to umati topics
-   mosquitto_sub -h localhost -p 1883 -t "umati/v2/ifw/MachineToolType/#"
-   ```
-
-2. **Access MTConnect Data**:
-   ```bash
-   # Get current data
-   curl http://localhost:5000/current
-   
-   # Get sample data
-   curl http://localhost:5000/sample
-   ```
-
-3. **Monitor SHDR Server**:
-   ```bash
-   # Connect to SHDR server
-   telnet localhost 7878
-   ```
-
-### Development Mode
-
-```bash
-# Start with rebuild
-docker-compose up -d --build
-
-# Start with no cache
-docker-compose build --no-cache
-
-# Start with specific service
-docker-compose up -d --build mtc-adapter
-```
+tbd
 
 ## Troubleshooting
 
 ### Common Issues
 
 1. **MQTT Connection Failed**
+
    ```bash
    # Check mosquitto logs
    docker-compose logs mosquitto
-   
+
    # Verify network connectivity
    docker-compose exec mtc-adapter ping mosquitto
    ```
 
 2. **SHDR Connection Failed**
+
    ```bash
    # Check adapter logs
    docker-compose logs mtc-adapter
-   
+
    # Verify port availability
    netstat -tulpn | grep 7878
    ```
 
 3. **MTConnect Agent Not Responding**
+
    ```bash
    # Check agent logs
    docker-compose logs mtc-agent
-   
+
    # Verify agent configuration
    docker-compose exec mtc-agent cat /mtconnect/config/agent.dock
    ```
 
 4. **Simulator Not Publishing**
+
    ```bash
    # Check simulator logs
    docker-compose logs simulator
-   
+
    # Verify MQTT connectivity
    docker-compose exec simulator python -c "import paho.mqtt.client; print('MQTT client available')"
    ```
-
-### Log Analysis
-
-```bash
-# View all logs with timestamps
-docker-compose logs -f --timestamps
-
-# View logs from last 100 lines
-docker-compose logs --tail=100
-
-# View logs for specific time period
-docker-compose logs --since="2024-01-01T00:00:00" --until="2024-01-01T23:59:59"
-```
 
 ### Health Checks
 
@@ -415,97 +304,9 @@ docker-compose exec mtc-adapter ping mosquitto
 docker-compose exec mtc-adapter ping mtc-agent
 ```
 
-## Development
-
-### Building Custom Images
-
-```bash
-# Build all images
-docker-compose build
-
-# Build specific service
-docker-compose build mtc-adapter
-
-# Build with no cache
-docker-compose build --no-cache
-```
-
-### Adding New Services
-
-1. **Create service directory**:
-   ```bash
-   mkdir new-service
-   cd new-service
-   ```
-
-2. **Create Dockerfile**:
-   ```dockerfile
-   FROM python:3.11-alpine
-   WORKDIR /app
-   COPY requirements.txt .
-   RUN pip install -r requirements.txt
-   COPY . .
-   CMD ["python", "main.py"]
-   ```
-
-3. **Add to docker-compose.yml**:
-   ```yaml
-   new-service:
-     build:
-       context: ./new-service
-       dockerfile: Dockerfile
-     depends_on:
-       - mosquitto
-     networks:
-       - umati2mtc-net
-   ```
-
-### Customizing Configurations
-
-1. **MQTT Topics**: Modify `MQTT_TOPIC_PREFIX` environment variable
-2. **SHDR Format**: Edit `Adapter/services/send_shdr.py`
-3. **Data Mapping**: Update `Adapter/Mapping.xlsx`
-4. **Device Definitions**: Modify `Agent/Devices.xml`
-
-## Monitoring and Logging
-
-### Log Locations
-
-- **Mosquitto**: `./mosquitto/log/mosquitto.log`
-- **Adapter**: `docker-compose logs mtc-adapter`
-- **Simulator**: `docker-compose logs simulator`
-- **Agent**: `./Agent/log/agent.log`
-
-### Performance Monitoring
-
-```bash
-# Monitor resource usage
-docker stats
-
-# Monitor specific container
-docker stats mtc-adapter
-
-# Check disk usage
-docker system df
-```
-
-## Security Considerations
-
-- **MQTT Security**: Currently uses anonymous authentication
-- **Network Isolation**: Services communicate via Docker network
-- **Port Exposure**: Only necessary ports are exposed
-- **Container Security**: Non-root user execution
-
 ## License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](../LICENSE) file for details.
-
-## Support
-
-For issues and questions:
-- Check the troubleshooting section
-- Review service logs
-- Open an issue in the repository
 
 ## Acknowledgments
 
@@ -519,4 +320,4 @@ For issues and questions:
 
 **Version**: 1.0.0  
 **Last Updated**: 2025  
-**Author**: Aleks Arzer, IFW Hannover 
+**Author**: Aleks Arzer, IFW Hannover

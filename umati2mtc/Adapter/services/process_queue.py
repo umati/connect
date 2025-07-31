@@ -9,7 +9,7 @@ This module handles processing MQTT messages from the queue and updating mapped 
 
 import asyncio
 
-from services.data_conversion import try_convert_value
+from .data_conversion import try_convert_value
 
 
 async def process_queue(data_queue, mapped_objects):
@@ -41,11 +41,11 @@ def get_value_from_json(json_obj, path):
         for key in keys:
             if not isinstance(current, dict):
                 return None
-            
+
             if key in current:
                 current = current[key]
                 continue
-            
+
             # Handle special keys with angle brackets
             for sub_key in current:
                 if sub_key.startswith("<") and sub_key.endswith(">"):
@@ -53,11 +53,9 @@ def get_value_from_json(json_obj, path):
                     if key in current:
                         current = current[key]
                         break
-                    else:
-                        return None
-            else:
-                return None
-                
+                    return None
+            return None
+
         if isinstance(current, dict) and "value" in current:
             return current["value"]
         return current
