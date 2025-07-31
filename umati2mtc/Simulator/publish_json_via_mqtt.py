@@ -9,16 +9,14 @@ import os
 
 BROKER_IP = os.getenv("MQTT_BROKER_IP", "localhost")
 BROKER_PORT = int(os.getenv("MQTT_BROKER_PORT", 1883))
-INPUT_FILE = "mqtt_messages.jsonl"
+INPUT_FILE = "mqtt_message.json"
 PUBLISH_INTERVAL = 1 # Seconds between messages
 
-# Load the first message line
-with open(INPUT_FILE, "r") as f:
-    first_line = f.readline()
-    if not first_line:
-        raise RuntimeError("No lines found in MQTT message file.")
-    msg = json.loads(first_line)
+# Load the full JSON object
+with open(INPUT_FILE, "r", encoding="utf-8") as f:
+    msg = json.load(f)
 
+# Extract fields
 topic = msg["topic"]
 base_payload = msg["payload"]
 
