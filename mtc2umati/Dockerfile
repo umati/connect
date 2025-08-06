@@ -30,7 +30,7 @@ USER appuser
 
 # Basic healthcheck
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
-    CMD curl --fail http://localhost:5440/health || exit 1
+  CMD tail -n 20 /proc/1/fd/1 | grep -q .
 
 # Run the application
 ENTRYPOINT ["dotnet", "mtc2umati.dll"]

@@ -4,19 +4,20 @@
 """
 SHDR (Simple Hierarchical Data Representation) server for MTConnect communication.
 
-This module implements the SHDR protocol server to send data to MTConnect agents.
+This module implements the SHDR protocol server to send data to the MTConnect agent.
 """
 
 import asyncio
 import datetime
+import random
 
 
 async def handle_connection(mapped_objects, _reader, writer):
     """Handle SHDR client connection and send formatted data messages."""
     while True:
         try:
-            now = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%fZ")
-
+            now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=2))).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+            feed_rate = random.randint(500, 1000)
             # Build SHDR message with all available specname-value pairs
             shdr_parts = [now]
             for mapped_object in mapped_objects:
@@ -27,7 +28,7 @@ async def handle_connection(mapped_objects, _reader, writer):
                     shdr_parts.append(
                         f"{mapped_object.mtc_specname}|{mapped_object.value}"
                     )
-
+            shdr_parts.append(f"Fact|{feed_rate}")
             # Skip if there's no data
             if len(shdr_parts) == 1:
                 await asyncio.sleep(1)
@@ -46,7 +47,7 @@ async def handle_connection(mapped_objects, _reader, writer):
 
 
 async def start_shdr_server(shdr_server_ip, shdr_server_port, mapped_objects):
-    """Start SHDR server to send data to MTConnect agents."""
+    """Start SHDR server to send data to MTConnect agent."""
     try:
         server = await asyncio.start_server(
             lambda r, w: handle_connection(mapped_objects, r, w),

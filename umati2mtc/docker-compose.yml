@@ -51,7 +51,7 @@ services:
       - umati2mtc-net
 
   mtc-agent:
-    image: mtconnect/demo:latest
+    image: mtconnect/agent:latest
     container_name: mtc-agent
     volumes:
       - ./Agent:/mtconnect/config
