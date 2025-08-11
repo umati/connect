@@ -1,8 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
-# pylint: disable=import-error
-
 """
 Main entry point for the UMATI OPC UA to MTConnect adapter.
 
@@ -17,7 +15,7 @@ from queue import Queue
 
 # Helper for configuration, mapping and the XML state
 from config_store import ConfigStore
-from services.create_mappings import load_mapping
+from services.create_mapping import load_mapping
 
 # Background services
 from services.mqtt_client import start_mqtt

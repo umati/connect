@@ -9,7 +9,7 @@ This module implements the SHDR protocol server to send data to the MTConnect ag
 
 import asyncio
 import datetime
-import random
+#import random
 
 
 async def handle_connection(mapped_objects, _reader, writer):
@@ -17,7 +17,6 @@ async def handle_connection(mapped_objects, _reader, writer):
     while True:
         try:
             now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=2))).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
-            feed_rate = random.randint(500, 1000)
             # Build SHDR message with all available specname-value pairs
             shdr_parts = [now]
             for mapped_object in mapped_objects:
@@ -28,7 +27,10 @@ async def handle_connection(mapped_objects, _reader, writer):
                     shdr_parts.append(
                         f"{mapped_object.mtc_specname}|{mapped_object.value}"
                     )
-            shdr_parts.append(f"Fact|{feed_rate}")
+            # For testing purposes, we can add a randomly generated feed rate with the SHDR name "Fact"
+            # feed_rate = random.randint(500, 1000)
+            # shdr_parts.append(f"Fact|{feed_rate}")
+            
             # Skip if there's no data
             if len(shdr_parts) == 1:
                 await asyncio.sleep(1)

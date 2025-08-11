@@ -99,7 +99,8 @@ def convert_value(value: Any, mtc_name: str) -> Optional[str]:
         result = _convert_light_state(str(value))
     elif "Override" in mtc_name:
         try:
-            result = str(int(value))
+            #result = str(int(value))
+            result = int(value)
         except ValueError:
             result = value
     elif mtc_name in ("ControllerMode", "OperationMode"):

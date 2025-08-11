@@ -8,10 +8,10 @@ Bidirectional data bridge between umati OPC UA for Machine Tools and MTConnect.
 
 ## Architecture
 
-This project provides two complementary bridges:
+This project provides two software adapters:
 
-- **`mtc2umati`** (.NET 9.0): Sets up an umati OPC UA Server and writes MTConnect XML data streams to the corresponding OPC UA nodes
-- **`umati2mtc`** (Python 3.11): Translates umati OPC UA data provided by the umati Gateway to MTConnect SHDR format
+- **`mtc2umati`** (.NET 9.0): Sets up an umati OPC UA Server, reads MTConnect XML data streams and writes to the corresponding OPC UA nodes
+- **`umati2mtc`** (Python 3.11): Translates umati OPC UA data provided by the umati Gateway to MTConnect SHDR format and sends it to an MTConnect Agent.
 
 Both components support Excel-based mapping configurations and containerized deployment.
 
@@ -33,7 +33,7 @@ docker compose up --build -d
 ```
 - Simulates incoming data from an umati Gateway, sent to an MQTT broker at `mqtt://localhost:1883`.
 - Parses the data and writes it to an MTConnect Agent using SHDR format.
-- The MTConnect Agent will be available at `http://localhost:5000`.
+- The MTConnect Agent dashboard will be available at `http://localhost:5000`.
 
 ## Configuration
 
