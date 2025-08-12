@@ -1,6 +1,6 @@
 {
   "mazak": {
-    "Mapping_file": "Mapping.xlsx",
-    "Mapping_sheet": "Mazak_MTC"
+    "Mapping_file": "mapping.xlsx",
+    "Mapping_sheet": "Mazak"
   }
 }

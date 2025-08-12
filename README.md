@@ -22,7 +22,7 @@ Both components support Excel-based mapping configurations and containerized dep
 cd mtc2umati
 docker compose up --build -d
 ```
-- Connects to public Mazak MTConnect Server at http://mtconnect.mazakcorp.com:5719/current (might be offline).
+- Connects to public Mazak MTConnect Server at http://mtconnect.mazakcorp.com:5610/current (might be offline).
 - New server can be added or configured in the config.json file.
 - The umati OPC UA Server will be available at `opc.tcp://localhost:5440`.
 
@@ -31,13 +31,14 @@ docker compose up --build -d
 cd umati2mtc
 docker compose up --build -d
 ```
-- Simulates incoming data from an umati Gateway, sent to an MQTT broker at `mqtt://localhost:1883`.
+- Simulates incoming data from an umati Gateway, sent to an MQTT broker at `mqtt://localhost:1883`
+- Builds an SHDR Server at `http://localhost:7878`.
 - Parses the data and writes it to an MTConnect Agent using SHDR format.
 - The MTConnect Agent dashboard will be available at `http://localhost:5000`.
 
 ## Configuration
 
-Mapping configurations are stored in Excel files (`Mapping.xlsx`) allowing data transformations between protocols without code changes.
+Mapping configurations are stored in Excel files (`mapping.xlsx`) allowing data transformations between protocols without code changes.
 
 ## Standards Compliance
 

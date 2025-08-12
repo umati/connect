@@ -10,7 +10,9 @@ services:
     ports:
       - "5440:5440"
     environment:
-      - VENDOR_CONFIG=mazak_sampleserverv13
+      - VENDOR_CONFIG=dmg
+    volumes:
+      - ../mapping/mapping.xlsx:/app/mapping.xlsx:ro
     restart: unless-stopped
     networks:
       - mtc2umati-net
@@ -18,3 +20,4 @@ services:
 networks:
   mtc2umati-net:
     name: mtc2umati-net
+    

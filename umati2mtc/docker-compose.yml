@@ -46,6 +46,8 @@ services:
       - MQTT_TOPIC_PREFIX=umati/v2/ifw/MachineToolType/#
       - SHDR_SERVER_IP=0.0.0.0
       - SHDR_SERVER_PORT=7878
+    volumes:
+      - ../mapping/mapping.xlsx:/app/mapping.xlsx:ro
     restart: unless-stopped
     networks:
       - umati2mtc-net
