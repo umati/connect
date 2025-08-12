@@ -61,7 +61,7 @@ namespace mtc2umati.Services
                     break;
 
                 case "EUInformation":
-
+                    // OPC UA EUInformation is an ExtensionObject
                     try
                     {
                         var parts = mappedObject.Value?.ToString()?.Split(',');
@@ -125,7 +125,6 @@ namespace mtc2umati.Services
                     _ => operationModeVal
                 };
             }
-            // special case for Execution
             else if (mappedObject.MtcName == "Execution" && mappedObject.Value is LocalizedText ExecutionVal)
             {
                 mappedObject.Value = ExecutionVal switch

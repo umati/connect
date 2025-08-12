@@ -10,7 +10,7 @@ WORKDIR /app
 # Copy only the files we need
 COPY requirements.txt .
 
-# Install dependencies (if you have a requirements.txt)
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy all contents into the container
