@@ -10,7 +10,7 @@ services:
     ports:
       - "5440:5440"
     environment:
-      - VENDOR_CONFIG=dmg
+      - VENDOR_CONFIG=mazak_demo_server
     volumes:
       - ../mapping/mapping.xlsx:/app/mapping.xlsx:ro
     restart: unless-stopped
