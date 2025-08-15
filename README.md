@@ -10,35 +10,45 @@ Bidirectional data bridge between umati OPC UA for Machine Tools and MTConnect.
 
 This project provides two software adapters:
 
-- **`mtc2umati`** (.NET 9.0): Sets up an umati OPC UA Server, reads MTConnect XML data streams and writes to the corresponding OPC UA nodes
-- **`umati2mtc`** (Python 3.11): Translates umati OPC UA data provided by the umati Gateway to MTConnect SHDR format and sends it to an MTConnect Agent.
+- **`mtc2umati`** (.NET 9.0): Sets up an umati OPC UA Server, reads MTConnect
+  XML data streams and writes to the corresponding OPC UA nodes
+- **`umati2mtc`** (Python 3.11): Translates umati OPC UA data provided by the
+  umati Gateway to MTConnect SHDR format and sends it to an MTConnect Agent.
 
 Both components support Excel-based mapping configurations and containerized deployment.
 
 ## Quick Start
 
-### MTConnect → umati (C#/.NET)
+### MTConnect → umati OPC UA4MT (C#/.NET)
+
 ```bash
 cd mtc2umati
 docker compose up --build -d
 ```
-- Connects to public Mazak MTConnect Server at http://mtconnect.mazakcorp.com:5610/current (might be offline).
+
+- Connects to public Mazak MTConnect Server at <http://mtconnect.mazakcorp.com:5610/current>
+  (check if online).
 - New server can be added or configured in the config.json file.
 - The umati OPC UA Server will be available at `opc.tcp://localhost:5440`.
 
-### umati OPC UA→ MTConnect (Python)
+### umati OPC UA4MT → MTConnect (Python)
+
 ```bash
 cd umati2mtc
 docker compose up --build -d
 ```
-- Simulates incoming data from an umati Gateway, sent to an MQTT broker at `mqtt://localhost:1883`
+
+- Simulates incoming data from an umatiGateway, sent to an MQTT broker at `mqtt://localhost:1883`.
 - Builds an SHDR Server at `http://localhost:7878`.
 - Parses the data and writes it to an MTConnect Agent using SHDR format.
+- Uses Mazak's Device.xml information model for MTConnect as
+  found in the public servers at <http://mtconnect.mazakcorp.com>.
 - The MTConnect Agent dashboard will be available at `http://localhost:5000`.
 
 ## Configuration
 
-Mapping configurations are stored in Excel files (`mapping.xlsx`) allowing data transformations between protocols without code changes.
+Mapping configurations are stored in the Excel file (`mapping/mapping.xlsx`)
+allowing data transformations between protocols without code changes.
 
 ## Standards Compliance
 

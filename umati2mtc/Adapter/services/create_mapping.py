@@ -10,7 +10,7 @@ This module handles loading and processing Excel mapping files.
 from dataclasses import dataclass
 from typing import Optional
 
-import pandas as pd  # type: ignore[import-untyped]
+import pandas as pd
 
 
 @dataclass

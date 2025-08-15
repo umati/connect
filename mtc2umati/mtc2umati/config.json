@@ -10,7 +10,7 @@
     "Machine_Name": "DMGReference",
     "Mode": 3
   },
-    "mazak_demo_server": {
+  "mazak_demo_server": {
     "MTConnectServerIP": "http://mtconnect.mazakcorp.com",
     "MTConnectServerPort": 5610,
     "MTConnectNamespace": "urn:mtconnect.org:MTConnectStreams:1.3",

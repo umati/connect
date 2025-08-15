@@ -54,7 +54,9 @@ def _convert_mode_value(value: str, mode_type: str) -> str:
                 return "UNAVAILABLE"
 
 
-def _handle_special_conversions(value: Any, mtc_name: str) -> Optional[str]:
+def _handle_special_conversions(
+    value: Any, mtc_name: str
+) -> Optional[str | int | float]:
     """Handle special conversion cases that need early returns."""
     # Gateway throws an exception "Opc.Ua..." when nodes are missing
     if "Opc.Ua" in str(value):
@@ -70,14 +72,14 @@ def _handle_special_conversions(value: Any, mtc_name: str) -> Optional[str]:
     # Handle PowerOnTime conversion
     if mtc_name == "PowerOnTime":
         try:
-            return str(int(value) / 1000)
+            return int(value) / 1000
         except ValueError:
             return None
 
     return None
 
 
-def convert_value(value: Any, mtc_name: str) -> Optional[str]:
+def convert_value(value: Any, mtc_name: str) -> Optional[str | int | float]:
     """Convert OPC UA value to MTConnect data type based on variable name."""
     if value is None:
         return None
@@ -88,7 +90,7 @@ def convert_value(value: Any, mtc_name: str) -> Optional[str]:
         return special_result
 
     # Handle remaining conversions
-    result = None
+    result: str | int | float | None = None
 
     if isinstance(value, float):  # Handle Range
         try:
@@ -99,10 +101,9 @@ def convert_value(value: Any, mtc_name: str) -> Optional[str]:
         result = _convert_light_state(str(value))
     elif "Override" in mtc_name:
         try:
-            #result = str(int(value))
             result = int(value)
         except ValueError:
-            result = value
+            result = str(value)
     elif mtc_name in ("ControllerMode", "OperationMode"):
         result = _convert_mode_value(str(value), mtc_name)
     else:
@@ -112,7 +113,7 @@ def convert_value(value: Any, mtc_name: str) -> Optional[str]:
     return result
 
 
-def try_convert_value(value: Any, mtc_name: str) -> Optional[str]:
+def try_convert_value(value: Any, mtc_name: str) -> Optional[str | int | float]:
     """Safely convert value to MTConnect format with error handling."""
     try:
         return convert_value(value, mtc_name)
