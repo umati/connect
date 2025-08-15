@@ -16,7 +16,6 @@ from queue import Queue
 # Helper for configuration, mapping and the XML state
 from config_store import ConfigStore
 from services.create_mapping import load_mapping
-
 # Background services
 from services.mqtt_client import start_mqtt
 from services.process_queue import process_queue
