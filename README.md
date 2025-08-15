@@ -31,14 +31,14 @@ docker compose up --build -d
 cd umati2mtc
 docker compose up --build -d
 ```
-- Simulates incoming data from an umati Gateway, sent to an MQTT broker at `mqtt://localhost:1883`
+- Simulates incoming data from an umatiGateway, sent to an MQTT broker at `mqtt://localhost:1883`.
 - Builds an SHDR Server at `http://localhost:7878`.
 - Parses the data and writes it to an MTConnect Agent using SHDR format.
 - The MTConnect Agent dashboard will be available at `http://localhost:5000`.
 
 ## Configuration
 
-Mapping configurations are stored in Excel files (`mapping.xlsx`) allowing data transformations between protocols without code changes.
+Mapping configurations are stored in Excel files (`mapping/mapping.xlsx`) allowing data transformations between protocols without code changes.
 
 ## Standards Compliance
 
