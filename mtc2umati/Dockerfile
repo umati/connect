@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
+
 # Use official .NET SDK to build the project
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
