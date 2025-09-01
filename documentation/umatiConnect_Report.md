@@ -43,7 +43,7 @@ Mit dieser Ausgangslage wurde der Adapter entwickelt und implementiert. Um eine 
 
 Es wurde untersucht, wie die Daten möglichst effizient über SHDR übertragen werden können. Dabei wurde festgestellt, dass das Protokoll die gleichzeitige Übertragung beliebig vieler Variablen unterstützt. Eine Funktion wurde entwickelt, die aus allen verfügbaren Daten eine einzelne Nachricht im SHDR-Format erstellt und diese an den SHDR-Server überträgt.
 
-_SHDR-Nachricht = {Zeitstempel} | SpecName1 | Wert1 | SpecName2 | Wert2 | …_
+SHDR-Nachricht = {Zeitstempel} | SpecName1 | Wert1 | SpecName2 | Wert2 | …
 
 Der C++ Agent greift zyklisch auf diesen Server zu, integriert die Daten in die XML-Struktur und stellt sie im eigenen Dashboard live dar. Damit konnte der korrekte Datenaustausch verifiziert werden. Zusätzlich wurde die Funktionalität des Adapters mit der von Mazak bereitgestellten MTConnect-Dashboard-Software _Smooth Monitor AX_ validiert. Hierfür war es erforderlich, die C-Variable _Availability_ gesondert auf „AVAILABLE“ zu setzen. Inzwischen ist Mazak von _Smooth Monitor Ax_ auf die Dashboard-Software _iConnect_ umgestiegen, welche MTConnect nicht mehr unterstützt. Für das Teilprojekt _umati2mtc_ wurde zusätzlich ein Demo-Modus über eine _Docker-Compose_-Implementierung samt Simulationsumgebung umgesetzt.
 
@@ -70,16 +70,16 @@ Das im Rahmen des Projekts erworbene Wissen zu _OPC UA for Machine Tools_ und MT
 
 |          |                                                                                                                                                            |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [CHR23]  | Christian von Arnim, et al. (2023): umati/Sample-Server: Release 1.1.1, online verfügbar unter: https://github.com/umati/Sample-Server/releases/tag/v1.1.1 |
-| [MAZ22]  | Mazak (2022): Demo Agents, online verfügbar unter: http://mtconnect.mazakcorp.com/                                                                         |
+| [CHR23]  | Christian von Arnim, et al. (2023): umati/Sample-Server: Release 1.1.1, online verfügbar unter: [https://github.com/umati/Sample-Server/releases/tag/v1.1.1](https://github.com/umati/Sample-Server/releases/tag/v1.1.1) |
+| [MAZ22]  | Mazak (2022): Demo Agents, online verfügbar unter:               [http://mtconnect.mazakcorp.com/](http://mtconnect.mazakcorp.com/)                                                        |
 | [MTC19]  | MTConnect Institute (2019): OPC 30070-1: OPC UA for MTConnect® Part1: Device Model (Ver. 2.00.00)                                                         |
 | [MTC23a] | MTConnect Institute (2023): MTConnect Standard. Part 3.0 - Observation Information Model - Version 2.2.0                                                   |
 | [MTC23b] | MTConnect Institute (2023): MTConnect Standard. Part 2.0 - Device Information Model - Version 2.2.0                                                        |
-| [MTC25]  | MTConnect Institute (2025): MTConnect Standard, online verfügbar unter: https://www.mtconnect.org/standard-download20181, zuletzt aufgerufen am 12.08.2025 |
+| [MTC25]  | MTConnect Institute (2025): MTConnect Standard, online verfügbar unter: [https://www.mtconnect.org/standard-download20181](https://www.mtconnect.org/standard-download20181), zuletzt aufgerufen am 12.08.2025 |
 | [VDM24]  | VDMA (2024): VDMA 40501-1. OPC UA for Machine Tools - Part 1: Machine Monitoring and Job Management                                                        |
 | [VDM25]  | VDMA (2025): VDMA 40001-1. OPC UA for Machinery - Part 1: Basic Building Blocks (Draft)                                                                    |
 
-# **Integration of MTConnect into the umati Ecosystem**
+## **Integration of MTConnect into the umati Ecosystem**
 
 ## Disclaimer
 
@@ -112,9 +112,9 @@ Functions were implemented for importing the information models created in WP 1 
 
 To supplement missing _mandatory_ data (A1), a function was implemented for reading static values defined in the mapping table. The adapter supports three operation modes:
 
-1.  Transfer of standard-compliant A and B variables only.
-2.  Integration of additional C variables into the OPC UA structure.
-3.  Grouping C variables in a separate folder “MTConnect”.
+1. Transfer of standard-compliant A and B variables only.
+2. Integration of additional C variables into the OPC UA structure.
+3. Grouping C variables in a separate folder “MTConnect”.
 
 The adapter supports dynamic creation of nodes, although this is rarely required in practice due to static MTConnect implementations. Its practical suitability was validated by connecting reference machines to the VDW umati showcase via the umatiGateway (as of 26.06.2025). A _Docker-Compose_ implementation was added for automated setup and execution against a Mazak MTConnect reference server.
 
@@ -146,11 +146,11 @@ The project successfully developed concepts and software solutions for bidirecti
 
 |          |                                                                                                                                                            |
 | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [CHR23]  | Christian von Arnim, et al. (2023): umati/Sample-Server: Release 1.1.1, online verfügbar unter: https://github.com/umati/Sample-Server/releases/tag/v1.1.1 |
-| [MAZ22]  | Mazak (2022): Demo Agents, online available under: http://mtconnect.mazakcorp.com/                                                                         |
+| [CHR23]  | Christian von Arnim, et al. (2023): umati/Sample-Server: Release 1.1.1, online verfügbar unter: [https://github.com/umati/Sample-Server/releases/tag/v1.1.1](https://github.com/umati/Sample-Server/releases/tag/v1.1.1) |
+| [MAZ22]  | Mazak (2022): Demo Agents, online available under: [http://mtconnect.mazakcorp.com/](http://mtconnect.mazakcorp.com/)                                                                   |
 | [MTC19]  | MTConnect Institute (2019): OPC 30070-1: OPC UA for MTConnect® Part1: Device Model (Ver. 2.00.00)                                                         |
 | [MTC23a] | MTConnect Institute (2023): MTConnect Standard. Part 3.0 - Observation Information Model - Version 2.2.0                                                   |
 | [MTC23b] | MTConnect Institute (2023): MTConnect Standard. Part 2.0 - Device Information Model - Version 2.2.0                                                        |
-| [MTC25]  | MTConnect Institute (2025): MTConnect Standard, online available under: https://www.mtconnect.org/standard-download20181, last accessed 12.08.2025         |
+| [MTC25]  | MTConnect Institute (2025): MTConnect Standard, online available under: [https://www.mtconnect.org/standard-download20181](https://www.mtconnect.org/standard-download20181), last accessed 12.08.2025         |
 | [VDM24]  | VDMA (2024): VDMA 40501-1. OPC UA for Machine Tools - Part 1: Machine Monitoring and Job Management                                                        |
 | [VDM25]  | VDMA (2025): VDMA 40001-1. OPC UA for Machinery - Part 1: Basic Building Blocks (Draft)                                                                    |
