@@ -6,6 +6,13 @@
 
 Bidirectional data bridge between umati OPC UA for Machine Tools (UA4MT) and MTConnect.
 
+This is the result of a research project between the
+[VDW-Forschungsinstitute](https://vdw-forschungsinstitut.de/) and the
+[Institute of Production Engineering and MachineTools](https://www.ifw.uni-hannover.de/en/)
+at the Leibniz University Hannover.
+
+[Research Report](documentation/umatiConnect_Report.md)
+
 ## Architecture
 
 This project provides two software adapters:
