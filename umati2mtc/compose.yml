@@ -5,7 +5,7 @@ version: "3.8"
 
 services:
   mosquitto:
-    image: eclipse-mosquitto:latest
+    image: eclipse-mosquitto:latest@sha256:a908c65cc8e67ec9d292ef27c2c0360dbaaee7eb1b935cdd194e67697f15dea1
     container_name: mosquitto
     ports:
       - "1883:1883"
@@ -56,7 +56,7 @@ services:
       - umati2mtc-net
 
   mtc-agent:
-    image: mtconnect/agent:latest
+    image: mtconnect/agent:latest@sha256:1e000c35f283950d43389a293ebdbe69c1989fe279ecdd51983bc4858294c149
     container_name: mtc-agent
     volumes:
       - ./Agent:/mtconnect/config
