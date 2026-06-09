@@ -1,7 +1,6 @@
 ---
 # SPDX-License-Identifier: Apache-2.0
 # Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
-version: "3.8"
 
 services:
   mosquitto:
@@ -70,3 +69,5 @@ services:
 networks:
   umati2mtc-net:
     name: umati2mtc-net
+    enable_ipv6: true
+    enable_ipv4: true
