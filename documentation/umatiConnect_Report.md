@@ -215,7 +215,7 @@ Industrie leisten.
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | [<a id="chr23">CHR23</a>]   | Christian von Arnim, et al. (2023): [umati/Sample-Server: Release 1.1.1](https://github.com/umati/Sample-Server/releases/tag/v1.1.1) |
 | [<a id="maz22">MAZ22</a>]   | Mazak (2022): Demo Agents <http://mtconnect.mazakcorp.com/>                                                                          |
-| [<a id="mtc19">MTC19</a>]   | MTConnect Institute (2019): OPC 30070-1: OPC UA for MTConnect® Part1: Device Model (Ver. 2.00.00)                                   |
+| [<a id="mtc19">MTC19</a>]   | MTConnect Institute (2019): OPC 30070-1: OPC UA for MTConnect® Part1: Device Model (Ver. 2.00.00)                                    |
 | [<a id="mtc23a">MTC23a</a>] | MTConnect Institute (2023): MTConnect Standard. Part 3.0 - Observation Information Model - Version 2.2.0                             |
 | [<a id="mtc23b">MTC23b</a>] | MTConnect Institute (2023): MTConnect Standard. Part 2.0 - Device Information Model - Version 2.2.0                                  |
 | [<a id="mtc25">MTC25</a>]   | MTConnect Institute (2025): [MTConnect Standard](https://www.mtconnect.org/standard-download20181), zuletzt aufgerufen am 12.08.2025 |
