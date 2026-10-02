@@ -2,7 +2,7 @@
 # Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
 # Use official Python base image
-FROM python:3.14-slim@sha256:51dafde81dbdb6ebde285137a295cf18a47ca95234fe388a343719cb97305b3d
+FROM python:3.14-slim@sha256:0741d101873c12ab927e6f8653feb8862b9bd58771177acb1b885b95141f91b4
 
 # Set working directory in the container
 WORKDIR /app
