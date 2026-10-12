@@ -56,7 +56,7 @@ services:
       - umati2mtc-net
 
   mtc-agent:
-    image: mtconnect/agent:latest@sha256:d57db44e224632eeea8d9a81ce89dcb2d0eb603e88436d8276d5aacd433c23ef
+    image: mtconnect/agent:latest@sha256:c42f90850ab70d65ae5e73b14392b3041ed51065bd7bf287658db6f7260df641
     container_name: mtc-agent
     volumes:
       - ./Agent:/mtconnect/config
