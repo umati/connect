@@ -2,7 +2,7 @@
 # Copyright (c) 2025 Aleks Arzer, IFW Hannover. All rights reserved.
 
 # Use official .NET SDK to build the project
-FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:747cbade5bfd918a175ac32f8f1d931edec2c7d0d5397a3de72eaef1ac1f66d2 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:8c6edfb26c85153f236d26efebd9ad349aec403583f343f201ee67838b23658d AS build
 WORKDIR /src
 
 # Copy solution and project files
@@ -20,7 +20,7 @@ WORKDIR /src/mtc2umati
 RUN dotnet publish -c Release -o /app/publish
 
 # Use ASP.NET runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:10.0@sha256:8af87eba5e7cdafb1514d7388be287365da97c132509e84dfe252ffd552398ca AS final
+FROM mcr.microsoft.com/dotnet/aspnet:10.0@sha256:aac50ceef10391e78a899e3d2ccd00bbafa2dcb56ccf4586cbccf00edb84fc21 AS final
 WORKDIR /app
 COPY --from=build /app/publish ./
 
